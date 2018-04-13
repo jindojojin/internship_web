@@ -1,1 +1,1 @@
-# web_project
+# internship_web

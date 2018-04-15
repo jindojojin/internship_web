@@ -2,41 +2,34 @@ var database = require('./database');
 
 var database_query = {
     getUser: async function (username) {
+        let myquery ="SELECT * FROM user WHERE username = ?"
+        let ret = await new database().query(myquery,[username])
+        .then()
+        .catch();
+        return ret;
+    },
+
+    getUserInfor:async function (userID, type) {
         try {
-            var con = new database().create;
+            var con = new database().connect;
+            if (type != "student" && type != "admin" && type != "lecturer" && type != "partner") {
+                console.log("khong nhan dang duoc kieu user");
+                return null;
+            }
             con.connect();
-            let myquery = "SELECT * FROM user WHERE username = ?";
-            let ret = await new Promise((resolve, reject) => {
-                con.query(myquery, [username], (err, result, fields) => {
-                    if (err) reject(new Error("khong the truy van database"));
-                    resolve(result);
-                })
-            });
+            let myquery = "SELECT * FROM"
+            let ret = await new Promise((resolve,reject)=>{
+                con.query()
+            })
             con.end();
             return Promise.resolve(ret);
         } catch (e) {
             return Promise.reject(e);
         }
-
-    },
-
-    getUserInfor: function (userID, type) {
-        var con = new database().connect;
-        if (type != "student" && type != "admin" && type != "lecturer" && type != "partner") {
-            console.log("khong nhan dang duoc kieu user");
-            return null;
-        }
-        con.connect(function (err) {
-            if (err) throw err;
-            con.query("SELECT * FROM " + type + " WHERE userID=" + userID, function (err, result, fields) {
-                if (err) throw err;
-                return result;
-                //console.log(result);
-            });
-        });
     },
 };
 
-database_query.getUser("19021031").then((res)=> console.log(res))
-.catch((reject)=> console.log("that bai"));
+var a = database_query.getUser("16021031");
+console.log("a");
+console.log(a);
 

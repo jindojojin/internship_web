@@ -1,4 +1,4 @@
-var database = require('./database_controler')
+var database = require('./database_query')
 var crypto = require('crypto');
 var createSalt = function(){
     return crypto.randomBytes(10).toString('hex');

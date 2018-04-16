@@ -10,6 +10,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { PartnerCardComponent } from './partner-card/partner-card.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 
@@ -24,6 +25,7 @@ import { PartnerCardComponent } from './partner-card/partner-card.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     // RouterModule.forRoot(routes)
   ],
   providers: [],

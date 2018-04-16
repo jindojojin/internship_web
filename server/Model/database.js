@@ -10,7 +10,11 @@ var db=function(){
             con.connect();
             let ret = await new Promise((resolve, reject) => {
                 con.query(query, placeholder, (err, result, fields) => {
-                    if (err) reject(new Error("khong the truy van database"));
+                    if (err){
+                        console.log(err);
+                        
+                        reject(new Error("khong the truy van database"));
+                    }
                     resolve(result);
                 })
             });

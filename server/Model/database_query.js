@@ -3,10 +3,8 @@ var database = require('./database');
 var database_query = {
     getUser: async function (username) {
         let myquery ="SELECT * FROM user WHERE username = ?"
-        let ret = await new database().query(myquery,[username])
-        .then()
-        .catch();
-        return ret;
+        let result = await new database().query(myquery,[username]);
+        return Promise.resolve(result);
     },
 
     getUserInfor:async function (userID, type) {
@@ -29,7 +27,7 @@ var database_query = {
     },
 };
 
-var a = database_query.getUser("16021031");
-console.log("a");
-console.log(a);
+var a = database_query.getUser(19021031);
+a.then(res=> console.log(res));
+
 

@@ -5,6 +5,6 @@ module.exports= {
         app.get('/',function(req,res){
             res.send("adfasdfsdaf");
         }),
-        app.post('/signin',jsonParser,(req,res)=> {signin_router.validate_user(req,res)})
+        app.post('/signin',jsonParser,(req,res)=>signin_router.validate_user(req,res))
     }
 }

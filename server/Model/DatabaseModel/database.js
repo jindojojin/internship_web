@@ -11,8 +11,6 @@ var db=function(){
             let ret = await new Promise((resolve, reject) => {
                 con.query(query, placeholder, (err, result, fields) => {
                     if (err){
-                        console.log(err);
-                        
                         reject(new Error("khong the truy van database"));
                     }
                     resolve(result);

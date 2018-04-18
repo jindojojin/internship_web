@@ -5,7 +5,7 @@ var database_query = {
         try {
             let myquery = "SELECT * FROM account WHERE username = ?"
             let result = await new database().query(myquery, [username]);
-            return Promise.resolve(result);
+            return Promise.resolve(Object.assign({}, result[0]));
         } catch (error) {
             return Promise.reject(error)
         }
@@ -13,7 +13,7 @@ var database_query = {
     },
 
     getUserInfor: async function (userID, type) {
-        if(typeof userID !== 'string'){
+        if (typeof userID !== 'string') {
             return Promise.reject(new Error("userID khong hop le"));
         }
         if (type != "student" && type != "partner" && type != "addmin" && type != "lecturer") {
@@ -21,19 +21,16 @@ var database_query = {
         } else {
             try {
                 let myquery = "SELECT * FROM ? WHERE ? = ?";
-                let result = await new database().query(myquery, [type,type+"ID",userID]);
+                let result = await new database().query(myquery, [type, type + "ID", userID]);
                 return Promise.resolve(result);
             } catch (error) {
                 return Promise.reject(error)
             }
         }
     },
-
-    insertTo : async function(jsonData,table){
-
-    }
 };
-database_query.getUser("16021031").then(res => console.log(res)).catch( e => console.log(e));
+module.exports = database_query;
+// database_query.getUser("16021031").then(res => console.log(res)).catch( e => console.log(e));
 
 
 

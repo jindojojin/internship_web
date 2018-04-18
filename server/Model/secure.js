@@ -15,7 +15,12 @@ var secure = {
         return jwt.sign(user,jwtsecure,{expiresIn : 86400});
     },
     verifyUserToken: function(token){
-        return jwt.verify(token,jwtsecure)
+        try {
+            return  jwt.verify(token,jwtsecure)
+        } catch (error) {
+            return null;
+        }
+        
     }
 }
 module.exports = secure;
@@ -27,6 +32,7 @@ module.exports = secure;
 // var b=secure.verifyUserToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkc2Zhc2RmYXNkZiIsInBhc3N3b3JkIjoiYWRmYWZhIiwiaWF0IjoxNTI0MDM4NzQ2LCJleHAiOjE1MjQwNDg3NDZ9.iRX1hY_vtSwRKp-SyUJLqe4r307ftdkvViccD6QbMRU");
 // // console.log(a);
 // console.log(b);
+
 
 
 

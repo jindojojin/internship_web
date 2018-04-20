@@ -1,4 +1,9 @@
 <div class="container">
-  <app-partner-card></app-partner-card>
-  <span octicon="gear"></span>
+  <div class="row card-group">
+      <div class="col-lg-4 col-md-6" *ngFor="let partner of partners">
+          <app-partner-card [partnerName]="partner.name" [logoPartner]="partner.logo">
+          </app-partner-card>
+      </div>
+  </div>
+  
 </div>

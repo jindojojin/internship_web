@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { PartnerCardComponent } from './partner-card/partner-card.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { OcticonsDirective } from './octicons.directive';
 
 
 
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './/app-routing.module';
     SignInComponent,
     NavbarComponent,
     HomeComponent,
-    PartnerCardComponent
+    PartnerCardComponent,
+    OcticonsDirective
     
   ],
   imports: [

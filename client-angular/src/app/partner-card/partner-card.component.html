@@ -1,8 +1,12 @@
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="E:\KI2_2017-2018\Phat trien ung dung web\Bai tap lon\web_project\logo.png" alt="Logo vng">
-  <div class="card-body">
-    <p class="card-text">VNG Corporation</p>
-    <a href="#" class="card-link">jjd</a>
-    <a href="#" class="card-link">hdjksahdakj</a>
+<div class="card mx-5 my-5">  
+  <img class="logo mt-5" [src]="logoPartner" alt="Logo vng">  
+  <div class="card-body mt-5">
+    <h4 class="text-center"> {{partnerName}} </h4>
+    <div class="btn-group d-flex justify-content-center">
+        <button class="btn btn-primary float-left fixed-buttom">Đăng kí thực tập ngay</button>
+        <button class="btn btn-primary float-right">
+          <span octicons="bell" color="white"></span>
+        </button>
+    </div>    
   </div>
 </div>

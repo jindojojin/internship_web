@@ -6,12 +6,13 @@ import { NgModule } from '@angular/core';
 // ];
 
 import { AppComponent } from './app.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { PartnerCardComponent } from './partner-card/partner-card.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { PartnerCardComponent } from './components/partner-card/partner-card.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { OcticonsDirective } from './octicons.directive';
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 
 
 
@@ -22,7 +23,8 @@ import { OcticonsDirective } from './octicons.directive';
     NavbarComponent,
     HomeComponent,
     PartnerCardComponent,
-    OcticonsDirective
+    OcticonsDirective,
+    MenuBarComponent
     
   ],
   imports: [

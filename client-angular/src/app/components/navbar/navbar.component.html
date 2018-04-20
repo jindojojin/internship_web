@@ -20,7 +20,7 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
     </form>
-    <app-sign-in class="ml-2"></app-sign-in>
+    <app-sign-in *ngIf="notSignIn" class="ml-2"></app-sign-in>
   </div>
 </nav>
 

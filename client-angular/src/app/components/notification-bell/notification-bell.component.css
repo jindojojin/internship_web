@@ -1,0 +1,17 @@
+button{
+        position: relative;
+        top: 7px;
+        background-color: transparent;
+        border-color:transparent;
+        color: transparent;
+        outline: none !important;
+}
+.upper{
+    position: relative;
+    bottom:13px;
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }

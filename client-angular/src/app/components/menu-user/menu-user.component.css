@@ -1,0 +1,13 @@
+button{
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+    /* fill-opacity: initial; */
+}
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+span{
+    color: white;
+}

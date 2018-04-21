@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  notSignIn: boolean = true;
+  SignIn: boolean = true;
+  userName:string = "Trần Quang Linh";
   constructor() { }
 
   ngOnInit() {

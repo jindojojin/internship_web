@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Http, Headers, HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // import { RouterModule, Routes } from '@angular/router';
 // const routes: Routes = [
 //   { path: 'home', component: HomeComponent }
@@ -28,12 +31,16 @@ import { MenuUserComponent } from './components/menu-user/menu-user.component';
     OcticonsDirective,
     MenuBarComponent,
     NotificationBellComponent,
-    MenuUserComponent
+    MenuUserComponent,
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
     // RouterModule.forRoot(routes)
   ],
   providers: [],

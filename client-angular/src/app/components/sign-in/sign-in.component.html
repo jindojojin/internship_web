@@ -14,21 +14,26 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+
+        <!-- Form nhập -->
+        <form (ngSubmit)="onSubmit(formSignIn);" #formSignIn="ngForm">
           <div class="form-group">
-            <label for="exampleInputEmail1">Tên đăng nhập</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="example@vnu.edu.vn">
+            <label for="username">Tên đăng nhập</label>
+            <input type="email" class="form-control" id="username" name="username" placeholder="example@vnu.edu.vn"
+              ngModel required>
+            <p></p>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Mật khẩu</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+            <label for="userpassword">Mật khẩu</label>
+            <input type="password" class="form-control" id="userpassword" name="userpassword" placeholder="password" ngModel required>
           </div>
           <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Nhớ mật khẩu</label>
+            <input type="checkbox" class="form-check-input" id="remenberPassword" name="remenberPassword" ngModel>
+            <label class="form-check-label" for="remenberPassword">Nhớ mật khẩu</label>
           </div>
-          <button type="submit" class="float-right btn btn-primary">Đăng nhập</button>
+          <button class="float-right btn btn-primary" [disabled]="formSignIn.invalid">Đăng nhập</button>
         </form>
+
       </div>
     </div>
   </div>

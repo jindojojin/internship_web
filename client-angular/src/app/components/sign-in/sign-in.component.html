@@ -18,13 +18,13 @@
         <!-- Form nhập -->
         <form (ngSubmit)="onSubmit(formSignIn);" #formSignIn="ngForm">
           <div class="form-group">
-            <label for="username">Tên đăng nhập</label>
+            <label for="username">Tên đăng nhập:</label>
             <input type="email" class="form-control" id="username" name="username" placeholder="example@vnu.edu.vn"
               ngModel required>
             <p></p>
           </div>
           <div class="form-group">
-            <label for="userpassword">Mật khẩu</label>
+            <label for="userpassword">Mật khẩu:</label>
             <input type="password" class="form-control" id="userpassword" name="userpassword" placeholder="password" ngModel required>
           </div>
           <div class="form-group form-check">

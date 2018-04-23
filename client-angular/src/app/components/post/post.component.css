@@ -1,0 +1,9 @@
+h4{
+    display: block !important;
+}
+img{
+    display: block;
+    margin: auto;
+    max-width: 95%;
+    max-height: 95%;
+}

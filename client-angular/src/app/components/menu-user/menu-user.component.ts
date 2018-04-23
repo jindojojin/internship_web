@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-user.component.css']
 })
 export class MenuUserComponent implements OnInit {
+  sumOfNotification:number=3;
   nickname:string = "Trần Quang Linh"
   constructor() { }
 

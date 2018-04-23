@@ -1,0 +1,22 @@
+<div class="card bg-light mb-3">
+  <div class="card-header">
+    <div class="row">
+        <div class="col-sm-8 col-md-9">
+            <h4>{{partnerName}}: {{jobTitle}}</h4>
+          </div>
+      
+          <div class="col-sm-4 col-md-3">
+              <span *ngIf="!outdate" class="badge badge-primary float-right"> Còn {{dayleft}} ngày nữa để đăng kí</span>
+              <span *ngIf="outdate" class="badge badge-danger float-right"> Đã hết hạn đăng kí</span>
+          </div>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col-xs-3 col-sm-2">
+      <img [src]="partnerLogo" alt="Logo">
+    </div>
+    <div class="col-xs-9 col-sm-10">
+      <p class="card-text">{{jobContent}}</p>
+    </div>
+  </div>
+</div>

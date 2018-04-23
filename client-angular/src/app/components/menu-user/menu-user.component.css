@@ -1,13 +1,32 @@
+/* button{
+    position: relative;
+    top: 7px;
+    background-color: transparent;
+    border-color:transparent;
+    color: transparent;
+    outline: none !important;
+} */
 button{
     background-color: transparent;
     border-color: transparent;
     color: white;
+    outline: none !important;
     /* fill-opacity: initial; */
 }
 .btn:focus,.btn:active {
     outline: none !important;
     box-shadow: none;
  }
-span{
+span,a{
     color: white;
+}
+
+.upper{
+position: relative;
+bottom:0px;
+}
+
+.medium{
+    position: relative;
+top:7px;
 }

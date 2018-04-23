@@ -18,6 +18,8 @@ import { OcticonsDirective } from './octicons.directive';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { NotificationBellComponent } from './components/notification-bell/notification-bell.component';
 import { MenuUserComponent } from './components/menu-user/menu-user.component';
+import { PostComponent } from './components/post/post.component';
+import { JobListComponent } from './components/job-list/job-list.component';
 
 
 
@@ -32,7 +34,8 @@ import { MenuUserComponent } from './components/menu-user/menu-user.component';
     MenuBarComponent,
     NotificationBellComponent,
     MenuUserComponent,
-    
+    JobListComponent,
+    PostComponent
     
   ],
   imports: [

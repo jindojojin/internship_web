@@ -17,9 +17,9 @@
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Nhà tuyển dụng</a>
       </li>
-      <li class=" nav-item">
-          <app-notification-bell class="nav-link" *ngIf="SignIn"></app-notification-bell>
-        </li>
+      <!-- <li class=" nav-item">
+        <app-notification-bell class="nav-link" *ngIf="SignIn"></app-notification-bell>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" routerLink="/jobs">Các bài đăng thực tập</a>
       </li>
@@ -32,5 +32,5 @@
 
   </div>
   <app-menu-user *ngIf="SignIn"></app-menu-user>
-  <app-sign-in *ngIf="! SignIn" class="nav-link mr-2 float-left"></app-sign-in>
+  <app-sign-in *ngIf="!SignIn" class="nav-link mr-2 float-left"></app-sign-in>
 </nav>

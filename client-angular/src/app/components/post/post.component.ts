@@ -1,20 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from './post.service';
+
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
+  providers: [PostService],
 })
 export class PostComponent implements OnInit {
-  outdate:boolean=true;
-  dayleft:number=5;
-  jobTitle:string="Big Data Engineer - Up to $4000";
-  jobContent:string='Install Operating system, deploy middleware and application components using automated deployment scripts and tools Monitor Operating system, Hadoop cluster, middleware, and Application using deployed monitoring tools Administer Operating system, Middleware, Hadoop cluster and application components using predefined run books Upgrade operating system, Middleware and Application components as needed following change management processes as defined by the partnerPerform incident management, problem management, change management and SLA management functions';
-  partnerName:string="Trusting Social";
-  partnerLogo:string="https://cdn.itviec.com/system/production/employers/logos/3862/trusting-social-logo-170-151.jpeg?1502359904";
-  constructor() { }
+  outdate: boolean;
+  dayLeft: number;
+  jobTitle: string;
+  jobContent: string;
+  partnerName: string;
+  partnerLogo: string;
+
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.postService.getPost()
+      .then(res => {
+        this.outdate = res.outdate;
+        this.dayLeft = res.dayLeft;
+        this.jobTitle = res.jobTitle;
+        this.jobContent = res.jobContent;
+        this.partnerName = res.partnerName;
+        this.partnerLogo = res.partnerLogo;
+      })
+      .catch(err => console.log(err));
   }
-
 }

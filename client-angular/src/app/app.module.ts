@@ -20,6 +20,12 @@ import { NotificationBellComponent } from './components/notification-bell/notifi
 import { MenuUserComponent } from './components/menu-user/menu-user.component';
 import { PostComponent } from './components/post/post.component';
 import { JobListComponent } from './components/job-list/job-list.component';
+import { ReadonlyEmailComponent } from './components/readonly-email/readonly-email.component';
+import { OverviewNameComponent } from './components/overview-name/overview-name.component';
+import { OverviewAvatarComponent } from './components/overview-avatar/overview-avatar.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+
+
 
 
 
@@ -35,7 +41,13 @@ import { JobListComponent } from './components/job-list/job-list.component';
     NotificationBellComponent,
     MenuUserComponent,
     JobListComponent,
-    PostComponent
+    PostComponent,
+    ReadonlyEmailComponent,
+    OverviewNameComponent,
+    OverviewAvatarComponent,
+    ProfilePageComponent,
+     
+  
     
   ],
   imports: [

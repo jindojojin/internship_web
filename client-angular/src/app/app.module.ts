@@ -46,7 +46,6 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     OverviewNameComponent,
     OverviewAvatarComponent,
     ProfilePageComponent,
-     
   
     
   ],

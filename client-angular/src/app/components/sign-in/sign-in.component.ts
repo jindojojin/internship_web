@@ -15,6 +15,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(formSignIn) {
+    console.log(formSignIn.value);
     this.signInService.sendPost(formSignIn.value)
       .then(result => console.log(result))
       .catch(err => console.log(err));

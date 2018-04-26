@@ -15,7 +15,6 @@ import { HomeComponent } from './components/home/home.component';
 import { PartnerCardComponent } from './components/partner-card/partner-card.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { OcticonsDirective } from './octicons.directive';
-import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { NotificationBellComponent } from './components/notification-bell/notification-bell.component';
 import { MenuUserComponent } from './components/menu-user/menu-user.component';
 import { PostComponent } from './components/post/post.component';
@@ -37,7 +36,6 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     HomeComponent,
     PartnerCardComponent,
     OcticonsDirective,
-    MenuBarComponent,
     NotificationBellComponent,
     MenuUserComponent,
     JobListComponent,

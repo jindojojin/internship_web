@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview-avatar.component.css']
 })
 export class OverviewAvatarComponent implements OnInit {
-
+  avatar:string = "https://www.teqport.com/images/employees/lower_res/Placeholder_no_text.svg.png";
+  userName: string ="TRẦN THỊ MINH NGUYỆT";
   constructor() { }
 
   ngOnInit() {

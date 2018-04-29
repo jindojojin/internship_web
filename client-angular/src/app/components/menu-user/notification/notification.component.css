@@ -1,0 +1,16 @@
+*{
+    word-wrap: break-word;
+    text-align: justify;
+} 
+.card-text{
+    max-width: 30rem;
+    line-height: 0.7em;
+
+}
+a {
+    max-width: 35rem;
+}
+
+p{
+    text-indent: 5px;
+}

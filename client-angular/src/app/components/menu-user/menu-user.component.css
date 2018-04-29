@@ -22,10 +22,21 @@ bottom: 15px;
 }
 .low{
     position: relative;
-    top:10px;
+    top:12px;
 }
 .arrow{
     position: relative;
     top:1px;
     right: 10px;
+}
+
+
+.dropdown-item{
+    color: black;
+}
+#seeAll{
+    color: black !important;
+}
+a:hover{
+    color: rgb(119, 119, 245) !important;
 }

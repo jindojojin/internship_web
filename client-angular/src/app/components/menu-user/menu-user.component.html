@@ -1,25 +1,33 @@
 <div class="btn btn-group">
   <div class="dropdown">
     <button class="btn clearfix medium" id="bell" data-toggle="dropdown">
-      <span class="low" octicons="bell" color="white"></span>
+      <span class="low" octicons="comment-discussion" color="white"></span>
       <span *ngIf="sumOfNotification > 0" class="upper badge badge-success">{{sumOfNotification}}</span>
     </button>
 
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bell" >
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bell">
+      <h6 class="dropdown-header">Tin nhắn</h6>
       <div class="dropdown-item" *ngFor="let n of notifications">
-          <app-notification [senderName]="n.senderName" [title]="n.title" [content]="n.content"></app-notification>
+        <app-notification [senderName]="n.senderName" [title]="n.title" [content]="n.content"></app-notification>
       </div>
+      <div class="dropdown-item float-right">
+          <a class="float-right" id="seeAll" href="#">Xem tất cả</a>
+      </div>
+      
     </div>
   </div>
+
+
+
   <a class="nav-item nav-link" routerLink='/profile'>{{nickname}}</a>
   <div class="dropdown arrow">
     <button type="button" class="btn dropdown-toggle dropdown-toggle-split " id="arrow" data-toggle="dropdown">
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="arrow">
-      <a class="dropdown-item" >Thông tin cá nhân</a>
-      <a class="dropdown-item" >Tin nhắn</a>
+      <a class="dropdown-item" routerLink="/profile">Thông tin cá nhân</a>
+      <a class="dropdown-item">Tin nhắn</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" >Đăng xuất</a>
+      <a class="dropdown-item">Đăng xuất</a>
     </div>
   </div>
 </div>

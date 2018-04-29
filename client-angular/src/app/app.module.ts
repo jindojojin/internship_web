@@ -23,6 +23,7 @@ import { ReadonlyEmailComponent } from './components/profile-page/readonly-email
 import { OverviewNameComponent } from './components/profile-page/overview-name/overview-name.component';
 import { OverviewAvatarComponent } from './components/profile-page/overview-avatar/overview-avatar.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { NotificationComponent} from './components/menu-user/notification/notification.component'
 
 
 
@@ -44,6 +45,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     OverviewNameComponent,
     OverviewAvatarComponent,
     ProfilePageComponent,
+    NotificationComponent
   
     
   ],

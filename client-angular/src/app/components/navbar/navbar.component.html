@@ -17,18 +17,36 @@
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Nhà tuyển dụng</a>
       </li>
-  
+
       <li class="nav-item">
         <a class="nav-link" routerLink="/jobs">Các bài đăng thực tập</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" autofocus aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-    </form>
-
-
   </div>
   <app-menu-user *ngIf="SignIn"></app-menu-user>
   <app-sign-in *ngIf="!SignIn" class="nav-link mr-2 float-left"></app-sign-in>
 </nav>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" autofocus aria-label="Search">
+
+      <div class="dropdown show mr-sm-2">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Nội dung tìm kiếm
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">Tên bài</a>
+          <a class="dropdown-item" href="#">Nội dung</a>
+          <a class="dropdown-item" href="#">Tên côn ty</a>
+        </div>
+      </div>
+
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+    </form>
+  </div>
+  <div class="col-md-2"></div>
+</div>

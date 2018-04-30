@@ -1,19 +1,8 @@
-/* button{
-    position: relative;
-    top: 7px;
-    background-color: transparent;
-    border-color:transparent;
-    color: transparent;
-    outline: none !important;
-} */
-button{
+
+.btn,.btn:focus,.btn:active {
     background-color: transparent;
     border-color: transparent;
     color: white;
-    outline: none !important;
-    /* fill-opacity: initial; */
-}
-.btn:focus,.btn:active {
     outline: none !important;
     box-shadow: none;
  }
@@ -23,10 +12,31 @@ span,a{
 
 .upper{
 position: relative;
-bottom:0px;
+bottom: 15px;
 }
 
 .medium{
     position: relative;
-top:7px;
+    bottom:8px;
+    left: 18px;
+}
+.low{
+    position: relative;
+    top:12px;
+}
+.arrow{
+    position: relative;
+    top:1px;
+    right: 10px;
+}
+
+
+.dropdown-item{
+    color: black;
+}
+#seeAll{
+    color: black !important;
+}
+a:hover{
+    color: rgb(119, 119, 245) !important;
 }

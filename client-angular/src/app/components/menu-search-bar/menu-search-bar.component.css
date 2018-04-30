@@ -1,0 +1,9 @@
+.background{
+    background-color: rgb(55, 60, 68);
+    height: 20rem;
+}
+
+.center{
+    position: relative;
+    top:50%;
+}

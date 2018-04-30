@@ -8,7 +8,7 @@ export class PostService {
     constructor(private http: Http) { }
 
     getPost() {
-        const url = "https://api.myjson.com/bins/19cqjj"; //api server trả về
+        const url = "https://api.myjson.com/bins/11jc53"; //api server trả về
         return this.http.get(url)
             .toPromise()
             .then(res => {

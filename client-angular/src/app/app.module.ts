@@ -15,7 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PartnerCardComponent } from './components/partner-card/partner-card.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { OcticonsDirective } from './octicons.directive';
-import { NotificationBellComponent } from './components/notification-bell/notification-bell.component';
+// import { NotificationBellComponent } from './components/notification-bell/notification-bell.component';
 import { MenuUserComponent } from './components/menu-user/menu-user.component';
 import { PostComponent } from './components/post/post.component';
 import { JobListComponent } from './components/job-list/job-list.component';
@@ -24,6 +24,8 @@ import { OverviewNameComponent } from './components/profile-page/overview-name/o
 import { OverviewAvatarComponent } from './components/profile-page/overview-avatar/overview-avatar.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
+import { MenuSearchBarComponent } from './components/menu-search-bar/menu-search-bar.component';
+import { NotificationComponent } from './components/menu-user/notification/notification.component';
 
 
 
@@ -37,7 +39,7 @@ import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-lo
     HomeComponent,
     PartnerCardComponent,
     OcticonsDirective,
-    NotificationBellComponent,
+    // NotificationBellComponent,
     MenuUserComponent,
     JobListComponent,
     PostComponent,
@@ -46,6 +48,8 @@ import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-lo
     OverviewAvatarComponent,
     ProfilePageComponent,
     SpinnerLoadingComponent,
+    NotificationComponent,
+    MenuSearchBarComponent,
   
     
   ],

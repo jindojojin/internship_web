@@ -1,30 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from '../post/post.service'
+import { JobListService } from './job-list.service';
 
 @Component({
   selector: 'app-job-list',
   templateUrl: './job-list.component.html',
   styleUrls: ['./job-list.component.css'],
-  providers: [PostService]
+  providers: [JobListService]
 })
-export class JobListComponent implements OnInit {
-  lengthOfList: number;
 
-  constructor(private postService: PostService) { }
+export class JobListComponent implements OnInit {
+  jobs;
+
+  constructor(private jobListService: JobListService) { }
 
   ngOnInit() {
-    this.postService.getPost()
+    this.jobListService.getList()
       .then(res => {
-        this.lengthOfList = res.lengthOfList;
+        this.jobs = res;
       })
       .catch(err => console.log(err));
-  }
-
-  createRange(number){
-    var items: number[] = [];
-    for(var i = 0; i < number; i++){
-       items.push(i);
-    }
-    return items;
   }
 }

@@ -1,5 +1,5 @@
 <div class="container">
-    <div *ngFor="let index of createRange(lengthOfList)">
-        <app-post index = {{index}}></app-post>
-    </div>
+  <div *ngFor="let job of jobs">
+    <app-post [job] = "job"></app-post>
+  </div>
 </div>

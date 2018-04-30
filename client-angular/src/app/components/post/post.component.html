@@ -2,21 +2,21 @@
   <div class="card-header">
     <div class="row">
         <div class="col-sm-8 col-md-9">
-            <h4>{{partnerName}}: {{jobTitle}}</h4>
+            <h4>{{job.partnerName}}: {{job.jobTitle}}</h4>
           </div>
       
           <div class="col-sm-4 col-md-3">
-              <span *ngIf="!outdate" class="badge badge-primary float-right"> Còn {{dayLeft}} ngày nữa để đăng kí</span>
-              <span *ngIf="outdate" class="badge badge-danger float-right"> Đã hết hạn đăng kí</span>
+              <span *ngIf="!job.outdated" class="badge badge-primary float-right"> Còn {{job.dayLeft}} ngày nữa để đăng kí</span>
+              <span *ngIf="job.outdated" class="badge badge-danger float-right"> Đã hết hạn đăng kí</span>
           </div>
     </div>  
   </div>
   <div class="row">
     <div class="col-xs-3 col-sm-2">
-      <img [src]="partnerLogo" alt="Logo">
+      <img [src]="job.partnerLogo" alt="Logo">
     </div>
     <div class="col-xs-9 col-sm-10">
-      <p class="card-text">{{jobContent}}</p>
+      <p class="card-text">{{job.jobContent}}</p>
     </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Partner } from '../../objects/Partner';
+
+
 
 @Component({
   selector: 'app-partner-list',
@@ -7,7 +8,7 @@ import { Partner } from '../../objects/Partner';
   styleUrls: ['./partner-list.component.css']
 })
 export class PartnerListComponent implements OnInit {
-  partners:Partner[] = [
+  partners= [
     {name: "Toshiba",logo:"https://cdn.itviec.com/system/production/employers/logos/104/toshiba-software-development-viet-nam-co-ltd-logo-170-151.jpg?1496738781"},
     {name:"KMS Technology",logo:"https://itviec.com/system/production/employers/logos/31/kms-technology-logo-170-151.png?1454113898"},
     {name:"Evolable Asia",logo:"https://itviec.com/system/production/employers/logos/142/evolable-asia-logo-170-151.png?1503470624"},

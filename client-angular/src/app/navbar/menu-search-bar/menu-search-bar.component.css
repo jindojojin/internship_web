@@ -16,3 +16,12 @@
         top:5%;
     }    
 }
+
+.btn,.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+ select{
+     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-size: 120%;
+ }

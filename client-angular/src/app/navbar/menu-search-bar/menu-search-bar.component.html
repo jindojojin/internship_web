@@ -1,36 +1,21 @@
 <div class="background">
   <div class="row center">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" autofocus aria-label="Search">
-
-      
-
-        <div class="dropdown show mr-sm-2">
-            <button type="button" class="btn dropdown-toggle dropdown-toggle-split " id="arrow" data-toggle="dropdown">Nội dung tìm kiếm
-              </button>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="arrow">
-                <a class="dropdown-item">Thông tin cá nhân</a>
-                <a class="dropdown-item">Tin nhắn</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item">Đăng xuất</a>
-              </div>
-          <!-- <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Nội dung tìm kiếm
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Tên bài</a>
-            <a class="dropdown-item" href="#">Nội dung</a>
-            <a class="dropdown-item" href="#">Tên công ty</a>
-          </div> -->
+    <div class="col-md-2 col-xs-1"></div>
+    <div class="col-md-8 col-xs-9">
+      <form class="my-2 my-lg-0">
+        <div class="input-group input-group-lg mb-3">
+          <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" autofocus aria-label="Search">
+          <select class="mr-sm-2" id="inputGroupSelect02">
+            <option selected value="0">Tên bài đăng</option>
+            <option value="1">Tên đối tác</option>
+            <option value="2">Nội dung bài đăng</option>
+          </select>
+          <div class="input-group-append">
+              <button class="btn btn-outline-primary" type="submit">Tìm kiếm</button>
+            </div>
+          <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>           -->
         </div>
-
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
       </form>
     </div>
-    <div class="col-md-2"></div>
   </div>
 </div>

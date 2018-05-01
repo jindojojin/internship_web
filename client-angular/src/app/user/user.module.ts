@@ -5,6 +5,7 @@ import { ReadonlyEmailComponent } from './profile-page/readonly-email/readonly-e
 import { OverviewNameComponent } from './profile-page/overview-name/overview-name.component';
 import { OverviewAvatarComponent } from './profile-page/overview-avatar/overview-avatar.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     OverviewNameComponent,
     OverviewAvatarComponent,
     ProfilePageComponent,
+    HomePageComponent,
   ]
 })
 export class UserModule { }

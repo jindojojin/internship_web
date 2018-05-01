@@ -16,6 +16,6 @@
       </li>
     </ul>
   </div>
-  <app-menu-user *ngIf="SignIn" [userName]="userName"></app-menu-user>
-  <app-sign-in *ngIf="!SignIn" class="nav-link mr-1 float-left" (loggedIn)="updateUserInfor()"></app-sign-in>
+  <app-menu-user *ngIf="SignIn" [userName]="userName"  (loggedOut)="updateUserInfor()"></app-menu-user>  <!--đợi tín hiệu logout từ userMenu-->
+  <app-sign-in *ngIf="!SignIn" class="nav-link mr-1 float-left" (loggedIn)="updateUserInfor()"></app-sign-in> <!--đợi tín hiệu login từ đây-->
 </nav>

@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
   SignIn: boolean = (getCookie("userToken") != null);
   userName:string = (getCookie("nickname"));
   updateUserInfor(){
-    this.SignIn = (getCookie("userToken") != null);
+    this.SignIn = ! this.SignIn;
     this.userName = (getCookie("nickname"));
     console.log(this.userName);    
   }

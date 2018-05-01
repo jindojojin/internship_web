@@ -1,5 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { Message } from '../../objects/Messgase';
+import { deleteCookie } from '../../objects/Cookiee';
 
 @Component({
   selector: 'app-menu-user',
@@ -8,6 +9,7 @@ import { Message } from '../../objects/Messgase';
 })
 export class MenuUserComponent implements OnInit {
   sumOfNotification:number=3;
+  @Output() loggedOut = new EventEmitter();
   @Input() userName:string;
   nickname:string = "Trần Quang Linh";
   notifications: Message[] = [
@@ -16,6 +18,15 @@ export class MenuUserComponent implements OnInit {
     {senderName : "linh", title: "day la mot thong bao daiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",content:'đoạn văn này rất là dài, dài đến mức ai đọc cũng phải điên đầu lên vì quá dài và còn nhảm :3 dfascasdfsdfsdf dfsjf sdlkfsadlfkasd fsf sdsdfasdflasdf',messageID: 2},
   ]
   constructor() { }
+
+  logOut(){
+    console.log("đã loggedOut");
+    
+    deleteCookie("usertoken");
+    deleteCookie("nickname");
+    deleteCookie("userID");
+    this.loggedOut.emit()
+  }
 
   ngOnInit() {
     this.nickname= this.userName;

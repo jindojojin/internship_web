@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Message } from '../../objects/Messgase';
 
 @Component({
@@ -8,6 +8,7 @@ import { Message } from '../../objects/Messgase';
 })
 export class MenuUserComponent implements OnInit {
   sumOfNotification:number=3;
+  @Input() userName:string;
   nickname:string = "Trần Quang Linh";
   notifications: Message[] = [
     {senderName : "linh", title: "day la mot thong bao",content:'dfascasdfsdfsdf dfsjf sdlkfsadlfkasd fsf sdsdfasdflasdf',messageID: 2},
@@ -17,6 +18,7 @@ export class MenuUserComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.nickname= this.userName;
   }
 
 }

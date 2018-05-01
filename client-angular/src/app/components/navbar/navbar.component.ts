@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../objects/User';
 
 @Component({
   selector: 'app-navbar',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  SignIn: boolean = true;
-  userName:string = "Trần Quang Linh";
+  SignIn: boolean = false;
+  userName:string ="";
+  updateUserInfor(user:User){
+    this.SignIn = true;
+    this.userName = user.userName;
+    console.log(this.userName);    
+  }
   constructor() { }
 
   ngOnInit() {

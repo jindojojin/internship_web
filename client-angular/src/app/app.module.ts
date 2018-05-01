@@ -26,6 +26,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { MenuSearchBarComponent } from './components/menu-search-bar/menu-search-bar.component';
 import { NotificationComponent } from './components/menu-user/notification/notification.component';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -55,10 +56,12 @@ import { NotificationComponent } from './components/menu-user/notification/notif
   ],
   imports: [
     BrowserModule,
+    AdminModule,
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
     // RouterModule.forRoot(routes)
   ],
   providers: [],

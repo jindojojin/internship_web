@@ -9,7 +9,7 @@ import{User} from '../../objects/User'
 })
 
 export class SignInComponent implements OnInit {
-  @Output() userInfor = new EventEmitter<User>();
+  @Output() loggedIn = new EventEmitter<User>();
   
   constructor(private signInService: SignInService) { }
   
@@ -21,10 +21,12 @@ export class SignInComponent implements OnInit {
     
     this.signInService.sendPost(formSignIn.value)
       .then(result => {
+        console.log(result);        
+        document.cookie ="userToken = " + result.usertoken;
+        document.cookie="nickname = "+result.nickname;
+        document.cookie="userID = "+result.userID;
         document.getElementById("closeModal").click(); 
-        console.log(typeof result['username']);
-        let user = new User(result['username'],result['userID']);
-        this.userInfor.emit(user);
+        this.loggedIn.emit();
       })
       .catch(err => {
         document.getElementById("error").innerHTML="Tên đăng nhập hoặc mật khẩu không đúng!"

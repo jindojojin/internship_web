@@ -17,5 +17,5 @@
     </ul>
   </div>
   <app-menu-user *ngIf="SignIn" [userName]="userName"></app-menu-user>
-  <app-sign-in *ngIf="!SignIn" class="nav-link mr-1 float-left"   (userInfor)="updateUserInfor($event)"></app-sign-in>
+  <app-sign-in *ngIf="!SignIn" class="nav-link mr-1 float-left" (loggedIn)="updateUserInfor()"></app-sign-in>
 </nav>

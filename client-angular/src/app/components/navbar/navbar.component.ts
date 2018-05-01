@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../objects/User';
+import { getCookie } from '../../objects/Cookiee';
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +8,11 @@ import { User } from '../../objects/User';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  SignIn: boolean = false;
-  userName:string ="";
-  updateUserInfor(user:User){
-    this.SignIn = true;
-    this.userName = user.userName;
+  SignIn: boolean = (getCookie("userToken") != null);
+  userName:string = (getCookie("nickname"));
+  updateUserInfor(){
+    this.SignIn = (getCookie("userToken") != null);
+    this.userName = (getCookie("nickname"));
     console.log(this.userName);    
   }
   constructor() { }

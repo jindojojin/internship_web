@@ -20,8 +20,7 @@
         <form (ngSubmit)="onSubmit(formSignIn);" #formSignIn="ngForm">
           <div class="form-group">
             <label for="username">Tên đăng nhập:</label>
-            <input type="email" class="form-control" id="username" name="username" placeholder="example@vnu.edu.vn"
-              ngModel required>
+            <input type="email" class="form-control" id="username" name="username" placeholder="example@vnu.edu.vn" ngModel required>
             <p></p>
           </div>
           <div class="form-group">
@@ -34,7 +33,6 @@
           </div>
           <button class="float-right btn btn-primary" [disabled]="formSignIn.invalid">Đăng nhập</button>
         </form>
-
       </div>
     </div>
   </div>

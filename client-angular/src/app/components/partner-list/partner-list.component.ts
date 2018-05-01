@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Partner } from '../../objects/Partner';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-partner-list',
+  templateUrl: './partner-list.component.html',
+  styleUrls: ['./partner-list.component.css']
 })
-export class HomeComponent implements OnInit {
+export class PartnerListComponent implements OnInit {
   partners:Partner[] = [
     {name: "Toshiba",logo:"https://cdn.itviec.com/system/production/employers/logos/104/toshiba-software-development-viet-nam-co-ltd-logo-170-151.jpg?1496738781"},
     {name:"KMS Technology",logo:"https://itviec.com/system/production/employers/logos/31/kms-technology-logo-170-151.png?1454113898"},

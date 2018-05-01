@@ -22,7 +22,7 @@ export class SignInComponent implements OnInit {
     this.signInService.sendPost(formSignIn.value)
       .then(result => {
         console.log(result);        
-        document.cookie ="userToken = " + result.usertoken;
+        document.cookie="userToken = "+result.usertoken;
         document.cookie="nickname = "+result.nickname;
         document.cookie="userID = "+result.userID;
         document.getElementById("closeModal").click(); 

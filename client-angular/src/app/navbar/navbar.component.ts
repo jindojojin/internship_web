@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(getCookie("userToken"))
+    // console.log(getCookie("userToken"))
     this.SignIn = (getCookie("userToken") != undefined);
     this.userName = (getCookie("nickname"));
   }

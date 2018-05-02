@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Message } from '../../../objects/Messgase';
 
+
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
@@ -13,10 +14,7 @@ export class NotificationComponent implements OnInit {
   titlefixed:String;
   contentfixed:String;
   
-  constructor() { 
-    
-    
-  }
+  constructor() {}
 
   ngOnInit() {
     console.log(this.senderName.length);

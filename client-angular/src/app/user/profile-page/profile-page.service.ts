@@ -10,7 +10,7 @@ export class ProfilePageService {
     getProfile() { 
         let userID = getCookie("userID");      
         var url = "http://localhost:3000/user/id="+ userID +"/profile"; //api server trả về
-        return this.http.get(url)
+        return this.http.get(url,{ withCredentials: true })
             .toPromise()
             .then(res => {
                 // console.log(res.json());

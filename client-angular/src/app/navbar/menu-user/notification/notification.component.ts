@@ -19,7 +19,7 @@ export class NotificationComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.senderName.length);
+    // console.log(this.senderName.length);
     this.titlefixed = (this.title.length <= 20) ? (this.title):(this.title.substring(0,20)+' ...');
     this.contentfixed= (this.content.length <= 40) ? (this.content):(this.content.substring(0,40)+' ...');
   }

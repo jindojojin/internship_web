@@ -6,11 +6,11 @@ import 'rxjs/add/operator/toPromise';
 
 export class JobListService {
     constructor(private http: Http) { }
-    start:number = 0;
+    start:number = 1;
     total:number = 10;
 
     getList() {       
-        var url = "http://localhost:3000/list/jobs/start=1/total=10"; //api server trả về
+        var url = "http://localhost:3000/list/jobs/start=" + this.start + "/total=" + this.total; //api server trả về
         return this.http.get(url)
             .toPromise()
             .then(res => {

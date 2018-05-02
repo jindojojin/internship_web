@@ -25,6 +25,7 @@ export class SignInComponent implements OnInit {
         document.cookie="userToken = "+result.usertoken;
         document.cookie="nickname = "+result.nickname;
         document.cookie="userID = "+result.userID;
+        document.cookie="userType = "+result.usertype;
         document.getElementById("closeModal").click(); 
         this.loggedIn.emit();
       })

@@ -15,6 +15,7 @@ import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { OcticonsDirective } from './octicons.directive';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { OcticonsDirective } from './octicons.directive';
     PartnerCardComponent,
     JobListComponent,
     PostComponent,    
-    SpinnerLoadingComponent,    
+    SpinnerLoadingComponent, TestComponent,    
   ],
   imports: [
     BrowserModule,

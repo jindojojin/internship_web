@@ -17,6 +17,9 @@ export class MenuUserComponent implements OnInit {
   @Input() userName: string;
   nickname: string;
   isAdmin:boolean;
+  isLecturer:boolean;
+  isPartner:boolean;
+  isStudent:boolean;
   // notifications: Message[] = [
   //   {senderName : "linh", title: "day la mot thong bao",content:'dfascasdfsdfsdf dfsjf sdlkfsadlfkasd fsf sdsdfasdflasdf',messageID: 2},
   //   {senderName : "linadsfash", title: "day la mot thondsfasfsdg bao",content:'dfascasdfsdfadfsfasdfsdlkfsadlfkasd fsf sdsdfasdflasdf',messageID: 4},
@@ -50,6 +53,10 @@ export class MenuUserComponent implements OnInit {
     this.nickname = this.userName;
     this.getMessage();
     this.isAdmin= getCookie("userType") == "admin"
+    this.isLecturer= getCookie("userType") == "lecturer"
+    this.isPartner= getCookie("userType") == "partner"
+    this.isStudent= getCookie("userType") == "student"
+    
   }
 
 }

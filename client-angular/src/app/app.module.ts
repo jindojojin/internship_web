@@ -13,8 +13,12 @@ import { JobListComponent } from './components/job-list/job-list.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { AdminModule } from './admin/admin.module';
 import { NavbarModule } from './navbar/navbar.module';
+import { ProfilePageComponent } from './user/profile-page/profile-page.component';
 
-
+import {UserModule} from './user/user.module';
+import { StudentModule } from './student/student.module';
+import { LecturerModule } from './lecturer/lecturer.module';
+import { PartnerModule } from './partner/partner.module';
 
 
 @NgModule({
@@ -23,20 +27,20 @@ import { NavbarModule } from './navbar/navbar.module';
     PartnerListComponent,
     PartnerCardComponent,
     JobListComponent,
-    PostComponent,    
+    PostComponent, 
     SpinnerLoadingComponent,    
   ],
   imports: [         
     BrowserModule,
     HttpModule,
     AdminModule,    
-    // UserModule,
-    NavbarModule,
-    NgbModule.forRoot()
-    
-    // RouterModule.forRoot(routes)
+    UserModule,
+    NgbModule.forRoot(),
+    StudentModule,
+    LecturerModule,
+    PartnerModule,
+    NavbarModule,        
   ],
-  // exports:[OcticonsDirective],
   providers: [],
   bootstrap: [AppComponent]
 })

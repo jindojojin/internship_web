@@ -10,22 +10,20 @@ import { getCookie } from '../objects/Cookiee';
 export class NavbarComponent implements OnInit {
   SignIn: boolean;
   userName:string;
-  isAdmin: boolean;
+  isStudent: boolean;
   updateUserInfor(){
     console.log("da update user infor")
     this.SignIn = ! this.SignIn;
     this.userName = (getCookie("nickname"));
+    this.isStudent = (getCookie("userType") == "student");    
     console.log(this.userName);    
   }
   constructor() { }
 
   ngOnInit() {
-    // console.log(getCookie("userToken"))
     this.SignIn = (getCookie("userToken") != undefined);
     this.userName = (getCookie("nickname"));
-    this.isAdmin = (getCookie("userType") == "admin");
-    // console.log(getCookie("userType"));
-    // console.log(this.isAdmin);
+    this.isStudent = (getCookie("userType") == "student");
   }
 
 }

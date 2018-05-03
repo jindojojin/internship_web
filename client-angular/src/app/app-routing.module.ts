@@ -10,10 +10,13 @@ import { AdminComponent } from './admin/admin.component';
 const routes: Routes = [
   { path: '', redirectTo: 'jobs', pathMatch: 'full'},
   { path:'jobs',component:JobListComponent},
-  // { path:'profile', component: ProfilePageComponent },
-  { path:'partner',component:PartnerListComponent},
+  { path:'profile', component: ProfilePageComponent },
+  { path:'partners',component:PartnerListComponent},
   // { path:'home',loadChildren: './user/user.module#UserModule'},
   { path:'admin',loadChildren:'./admin/admin.module#AdminModule'},
+  { path:'lecturer',loadChildren:'./lecturer/lecturer.module#LecturerModule'},  
+  { path:'partner',loadChildren:'./partner/partner.module#PartnerModule'}, 
+  { path:'student',loadChildren:'./student/student.module#StudentModule'}, 
   { path:'**', redirectTo:'jobs',pathMatch:'full'},
 ];
 

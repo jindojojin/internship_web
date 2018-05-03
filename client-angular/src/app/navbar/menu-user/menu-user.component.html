@@ -33,6 +33,22 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item btn"  routerLink="/admin">Công cụ Admin</a>
       </div>      
+      <!-- bộ công cụ admin, chỉ hiển thị nếu người dùng là lecturer -->
+      <div *ngIf="isLecturer">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item btn"  routerLink="/lecturer">Công cụ dành cho giảng viên</a>
+      </div>    
+      <!-- bộ công cụ admin, chỉ hiển thị nếu người dùng là partner -->
+      <div *ngIf="isPartner">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item btn"  routerLink="/partner">Công cụ dành cho đối tác</a>
+      </div>    
+      <!-- bộ công cụ admin, chỉ hiển thị nếu người dùng là student -->
+      <div *ngIf="isStudent">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item btn"  routerLink="/student">Công cụ dành cho sinh viên</a>
+      </div> 
+
       <div class="dropdown-divider"></div>
       <a class="dropdown-item btn" (click)="this.logOut();">Đăng xuất</a>
     </div>

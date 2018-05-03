@@ -7,6 +7,8 @@ import { MenuUserComponent } from './menu-user/menu-user.component';
 import { MenuSearchBarComponent } from './menu-search-bar/menu-search-bar.component';
 import { NotificationComponent } from './menu-user/notification/notification.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { OcticonsDirective } from '../octicons.directive';
+
 
 
 
@@ -21,13 +23,15 @@ import { AppRoutingModule } from '../app-routing.module';
     ReactiveFormsModule,
   ],
   declarations: [
+    OcticonsDirective,    
+    
     NavbarComponent,
     MenuUserComponent,    
     NotificationComponent,
     MenuSearchBarComponent,  
     SignInComponent,    
   ],
-  exports:[NavbarComponent,AppRoutingModule],
+  exports:[NavbarComponent,AppRoutingModule,OcticonsDirective],
   
 })
 export class NavbarModule { }

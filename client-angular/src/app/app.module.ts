@@ -14,12 +14,10 @@ import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-lo
 import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { NavbarModule } from './navbar/navbar.module';
-import { OcticonsDirective } from './octicons.directive';
 
 
 @NgModule({
   declarations: [
-    OcticonsDirective,    
     AppComponent,    
     PartnerListComponent,
     PartnerCardComponent,

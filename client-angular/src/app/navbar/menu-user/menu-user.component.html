@@ -7,9 +7,11 @@
 
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bell">
       <h6 class="dropdown-header">Tin nhắn</h6>
+      <!-- hiển thị tất cả các tin nhắn đến -->
       <div class="dropdown-item" *ngFor="let n of notifications">
         <app-notification [senderName]="n.senderName" [title]="n.title" [content]="n.content"></app-notification>
       </div>
+      
       <div class="dropdown-item float-right">
           <a class="float-right" id="seeAll" href="#">Xem tất cả</a>
       </div>

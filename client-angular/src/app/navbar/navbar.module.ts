@@ -8,23 +8,22 @@ import { MenuSearchBarComponent } from './menu-search-bar/menu-search-bar.compon
 import { NotificationComponent } from './menu-user/notification/notification.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { OcticonsDirective } from '../octicons.directive';
-
-
-
-
 import { AppRoutingModule } from '../app-routing.module';
+
+
+
+
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule,    
+    AppRoutingModule,     
     ReactiveFormsModule,
   ],
   declarations: [
-    OcticonsDirective,    
-    
+    OcticonsDirective, 
     NavbarComponent,
     MenuUserComponent,    
     NotificationComponent,

@@ -4,7 +4,7 @@
     font-family: Arial, Helvetica, sans-serif
 } 
 .card-text{
-    max-width: 30rem;
+    width: 20rem;
     line-height: 0.7em;
 
 }
@@ -16,7 +16,7 @@ a {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-h5{
+h6{
     font-weight: bolder;
     color: rgb(102, 102, 209);
 }

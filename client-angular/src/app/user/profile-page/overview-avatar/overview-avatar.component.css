@@ -1,0 +1,7 @@
+img {
+    display: inline;
+}
+.center {
+    position: relative;
+    bottom: 0; 
+  }

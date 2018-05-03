@@ -12,8 +12,9 @@ import { PostComponent } from './components/job-list/post/post.component';
 import { JobListComponent } from './components/job-list/job-list.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { AdminModule } from './admin/admin.module';
-import { UserModule } from './user/user.module';
 import { NavbarModule } from './navbar/navbar.module';
+
+
 
 
 @NgModule({
@@ -25,11 +26,11 @@ import { NavbarModule } from './navbar/navbar.module';
     PostComponent,    
     SpinnerLoadingComponent,    
   ],
-  imports: [
+  imports: [         
     BrowserModule,
     HttpModule,
     AdminModule,    
-    UserModule,
+    // UserModule,
     NavbarModule,
     NgbModule.forRoot()
     

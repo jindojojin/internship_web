@@ -28,6 +28,11 @@
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="arrow">
       <a class="dropdown-item" routerLink="/profile">Thông tin cá nhân</a>
       <a class="dropdown-item">Tin nhắn</a>
+      <!-- bộ công cụ admin, chỉ hiển thị nếu người dùng là admin -->
+      <div *ngIf="isAdmin">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item btn"  routerLink="/admin">Công cụ Admin</a>
+      </div>      
       <div class="dropdown-divider"></div>
       <a class="dropdown-item btn" (click)="this.logOut();">Đăng xuất</a>
     </div>

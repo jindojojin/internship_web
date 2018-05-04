@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
-// import { AdminToolsComponent } from './admin-tools/admin-tools.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
-// import { MagageInternshipTermComponent } from './magage-internship-term/magage-internship-term.component';
 import { JobAssignmentComponent } from './job-assignment/job-assignment.component';
-// import { ManageIntershipTermComponent } from './manage-intership-term/manage-intership-term.component';
 import { ManageInternshipTermComponent } from './manage-internship-term/manage-internship-term.component';
 
 const routes_Admin: Routes = [

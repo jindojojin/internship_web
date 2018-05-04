@@ -5,23 +5,19 @@ import { AdminRoutingModule } from './admin-routing.module'
 import { RouterModule } from '@angular/router';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
-// import { MagageInternshipTermComponent } from './magage-internship-term/magage-internship-term.component';
 import { JobAssignmentComponent } from './job-assignment/job-assignment.component';
-// import { ManageIntershipTermComponent } from './manage-intership-term/manage-intership-term.component';
 import { ManageInternshipTermComponent } from './manage-internship-term/manage-internship-term.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
   ],
   declarations: [
     AdminComponent,
     AddUserComponent,
     ManageUserComponent,
-    // MagageInternshipTermComponent,
     JobAssignmentComponent,
-    // ManageIntershipTermComponent,
     ManageInternshipTermComponent
   ],
   exports:[AdminComponent]

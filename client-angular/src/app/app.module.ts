@@ -39,7 +39,7 @@ import { PartnerModule } from './partner/partner.module';
     StudentModule,
     LecturerModule,
     PartnerModule,
-    NavbarModule,        
+    NavbarModule,  
   ],
   providers: [],
   bootstrap: [AppComponent]

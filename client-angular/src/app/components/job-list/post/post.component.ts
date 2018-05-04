@@ -8,8 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class PostComponent implements OnInit {
   @Input() job;
-  millisecondsOfDay;
-  daysRemaining;
+  
   constructor() { }
 
   ngOnInit() {}

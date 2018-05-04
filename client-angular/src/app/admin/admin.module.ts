@@ -5,8 +5,9 @@ import { AdminRoutingModule } from './admin-routing.module'
 import { RouterModule } from '@angular/router';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
-import { MagageInternshipTermComponent } from './magage-internship-term/magage-internship-term.component';
+// import { MagageInternshipTermComponent } from './magage-internship-term/magage-internship-term.component';
 import { JobAssignmentComponent } from './job-assignment/job-assignment.component';
+import { ManageIntershipTermComponent } from './manage-intership-term/manage-intership-term.component';
 
 @NgModule({
   imports: [
@@ -17,8 +18,9 @@ import { JobAssignmentComponent } from './job-assignment/job-assignment.componen
     AdminComponent,
     AddUserComponent,
     ManageUserComponent,
-    MagageInternshipTermComponent,
-    JobAssignmentComponent
+    // MagageInternshipTermComponent,
+    JobAssignmentComponent,
+    ManageIntershipTermComponent
   ],
   exports:[AdminComponent]
 })

@@ -7,7 +7,8 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 // import { MagageInternshipTermComponent } from './magage-internship-term/magage-internship-term.component';
 import { JobAssignmentComponent } from './job-assignment/job-assignment.component';
-import { ManageIntershipTermComponent } from './manage-intership-term/manage-intership-term.component';
+// import { ManageIntershipTermComponent } from './manage-intership-term/manage-intership-term.component';
+import { ManageInternshipTermComponent } from './manage-internship-term/manage-internship-term.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { ManageIntershipTermComponent } from './manage-intership-term/manage-int
     ManageUserComponent,
     // MagageInternshipTermComponent,
     JobAssignmentComponent,
-    ManageIntershipTermComponent
+    // ManageIntershipTermComponent,
+    ManageInternshipTermComponent
   ],
   exports:[AdminComponent]
 })

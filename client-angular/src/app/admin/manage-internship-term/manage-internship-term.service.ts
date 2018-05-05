@@ -22,6 +22,7 @@ export class ManageInternshipTermService {
         const url = 'http://localhost:3000/admin/createTerm';
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const body = JSON.stringify(value);
+        console.log(body);
         return this.http.post(url, body, { headers })
             .toPromise()
             .then(res => res.json());

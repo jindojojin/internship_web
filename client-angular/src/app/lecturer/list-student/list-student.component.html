@@ -11,7 +11,7 @@
     <tr *ngFor="let s of myStudents">
       <th scope="row">{{s.studentCode}}</th>
       <!-- <td></td> -->
-      <td><a routerLink="/profile">{{s.name}}</a></td>
+      <td><a routerLink="/profile/{{s.name}}/{{s.userID}}">{{s.name}}</a></td>
       <!-- <td>{{s.vnumail}}</td> -->
       <td>
         <div class="btn-group btn-group-sm" role="group">

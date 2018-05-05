@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { getCookie } from "../../objects/Cookiee";
+import { myWebsiteDomain } from "../../objects/appConfig";
 
 @Injectable()
 
@@ -11,7 +12,7 @@ export class MenuUserService {
     getMessages() {
         console.log("da vao service lấy message")
         let userID = getCookie("userID")
-        var url = 'http://localhost:3000/user/messages/action=view/start=' + 1 + '/total=' + 10;
+        var url = 'http://'+myWebsiteDomain+'/user/messages/action=view/start=' + 1 + '/total=' + 10;
         // const body = JSON.stringify(value);
         return this.http.get(url, {withCredentials: true })
             .toPromise()

@@ -6,7 +6,7 @@
     outline: none !important;
     box-shadow: none;
  }
-span,a{
+span{
     color: white;
 }
 
@@ -29,19 +29,36 @@ bottom: 15px;
     top:1px;
     right: 10px;
 }
-
-
 .dropdown-item{
     color: black;
 }
 #seeAll{
     color: black !important;
 }
-a:hover{
-    color: rgb(119, 119, 245) !important;
+#username:hover {
+    color: rgb(255, 255, 255) !important;
 }
 
 div.dropdown-menu{
     max-height: 400px !important;
     overflow-y: auto;
+}
+
+.link-btn{
+    background:none!important;
+    color: rgb(0, 0, 255) !important;
+    color:inherit;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     /*border is optional*/
+     /* border-bottom:1px solid #444;  */
+     cursor: pointer;
+}
+.link-btn:hover{
+    border: solid 0.5px;
+    border-radius: 4px;
+}
+.card{
+    width: 20rem;
 }

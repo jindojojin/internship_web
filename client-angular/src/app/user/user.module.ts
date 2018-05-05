@@ -1,22 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ReadonlyEmailComponent } from './profile-page/readonly-email/readonly-email.component';
-import { OverviewNameComponent } from './profile-page/overview-name/overview-name.component';
+
 import { OverviewAvatarComponent } from './profile-page/overview-avatar/overview-avatar.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MessageModalComponent } from './message-modal/message-modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations: [
-    ReadonlyEmailComponent,
-    OverviewNameComponent,
     OverviewAvatarComponent,
     ProfilePageComponent,
     HomePageComponent,
-  ]
+    MessageModalComponent
+  ],
+        
+    exports:[MessageModalComponent,]
 })
 export class UserModule { }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReadonlyEmailComponent } from './readonly-email.component';
+import { MessageModalComponent } from './message-modal.component';
 
-describe('ReadonlyEmailComponent', () => {
-  let component: ReadonlyEmailComponent;
-  let fixture: ComponentFixture<ReadonlyEmailComponent>;
+describe('MessageModalComponent', () => {
+  let component: MessageModalComponent;
+  let fixture: ComponentFixture<MessageModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReadonlyEmailComponent ]
+      declarations: [ MessageModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReadonlyEmailComponent);
+    fixture = TestBed.createComponent(MessageModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

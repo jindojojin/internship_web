@@ -11,7 +11,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 const routes: Routes = [
   { path: '', redirectTo: 'jobs', pathMatch: 'full' },
   { path: 'jobs', component: JobListComponent },
-  { path: 'profile', component: ProfilePageComponent },
+  { path: 'profile/:username/:id', component: ProfilePageComponent },
   { path: 'partners', component: PartnerListComponent },
   // { path:'home',loadChildren: './user/user.module#UserModule'},
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },

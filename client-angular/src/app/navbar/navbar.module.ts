@@ -5,10 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar.component';
 import { MenuUserComponent } from './menu-user/menu-user.component';
 import { MenuSearchBarComponent } from './menu-search-bar/menu-search-bar.component';
-import { NotificationComponent } from './menu-user/notification/notification.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { OcticonsDirective } from '../octicons.directive';
 import { AppRoutingModule } from '../app-routing.module';
+import { UserModule } from '../user/user.module';
 
 
 
@@ -19,6 +19,7 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     CommonModule,
     FormsModule,
+    UserModule,
     AppRoutingModule,     
     ReactiveFormsModule,
   ],
@@ -26,7 +27,6 @@ import { AppRoutingModule } from '../app-routing.module';
     OcticonsDirective, 
     NavbarComponent,
     MenuUserComponent,    
-    NotificationComponent,
     MenuSearchBarComponent,  
     SignInComponent,    
   ],

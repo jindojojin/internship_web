@@ -21,14 +21,13 @@ import { LecturerModule } from './lecturer/lecturer.module';
 import { PartnerModule } from './partner/partner.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,    
     PartnerListComponent,
     PartnerCardComponent,
     JobListComponent,
-    PostComponent, 
+    PostComponent,
     SpinnerLoadingComponent, PageNotFoundComponent,    
   ],
   imports: [         
@@ -39,7 +38,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     StudentModule,
     LecturerModule,
     PartnerModule,
-    NgbModule.forRoot(),    
+    NgbModule.forRoot(),
     NavbarModule,
   ],
   providers:[],

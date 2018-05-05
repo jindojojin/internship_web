@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../objects/User';
 import { getCookie } from '../objects/Cookiee';
+import { MessageModalService } from '../user/message-modal/message-modal.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  providers:[MessageModalService]
 })
 export class NavbarComponent implements OnInit {
   SignIn: boolean;
@@ -17,6 +19,14 @@ export class NavbarComponent implements OnInit {
     this.userName = (getCookie("nickname"));
     this.isStudent = (getCookie("userType") == "student");    
     console.log(this.userName);    
+  }
+
+  receiverID:string;
+  receiverName:string;
+  callMessageModal(obj){
+    this.receiverID = obj.receiverID;
+    this.receiverName = obj.receiverName;
+    document.getElementById("btn-modal").click();
   }
   constructor() { }
 

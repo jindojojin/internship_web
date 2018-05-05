@@ -40,7 +40,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     LecturerModule,
     PartnerModule,
     NgbModule.forRoot(),    
-    NavbarModule,        
+    NavbarModule,
   ],
   providers:[],
   bootstrap: [AppComponent]

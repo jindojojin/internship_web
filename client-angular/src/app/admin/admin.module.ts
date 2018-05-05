@@ -11,7 +11,7 @@ import { ManageInternshipTermComponent } from './manage-internship-term/manage-i
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
   ],
   declarations: [
     AdminComponent,

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Message } from '../../objects/Messgase';
-import { deleteCookie, getCookie } from '../../objects/Cookiee';
+import { deleteCookie, getCookie, deleteAllCookies } from '../../objects/Cookiee';
 import { MenuUserService } from './menu-user.service'
 import { Router } from '@angular/router';
 
@@ -42,9 +42,7 @@ export class MenuUserComponent implements OnInit {
 
   logOut() {
     console.log("đã loggedOut");  
-    deleteCookie("userToken")
-    deleteCookie("nickname");
-    deleteCookie("userID");
+    deleteAllCookies();
     this.router.navigate(['jobs']);
     this.loggedOut.emit()
   }

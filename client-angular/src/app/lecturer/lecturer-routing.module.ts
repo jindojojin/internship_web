@@ -4,10 +4,12 @@ import { LecturerComponent } from './lecturer.component';
 import { ListStudentComponent } from './list-student/list-student.component';
 import { ListStudentFollowMeComponent } from './list-student-follow-me/list-student-follow-me.component';
 import { ListPlanReportComponent } from './list-plan-report/list-plan-report.component';
+import { LecturerGuard } from './lecturer.guard';
 const routes_Lecturer: Routes = [
   {
     path: 'lecturer',
     component: LecturerComponent ,
+    canActivate:[LecturerGuard],
     children:[
       {
         path:"",
@@ -34,6 +36,7 @@ const routes_Lecturer: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes_Lecturer)],
+  providers:[LecturerGuard],
   exports: [RouterModule]
 })
 export class LecturerRoutingModule { }

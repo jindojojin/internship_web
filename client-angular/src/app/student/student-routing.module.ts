@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { StudentComponent } from './student.component';
 import { ManageSkillComponent } from './manage-skill/manage-skill.component';
 import { ManagePlanReportComponent } from './manage-plan-report/manage-plan-report.component';
+import { StudentGuard } from './student.guard';
 const routes_Student: Routes=[ {
     path: 'student',
     component: StudentComponent ,
+    canActivate:[StudentGuard],
     children:[
       {
         path:"",
@@ -32,6 +34,7 @@ const routes_Student: Routes=[ {
 
 @NgModule({
   imports: [RouterModule.forChild(routes_Student)],
+  providers:[StudentGuard],
   exports: [RouterModule]
 })
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { SignInService } from './sign-in.service';
 import{User} from '../../objects/User'
+import { setCookie } from '../../objects/Cookiee';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -22,11 +23,11 @@ export class SignInComponent implements OnInit {
     this.signInService.sendPost(formSignIn.value)
       .then(result => {
         console.log(result);        
-        document.cookie="userToken = "+result.usertoken;
-        document.cookie="nickname = "+result.nickname;
-        document.cookie="userID = "+result.userID;
-        document.cookie="userType = "+result.usertype;
-        document.getElementById("closeModal").click(); 
+        setCookie("nickname",result.nickname,2);
+        setCookie("userID",result.userID,2);
+        setCookie("userType",result.usertype,2);
+        setCookie("userToken",result.usertoken,2);
+        document.getElementById("closeModal").click();
         this.loggedIn.emit();
       })
       .catch(err => {

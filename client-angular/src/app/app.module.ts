@@ -19,10 +19,7 @@ import {UserModule} from './user/user.module';
 import { StudentModule } from './student/student.module';
 import { LecturerModule } from './lecturer/lecturer.module';
 import { PartnerModule } from './partner/partner.module';
-import { StudentRequireService } from './security_config/student_require.service';
-import { AdminRequireService } from './security_config/admin_require.service';
-import { PartnerRequireService } from './security_config/partner_require.service';
-import { LecturerRequireService } from './security_config/lecturer_require.service';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -32,17 +29,17 @@ import { LecturerRequireService } from './security_config/lecturer_require.servi
     PartnerCardComponent,
     JobListComponent,
     PostComponent, 
-    SpinnerLoadingComponent,    
+    SpinnerLoadingComponent, PageNotFoundComponent,    
   ],
   imports: [         
     BrowserModule,
     HttpModule,
+    UserModule,    
     AdminModule,    
-    UserModule,
-    NgbModule.forRoot(),
     StudentModule,
     LecturerModule,
     PartnerModule,
+    NgbModule.forRoot(),    
     NavbarModule,        
   ],
   providers:[],

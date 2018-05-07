@@ -24,7 +24,7 @@ export class ManageInternshipTermComponent implements OnInit {
     // console.log(newTerm.value);
     this.manageInternshipTermService.sendNewTerm(newTerm.value)
       .then(result => {
-        // console.log(result);
+        console.log(result);
       })
       .catch(err => console.log(err));
   }

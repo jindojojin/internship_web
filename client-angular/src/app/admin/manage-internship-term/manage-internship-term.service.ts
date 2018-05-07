@@ -26,6 +26,10 @@ export class ManageInternshipTermService {
         // console.log(body);
         return this.http.post(url, body, { headers })
             .toPromise()
-            .then(res => res.json());
+            .then(res => {
+                // console.log("dang chay");
+                return res.json()
+            }
+            );
     }
 }

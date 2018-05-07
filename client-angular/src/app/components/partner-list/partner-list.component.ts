@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-
-
+// import { PartnerListService } from './partner-list.service';
 
 @Component({
   selector: 'app-partner-list',
   templateUrl: './partner-list.component.html',
   styleUrls: ['./partner-list.component.css']
 })
+
 export class PartnerListComponent implements OnInit {
+  // partners;
   partners= [
     {name: "Toshiba",logo:"https://cdn.itviec.com/system/production/employers/logos/104/toshiba-software-development-viet-nam-co-ltd-logo-170-151.jpg?1496738781"},
     {name:"KMS Technology",logo:"https://itviec.com/system/production/employers/logos/31/kms-technology-logo-170-151.png?1454113898"},
@@ -19,10 +20,15 @@ export class PartnerListComponent implements OnInit {
     {name:"Ruby Development Vietnam",logo:"https://itviec.com/system/production/employers/logos/4305/ruby-development-vietnam-logo-170-151.jpg?1509531955"},
     {name:"CBA Solutions",logo:"https://itviec.com/system/production/employers/logos/1372/cba-solutions-logo-170-151.jpg?1506064791"}]
 
-  constructor() {
-  }
+  // constructor(private partnerListService: PartnerListService) { }
+  constructor() { }
 
   ngOnInit() {
+    // this.partnerListService.getList()
+    //   .then(res => {
+    //     this.partners = res;
+    //   })
+    //   .catch(err => console.log(err));
   }
 
 }

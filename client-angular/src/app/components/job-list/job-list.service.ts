@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
 import 'rxjs/add/operator/toPromise';
+import { myWebsiteDomain } from "../../objects/appConfig";
 
 @Injectable()
 
@@ -10,7 +11,7 @@ export class JobListService {
     total:number = 10;
 
     getList() {       
-        var url = "http://localhost:3000/list/jobs/start=" + this.start + "/total=" + this.total; //api server trả về
+        var url = "http://" + myWebsiteDomain + "/list/jobs/start=" + this.start + "/total=" + this.total; //api server trả về
         return this.http.get(url)
             .toPromise()
             .then(res => {

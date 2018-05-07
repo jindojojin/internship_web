@@ -27,7 +27,7 @@
 <br>
 
 <!-- Bảng thêm mới đợt thực tập -->
-<table class="table">
+<!-- <table class="table">
     <thead>
       <tr>
         <th scope="col">Ngày bắt đầu</th>
@@ -44,5 +44,35 @@
         <td><button class="btn btn-primary">Thêm</button></td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 
+<form (ngSubmit)="onSubmit(formCreateTerm);" #formCreateTerm="ngForm">
+  <div class="form-group">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Ngày bắt đầu</th>
+          <th scope="col">Ngày kết thúc</th>
+          <th scope="col">Tiêu đề</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="date" class="form-control" name="start" required ngModel>
+          </td>
+          <td>
+            <input type="date" class="form-control" name="end" required ngModel>
+          </td>
+          <td>
+            <input type="text" class="form-control" name="title" required ngModel>
+          </td>
+          <td>
+            <button class="btn btn-primary">Thêm</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>

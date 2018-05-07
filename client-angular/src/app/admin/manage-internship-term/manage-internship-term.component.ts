@@ -14,18 +14,19 @@ export class ManageInternshipTermComponent implements OnInit {
 
   ngOnInit() {
     this.manageInternshipTermService.getTerms()
-    .then(res => {
-      this.terms = res;
-    })
-    .catch(err => console.log(err));
+      .then(res => {
+        this.terms = res;
+      })
+      .catch(err => console.log(err));
   }
 
   onSubmit(newTerm) {
+    // console.log(newTerm.value);
     this.manageInternshipTermService.sendNewTerm(newTerm.value)
-    .then(result => {
-      console.log(result);
-    })
-    .catch(err => console.log(err));
+      .then(result => {
+        // console.log(result);
+      })
+      .catch(err => console.log(err));
   }
 
 }

@@ -23,6 +23,7 @@ export class ManageInternshipTermComponent implements OnInit {
   onSubmit(newTerm) {
     this.manageInternshipTermService.sendNewTerm(newTerm.value)
       .then(result => {
+        window.location.reload();
         // console.log(result);
       })
       .catch(err => console.log(err));

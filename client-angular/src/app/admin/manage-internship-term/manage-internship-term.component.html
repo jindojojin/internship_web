@@ -18,7 +18,7 @@
       <td>
         <div class="btn btn-group btn-group-sm">
           <button class="btn btn-warning">Sửa</button>
-          <button class="btn btn-danger">Xóa</button>
+          <button class="btn btn-danger" (click)="onDelete(term.termID)" >Xóa</button>
         </div>
       </td>
     </tr>
@@ -27,25 +27,6 @@
 <br>
 
 <!-- Bảng thêm mới đợt thực tập -->
-<!-- <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Ngày bắt đầu</th>
-        <th scope="col">Ngày kết thúc</th>
-        <th scope="col">Tiêu đề</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><input type="date" required ngModel></td>
-        <td><input type="date" required ngModel></td>
-        <td><input type="text" required ngModel></td>
-        <td><button class="btn btn-primary">Thêm</button></td>
-      </tr>
-    </tbody>
-  </table> -->
-
 <form (ngSubmit)="onSubmit(formCreateTerm);" #formCreateTerm="ngForm">
   <div class="form-group">
     <table class="table">
@@ -69,7 +50,7 @@
             <input type="text" class="form-control" name="title" required ngModel>
           </td>
           <td>
-            <button class="btn btn-primary">Thêm</button>
+            <button class="btn btn-primary" [disabled]="formCreateTerm.invalid">Thêm</button>
           </td>
         </tr>
       </tbody>

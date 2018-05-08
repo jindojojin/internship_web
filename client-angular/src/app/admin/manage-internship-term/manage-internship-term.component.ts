@@ -21,12 +21,18 @@ export class ManageInternshipTermComponent implements OnInit {
   }
 
   onSubmit(newTerm) {
-    // console.log(newTerm.value);
     this.manageInternshipTermService.sendNewTerm(newTerm.value)
+      .then(result => {
+        // console.log(result);
+      })
+      .catch(err => console.log(err));
+  }
+
+  onDelete(termID) {
+    this.manageInternshipTermService.DeleteTerm(termID)
       .then(result => {
         console.log(result);
       })
       .catch(err => console.log(err));
   }
-
 }

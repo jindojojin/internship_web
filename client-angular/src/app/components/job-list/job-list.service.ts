@@ -15,7 +15,7 @@ export class JobListService {
         return this.http.get(url)
             .toPromise()
             .then(res => {
-                // console.log(res.json());
+                // console.log(res);
                 return res.json();
             })
             .catch(err => console.log(err));

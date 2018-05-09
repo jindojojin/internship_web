@@ -1,17 +1,17 @@
 <div class="card bg-light mb-3">
   <div class="card-header">
     <div class="row">
-        <div class="col-sm-8 col-md-9">
-            <h4>{{job.partner_name}}: {{job.title}}</h4>
-          </div>
-      
-          <div class="col-sm-4 col-md-3">
-            <!-- cần so sánh lại ngày hết hạn -->
-              <span *ngIf="true" class="badge badge-primary float-right"> Từ ngày {{ job.startDate }} đến ngày {{ job.endDate }}.</span>
-              <span *ngIf="false" class="badge badge-danger float-right"> Đã hết hạn đăng kí</span>
-          </div>
-    </div>  
+      <div class="col-sm-8 col-md-9">
+        <h4>{{job.partner_name}}: {{job.title}}</h4>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <!-- cần so sánh lại ngày hết hạn -->
+        <span *ngIf="remainingDay > 0" class="badge badge-primary float-right"> Còn {{ remainingDay }} ngày</span>
+        <span *ngIf="remainingDay <= 0" class="badge badge-danger float-right"> Đã hết hạn đăng kí</span>
+      </div>
+    </div>
   </div>
+
   <div class="row">
     <div class="col-xs-3 col-sm-2">
       <img [src]="job.partner_logo" alt="Logo">
@@ -19,5 +19,9 @@
     <div class="col-xs-9 col-sm-10">
       <p class="card-text">{{job.content}}</p>
     </div>
+  </div>
+
+  <div class="row">
+    <button class="btn btn-primary" (click)="onFollow()">Đăng ký</button>
   </div>
 </div>

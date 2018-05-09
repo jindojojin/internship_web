@@ -32,7 +32,8 @@ export class ManageInternshipTermComponent implements OnInit {
   onDelete(termID) {
     this.manageInternshipTermService.DeleteTerm(termID)
       .then(result => {
-        console.log(result);
+        window.location.reload();
+        // console.log(result);
       })
       .catch(err => console.log(err));
   }

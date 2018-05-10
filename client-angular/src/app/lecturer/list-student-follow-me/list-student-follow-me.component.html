@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">MSSV</th>
+      <th scope="col">Họ và tên</th>
+      <th scope="col"> Hành động </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of studentFollowMe">
+      <th scope="row">{{s.studentCode}}</th>
+      <td>
+        <a routerLink="/profile/{{s.studentName}}/{{s.userID}}">{{s.studentName}}</a>
+      </td>
+      <td>
+        <div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-secondary" data-toggle="modal" [attr.data-target]=" '#'+ s.studentCode">
+            Gửi tin nhắn
+          </button>
+          <div class="modal fade" [id]="s.studentCode" tabindex="-1" role="dialog">
+              <app-message-modal receiverName="{{s.studentName}}" receiverID="{{s.studentCode}}"></app-message-modal>
+          </div>
+
+          <button type="button" class="btn btn-secondary">Chấp nhận</button>
+          <button type="button" class="btn btn-secondary">Từ chối</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

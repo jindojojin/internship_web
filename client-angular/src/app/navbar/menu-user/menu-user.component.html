@@ -1,6 +1,6 @@
 <div class="btn btn-group">
   <div class="dropdown">
-    <button class="btn clearfix medium" id="bell" data-toggle="dropdown">
+    <button class="btn clearfix medium d-none d-md-block" id="bell" data-toggle="dropdown">
       <span class="low" octicons="comment-discussion" color="white"></span>
       <span *ngIf="sumOfNotification > 0" class="upper badge badge-success">{{sumOfNotification}}</span>
     </button>
@@ -9,30 +9,72 @@
       <h6 class="dropdown-header">Tin nhắn</h6>
       <!-- hiển thị tất cả các tin nhắn đến -->
       <div class="dropdown-item" *ngFor="let n of notifications">
-        <app-notification [senderName]="n.senderName" [title]="n.title" [content]="n.content"></app-notification>
+        <div class="card mx-0">
+          <h6 class="card-title mx-2">{{n.title}}</h6>
+          <p class="card-text mx-2">{{n.content}}</p>
+          <div class="card-text mx-2">
+            <button class="link-btn float-right mx-2 smalltext" (click)="reply(n.senderName,n.senderID)"> Trả lời </button>
+            <p class=" float-left smalltext"> Người gửi:
+              <a class="btn-link" routerLink="/profile/{{n.senderName}}/{{n.senderID}}"> {{n.senderName}}</a>
+            </p>
+          </div>
+        </div>
       </div>
-      
+
       <div class="dropdown-item float-right">
-          <a class="float-right" id="seeAll" href="#">Xem tất cả</a>
+        <a class="float-right" id="seeAll" href="#">Xem tất cả</a>
       </div>
-      
+
     </div>
   </div>
 
 
 
-  <a class="nav-item nav-link" routerLink='/profile'>{{nickname}}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- phải để href ở link đến profile để tránh xung đột khi xem profile của người khác -->
+  <a class="nav-item nav-link" id="username" href='/profile/{{nickname}}/{{userID}}'>{{nickname}}</a>
   <div class="dropdown arrow">
     <button type="button" class="btn dropdown-toggle dropdown-toggle-split " id="arrow" data-toggle="dropdown">
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="arrow">
-      <a class="dropdown-item" routerLink="/profile">Thông tin cá nhân</a>
+      <a class="dropdown-item" href='/profile/{{nickname}}/{{userID}}'>Thông tin cá nhân</a>
       <a class="dropdown-item">Tin nhắn</a>
       <!-- bộ công cụ admin, chỉ hiển thị nếu người dùng là admin -->
       <div *ngIf="isAdmin">
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item btn"  routerLink="/admin">Công cụ Admin</a>
-      </div>      
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item btn" routerLink="/admin">Công cụ Admin</a>
+      </div>
+      <!-- bộ công cụ admin, chỉ hiển thị nếu người dùng là lecturer -->
+      <div *ngIf="isLecturer">
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item btn" routerLink="/lecturer">Công cụ dành cho giảng viên</a>
+      </div>
+      <!-- bộ công cụ admin, chỉ hiển thị nếu người dùng là partner -->
+      <div *ngIf="isPartner">
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item btn" routerLink="/partner">Công cụ dành cho đối tác</a>
+      </div>
+      <!-- bộ công cụ admin, chỉ hiển thị nếu người dùng là student -->
+      <div *ngIf="isStudent">
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item btn" routerLink="/student">Công cụ dành cho sinh viên</a>
+      </div>
+
       <div class="dropdown-divider"></div>
       <a class="dropdown-item btn" (click)="this.logOut();">Đăng xuất</a>
     </div>

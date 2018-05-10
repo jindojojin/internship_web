@@ -13,9 +13,13 @@ import { JobListComponent } from './components/job-list/job-list.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { AdminModule } from './admin/admin.module';
 import { NavbarModule } from './navbar/navbar.module';
+import { ProfilePageComponent } from './user/profile-page/profile-page.component';
 
-
-
+import {UserModule} from './user/user.module';
+import { StudentModule } from './student/student.module';
+import { LecturerModule } from './lecturer/lecturer.module';
+import { PartnerModule } from './partner/partner.module';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,21 +27,21 @@ import { NavbarModule } from './navbar/navbar.module';
     PartnerListComponent,
     PartnerCardComponent,
     JobListComponent,
-    PostComponent,    
-    SpinnerLoadingComponent   
+    PostComponent,
+    SpinnerLoadingComponent, PageNotFoundComponent,    
   ],
   imports: [         
     BrowserModule,
     HttpModule,
+    UserModule,    
     AdminModule,    
-    // UserModule,
+    StudentModule,
+    LecturerModule,
+    PartnerModule,
+    NgbModule.forRoot(),
     NavbarModule,
-    NgbModule.forRoot()
-    
-    // RouterModule.forRoot(routes)
   ],
-  // exports:[OcticonsDirective],
-  providers: [],
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

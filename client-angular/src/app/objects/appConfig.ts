@@ -1,0 +1,1 @@
+export const myWebsiteDomain = "localhost:3000";

@@ -6,6 +6,7 @@ import { OverviewNameComponent } from './profile-page/overview-name/overview-nam
 import { OverviewAvatarComponent } from './profile-page/overview-avatar/overview-avatar.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MessengerPageComponent } from './messenger-page/messenger-page.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     OverviewAvatarComponent,
     ProfilePageComponent,
     HomePageComponent,
+    MessengerPageComponent,
   ]
 })
 export class UserModule { }

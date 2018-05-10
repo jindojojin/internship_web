@@ -24,7 +24,7 @@ import { NavbarModule } from './navbar/navbar.module';
     PartnerCardComponent,
     JobListComponent,
     PostComponent,    
-    SpinnerLoadingComponent,    
+    SpinnerLoadingComponent   
   ],
   imports: [         
     BrowserModule,

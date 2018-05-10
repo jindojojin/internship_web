@@ -4,6 +4,7 @@ import { PartnerListComponent } from './components/partner-list/partner-list.com
 import { JobListComponent } from './components/job-list/job-list.component';
 import { ProfilePageComponent } from './user/profile-page/profile-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { LecturerListComponent } from './components/lecturer-list/lecturer-list.component';
 
 
 // import { HomeComponent} from './user/home-page/home-page.component'
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'jobs', component: JobListComponent },
   { path: 'profile/:username/:id', component: ProfilePageComponent },
   { path: 'partners', component: PartnerListComponent },
+  { path: 'lecturers', component: LecturerListComponent },
   // { path:'home',loadChildren: './user/user.module#UserModule'},
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'lecturer', loadChildren: './lecturer/lecturer.module#LecturerModule' },

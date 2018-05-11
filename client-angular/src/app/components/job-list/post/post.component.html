@@ -17,11 +17,12 @@
       <img [src]="job.partner_logo" alt="Logo">
     </div>
     <div class="col-xs-9 col-sm-10">
-      <p class="card-text">{{job.content}}</p>
+      <p class="card-text">{{jobContent}}</p>
     </div>
   </div>
 
   <div class="row">
-    <button class="btn btn-primary" (click)="onFollow()">Đăng ký</button>
+    <button *ngIf="!isFollowed" class="btn btn-primary" (click)="onFollow()">Đăng ký</button>
+    <button *ngIf="isFollowed" class="btn btn-primary" (click)="onFollow()">Hủy đăng ký</button>
   </div>
 </div>

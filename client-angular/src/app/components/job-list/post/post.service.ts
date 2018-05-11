@@ -13,8 +13,7 @@ export class PostService {
         return this.http.get(url, {withCredentials: true})
             .toPromise()
             .then(res => {
-                // console.log(res);
-                return true;
+                return res.status;
             })
             .catch(err => {return false});
     }

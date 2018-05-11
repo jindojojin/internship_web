@@ -41,7 +41,7 @@ export class PostComponent implements OnInit {
 
 function shortenJobContent(content:string, length:number) {
   if (content.length > length) {
-    return content.substring(1, length) + "...";
+    return content.substring(0, length) + "...";
   }
   return content;
 }

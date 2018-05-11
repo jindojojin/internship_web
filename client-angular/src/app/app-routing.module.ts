@@ -7,7 +7,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { LecturerListComponent } from './components/lecturer-list/lecturer-list.component';
 
 
-// import { HomeComponent} from './user/home-page/home-page.component'
+import { HomePageComponent} from './user/home-page/home-page.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'jobs', pathMatch: 'full' },
@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'partners', component: PartnerListComponent },
   { path: 'lecturers', component: LecturerListComponent },
   // { path:'home',loadChildren: './user/user.module#UserModule'},
+  { path:'home',component: HomePageComponent},
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'lecturer', loadChildren: './lecturer/lecturer.module#LecturerModule' },
   { path: 'partner', loadChildren: './partner/partner.module#PartnerModule' },

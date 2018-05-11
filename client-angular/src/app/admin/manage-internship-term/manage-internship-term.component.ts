@@ -8,7 +8,7 @@ import { ManageInternshipTermService } from './manage-internship-term.service';
   providers: [ManageInternshipTermService]
 })
 export class ManageInternshipTermComponent implements OnInit {
-  terms;
+  terms: Object;
 
   constructor(private manageInternshipTermService: ManageInternshipTermService) { }
 

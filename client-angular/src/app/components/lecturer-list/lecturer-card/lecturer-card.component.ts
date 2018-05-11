@@ -12,7 +12,9 @@ export class LecturerCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.lecturerAvatar);
+    if(!this.lecturerAvatar) {
+      this.lecturerAvatar = "https://www.teqport.com/images/employees/lower_res/Placeholder_no_text.svg.png";
+    }
   }
 
 }

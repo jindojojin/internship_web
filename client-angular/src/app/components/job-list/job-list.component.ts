@@ -17,7 +17,6 @@ export class JobListComponent implements OnInit {
     this.jobListService.getList()
       .then(res => {
         this.jobs = res;
-        // console.log(res);
       })
       .catch(err => console.log(err));
   }

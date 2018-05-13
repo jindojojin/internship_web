@@ -22,6 +22,8 @@ import { MessagePageComponent } from './message-page/message-page.component';
     MessagePageComponent
   ],
         
-    exports:[MessageModalComponent,]
+    exports:[MessageModalComponent,
+      MessagePageComponent
+    ]
 })
 export class UserModule { }

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-6 col-md-12">
-    <img class="mr-3" height="200px" width="auto" src="https://www.teqport.com/images/employees/lower_res/Placeholder_no_text.svg.png">
+    <img class="mr-3" height="auto" width="200px" id="avatar" src="https://www.teqport.com/images/employees/lower_res/Placeholder_no_text.svg.png">
   </div>
   <div class="col-6 col-md-12">
     <div class=" d-md-none">
@@ -11,6 +11,7 @@
     <div class="center">
       <br/>
       <!-- <h5 class="">Welcome</h5> -->
+      <input (change)="showIMG($event)" type="file" id="imgFile" accept="image/jpg, image/png, image/gif">
       <h6 class="ml-2 mt-3">{{userName}}</h6>
     </div>
 

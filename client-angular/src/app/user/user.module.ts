@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MessageModalComponent } from './message-modal/message-modal.component';
 import { FormsModule } from '@angular/forms';
 import { FileBrowserAndUploaderComponent } from './file-browser-and-uploader/file-browser-and-uploader.component';
+import { MessagePageComponent } from './message-page/message-page.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,11 @@ import { FileBrowserAndUploaderComponent } from './file-browser-and-uploader/fil
     MessageModalComponent,
     FileBrowserAndUploaderComponent
   ],
-        
-    exports:[MessageModalComponent,FileBrowserAndUploaderComponent]
+
+  exports: [MessageModalComponent, 
+    FileBrowserAndUploaderComponent,
+    MessagePageComponent,
+    MessageModalComponent,
+  ]
 })
 export class UserModule { }

@@ -9,7 +9,7 @@ import { PartnerListService } from './partner-list.service';
 })
 
 export class PartnerListComponent implements OnInit {
-  partners;
+  partners: Object;
   // partners= [
   //   {name: "Toshiba",logo:"https://cdn.itviec.com/system/production/employers/logos/104/toshiba-software-development-viet-nam-co-ltd-logo-170-151.jpg?1496738781"},
   //   {name:"KMS Technology",logo:"https://itviec.com/system/production/employers/logos/31/kms-technology-logo-170-151.png?1454113898"},

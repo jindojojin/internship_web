@@ -9,7 +9,7 @@ import { JobListService } from './job-list.service';
 })
 
 export class JobListComponent implements OnInit {
-  jobs;
+  jobs: Object;
 
   constructor(private jobListService: JobListService) { }
 

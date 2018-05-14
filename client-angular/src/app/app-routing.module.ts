@@ -4,22 +4,27 @@ import { PartnerListComponent } from './components/partner-list/partner-list.com
 import { JobListComponent } from './components/job-list/job-list.component';
 import { ProfilePageComponent } from './user/profile-page/profile-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { LecturerListComponent } from './components/lecturer-list/lecturer-list.component';
 
 
-// import { HomeComponent} from './user/home-page/home-page.component'
+import { HomePageComponent} from './user/home-page/home-page.component'
+import { MessagePageComponent } from './user/message-page/message-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'jobs', pathMatch: 'full' },
   { path: 'jobs', component: JobListComponent },
   { path: 'profile/:username/:id', component: ProfilePageComponent },
   { path: 'partners', component: PartnerListComponent },
-  // { path:'home',loadChildren: './user/user.module#UserModule'},
+  { path: 'lecturers', component: LecturerListComponent },
+  { path:'home',component: HomePageComponent},
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'lecturer', loadChildren: './lecturer/lecturer.module#LecturerModule' },
   { path: 'partner', loadChildren: './partner/partner.module#PartnerModule' },
   { path: 'student', loadChildren: './student/student.module#StudentModule' },
   { path: 'page-not-found', component: PageNotFoundComponent },
+  { path: 'tin-nhan', component: MessagePageComponent},
   { path: '**', redirectTo: 'page-not-found', pathMatch: 'full' }
+ 
 ];
 
 @NgModule({

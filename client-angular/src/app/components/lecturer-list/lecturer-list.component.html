@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="row card-group">
+      <div class="col-lg-4 col-md-6" *ngFor="let lecturer of lecturers">
+        <app-lecturer-card [lecturerName]="lecturer.name" lecturerAvatar="{{lecturer?.avatar}}"></app-lecturer-card>
+      </div>
+  </div>
+</div>

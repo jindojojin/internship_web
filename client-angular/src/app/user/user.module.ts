@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 import { OverviewAvatarComponent } from './profile-page/overview-avatar/overview-avatar.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { MessengerPageComponent } from './messenger-page/messenger-page.component';
 import { MessageModalComponent } from './message-modal/message-modal.component';
 import { FormsModule } from '@angular/forms';
+import { MessagePageComponent } from './message-page/message-page.component';
 
 @NgModule({
   imports: [
@@ -18,10 +18,12 @@ import { FormsModule } from '@angular/forms';
     OverviewAvatarComponent,
     ProfilePageComponent,
     HomePageComponent,
-    MessengerPageComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    MessagePageComponent
   ],
         
-    exports:[MessageModalComponent,]
+    exports:[MessageModalComponent,
+      MessagePageComponent
+    ]
 })
 export class UserModule { }

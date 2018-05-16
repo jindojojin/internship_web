@@ -21,7 +21,7 @@
   </div>
 
   <div class="row">
-    <button *ngIf="!isFollowed && remainingDay > 0" class="btn btn-primary" (click)="onFollow()">Đăng ký</button>
-    <button *ngIf="isFollowed && remainingDay > 0" class="btn btn-primary" (click)="onFollow()">Hủy đăng ký</button>
+    <button *ngIf="job.status == 'unfollowed' && remainingDay > 0" class="btn btn-primary" (click)="onFollow()">Đăng ký</button>
+    <button *ngIf="job.status == 'followed' && remainingDay > 0" class="btn btn-primary" (click)="onFollow()">Hủy đăng ký</button>
   </div>
 </div>

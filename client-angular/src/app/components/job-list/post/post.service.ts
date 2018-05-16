@@ -10,6 +10,7 @@ export class PostService {
 
     follow(action, target, targetID) {
         var url = "http://" + myWebsiteDomain + "/student/action=" + action +  "/target=" + target + "/targetID=" + targetID;
+        console.log(url);
         return this.http.get(url, {withCredentials: true})
             .toPromise()
             .then(res => {

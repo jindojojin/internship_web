@@ -10,7 +10,6 @@ import { PostService } from './post.service';
 
 export class PostComponent implements OnInit {
   @Input() job;
-  isFollowed: boolean = false;
   action: string = "follow";
   target: string = "job";
   targetID: string;
@@ -23,17 +22,19 @@ export class PostComponent implements OnInit {
     this.jobContent = shortenJobContent(this.job.content, 300);
     this.remainingDay = calculateDiffDays(this.job);
     this.targetID = this.job.jobID;
+    console.log(this.job)
+    if (this.job.status = "followed") {
+      this.action = "unfollow";
+    } else {
+      this.action = "follow";
+    }
   }
 
   onFollow() {
     this.postService.follow(this.action, this.target, this.targetID)
       .then(res => {
-        this.isFollowed = !this.isFollowed;
-        if (this.isFollowed) {
-          this.action = "unfollow";
-        } else {
-          this.action = "follow";
-        }
+        console.log(res);
+        window.location.reload();
       })
       .catch(err => console.log(err));
   }

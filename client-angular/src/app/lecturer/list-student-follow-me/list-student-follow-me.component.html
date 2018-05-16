@@ -21,8 +21,8 @@
               <app-message-modal receiverName="{{s.studentName}}" receiverID="{{s.studentCode}}"></app-message-modal>
           </div>
 
-          <button type="button" class="btn btn-secondary">Chấp nhận</button>
-          <button type="button" class="btn btn-secondary">Từ chối</button>
+          <button type="button" class="btn btn-secondary" (click)="onAccept(s.userID)">Chấp nhận</button>
+          <button type="button" class="btn btn-secondary" (click)="onDeny(s.userID)">Từ chối</button>
         </div>
       </td>
     </tr>

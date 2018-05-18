@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AddNewPostComponent } from './add-new-post/add-new-post.component';
 import { ManagePostComponent } from './manage-post/manage-post.component';
 import { AssessStudentComponent } from './assess-student/assess-student.component';
+import { FormPartnerComponent } from './form-partner/form-partner.component';
 
 
 @NgModule({
@@ -17,8 +18,11 @@ import { AssessStudentComponent } from './assess-student/assess-student.componen
     PartnerComponent,
     AddNewPostComponent,
     ManagePostComponent,
-    AssessStudentComponent
+    AssessStudentComponent,
+    FormPartnerComponent
   ],
-  exports: [PartnerComponent],
+  exports: [PartnerComponent,
+    FormPartnerComponent
+  ],
 })
 export class PartnerModule { }

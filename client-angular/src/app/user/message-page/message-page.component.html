@@ -1,21 +1,37 @@
 <div class="container">
   <div class="row">
+
     <div class="col-4">
       <p>Message</p>
       <hr/>
       <div class="list-group">
-        <button type="button" class="list-group-item list-group-item-action active">
+        <button type="button" class="list-group-item list-group-item-action">
           Trần Quang Linh
         </button>
         <button type="button" class="list-group-item list-group-item-action">Trần Thị Minh Nguyệt</button>
         <button type="button" class="list-group-item list-group-item-action">Đinh Văn Giang</button>
       </div>
     </div>
+
     <div class="col-8">
       <br/>
       <hr/>
-      <label for="inputAddress"></label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Nhập tin nhắn ...">
-      <button type="submit" class="btn btn-primary my-2">Gửi</button>
+      <div id="message-box" class="rounded" style=" height: 500px; width: 100%; background-color: white; border: rgb(206, 206, 206) 1px solid">
+        <p style="border-radius: 10px; padding: 4px; display:inline-block; width: auto; border: dodgerblue 2px solid" class="ml-2 mr-5 mt-3">
+          ê, làm bài tập lớn chưa?
+        </p>
+        <br/>
+        <p style="border-radius: 10px; padding: 4px; display:inline-block; width: auto; border: dodgerblue 2px solid" class="ml-5 mr-2 mt-3 float-right">
+          chưa :))) ahihi!
+        </p>
+      </div>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Nhập tin nhắn ..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Gửi</button>
+        </div>
+      </div>
+
     </div>
   </div>

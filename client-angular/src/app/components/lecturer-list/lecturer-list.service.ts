@@ -11,7 +11,7 @@ export class LecturerListService {
     total:number = 9;
 
     getList() {    
-        var url = "http://" + myWebsiteDomain + "/list/users/type=lecturer/start=" + this.start + "/total=" + this.total; //api server trả về
+        var url =myWebsiteDomain + "/list/users/type=lecturer/start=" + this.start + "/total=" + this.total; //api server trả về
         return this.http.get(url,{withCredentials:true})
             .toPromise()
             .then(res => {

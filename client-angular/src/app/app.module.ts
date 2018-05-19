@@ -22,6 +22,7 @@ import { PartnerModule } from './partner/partner.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LecturerListComponent } from './components/lecturer-list/lecturer-list.component';
 import { LecturerCardComponent } from './components/lecturer-list/lecturer-card/lecturer-card.component';
+import { OcticonsModule } from './octicons/octicons.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LecturerCardComponent } from './components/lecturer-list/lecturer-card/
     PostComponent,
     SpinnerLoadingComponent, PageNotFoundComponent, LecturerListComponent, LecturerCardComponent,    
   ],
-  imports: [         
+  imports: [       
+    OcticonsModule,  
     BrowserModule,
     HttpModule,
     UserModule,    

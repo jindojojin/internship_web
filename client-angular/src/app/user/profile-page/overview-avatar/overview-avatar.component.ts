@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { getCookie } from '../../../objects/Cookiee';
 
 @Component({
@@ -7,26 +7,30 @@ import { getCookie } from '../../../objects/Cookiee';
   styleUrls: ['./overview-avatar.component.css']
 })
 export class OverviewAvatarComponent implements OnInit {
-  avatar:string = "https://www.teqport.com/images/employees/lower_res/Placeholder_no_text.svg.png";
-  userName: string ="TRẦN THỊ MINH NGUYỆT";
+  userName: string = "TRẦN THỊ MINH NGUYỆT";
   constructor() { }
+  @Input() avatar:string;
+  @Output() newAvatar = new EventEmitter();
   showIMG(event) {
-    {
-      let reader = new FileReader();
-      if(event.target.files && event.target.files.length > 0) {
-        let file = event.target.files[0];
-        reader.readAsDataURL(file);
-        console.log(file);
+    let reader = new FileReader();
+    if (event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      console.log(file);
+      let ava;
+      reader.onload = (e: any) => {
+        let ava =document.getElementById("avatar") as HTMLImageElement;
+        ava.src = e.target.result;
+        console.log(e.target.result.length);
         
-        reader.onload = () => {
-          
-        };
-      }
+        this.newAvatar.emit(file);
+      };
     }
-}
+  }
 
   ngOnInit() {
     this.userName = getCookie("nickname");
+    console.log(this.avatar);
   }
 
 }

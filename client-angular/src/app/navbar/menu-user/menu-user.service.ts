@@ -12,7 +12,7 @@ export class MenuUserService {
     getMessages() {
         console.log("da vao service lấy message")
         let userID = getCookie("userID")
-        var url = 'http://' + myWebsiteDomain + '/user/messages/action=view/start=' + 1 + '/total=' + 10;
+        var url =  myWebsiteDomain + '/user/messages/action=view/start=' + 1 + '/total=' + 10;
         // const body = JSON.stringify(value);
         return this.http.get(url, { withCredentials: true })
             .toPromise()

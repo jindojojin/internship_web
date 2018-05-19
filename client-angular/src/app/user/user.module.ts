@@ -6,25 +6,26 @@ import { OverviewAvatarComponent } from './profile-page/overview-avatar/overview
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MessageModalComponent } from './message-modal/message-modal.component';
-import { FormsModule } from '@angular/forms';
-import { FileBrowserAndUploaderComponent } from './file-browser-and-uploader/file-browser-and-uploader.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagePageComponent } from './message-page/message-page.component';
+import { OcticonsModule } from '../octicons/octicons.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    OcticonsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     OverviewAvatarComponent,
     ProfilePageComponent,
     HomePageComponent,
     MessageModalComponent,
-    FileBrowserAndUploaderComponent
+    MessagePageComponent,    
   ],
 
   exports: [MessageModalComponent, 
-    FileBrowserAndUploaderComponent,
     MessagePageComponent,
     MessageModalComponent,
   ]

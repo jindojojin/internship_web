@@ -1,19 +1,22 @@
 <div class="row">
   <div class="col-6 col-md-12">
-    <img class="mr-3" height="auto" width="200px" id="avatar" src="https://www.teqport.com/images/employees/lower_res/Placeholder_no_text.svg.png">
+    <div class="avatar" style="height:250px; width:250px">
+      <img id="avatar" [src]="avatar">
+      <button class="btn btn-primary pen_icon" (click)='fileInput.click()'>
+        <span octicons="pencil" color="white"></span>
+      </button>
+    </div>
   </div>
   <div class="col-6 col-md-12">
-    <div class=" d-md-none">
+    <div class="d-md-none">
       <br/>
       <br/>
-      <br/>    
+      <br/>
     </div>
     <div class="center">
       <br/>
-      <!-- <h5 class="">Welcome</h5> -->
-      <input (change)="showIMG($event)" type="file" id="imgFile" accept="image/jpg, image/png, image/gif">
+      <input #fileInput style="display:none;" (change)="showIMG($event)" type="file" accept="image/jpg, image/png, image/gif">
       <h6 class="ml-2 mt-3">{{userName}}</h6>
     </div>
-
   </div>
 </div>

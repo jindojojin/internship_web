@@ -12,7 +12,7 @@ export class ListStudentFollowMeService {
 
     getStudentsFollowMe() {
         let userID = getCookie("userID");
-        var url = "http://" + myWebsiteDomain + "/lecturer/getStudentsFollowMe"
+        var url = myWebsiteDomain + "/lecturer/getStudentsFollowMe"
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => res.json())
@@ -20,7 +20,7 @@ export class ListStudentFollowMeService {
     }
 
     sendActionFollow(action:string, studentID:string) {
-        var url = "http://" + myWebsiteDomain + "/lecturer/action=" + action + "/studentID=" + studentID;
+        var url = myWebsiteDomain + "/lecturer/action=" + action + "/studentID=" + studentID;
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {

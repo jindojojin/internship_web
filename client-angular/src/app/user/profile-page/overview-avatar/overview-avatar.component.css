@@ -1,7 +1,18 @@
+.avatar{
+    position: relative;
+}
 img {
     display: inline;
+    width: inherit;
+    height: inherit;
 }
 .center {
     position: relative;
     bottom: 0; 
   }
+.pen_icon{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    cursor: pointer;
+}

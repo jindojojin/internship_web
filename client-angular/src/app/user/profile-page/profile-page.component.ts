@@ -61,9 +61,9 @@ export class ProfilePageComponent implements OnInit {
   getNumberOfCanFix() {
     switch (getCookie("userType")) {
       case "student": return 8;
-      case "admin": return 2;
-      case "lecturer": return 2;
-      case "partner": return 2;
+      case "admin": return 6;
+      case "lecturer": return 6;
+      case "partner": return 4;
       default: return 0;
     }
   }
@@ -71,9 +71,9 @@ export class ProfilePageComponent implements OnInit {
   getNumberOfCantFix() {
     switch (getCookie("userType")) {
       case "student": return 10;
-      case "admin": return 2;
-      case "lecturer": return 2;
-      case "partner": return 2;
+      case "admin": return 0;
+      case "lecturer": return 0;
+      case "partner": return 0;
       default: return 0;
     }
   }

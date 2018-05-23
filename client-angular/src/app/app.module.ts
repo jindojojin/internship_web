@@ -23,6 +23,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { LecturerListComponent } from './components/lecturer-list/lecturer-list.component';
 import { LecturerCardComponent } from './components/lecturer-list/lecturer-card/lecturer-card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { OcticonsModule } from './octicons/octicons.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     PostComponent,
     SpinnerLoadingComponent, PageNotFoundComponent, LecturerListComponent, LecturerCardComponent, SidebarComponent,    
   ],
-  imports: [         
+  imports: [       
+    OcticonsModule,  
     BrowserModule,
     HttpModule,
     UserModule,    

@@ -11,7 +11,7 @@ export class JobListService {
     total:number = 10;
 
     getList() {       
-        var url = "http://" + myWebsiteDomain + "/list/jobs/start=" + this.start + "/total=" + this.total; //api server trả về
+        var url = myWebsiteDomain + "/list/jobs/start=" + this.start + "/total=" + this.total; //api server trả về
         return this.http.get(url)
             .toPromise()
             .then(res => {

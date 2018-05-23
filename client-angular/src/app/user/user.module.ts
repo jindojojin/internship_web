@@ -6,24 +6,28 @@ import { OverviewAvatarComponent } from './profile-page/overview-avatar/overview
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MessageModalComponent } from './message-modal/message-modal.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagePageComponent } from './message-page/message-page.component';
+import { OcticonsModule } from '../octicons/octicons.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    OcticonsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     OverviewAvatarComponent,
     ProfilePageComponent,
     HomePageComponent,
     MessageModalComponent,
-    MessagePageComponent
+    MessagePageComponent,    
   ],
-        
-    exports:[MessageModalComponent,
-      MessagePageComponent
-    ]
+
+  exports: [MessageModalComponent, 
+    MessagePageComponent,
+    MessageModalComponent,
+  ]
 })
 export class UserModule { }

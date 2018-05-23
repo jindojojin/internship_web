@@ -10,7 +10,7 @@ export class ManageUserService {
 
     // gửi request lấy danh sách tài khoản
     getAccounts() {
-        var url = "http://" + myWebsiteDomain + "/admin/getAccounts";
+        var url =myWebsiteDomain + "/admin/getAccounts";
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {
@@ -21,7 +21,7 @@ export class ManageUserService {
 
     // gửi request xóa tài khoản
     deleteAccount(userID) {
-        const url = "http://" + myWebsiteDomain + "/admin/deleteAccount/userID=" + userID;
+        const url =myWebsiteDomain + "/admin/deleteAccount/userID=" + userID;
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const body = JSON.stringify(userID);
         return this.http.get(url, { withCredentials: true })

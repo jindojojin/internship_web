@@ -9,7 +9,7 @@ export class MessageModalService {
 
   sendMessage(value) {
     // console.log(value);
-    let url = "http://" + myWebsiteDomain + "/user/messages/action=send";
+    let url = myWebsiteDomain + "/user/messages/action=send";
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' })
     var body = JSON.stringify(value);
     // console.log("body");

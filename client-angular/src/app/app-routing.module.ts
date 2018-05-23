@@ -9,6 +9,7 @@ import { LecturerListComponent } from './components/lecturer-list/lecturer-list.
 
 import { HomePageComponent} from './user/home-page/home-page.component'
 import { MessagePageComponent } from './user/message-page/message-page.component';
+import { FormPartnerComponent } from './partner/form-partner/form-partner.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'jobs', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'student', loadChildren: './student/student.module#StudentModule' },
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: 'tin-nhan', component: MessagePageComponent},
+  { path: 'form-cv' , component: FormPartnerComponent},
   { path: '**', redirectTo: 'page-not-found', pathMatch: 'full' }
  
 ];

@@ -9,7 +9,7 @@ export class SignInService {
     constructor(private http: Http) { }
 
     sendPost(value) {
-        const url = "http://" + myWebsiteDomain + "/signin";
+        const url = myWebsiteDomain + "/signin";
         const headers = new Headers({'Content-Type': 'application/json'})
         const body = JSON.stringify(value);
         return this.http.post(url, body, { headers },)

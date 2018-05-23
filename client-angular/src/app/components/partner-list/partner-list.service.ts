@@ -12,7 +12,7 @@ export class PartnerListService {
 
     getList() {    
         // var url = "https://api.myjson.com/bins/1hizwy";   
-        var url = "http://" + myWebsiteDomain + "/list/users/type=partner/start=" + this.start + "/total=" + this.total; //api server trả về
+        var url = myWebsiteDomain + "/list/users/type=partner/start=" + this.start + "/total=" + this.total; //api server trả về
         return this.http.get(url,{withCredentials:true})
             .toPromise()
             .then(res => {

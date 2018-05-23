@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../objects/User';
 import { getCookie } from '../objects/Cookiee';
 import { MessageModalService } from '../user/message-modal/message-modal.service';
 

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Message } from '../../objects/Messgase';
 import { deleteCookie, getCookie, deleteAllCookies } from '../../objects/Cookiee';
 import { MenuUserService } from './menu-user.service'
 import { Router } from '@angular/router';

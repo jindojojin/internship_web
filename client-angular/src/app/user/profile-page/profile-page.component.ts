@@ -28,7 +28,7 @@ export class ProfilePageComponent implements OnInit {
     if(id == getCookie("userID")) this.isMyProfile = true; else this.isMyProfile = false;
     this.profilePageService.getProfile(id).then(res => {
       console.log(res);
-      this.logo =(res.logo != "")? (myWebsiteDomain + res.logo):("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJCq8ocdeBpdZgNebcoY0sM0Fl4T5rs31ughmmkCuVGkJ9lCASlA");
+      this.logo =(res.logo != "" && res.logo != null)? (myWebsiteDomain + res.logo):("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJCq8ocdeBpdZgNebcoY0sM0Fl4T5rs31ughmmkCuVGkJ9lCASlA");
       let arrInfors = Object.keys(res).map(function (key) { // chuyển object thành mảng các trường{tên trường:giá trị}
         return { fieldName: String(key), fieldValue: res[key] };
       });

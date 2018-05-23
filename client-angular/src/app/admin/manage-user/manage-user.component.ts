@@ -9,22 +9,29 @@ import { ManageUserService } from './manage-user.service';
 })
 export class ManageUserComponent implements OnInit {
   accounts: Object;
+  type: string = "student";
 
   constructor(private manageUserService: ManageUserService) { }
 
   ngOnInit() {
-    this.manageUserService.getAccounts()
-      .then(res => {
-        this.accounts = res;
-      })
-      .catch(err => console.log(err));
+    this.onGetAccounts(this.type);
   }
 
   onDelete(userID) {
+    console.log(userID);
     this.manageUserService.deleteAccount(userID)
       .then(result => {
         window.location.reload();
       })
       .catch(err => console.log(err));
   }
+
+  onGetAccounts(type:string) {
+    this.manageUserService.getAccounts(type)
+      .then(res => {
+        this.accounts = res;
+      })
+      .catch(err => console.log(err));
+  }
+
 }

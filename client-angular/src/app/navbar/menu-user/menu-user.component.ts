@@ -42,6 +42,7 @@ export class MenuUserComponent implements OnInit {
     // console.log("đã loggedOut");
     deleteAllCookies();
     this.router.navigate(['jobs']);
+    window.location.reload();
     this.loggedOut.emit()
   }
 

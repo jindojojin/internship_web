@@ -1,5 +1,5 @@
 <div class="card mt-5" style="height:20rem">
-  <img class="logo" src="{{logoPartner}}" alt="Logo">
+  <img class="logo" [src]="logoPartner" alt="Logo">
   <div class="sticky-bottom mb-2">
     <h4 class="text-center"> {{partnerName}} </h4>
     <div *ngIf="userType == 'student'" class="btn-group d-flex justify-content-center">

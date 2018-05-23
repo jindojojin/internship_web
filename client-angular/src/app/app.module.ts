@@ -25,6 +25,10 @@ import { LecturerCardComponent } from './components/lecturer-list/lecturer-card/
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { OcticonsModule } from './octicons/octicons.module';
 
+
+import { ReplaceSpacePipe } from './objects/Pipes/replace-space.pipe';
+import { ImageFromServerPipe } from './objects/Pipes/image-from-server.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,    
@@ -32,7 +36,7 @@ import { OcticonsModule } from './octicons/octicons.module';
     PartnerCardComponent,
     JobListComponent,
     PostComponent,
-    SpinnerLoadingComponent, PageNotFoundComponent, LecturerListComponent, LecturerCardComponent, SidebarComponent,    
+    SpinnerLoadingComponent, PageNotFoundComponent, LecturerListComponent, LecturerCardComponent, SidebarComponent, ReplaceSpacePipe, ImageFromServerPipe,    
   ],
   imports: [       
     OcticonsModule,  

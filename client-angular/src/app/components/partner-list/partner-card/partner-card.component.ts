@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { getCookie } from '../../../objects/Cookiee';
+import { myWebsiteDomain } from '../../../objects/appConfig';
 // import { Partner } from '../../objects/Partner';
 
 
@@ -12,11 +13,15 @@ export class PartnerCardComponent implements OnInit {
   @Input() partnerName:string ;
   @Input() logoPartner:string;
   userType:string;
+  server:string = myWebsiteDomain;
   constructor() {
   }
 
   ngOnInit() {
     this.userType=getCookie("userType");
+    if(this.logoPartner =="") {
+      this.logoPartner = "https://www.teqport.com/images/employees/lower_res/Placeholder_no_text.svg.png";
+    }
   }
 
 }

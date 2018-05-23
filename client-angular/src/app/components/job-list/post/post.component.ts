@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from './post.service';
 import { getCookie } from '../../../objects/Cookiee';
 import { spaceTojoin } from '../../../objects/regex';
+import { myWebsiteDomain } from '../../../objects/appConfig';
 
 @Component({
   selector: 'app-post',
@@ -12,6 +13,7 @@ import { spaceTojoin } from '../../../objects/regex';
 
 export class PostComponent implements OnInit {
   @Input() job;
+  server = myWebsiteDomain; 
   userType:string;
   title_fixed:string;
   action: string = "follow";
@@ -33,6 +35,7 @@ export class PostComponent implements OnInit {
     } else {
       this.action = "follow";
     }
+    console.log(this.job);
   }
 
   onFollow() {

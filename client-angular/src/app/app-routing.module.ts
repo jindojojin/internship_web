@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'student', loadChildren: './student/student.module#StudentModule' },
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: 'tin-nhan', component: MessagePageComponent},
-  { path: 'form-cv' , component: FormPartnerComponent},
+  { path: 'bai-dang/:title/:id' , component: FormPartnerComponent},
   { path: '**', redirectTo: 'page-not-found', pathMatch: 'full' }
  
 ];

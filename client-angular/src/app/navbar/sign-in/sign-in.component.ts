@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SignInService } from './sign-in.service';
-import { User } from '../../objects/User';
 import { setCookie } from '../../objects/Cookiee';
 
 @Component({
@@ -11,7 +10,7 @@ import { setCookie } from '../../objects/Cookiee';
 })
 
 export class SignInComponent implements OnInit {
-  @Output() loggedIn = new EventEmitter<User>();
+  @Output() loggedIn = new EventEmitter();
 
   constructor(private signInService: SignInService) { }
 

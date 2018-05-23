@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from './post.service';
+import { getCookie } from '../../../objects/Cookiee';
 
 @Component({
   selector: 'app-post',
@@ -10,6 +11,7 @@ import { PostService } from './post.service';
 
 export class PostComponent implements OnInit {
   @Input() job;
+  userType:string;
   action: string = "follow";
   target: string = "job";
   targetID: string;
@@ -19,6 +21,7 @@ export class PostComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.userType = getCookie("userType");
     this.jobContent = shortenJobContent(this.job.content, 300);
     this.remainingDay = calculateDiffDays(this.job);
     this.targetID = this.job.jobID;

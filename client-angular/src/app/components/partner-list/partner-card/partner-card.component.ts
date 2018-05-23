@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { getCookie } from '../../../objects/Cookiee';
 // import { Partner } from '../../objects/Partner';
 
 
@@ -10,12 +11,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PartnerCardComponent implements OnInit {
   @Input() partnerName:string ;
   @Input() logoPartner:string;
-  
+  userType:string;
   constructor() {
   }
 
   ngOnInit() {
-    
+    this.userType=getCookie("userType");
   }
 
 }

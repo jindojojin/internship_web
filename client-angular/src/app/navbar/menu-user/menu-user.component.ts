@@ -23,7 +23,7 @@ export class MenuUserComponent implements OnInit {
   constructor(private menuUserService: MenuUserService, private router: Router) { }
 
   getMessage() {
-    console.log("bắt đầu lấy tin nhắn của người dùng");
+    // console.log("bắt đầu lấy tin nhắn của người dùng");
     this.menuUserService.getMessages()
       .then(arrMessage => {
         console.log("đã nhận về mảng tin nhắn");
@@ -35,12 +35,12 @@ export class MenuUserComponent implements OnInit {
   }
 
   reply(senderName:string, senderID:string){
-    console.log("đã vào reply");
+    // console.log("đã vào reply");
     this.replyMessage.emit({receiverName:senderName, receiverID:senderID});    
   }
 
   logOut() {
-    console.log("đã loggedOut");
+    // console.log("đã loggedOut");
     deleteAllCookies();
     this.router.navigate(['jobs']);
     this.loggedOut.emit()
@@ -58,6 +58,7 @@ export class MenuUserComponent implements OnInit {
     this.isLecturer = getCookie("userType") == "lecturer"
     this.isPartner = getCookie("userType") == "partner"
     this.isStudent = getCookie("userType") == "student"
+    console.log("day la "+ getCookie("userType"));
   }
 
 }

@@ -3,7 +3,6 @@
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" routerLink="/home">Internship-UET</a>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
@@ -21,10 +20,10 @@
       </li>
     </ul>
   </div>
-  <app-menu-user *ngIf="SignIn" [userName]="userName" (loggedOut)="updateUserInfor()" (replyMessage)="callMessageModal($event)"></app-menu-user>
   <!--đợi tín hiệu logout từ userMenu-->
-  <app-sign-in *ngIf="!SignIn" class="nav-link mr-1 float-left" (loggedIn)="updateUserInfor()"></app-sign-in>
+  <app-menu-user *ngIf="SignIn" [userName]="userName" (loggedOut)="updateUserInfor()" (replyMessage)="callMessageModal($event)"></app-menu-user>
   <!--đợi tín hiệu login từ đây-->
+  <app-sign-in *ngIf="!SignIn" class="nav-link mr-1 float-left" (loggedIn)="updateUserInfor()"></app-sign-in>
 </nav>
 <app-menu-search-bar *ngIf="isStudent" class="my-3"></app-menu-search-bar>
 

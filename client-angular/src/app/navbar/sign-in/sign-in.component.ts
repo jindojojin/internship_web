@@ -19,6 +19,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(formSignIn) {
+    window.location.reload();
     this.signInService.sendPost(formSignIn.value)
       .then(result => {
         console.log(result);        

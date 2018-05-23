@@ -22,6 +22,7 @@ import { PartnerModule } from './partner/partner.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LecturerListComponent } from './components/lecturer-list/lecturer-list.component';
 import { LecturerCardComponent } from './components/lecturer-list/lecturer-card/lecturer-card.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { LecturerCardComponent } from './components/lecturer-list/lecturer-card/
     PartnerCardComponent,
     JobListComponent,
     PostComponent,
-    SpinnerLoadingComponent, PageNotFoundComponent, LecturerListComponent, LecturerCardComponent,    
+    SpinnerLoadingComponent, PageNotFoundComponent, LecturerListComponent, LecturerCardComponent, SidebarComponent,    
   ],
   imports: [         
     BrowserModule,

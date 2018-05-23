@@ -16,21 +16,20 @@ export class ListStudentFollowMeComponent implements OnInit {
     this.listStudentFollowMeService.getStudentsFollowMe()
     .then(res =>{
       this.studentFollowMe = res;
-      // console.log(this.studentFollowMe);
     })
   }
 
   onAccept(userID) {
     this.listStudentFollowMeService.sendActionFollow("accept", userID)
     .then(res => {
-      // console.log(res);
+      window.location.reload()
     })
   }
 
   onDeny(userID) {
     this.listStudentFollowMeService.sendActionFollow("deny", userID)
     .then(res => {
-      // console.log(status);
+      window.location.reload()
     })
   }
 }

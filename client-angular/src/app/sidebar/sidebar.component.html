@@ -1,0 +1,35 @@
+<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <a class="header-text" routerLink="/home">
+      Internship UET
+    </a>
+  </div>
+  <ul class="sidebar-body">
+    <li routerLinkActive="active" class="active">
+      <a href='/profile/{{nickname}}/{{userID}}' display="inline">
+        <i octicons="person" color="white"></i>
+        <p>Thông tin cá nhân</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a href="#">
+        <i octicons="comment" color="white"></i>
+        <p>Tin nhắn</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/{{userType}}">
+        <i octicons="gear" color="white"></i>
+        <p>Chức năng</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="" (click)="logOut()">
+        <i octicons="sign-out" color="white"></i>
+        <p>Đăng xuất</p>
+      </a>
+    </li>
+  </ul>
+</div>

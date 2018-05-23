@@ -22,7 +22,6 @@ export class PostComponent implements OnInit {
     this.jobContent = shortenJobContent(this.job.content, 300);
     this.remainingDay = calculateDiffDays(this.job);
     this.targetID = this.job.jobID;
-    console.log(this.job)
     if (this.job.status = "followed") {
       this.action = "unfollow";
     } else {
@@ -33,7 +32,7 @@ export class PostComponent implements OnInit {
   onFollow() {
     this.postService.follow(this.action, this.target, this.targetID)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         window.location.reload();
       })
       .catch(err => console.log(err));

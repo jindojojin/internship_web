@@ -9,7 +9,7 @@ import { ManageInternshipTermService } from './manage-internship-term.service';
 })
 export class ManageInternshipTermComponent implements OnInit {
   terms: Object;
-  isEditing: boolean = false;
+  termIDEdit: number;
   constructor(private manageInternshipTermService: ManageInternshipTermService) { }
 
   ngOnInit() {
@@ -20,22 +20,32 @@ export class ManageInternshipTermComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-  onSubmit(newTerm) {
+  onCreate(newTerm) {
     this.manageInternshipTermService.sendNewTerm(newTerm.value)
       .then(result => {
         window.location.reload();
-        // console.log(result);
       })
       .catch(err => console.log(err));
   }
 
   onEdit(termID) {
-    this.isEditing = true;
+    this.termIDEdit = termID;
+  }
 
+  onSubmitEdit(newTermContent) {
+    console.log(newTermContent.value);
+    this.manageInternshipTermService.updateTerm(this.termIDEdit, newTermContent.value)
+    .then(result => {
+    })
+    .catch(err => console.log(err));
+  }
+
+  onCancel() {
+    this.termIDEdit = null;
   }
 
   onDelete(termID) {
-    this.manageInternshipTermService.DeleteTerm(termID)
+    this.manageInternshipTermService.deleteTerm(termID)
       .then(result => {
         window.location.reload();
         // console.log(result);

@@ -11,7 +11,8 @@ export class ManageInternshipTermService {
     // gửi request lấy danh sách các đợt thực tập
     getTerms() {
         var url = myWebsiteDomain + "/admin/getTerms"; //api server trả về
-        return this.http.get(url, {withCredentials: true})
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        return this.http.get(url, { withCredentials: true, headers })
             .toPromise()
             .then(res => {
                 // console.log(res.json());
@@ -23,9 +24,9 @@ export class ManageInternshipTermService {
     // gửi request tạo mới đợt thực tập
     sendNewTerm(value) {
         const url = myWebsiteDomain + "/admin/createTerm";
-        const headers = new Headers({ 'Content-Type': 'application/json' });
         const body = JSON.stringify(value);
-        return this.http.post(url, body, {withCredentials: true, headers })
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        return this.http.post(url, body, { withCredentials: true, headers })
             .toPromise()
             .then(res => {
                 return res.status;
@@ -34,12 +35,23 @@ export class ManageInternshipTermService {
     }
 
     // gửi request xóa đợt thực tập
-    DeleteTerm(termID) {
-        const url =myWebsiteDomain + "/admin/deleteTerm/termID=" + termID;
-        const headers = new Headers({ 'Content-Type': 'application/json' });
+    deleteTerm(termID) {
+        const url = myWebsiteDomain + "/admin/deleteTerm/termID=" + termID;
         const body = JSON.stringify(termID);
-        return this.http.get(url, {withCredentials: true})
-        // return this.http.delete(url, { headers })
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        return this.http.get(url, { withCredentials: true, headers })
+            // return this.http.delete(url, { headers })
+            .toPromise()
+            .then(res => res.json())
+            .catch(err => console.log(err));
+    }
+
+    // gửi request update đợt thực tập
+    updateTerm(termID, newTermContent) {
+        const url = myWebsiteDomain + "/admin/updateTerm/termID=" + termID;
+        const body = JSON.stringify(newTermContent);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        return this.http.put(url, body, { withCredentials: true, headers })
             .toPromise()
             .then(res => res.json())
             .catch(err => console.log(err));

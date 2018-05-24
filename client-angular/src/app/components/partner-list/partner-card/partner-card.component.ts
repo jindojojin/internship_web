@@ -10,7 +10,7 @@ import { myWebsiteDomain } from '../../../objects/appConfig';
   styleUrls: ['./partner-card.component.css']
 })
 export class PartnerCardComponent implements OnInit {
-  @Input() partnerName:string ;
+  @Input() partnerName:string;
   @Input() logoPartner:string;
   userType:string;
   server:string = myWebsiteDomain;
@@ -19,7 +19,7 @@ export class PartnerCardComponent implements OnInit {
 
   ngOnInit() {
     this.userType=getCookie("userType");
-    if(this.logoPartner =="") {
+    if(this.logoPartner == myWebsiteDomain+"") {
       this.logoPartner = "https://www.teqport.com/images/employees/lower_res/Placeholder_no_text.svg.png";
     }
   }

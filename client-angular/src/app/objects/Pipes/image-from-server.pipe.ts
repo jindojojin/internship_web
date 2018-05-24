@@ -7,7 +7,7 @@ import { myWebsiteDomain } from '../appConfig';
 export class ImageFromServerPipe implements PipeTransform {
 
   transform(value: any): string {
-    return value.toString();
-  }
+    return (value != null && value!="")?(myWebsiteDomain.toString() + value.toString()):myWebsiteDomain.toString();
+  } 
 
 }

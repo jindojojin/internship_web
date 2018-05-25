@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { getCookie } from '../../../objects/Cookiee';
+import { myWebsiteDomain } from '../../../objects/appConfig';
 
 @Component({
   selector: 'app-lecturer-card',
@@ -15,7 +16,7 @@ export class LecturerCardComponent implements OnInit {
 
   ngOnInit() {
     this.userType= getCookie("userType");
-    if(!this.lecturerAvatar) {
+    if(this.lecturerAvatar == myWebsiteDomain+"") {
       this.lecturerAvatar = "https://www.teqport.com/images/employees/lower_res/Placeholder_no_text.svg.png";
     }
   }

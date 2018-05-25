@@ -21,14 +21,18 @@ export class ManageUserComponent implements OnInit {
     console.log(userID);
     this.manageUserService.deleteAccount(userID)
       .then(result => {
-        window.location.reload();
+        console.log(result);
+        // window.location.reload();
       })
       .catch(err => console.log(err));
   }
 
-  onGetAccounts(type:string) {
+  onGetAccounts(type: string) {
     this.manageUserService.getAccounts(type)
       .then(res => {
+        res.forEach(element => {
+          console.log(element);
+        });
         this.accounts = res;
       })
       .catch(err => console.log(err));

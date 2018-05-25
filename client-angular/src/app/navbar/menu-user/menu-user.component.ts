@@ -42,7 +42,8 @@ export class MenuUserComponent implements OnInit {
     // console.log("đã loggedOut");
     deleteAllCookies();
     this.router.navigate(['jobs']);
-    this.loggedOut.emit()
+    this.loggedOut.emit();
+    window.location.reload();
   }
 
   isAdmin: boolean;

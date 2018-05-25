@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JobListService } from './job-list.service';
+import { myWebsiteDomain } from '../../objects/appConfig';
 
 @Component({
   selector: 'app-job-list',

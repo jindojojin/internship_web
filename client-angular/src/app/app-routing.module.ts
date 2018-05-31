@@ -12,7 +12,7 @@ import { MessagePageComponent } from './user/message-page/message-page.component
 import { FormPartnerComponent } from './partner/form-partner/form-partner.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'Trang-chu/cac-bai-dang-thuc-tap', pathMatch: 'full' },
+  { path: '', redirectTo: 'Trang-chu/cac-bai-dang-thuc-tap/tat-ca/_', pathMatch: 'full' },
   { path: ':type/cac-bai-dang-thuc-tap/:typeOfKey/:keySearch', component: JobListComponent,runGuardsAndResolvers: 'always' },
   { path: 'profile/:username/:id', component: ProfilePageComponent },
   { path: ':type/cac-don-vi-doi-tac', component: PartnerListComponent },

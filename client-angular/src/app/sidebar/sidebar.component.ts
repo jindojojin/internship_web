@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 
 export class SidebarComponent implements OnInit {
-  @Output() loggedOut = new EventEmitter();
   userType: string;
   userID: string;
   nickname: string;
@@ -24,9 +23,8 @@ export class SidebarComponent implements OnInit {
   }
 
   logOut() {
+    console.log("đã vào hàm logOut");
     deleteAllCookies();
     window.location.reload();
-    this.router.navigate(['']);
-    // this.loggedOut.emit();
   }
 }

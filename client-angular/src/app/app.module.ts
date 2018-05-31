@@ -30,6 +30,7 @@ import { ReplaceSpacePipe } from './objects/Pipes/replace-space.pipe';
 import { ImageFromServerPipe } from './objects/Pipes/image-from-server.pipe';
 import { MenuSearchBarComponent } from './navbar/menu-search-bar/menu-search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VietnamPipe } from './objects/Pipes/vietnam.pipe';
 
 @NgModule({
   declarations: [

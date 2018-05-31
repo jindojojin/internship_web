@@ -19,7 +19,7 @@
             <!-- thông tin user -->
             <div *ngFor="let info of cantFixInfors">
                 <div class="form-group row mb-0 ml-2">
-                    <label for="static" class="col-sm-3 col-form-label">{{info.fieldName}}:</label>
+                    <label for="static" class="col-sm-3 col-form-label">{{ info.fieldName |vietnam}} :</label>
                     <div class="col-sm-9">
                         <input type="text" readonly class="form-control-plaintext ml-2" id="static" [value]="info.fieldValue">
                     </div>
@@ -28,7 +28,7 @@
             <form (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
                 <div *ngFor="let info of canFixInfors">
                     <div class="form-group row ml-2 mb-0 mt-2">
-                            <label [for]="info.fieldName" class="col-sm-3">{{info.fieldName}}:</label>
+                            <label [for]="info.fieldName" class="col-sm-3">{{info.fieldName|vietnam}}:</label>
                         <div class="col-sm-9 mt-2">
                             <input [id]="info.fieldName" [name]="info.fieldName" type="name" class="form-control" [(id)]="info.fieldName" [(ngModel)]="info.fieldValue">
                         </div>

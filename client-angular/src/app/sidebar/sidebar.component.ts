@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
   logOut() {
     deleteAllCookies();
     window.location.reload();
-    this.router.navigate(['jobs']);
+    this.router.navigate(['']);
     // this.loggedOut.emit();
   }
 }

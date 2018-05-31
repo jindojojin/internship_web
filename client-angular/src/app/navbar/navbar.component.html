@@ -6,18 +6,19 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/partners">Các đối tác
+        <a class="nav-link" routerLink="/Trang-chu/cac-bai-dang-thuc-tap/tat-ca/_">Các bài đăng thực tập</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/Trang-chu/cac-don-vi-doi-tac">Các đối tác
           <span class="sr-only">(current)</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/lecturers">Các giảng viên
+        <a class="nav-link" routerLink="/Trang-chu/cac-giang-vien">Các giảng viên
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/jobs">Các bài đăng thực tập</a>
-      </li>
+
     </ul>
   </div>
   <!--đợi tín hiệu logout từ userMenu-->
@@ -25,11 +26,6 @@
   <!--đợi tín hiệu login từ đây-->
   <app-sign-in *ngIf="!SignIn" class="nav-link mr-1 float-left" (loggedIn)="updateUserInfor()"></app-sign-in>
 </nav>
-<app-menu-search-bar *ngIf="isStudent" class="my-3"></app-menu-search-bar>
-
-
-
-
 
 
 <!-- Button trigger modal -->

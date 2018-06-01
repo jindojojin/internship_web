@@ -20,7 +20,6 @@ import { LecturerModule } from './lecturer/lecturer.module';
 import { PartnerModule } from './partner/partner.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LecturerListComponent } from './components/lecturer-list/lecturer-list.component';
-import { LecturerCardComponent } from './components/lecturer-list/lecturer-card/lecturer-card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { OcticonsModule } from './octicons/octicons.module';
 
@@ -39,7 +38,6 @@ import { ShareModule } from './share/share.module';
     SpinnerLoadingComponent,
     PageNotFoundComponent,
     LecturerListComponent,
-    LecturerCardComponent,
     SidebarComponent,
 
   ],

@@ -12,6 +12,7 @@ import { myWebsiteDomain } from '../../../objects/appConfig';
 export class PartnerCardComponent implements OnInit {
   @Input() partnerName:string;
   @Input() logoPartner:string;
+  @Input() partnerID:string;
   userType:string;
   server:string = myWebsiteDomain;
   constructor() {

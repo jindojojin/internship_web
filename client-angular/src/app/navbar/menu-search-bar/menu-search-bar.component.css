@@ -1,19 +1,38 @@
 .background{
     background-color: rgb(55, 60, 68);
-    height: 20rem;
+    height: 16rem;
 }
 .center{
     position: relative;
-    top:50%;
+    top:40%;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 450px) {
+    .WebsiteName{
+        display: none;
+    }
     .background {
-        height: 8rem;
+        height: 5rem !important;
     }
     .center{
         position: relative;
-        top:5%;
+        top:3% !important;
+    }    
+}
+@media only screen and (max-width: 650px) {
+    .WebsiteName{
+    position: relative;
+     top: 20%;
+     color: white;
+     text-align: center;
+     font-size: 25px !important;
+    }
+    .background {
+        height: 12rem;
+    }
+    .center{
+        position: relative !important;
+        top:15px !important;
     }    
 }
 
@@ -30,7 +49,6 @@
      position: relative;
      top: 20%;
      color: white;
-     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
      text-align: center;
      font-size: 40px;
  }

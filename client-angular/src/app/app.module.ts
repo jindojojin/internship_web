@@ -31,6 +31,7 @@ import { ImageFromServerPipe } from './objects/Pipes/image-from-server.pipe';
 import { MenuSearchBarComponent } from './navbar/menu-search-bar/menu-search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VietnamPipe } from './objects/Pipes/vietnam.pipe';
+import { ShareModule } from './share/share.module';
 
 @NgModule({
   declarations: [
@@ -45,8 +46,7 @@ import { VietnamPipe } from './objects/Pipes/vietnam.pipe';
     LecturerListComponent,
     LecturerCardComponent,
     SidebarComponent,
-    ReplaceSpacePipe,
-    ImageFromServerPipe,
+
   ],
   imports: [
     OcticonsModule,
@@ -59,7 +59,8 @@ import { VietnamPipe } from './objects/Pipes/vietnam.pipe';
     PartnerModule,
     NgbModule.forRoot(),
     NavbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShareModule
   ],
   providers: [],
   bootstrap: [AppComponent]

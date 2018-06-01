@@ -4,26 +4,27 @@
     <div class="col-md-4">
       <br/>
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" style="height: 200px;" src="https://orig00.deviantart.net/9e28/f/2013/142/1/e/loggo_by_usikanadruzina-d667b1w.png"
-          alt="Logo">
-        <h1 style="margin-left: 100px; font-size: 20px;">
-          <strong>Partner</strong>
-        </h1>
+        <img class="card-img-top" style="height: auto;" src="{{job.partner_logo | imageFromServer}}" alt="Logo">
+        <a routerLink="/profile/{{ job.partner_name }}/{{job.partnerID}}">{{job.partner_name}}</a>
         <div class="card-body">
-          <p>Dịch vụ</p>
-          <p>1-50</p>
-          <p>Thứ 2-Thứ 6</p>
+          <p>Bắt đầu: {{job.startDate}}</p>
+          <p>Kết thúc: {{job.endDate}}</p>
+          <p>Số lượng: {{job.slot}}</p>
+          <p>Yêu cầu:{{job.requirements}}</p>
+          <p>Lương/ hỗ trợ:{{job.salary}}</p>
+          <button *ngIf='job.status == "unfollowed" && isStudent' class="btn btn-primary" style="width: 100%;" type="button" (click)="followJob()">Đăng ký thực tập tại đây</button>
+          <button *ngIf='job.status == "followed" && isStudent' class="btn btn-danger" style="width: 100%;" type="button" (click)="unfollowJob()">Hủy đăng ký thực tập tại đây</button>
         </div>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-7">
       <br/>
-      <h3>ĐÂY LÀ CHỖ ĐỂ HIỂN THỊ TÊN CÔNG TY</h3>
+      <h3>{{job.title}}</h3>
       <hr/>
       <br/>
 
-      <h5>3 LÝ DO ĐỂ GIA NHẬP CÔNG TY</h5>
+      <!-- <h5>3 LÝ DO ĐỂ GIA NHẬP CÔNG TY</h5>
       <ul>
         <li>lý do a</li>
         <li>Lý do b</li>
@@ -41,11 +42,12 @@
         <li>Yêu cầu 1</li>
         <li>Yêu cầu 2</li>
         <li>Yêu cầu 3</li>
-      </ul>
+      </ul> -->
+      <p class="jobContent">{{job.content}}</p>
       <br/>
-      <button class="btn btn-primary" style="width: 100%;" type="button">Ứng tuyển</button>
+
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
 
   </div>
 </div>

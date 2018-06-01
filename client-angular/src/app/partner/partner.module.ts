@@ -7,12 +7,14 @@ import { AddNewPostComponent } from './add-new-post/add-new-post.component';
 import { ManagePostComponent } from './manage-post/manage-post.component';
 import { AssessStudentComponent } from './assess-student/assess-student.component';
 import { FormPartnerComponent } from './form-partner/form-partner.component';
+import { ShareModule } from '../share/share.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    PartnerRoutingModule
+    PartnerRoutingModule,
+    ShareModule
   ],
   declarations: [
     PartnerComponent,

@@ -35,8 +35,10 @@ export class ProfilePageComponent implements OnInit {
       if( this.isMyProfile){
       let canfix = this.getNumberOfCanFix();// số thông tin có thể thay đổi
       let cantfix= this.getNumberOfCantFix(); //số thông tin không thể thay đổi
-      this.cantFixInfors = arrInfors.slice(0,cantfix);
-      this.canFixInfors = arrInfors.slice(cantfix, canfix+cantfix-1);
+      this.cantFixInfors = arrInfors.slice(0,cantfix); 
+      this.canFixInfors = arrInfors.slice(cantfix,canfix+cantfix);
+      console.log(this.cantFixInfors);
+      console.log(this.canFixInfors);
       }else{
         this.cantFixInfors = arrInfors;
       }
@@ -63,7 +65,7 @@ export class ProfilePageComponent implements OnInit {
       case "student": return 8;
       case "admin": return 6;
       case "lecturer": return 6;
-      case "partner": return 4;
+      case "partner": return 5;
       default: return 0;
     }
   }

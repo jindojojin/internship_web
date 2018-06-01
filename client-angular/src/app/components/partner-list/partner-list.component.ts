@@ -18,6 +18,7 @@ export class PartnerListComponent implements OnInit {
     this.partnerListService.getList()
       .then(res => {
         this.partners = res;
+        console.log(this.partners);
       })
       .catch(err => console.log(err));
   }

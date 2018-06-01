@@ -7,7 +7,6 @@ import { Http, Headers, HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PartnerListComponent } from './components/partner-list/partner-list.component';
-import { PartnerCardComponent } from './components/partner-list/partner-card/partner-card.component';
 import { PostComponent } from './components/job-list/post/post.component';
 import { JobListComponent } from './components/job-list/job-list.component';
 import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
@@ -26,11 +25,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { OcticonsModule } from './octicons/octicons.module';
 
 
-import { ReplaceSpacePipe } from './objects/Pipes/replace-space.pipe';
-import { ImageFromServerPipe } from './objects/Pipes/image-from-server.pipe';
 import { MenuSearchBarComponent } from './navbar/menu-search-bar/menu-search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { VietnamPipe } from './objects/Pipes/vietnam.pipe';
 import { ShareModule } from './share/share.module';
 
 @NgModule({
@@ -38,7 +34,6 @@ import { ShareModule } from './share/share.module';
     AppComponent,
     MenuSearchBarComponent,
     PartnerListComponent,
-    PartnerCardComponent,
     JobListComponent,
     PostComponent,
     SpinnerLoadingComponent,

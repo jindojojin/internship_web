@@ -2,7 +2,7 @@
   <div class="col-6 col-md-12">
     <div class="avatar" style="height:250px; width:250px">
       <img id="avatar" [src]="avatar">
-      <button class="btn btn-primary pen_icon" (click)='fileInput.click()'>
+      <button *ngIf="canModify" class="btn btn-primary pen_icon" (click)='fileInput.click()'>
         <span octicons="pencil" color="white"></span>
       </button>
     </div>
@@ -16,7 +16,7 @@
     <div class="center">
       <br/>
       <input #fileInput style="display:none;" (change)="showIMG($event)" type="file" accept="image/jpg image/png image/gif">
-      <h6 class="ml-2 mt-3">{{userName}}</h6>
+      <h6 class="name my-2">{{userName}}</h6>
     </div>
   </div>
 </div>

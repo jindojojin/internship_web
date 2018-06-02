@@ -7,18 +7,21 @@ import { ListStudentFollowMeComponent } from './list-student-follow-me/list-stud
 import { LecturerRoutingModule } from './lecturer-routing.module'
 import { MessageModalComponent } from '../user/message-modal/message-modal.component';
 import { UserModule } from '../user/user.module';
+import { LecturerService } from './lecturer.service';
+import { ShareModule } from '../share/share.module';
 
 @NgModule({
   imports: [
     CommonModule,
     LecturerRoutingModule,
-    UserModule
+    UserModule,
+    ShareModule
   ],
   declarations: [LecturerComponent, 
     ListStudentComponent,
     ListPlanReportComponent,
     ListStudentFollowMeComponent,
   ],
-  providers:[]
+  providers:[LecturerService]
 })
 export class LecturerModule { }

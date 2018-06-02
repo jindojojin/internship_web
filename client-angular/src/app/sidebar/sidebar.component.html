@@ -39,12 +39,25 @@
           <p>Báo cáo toàn văn</p>
         </a>
       </li>
-    <li routerLinkActive="active">
-      <a routerLink="/{{userType}}">
-        <i octicons="gear" color="white"></i>
-        <p>Chức năng</p>
+
+      <!-- lecturer only -->
+    <li *ngIf="(user| isLecturer)" routerLinkActive="active">
+      <a routerLink="/lecturer/danh-sách-sinh-viên-đang-chờ">
+        <i octicons="organization" color="white"></i>
+        <p>Sinh viên đang chờ</p>
       </a>
     </li>
+    <li *ngIf="(user| isLecturer)" routerLinkActive="active">
+      <a routerLink="/lecturer/danh-sách-sinh-viên-đang-hướng-dẫn">
+        <i octicons="book" color="white"></i>
+        <p>Sinh viên đang hướng dẫn</p>
+      </a>
+    </li>
+    
+
+
+
+    
     <hr>
     <li routerLinkActive="active">
       <a routerLink="" (click)="logOut()">

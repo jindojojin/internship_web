@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { deleteCookie, getCookie, deleteAllCookies } from '../../objects/Cookiee';
 import { MenuUserService } from './menu-user.service'
 import { Router } from '@angular/router';
+import { isReplyMessage } from '../../objects/regex';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   providers: [MenuUserService]
 })
 export class MenuUserComponent implements OnInit {
-  sumOfNotification: number;
+  sumOfNotification: number=0;
   @Output() loggedOut = new EventEmitter();
   @Output() replyMessage = new EventEmitter();
   @Input() userName: string;
@@ -25,19 +26,30 @@ export class MenuUserComponent implements OnInit {
     // console.log("bắt đầu lấy tin nhắn của người dùng");
     this.menuUserService.getMessages()
       .then(arrMessage => {
-        console.log("đã nhận về mảng tin nhắn");
-        console.log(arrMessage);
+        // console.log("đã nhận về mảng tin nhắn");
+        // console.log(arrMessage);
         this.sumOfNotification = arrMessage.length;
         this.notifications = arrMessage;
       })
       .catch(e => console.log(e));
   }
 
-  reply(senderName:string, senderID:string){
+  reply(senderName:string, senderID:string, title:string){
+    title = isReplyMessage(title) ? title: ("Re: "+title);
     // console.log("đã vào reply");
-    this.replyMessage.emit({receiverName:senderName, receiverID:senderID});    
+    this.replyMessage.emit({receiverName:senderName, receiverID:senderID, messageTitle:title});    
   }
-
+  markRead(messageID){
+    this.menuUserService.markMessageAsRead(messageID)
+    .then(r=> this.ngOnInit())
+    .catch(e => this.ngOnInit())
+  }
+async markAllRead(){
+  await this.notifications.forEach(element => {
+    this.menuUserService.markMessageAsRead(element.messageID);
+  });
+  this.ngOnInit();
+}
   logOut() {
     // console.log("đã loggedOut");
     deleteAllCookies();

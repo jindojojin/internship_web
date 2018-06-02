@@ -9,3 +9,7 @@ export function calculateDiffDays(job) {
     var diffDays = Math.round((endDate.getTime() - today.getTime()) / (oneDay));
     return diffDays;
   }
+export function isReplyMessage(string){
+    let template =  /Re:(.)*/;
+    return template.test(string);        
+}

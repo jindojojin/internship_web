@@ -22,9 +22,11 @@ export class NavbarComponent implements OnInit {
 
   receiverID:string;
   receiverName:string;
+  messageTitle:string="Tiêu đề";
   callMessageModal(obj){
     this.receiverID = obj.receiverID;
     this.receiverName = obj.receiverName;
+    this.messageTitle=obj.messageTitle;
     document.getElementById("btn-modal").click();
   }
   constructor() { }

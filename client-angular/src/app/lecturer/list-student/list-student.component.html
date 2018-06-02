@@ -11,11 +11,16 @@
     <tr *ngFor="let s of myStudents">
       <th scope="row">{{s.studentCode}}</th>
       <!-- <td></td> -->
-      <td><a routerLink="/profile/{{s.name}}/{{s.userID}}">{{s.name}}</a></td>
+      <td> <a routerLink="/profile/{{s.studentName}}/{{s.userID}}">{{s.studentName}}</a></td>
       <!-- <td>{{s.vnumail}}</td> -->
       <td>
         <div class="btn-group btn-group-sm" role="group">
-            <button type="button" class="btn btn-secondary">Gửi tin nhắn</button>          
+            <button type="button" class="btn btn-secondary" data-toggle="modal" [attr.data-target]=" '#'+ s.studentCode">
+                Gửi tin nhắn
+              </button>
+              <div class="modal fade" [id]="s.studentCode" tabindex="-1" role="dialog">
+                  <app-message-modal receiverName="{{s.studentName}}" receiverID="{{s.userID}}"></app-message-modal>
+              </div>       
             <button type="button" class="btn btn-secondary">Xem các báo cáo</button>          
             <button type="button" class="btn btn-secondary">Chấm điểm</button>          
           <button type="button" class="btn btn-secondary">Viết đánh giá</button>

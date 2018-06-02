@@ -7,9 +7,9 @@ export class MessageModalService {
 
   constructor(private http: Http) { }
 
-  sendMessage(value) {
+  sendMessage(value,sendNew) {
     // console.log(value);
-    let url = myWebsiteDomain + "/user/messages/action=send";
+    let url =(sendNew=="true")?(myWebsiteDomain + "/user/messages/action=send"): (myWebsiteDomain+"/user/messages/action=reply");
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' })
     var body = JSON.stringify(value);
     // console.log("body");
@@ -17,6 +17,14 @@ export class MessageModalService {
 
     return this.http.post(url, body, { withCredentials: true, headers: new Headers({ 'Content-Type': 'application/json' }) })
       .toPromise()
-      .then(r => r.json());
+      .then(r => {
+        console.log(r);
+        if(r.status == 201) return true;
+        return false;
+      })
+      .catch(e => {
+        console.log(e);
+        return false;
+      })
   }
 }

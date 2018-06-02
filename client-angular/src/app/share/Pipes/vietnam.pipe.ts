@@ -42,11 +42,11 @@ export class VietnamPipe implements PipeTransform {
       case "orientation":
         return "Định hướng";
       case "department":
-        return "Khoa";
+        return "Đơn vị công tác";
       case "note":
         return "Ghi chú";
-      // case "":
-      //   return "";
+      case "skills":
+        return "Kỹ năng";
       // case "":
       //   return "";
 

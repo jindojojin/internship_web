@@ -7,12 +7,16 @@ import { IsStudentPipe } from './Pipes/is-student.pipe';
 import { IsAdminPipe } from './Pipes/is-admin.pipe';
 import { IsLecturerPipe } from './Pipes/is-lecturer.pipe';
 import { IsPartnerPipe } from './Pipes/is-partner.pipe';
+import { PostComponent } from '../components/job-list/post/post.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { NavbarModule } from '../navbar/navbar.module';
+import { LimitTitlePipe } from './Pipes/limit-title.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe, IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe],
-  exports:[VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe,IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe]
+  declarations: [VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe, IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe, LimitTitlePipe],
+  exports:[VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe,IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe,LimitTitlePipe]
 })
 export class ShareModule { }

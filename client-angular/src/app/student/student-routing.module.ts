@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { StudentComponent } from './student.component';
-import { ManageSkillComponent } from './manage-skill/manage-skill.component';
 import { ManagePlanReportComponent } from './manage-plan-report/manage-plan-report.component';
 import { StudentGuard } from './student.guard';
+import { ListFavoriteComponent } from './list-favorite/list-favorite.component';
 const routes_Student: Routes=[ {
     path: 'student',
     component: StudentComponent ,
@@ -11,24 +11,24 @@ const routes_Student: Routes=[ {
     children:[
       {
         path:"",
-        redirectTo:"quản-lý-kỹ-năng-nghề-nghiệp",
+        redirectTo:"quan-ly-bao-cao-dinh-ky",
         pathMatch:'full'
       },
       {
-        path:'quản-lý-kỹ-năng-nghề-nghiệp',
-        component: ManageSkillComponent,
+        path:'danh-sach-theo-doi',
+        component: ListFavoriteComponent,
       },
       {
-        path:'quản-lý-báo-cáo-định-kỳ',
+        path:'quan-ly-bao-cao-dinh-ky',
         component: ManagePlanReportComponent,
       },
       {
-        path:'quản-lý-báo-cáo-toàn-văn',
+        path:'quan-ly-bao-cao-toan-van',
         component: ManagePlanReportComponent,
       },
     ]
   },
-  {path: '**', redirectTo:'quản-lý-kỹ-năng-nghề-nghiệp',pathMatch:'full'}
+  {path: '**', redirectTo:'quan-ly-bao-cao-dinh-ky',pathMatch:'full'}
   
 ];
 

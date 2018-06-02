@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 import { myWebsiteDomain } from '../../objects/appConfig';
 import { getCookie } from '../../objects/Cookiee';
-import { StudentService } from '../../student.service';
+import { StudentService } from '../../student/student.service';
+import { calculateDiffDays } from '../../objects/regex';
 
 @Component({
   selector: 'app-form-partner',
@@ -15,6 +16,7 @@ export class FormPartnerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: Http, private studentService: StudentService) { }
   job: any;
   isStudent: boolean;
+  validToFollow:boolean;
 
   followJob() {
     let partner_name = this.job.partner_name;
@@ -56,6 +58,8 @@ export class FormPartnerComponent implements OnInit {
       .then(r => {
         this.job = r.json();
         console.log(this.job);
+    this.validToFollow= (calculateDiffDays(this.job) >=0)?true:false;
+        
       })
       .catch(e => { console.log(e) })
   }

@@ -52,8 +52,8 @@ import { ShareModule } from './share/share.module';
     PartnerModule,
     NgbModule.forRoot(),
     NavbarModule,
+    ShareModule,    
     ReactiveFormsModule,
-    ShareModule
   ],
   providers: [],
   bootstrap: [AppComponent]

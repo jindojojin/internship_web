@@ -19,12 +19,33 @@
         <p>Tin nhắn</p>
       </a>
     </li>
+    <!-- student only -->
+    <hr>
+    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+      <a routerLink="/student/danh-sach-theo-doi">
+        <i octicons="heart" color="white"></i>
+        <p>Danh sách theo dõi</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+      <a routerLink="/student/quan-ly-bao-cao-dinh-ky">
+        <i octicons="book" color="white"></i>
+        <p>Báo cáo định kỳ</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+        <a routerLink="/student/quan-ly-bao-cao-toan-van">
+          <i octicons="mortar-board" color="white"></i>
+          <p>Báo cáo toàn văn</p>
+        </a>
+      </li>
     <li routerLinkActive="active">
       <a routerLink="/{{userType}}">
         <i octicons="gear" color="white"></i>
         <p>Chức năng</p>
       </a>
     </li>
+    <hr>
     <li routerLinkActive="active">
       <a routerLink="" (click)="logOut()">
         <i octicons="sign-out" color="white"></i>

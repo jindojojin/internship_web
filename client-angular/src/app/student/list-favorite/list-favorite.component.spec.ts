@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageSkillComponent } from './manage-skill.component';
+import { ListFavoriteComponent } from './list-favorite.component';
 
-describe('ManageSkillComponent', () => {
-  let component: ManageSkillComponent;
-  let fixture: ComponentFixture<ManageSkillComponent>;
+describe('ListFavoriteComponent', () => {
+  let component: ListFavoriteComponent;
+  let fixture: ComponentFixture<ListFavoriteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageSkillComponent ]
+      declarations: [ ListFavoriteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageSkillComponent);
+    fixture = TestBed.createComponent(ListFavoriteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

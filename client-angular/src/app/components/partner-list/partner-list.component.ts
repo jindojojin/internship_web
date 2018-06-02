@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PartnerListService } from './partner-list.service';
 import { myWebsiteDomain } from '../../objects/appConfig';
-import { StudentService } from '../../student.service';
+import { StudentService } from '../../student/student.service';
 
 @Component({
   selector: 'app-partner-list',

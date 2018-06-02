@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LecturerListService } from './lecturer-list.service'
 import { myWebsiteDomain } from '../../objects/appConfig';
-import { StudentService } from '../../student.service';
+import { StudentService } from '../../student/student.service';
 
 @Component({
   selector: 'app-lecturer-list',

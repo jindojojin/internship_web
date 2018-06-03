@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LecturerService } from '../lecturer.service';
 
 @Component({
   selector: 'app-list-student',
@@ -28,9 +29,16 @@ export class ListStudentComponent implements OnInit {
       vnumail: "16021031"
     },
 ]
-  constructor() { }
+  constructor(private lecturerService: LecturerService) { }
 
   ngOnInit() {
+    this.lecturerService.getListStudent()
+    .then(r=>{
+      console.log(r);
+      if(r != false){
+        this.myStudents = r;
+      }
+    })
   }
 
 }

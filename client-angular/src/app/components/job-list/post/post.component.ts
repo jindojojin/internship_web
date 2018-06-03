@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from './post.service';
 import { getCookie } from '../../../objects/Cookiee';
-import { spaceTojoin } from '../../../objects/regex';
+import { spaceTojoin, calculateDiffDays } from '../../../objects/regex';
 import { myWebsiteDomain } from '../../../objects/appConfig';
 
 @Component({
@@ -55,11 +55,3 @@ function shortenJobContent(content:string, length:number) {
   return content;
 }
 
-function calculateDiffDays(job) {
-  var jobDate = job.endDate.split("-");
-  var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-  var endDate = new Date(jobDate[0], jobDate[1] - 1, jobDate[2]);
-  var today = new Date();
-  var diffDays = Math.round((endDate.getTime() - today.getTime()) / (oneDay));
-  return diffDays;
-}

@@ -17,6 +17,8 @@ export class ProfilePageComponent implements OnInit {
   isMyProfile:boolean;
   logo:string;
   fileLogoToUpload:File;
+  userName:string;
+  id:string;
 
   constructor(private route: ActivatedRoute,private profilePageService: ProfilePageService) { }
 
@@ -24,9 +26,10 @@ export class ProfilePageComponent implements OnInit {
     this.initPage();      
   }
   initPage(){
-    let id = this.route.snapshot.paramMap.get('id');
-    if(id == getCookie("userID")) this.isMyProfile = true; else this.isMyProfile = false;
-    this.profilePageService.getProfile(id).then(res => {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.userName = this.route.snapshot.paramMap.get('username');
+    if(this.id == getCookie("userID")) this.isMyProfile = true; else this.isMyProfile = false;
+    this.profilePageService.getProfile(this.id).then(res => {
       console.log(res);
       this.logo =(res.logo != "" && res.logo != null)? (myWebsiteDomain + res.logo):("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJCq8ocdeBpdZgNebcoY0sM0Fl4T5rs31ughmmkCuVGkJ9lCASlA");
       let arrInfors = Object.keys(res).map(function (key) { // chuyển object thành mảng các trường{tên trường:giá trị}
@@ -35,10 +38,12 @@ export class ProfilePageComponent implements OnInit {
       if( this.isMyProfile){
       let canfix = this.getNumberOfCanFix();// số thông tin có thể thay đổi
       let cantfix= this.getNumberOfCantFix(); //số thông tin không thể thay đổi
-      this.cantFixInfors = arrInfors.slice(0,cantfix);
-      this.canFixInfors = arrInfors.slice(cantfix, canfix+cantfix-1);
+      this.cantFixInfors = arrInfors.slice(0,cantfix); 
+      this.canFixInfors = arrInfors.slice(cantfix,canfix+cantfix);
+      // console.log(this.cantFixInfors);
+      // console.log(this.canFixInfors);
       }else{
-        this.cantFixInfors = arrInfors;
+        this.cantFixInfors = arrInfors.slice(0,arrInfors.length - 2);
       }
       // console.log(this.userInfors);
     }
@@ -63,19 +68,19 @@ export class ProfilePageComponent implements OnInit {
       case "student": return 8;
       case "admin": return 6;
       case "lecturer": return 6;
-      case "partner": return 4;
+      case "partner": return 5;
       default: return 0;
     }
   }
 
   getNumberOfCantFix() {
-    switch (getCookie("userType")) {
-      case "student": return 10;
-      case "admin": return 0;
-      case "lecturer": return 0;
-      case "partner": return 0;
-      default: return 0;
-    }
+      switch (getCookie("userType")) {
+        case "student": return 11;
+        case "admin": return 0;
+        case "lecturer": return 0;
+        case "partner": return 0;
+        default: return 0;
+      }
   }
 
 }

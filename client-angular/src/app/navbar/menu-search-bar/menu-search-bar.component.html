@@ -1,14 +1,15 @@
 <div class="background">
+  <h3 class="WebsiteName">Trang quản lý thực tập trường Đại học Công nghệ- ĐHQGHN</h3>  
   <div class="row center">
     <div class="col-md-2 col-xs-1"></div>
     <div class="col-md-8 col-xs-9">
-      <form class="my-2 my-lg-0">
+      <form class="my-2 my-lg-0" (ngSubmit)="onSearchSubmit()" [formGroup]="formSearch">
         <div class="input-group input-group-lg mb-3">
-          <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" autofocus aria-label="Search">
-          <select class="mr-sm-2" id="inputGroupSelect02">
-            <option selected value="0">Tên bài đăng</option>
-            <option value="1">Tên đối tác</option>
-            <option value="2">Nội dung bài đăng</option>
+          <input class="form-control mr-sm-2" type="search" formControlName = "keySearch" placeholder="Tìm kiếm" autofocus aria-label="Search">
+          <select class="mr-sm-2" formControlName="typeOfKey">
+            <option ngValue="title">Tên bài đăng</option>
+            <option ngValue="partnerName">Tên đối tác</option>
+            <option ngValue="content">Nội dung bài đăng</option>
           </select>
           <div class="input-group-append">
               <button class="btn btn-outline-primary" type="submit">Tìm kiếm</button>

@@ -1,7 +1,25 @@
 <div class="container">
   <div class="row card-group">
       <div class="col-lg-4 col-md-6" *ngFor="let lecturer of lecturers">
-        <app-lecturer-card routerLink="/profile/{{ lecturer.name | replaceSpace }}/{{lecturer.account_userID }}" [lecturerName]="lecturer.name" lecturerAvatar="{{ lecturer.logo | imageFromServer }}"></app-lecturer-card>
+        <!-- <app-lecturer-card routerLink="/profile/{{ lecturer.name | replaceSpace }}/{{lecturer.account_userID }}" [lecturerName]="lecturer.name" lecturerAvatar="{{ lecturer.logo | imageFromServer }}"></app-lecturer-card> -->
+        <div class="card mt-5" style="height:20rem">
+            <img class="avatar" src="{{ lecturer.logo | imageFromServer }}" alt="Avatar">
+            <div class="sticky-bottom mb-2">
+              <h4 class="text-center"> {{ lecturer.name }} </h4>
+              <div *ngIf="(user | isStudent) && lecturer.status=='unfollowed'" class="btn-group d-flex justify-content-center">
+                <button (click)="follow(lecturer.account_userID,lecturer.name)" class="btn btn-primary">Follow</button>
+                <button class="btn btn-primary align-bottom" disabled data-toggle="tooltip" data-placement="bottom" title="Mỗi sinh viên chỉ được chọn một giảng viên làm người hướng dẫn">
+                  <span octicons="question" color="white"></span>
+                </button>
+              </div>
+              <div *ngIf="(user | isStudent) && lecturer.status=='followed'" class="btn-group d-flex justify-content-center">
+                  <button (click)="unfollow(lecturer.account_userID,lecturer.name)" class="btn btn-danger">Unfollow</button>
+                  <button class="btn btn-primary align-bottom" disabled data-toggle="tooltip" data-placement="bottom" title="Mỗi sinh viên chỉ được chọn một giảng viên làm người hướng dẫn">
+                    <span octicons="question" color="white"></span>
+                  </button>
+                </div>
+            </div>
+          </div>
       </div>
   </div>
 </div>

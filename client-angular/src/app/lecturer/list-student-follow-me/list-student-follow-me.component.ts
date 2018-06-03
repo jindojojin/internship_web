@@ -22,14 +22,14 @@ export class ListStudentFollowMeComponent implements OnInit {
   onAccept(userID) {
     this.listStudentFollowMeService.sendActionFollow("accept", userID)
     .then(res => {
-      window.location.reload()
+      this.ngOnInit();
     })
   }
 
   onDeny(userID) {
     this.listStudentFollowMeService.sendActionFollow("deny", userID)
     .then(res => {
-      window.location.reload()
+      this.ngOnInit();
     })
   }
 }

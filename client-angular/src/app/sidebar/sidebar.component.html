@@ -19,12 +19,46 @@
         <p>Tin nhắn</p>
       </a>
     </li>
-    <li routerLinkActive="active">
-      <a routerLink="/{{userType}}">
-        <i octicons="gear" color="white"></i>
-        <p>Chức năng</p>
+    <!-- student only -->
+    <hr>
+    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+      <a routerLink="/student/danh-sach-theo-doi">
+        <i octicons="heart" color="white"></i>
+        <p>Danh sách theo dõi</p>
       </a>
     </li>
+    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+      <a routerLink="/student/quan-ly-bao-cao-dinh-ky">
+        <i octicons="book" color="white"></i>
+        <p>Báo cáo định kỳ</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+        <a routerLink="/student/quan-ly-bao-cao-toan-van">
+          <i octicons="mortar-board" color="white"></i>
+          <p>Báo cáo toàn văn</p>
+        </a>
+      </li>
+
+      <!-- lecturer only -->
+    <li *ngIf="(user| isLecturer)" routerLinkActive="active">
+      <a routerLink="/lecturer/danh-sách-sinh-viên-đang-chờ">
+        <i octicons="organization" color="white"></i>
+        <p>Sinh viên đang chờ</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isLecturer)" routerLinkActive="active">
+      <a routerLink="/lecturer/danh-sách-sinh-viên-đang-hướng-dẫn">
+        <i octicons="book" color="white"></i>
+        <p>Sinh viên đang hướng dẫn</p>
+      </a>
+    </li>
+    
+
+
+
+    
+    <hr>
     <li routerLinkActive="active">
       <a routerLink="" (click)="logOut()">
         <i octicons="sign-out" color="white"></i>

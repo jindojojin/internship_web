@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LecturerCardComponent } from './lecturer-card.component';
+import { ListFavoriteComponent } from './list-favorite.component';
 
-describe('LecturerCardComponent', () => {
-  let component: LecturerCardComponent;
-  let fixture: ComponentFixture<LecturerCardComponent>;
+describe('ListFavoriteComponent', () => {
+  let component: ListFavoriteComponent;
+  let fixture: ComponentFixture<ListFavoriteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LecturerCardComponent ]
+      declarations: [ ListFavoriteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LecturerCardComponent);
+    fixture = TestBed.createComponent(ListFavoriteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

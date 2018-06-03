@@ -11,6 +11,8 @@ import { MessageModalService } from './message-modal.service';
 export class MessageModalComponent implements OnInit {
   @Input() receiverName:string;
   @Input() receiverID:string;
+  @Input() sendNew:string ="true";
+  @Input() title:string="Tiêu đề"
   constructor(private messageModalService: MessageModalService) {}
   messageWasSent:boolean=false;
 
@@ -18,14 +20,15 @@ export class MessageModalComponent implements OnInit {
     console.log("đã submit");
     console.log(messageForm.value);
     
-    
+    messageForm.value.title= this.title;
     let value = {title:messageForm.value.title, content:messageForm.value.content,receiverID:this.receiverID};
-    this.messageModalService.sendMessage(value).then(
+    this.messageModalService.sendMessage(value,this.sendNew).then(
       r=> {
+        console.log(r);
        this.messageWasSent=true;
        setTimeout(() => {
-        document.getElementById("closeModal").click();
-       }, 1000);
+        document.getElementById(this.receiverID).click();
+       }, 600);
       }
     ).catch(e => console.log(e)
     )

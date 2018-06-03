@@ -12,11 +12,11 @@ import { MessagePageComponent } from './user/message-page/message-page.component
 import { FormPartnerComponent } from './partner/form-partner/form-partner.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'jobs', pathMatch: 'full' },
-  { path: 'jobs', component: JobListComponent },
+  { path: '', redirectTo: 'Trang-chu/cac-bai-dang-thuc-tap/tat-ca/_', pathMatch: 'full' },
+  { path: ':type/cac-bai-dang-thuc-tap/:typeOfKey/:keySearch', component: JobListComponent,runGuardsAndResolvers: 'always' },
   { path: 'profile/:username/:id', component: ProfilePageComponent },
-  { path: 'partners', component: PartnerListComponent },
-  { path: 'lecturers', component: LecturerListComponent },
+  { path: ':type/cac-don-vi-doi-tac', component: PartnerListComponent },
+  { path: ':type/cac-giang-vien', component: LecturerListComponent },
   { path:'home',component: HomePageComponent},
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'lecturer', loadChildren: './lecturer/lecturer.module#LecturerModule' },
@@ -31,7 +31,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)],
+    RouterModule.forRoot(routes, {onSameUrlNavigation:'reload'})],
   providers: [
   ],
   exports: [RouterModule],

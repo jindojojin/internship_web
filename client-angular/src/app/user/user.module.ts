@@ -9,13 +9,15 @@ import { MessageModalComponent } from './message-modal/message-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagePageComponent } from './message-page/message-page.component';
 import { OcticonsModule } from '../octicons/octicons.module';
+import { ShareModule } from '../share/share.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     OcticonsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShareModule
   ],
   declarations: [
     OverviewAvatarComponent,

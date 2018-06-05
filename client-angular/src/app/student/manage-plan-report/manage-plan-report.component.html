@@ -1,1 +1,38 @@
-<hr>
+<h3 class="title">Quản lý báo cáo</h3>
+<div class="accordion" id="accordionExample">
+    <div class="card" *ngFor="let report of reports">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#'+report.planReportID" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    {{report.title}}
+                </button>
+            </h5>
+        </div>
+
+        <div [id]="report.planReportID" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card float-right" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">File đính kèm</h5>
+                    <p class="card-text">{{report['file.fileName']}}</p>
+                    <button *ngIf="report['file.fileID'] != null" class="btn btn-primary" (click)='fileInput.click()'>Sử dụng file khác</button>
+                    <button *ngIf="report['file.fileID'] == null" class="btn btn-primary" (click)='fileInput.click()'>Tải file lên</button>
+                    
+                    <a href="{{myWebSiteDomain}}/download/id={{report['file.fileID']}}/{{report['file.fileName']}}" class="card-link">Tải về</a>
+                </div>
+            </div>
+            <input (change)="sendNewReportFile($event,report.planReportID)" #fileInput style="display: none" type="file" accept=".doc, .zip, .docx">
+            <div class="card-body">
+                <div *ngFor="let cmt of report.cmts">
+                    <p><a href="">{{cmt.commenter}}</a>: {{cmt.content}}</p>
+                </div>
+                <div class="input-group mb-3" style="max-width: 70%;">
+                    <textarea class="form-control" placeholder="Thêm bình luận ..."></textarea>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">Gửi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

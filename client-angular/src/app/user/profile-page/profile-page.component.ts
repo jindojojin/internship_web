@@ -59,8 +59,8 @@ export class ProfilePageComponent implements OnInit {
     formData.append("logo",this.fileLogoToUpload);
     formData.append("infor",JSON.stringify(formProfile.value));
     console.log(formData);
-    this.profilePageService.updateProfile(formData).then(r => {window.alert("Đã cập nhập profile thành công!");window.location.reload()})
-    .catch(e => {console.log(e); window.alert("Đã xảy ra lỗi ở server, cập nhập profile thất bại")});    
+    this.profilePageService.updateProfile(formData).then(r => {window.alert("Đã cập nhập profile thành công!");this.ngOnInit()})
+    .catch(e => {console.log(e); window.alert("Đã xảy ra lỗi ở server, cập nhập profile thất bại");this.ngOnInit()});    
   }
 
   getNumberOfCanFix() {

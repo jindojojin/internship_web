@@ -14,15 +14,49 @@
       <div class="row">
         <div class="col-lg-3 col-md-4" *ngFor="let lecturer of lecturerFollowed">
           <div class="card my-2 mx-1" style="height:18rem">
+            <span *ngIf="lecturer.status=='waiting'" class="badge badge-warning">Đang đợi xác nhận</span>
+            <span *ngIf="lecturer.status=='accepted'" class="badge badge-success">Giảng viên đã đồng ý</span>
+
             <img class="logo" src="{{ lecturer.logo | imageFromServer }}" alt="Logo">
             <div class="sticky-bottom mb-2">
               <h4 class="text-center"> {{lecturer.name}} </h4>
               <div class="btn-group d-flex justify-content-center">
                 <button class="btn btn-primary" routerLink="/profile/{{lecturer.name | replaceSpace}}/{{lecturer.lecturerID}}">Thông tin</button>
-                <button (click)="unfollowLecturer(lecturer.lecturerID,lecturer.name)" class="btn btn-danger align-bottom" data-toggle="tooltip"
-                  data-placement="bottom" title="Hủy đăng ký giảng viên này">
+                <button *ngIf="lecturer.status=='waiting'" (click)="unfollowLecturer(lecturer.lecturerID,lecturer.name)" class="btn btn-danger align-bottom"
+                  data-toggle="tooltip" data-placement="bottom" title="Hủy đăng ký giảng viên này">
                   <span octicons="circle-slash" color="white"></span>
                 </button>
+
+                <!-- Button trigger modal -->
+                <button *ngIf="lecturer.status=='accepted'" type="button" class="btn btn-primary btn-danger align-bottom" data-toggle="modal"
+                  title="Hủy đăng ký giảng viên này" data-target="#unfollowLecturer">
+                  <span octicons="circle-slash" color="white"></span>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="unfollowLecturer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        Giảng viên này đã đồng ý hướng dẫn bạn trong quá trình thực tập, bạn chỉ nên hủy đăng ký nếu việc thực tập chưa diễn ra và
+                        đã có sự trao đổi lý do với giảng viên này!
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button (click)="unfollowLecturer(lecturer.lecturerID,lecturer.name)" type="button" class="btn btn-danger">Tôi hiểu và vẫn tiếp tục</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
               </div>
             </div>
           </div>
@@ -68,7 +102,7 @@
         </button>
       </h5>
     </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
       <div *ngFor="let job of listJobFollowed">
         <!-- <app-post [job] = "job"></app-post> -->
         <div class="card mt-3">
@@ -77,6 +111,11 @@
               <div class="col-sm-8 col-md-9">
                 <h5>{{job.partnerName}}: {{job.title}}</h5>
               </div>
+              <div class="col-sm-4 col-md-3">
+                <span *ngIf="job.status == 'waiting'" class="badge badge-warning float-right">Đang đợi phản hồi từ đối tác</span>
+                <span *ngIf="job.status == 'accepted'" class="badge badge-success float-right">Đã vượt qua vòng hồ sơ</span>
+              </div>
+
             </div>
           </div>
           <div class="row">
@@ -87,8 +126,33 @@
               <p class="card-text">{{job.content | limitTitle}}</p>
             </div>
           </div>
-          <button *ngIf="(user | isStudent)" class="btn btn-sm btn-danger float-right"
-            (click)="unfollowJob(job.jobID,job.partnerName)">Hủy đăng ký</button>
+          <button *ngIf="(user | isStudent)  && job.status=='waiting'"  class="btn btn-sm btn-danger float-right" (click)="unfollowJob(job.jobID,job.partnerName)">Hủy đăng ký</button>
+          <!-- Button trigger modal -->
+          <button *ngIf="(user | isStudent) && job.status=='accepted'" type="button" class="btn btn-primary btn-danger align-bottom" data-toggle="modal"
+            data-target="#unfollowJob">
+            Hủy đăng ký
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="unfollowJob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Cảnh báo</h5>
+                  <button id="closeUnfollowJob" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Bạn đã được chọn vào thực tập công việc này từ {{job.partnerName}}, bạn có chắc chắn sẽ hủy đăng kí công việc này không?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                  <button (click)="unfollowJob(job.jobID,job.partnerName)" type="button" class="btn btn-danger">Tôi hiểu và vẫn tiếp tục</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

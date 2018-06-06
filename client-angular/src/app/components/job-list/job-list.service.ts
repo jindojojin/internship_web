@@ -12,7 +12,7 @@ export class JobListService {
 
     getList() {       
         var url = myWebsiteDomain + "/list/jobs/start=" + this.start + "/total=" + this.total; //api server trả về
-        return this.http.get(url)
+        return this.http.get(url,{withCredentials:true})
             .toPromise()
             .then(res => {
                 // console.log(res);

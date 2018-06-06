@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <h5 class="card-title">File đính kèm</h5>
                     <p class="card-text">{{report['file.fileName']}}</p>
-                    <button *ngIf="report['file.fileID'] != null" class="btn btn-primary" (click)='fileInput.click()'>Sử dụng file khác</button>
+                    <button *ngIf="(user | isStudent) && (report['file.fileID'] != null)" class="btn btn-primary" (click)='fileInput.click()'>Sử dụng file khác</button>
                     <button *ngIf="report['file.fileID'] == null" class="btn btn-primary" (click)='fileInput.click()'>Tải file lên</button>
                     
                     <a href="{{myWebSiteDomain}}/download/id={{report['file.fileID']}}/{{report['file.fileName']}}" class="card-link">Tải về</a>

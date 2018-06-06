@@ -21,7 +21,7 @@
               <div class="modal fade" [id]="s.studentCode" tabindex="-1" role="dialog">
                   <app-message-modal receiverName="{{s.studentName}}" receiverID="{{s.userID}}"></app-message-modal>
               </div>       
-            <button type="button" class="btn btn-secondary">Xem các báo cáo</button>          
+            <button type="button" class="btn btn-secondary" routerLink="/lecturer/xem-bao-cao-thuc-tap-cua-sinh-vien/{{s.userID}}">Xem các báo cáo</button>          
             <button type="button" class="btn btn-secondary">Chấm điểm</button>          
           <button type="button" class="btn btn-secondary">Viết đánh giá</button>
         </div>

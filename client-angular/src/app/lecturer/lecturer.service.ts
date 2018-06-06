@@ -30,4 +30,16 @@ export class LecturerService {
     .catch(e=>{console.log(e); return false})
   }
 
+  getPlanReportOfStudent(studentID){
+    let url = myWebsiteDomain+"/lecturer/PlanReports/studentID="+studentID;
+    return this.http.get(url,{withCredentials:true})
+    .toPromise()
+    .then(r=>{
+      console.log(r.json());
+      if(r.status==200) return r.json();
+      return false;
+    })
+    .catch(e=>{console.log(e); return false})
+  }
+
 }

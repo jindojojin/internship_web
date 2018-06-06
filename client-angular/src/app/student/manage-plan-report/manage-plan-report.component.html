@@ -1,7 +1,7 @@
 <h3 class="title">Quản lý báo cáo</h3>
 <div class="accordion" id="accordionExample">
     <div class="card" *ngFor="let report of reports">
-        <div class="card-header" id="headingOne">
+        <div class="card-header">
             <h5 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#'+report.planReportID" aria-expanded="true"
                     aria-controls="collapseOne">
@@ -23,13 +23,13 @@
             </div>
             <input (change)="sendNewReportFile($event,report.planReportID)" #fileInput style="display: none" type="file" accept=".doc, .zip, .docx">
             <div class="card-body">
-                <div *ngFor="let cmt of report.cmts">
-                    <p><a href="">{{cmt.commenter}}</a>: {{cmt.content}}</p>
+                <div *ngFor="let cmt of report.comments">
+                    <p><a routerLink="/profile/{{cmt['account.nickname']}}/{{cmt['commenterID']}}">{{cmt['account.nickname']}}</a>: {{cmt.content}}</p>
                 </div>
                 <div class="input-group mb-3" style="max-width: 70%;">
-                    <textarea class="form-control" placeholder="Thêm bình luận ..."></textarea>
+                    <textarea id="{{report.planReportID}}comment" class="form-control" placeholder="Thêm bình luận ..."></textarea>
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Gửi</button>
+                        <button class="btn btn-outline-secondary" type="button" (click)="sendNewComment(report.planReportID)">Gửi</button>
                     </div>
                 </div>
             </div>

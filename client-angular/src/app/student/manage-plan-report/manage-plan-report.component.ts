@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 import { myWebsiteDomain } from '../../objects/appConfig';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-manage-plan-report',
@@ -10,7 +11,23 @@ import { myWebsiteDomain } from '../../objects/appConfig';
 export class ManagePlanReportComponent implements OnInit {
   reports: any[];
   myWebSiteDomain = myWebsiteDomain;
-  constructor(private studentService: StudentService) { }
+  constructor(private http: Http, private studentService: StudentService) { }
+  sendNewComment(planReportID){
+    let text = document.getElementById(planReportID+'comment') as HTMLTextAreaElement;
+    let body={planReportID:planReportID,content:text.value};
+    let url = this.myWebSiteDomain+"/user/commentOnPlanReport";
+    this.http.post(url,body,{withCredentials:true})
+    .toPromise()
+    .then(r=>{
+      if(r.status == 201)
+      this.ngOnInit();
+      else console.log("gửi thất bại")
+    })
+    .catch(e => {
+      console.log("thất bại trong việc comment :(")
+      this.ngOnInit();
+    })
+  }
   sendNewReportFile(event,planReportID) {
     let reader = new FileReader();
     if (event.target.files && event.target.files.length > 0) {

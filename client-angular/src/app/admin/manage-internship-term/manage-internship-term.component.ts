@@ -23,7 +23,7 @@ export class ManageInternshipTermComponent implements OnInit {
   onCreate(newTerm) {
     this.manageInternshipTermService.sendNewTerm(newTerm.value)
       .then(result => {
-        window.location.reload();
+        this.ngOnInit();
       })
       .catch(err => console.log(err));
   }

@@ -80,6 +80,31 @@
       </a>
     </li>
     
+     <!-- admin only -->
+     <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+      <a routerLink="/admin/thêm-tài-khoản">
+        <i octicons="plus" color="white"></i>
+        <p>Thêm tài khoản</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+      <a routerLink="/admin/quản-lý-tài-khoản">
+        <i octicons="gear" color="white"></i>
+        <p>Quản lý tài khoản</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+      <a routerLink="/admin/quản-lý-các-đợt-thực-tập">
+        <i octicons="gear" color="white"></i>
+        <p>Quản lý đợt thực tập</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+      <a routerLink="/admin/phân-công-giảng-viên">
+        <i octicons="book" color="white"></i>
+        <p>Phân công giảng viên</p>
+      </a>
+    </li>
     
 
 

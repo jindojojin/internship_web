@@ -1,0 +1,43 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPlanReportFormModel">
+  Thêm báo cáo mới
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="newPlanReportFormModel" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form (ngSubmit)="onSubmit(formNewPlanReport)" #formNewPlanReport="ngForm">
+        <div class="modal-header">
+          <h5 class="modal-title">Thêm báo cáo mới</h5>
+          <button id="closeNewPlanReportModalForm" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <label> Tiêu đề báo cáo:</label>
+          <input class="form-control" [(value)]="title" name="title" type="text" ngModel>
+          <label> Nội dung báo cáo:</label>
+          <input class="form-control" type="text" name="content" ngModel required>
+          <label> Thời hạn hoàn thành:</label>
+          <input class="form-control" type="date" name="deadline" ngModel required>
+          <label class="mt-2">
+            <input type="radio" name="isFinal" value="1" ngModel required>Báo cáo toàn văn
+          </label>
+          <label>
+              <input type="radio" name="isFinal" value="0"  ngModel required checked>Báo cáo định kỳ
+          </label>
+            
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+          <button [disabled]="formNewPlanReport.invalid" type="submit" class="btn btn-primary">Tạo</button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>

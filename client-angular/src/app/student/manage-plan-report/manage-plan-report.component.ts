@@ -12,8 +12,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./manage-plan-report.component.css']
 })
 export class ManagePlanReportComponent implements OnInit {
+  jobID: any;
+  studentID: string;
   reports: any[];
   myWebSiteDomain = myWebsiteDomain;
+  newTitle: string; //tiêu đề gợi ý sẵn khi giáo viên tạo một yêu cầu báo cáo mới
   constructor(private http: Http, private studentService: StudentService, private lecturerService: LecturerService, private route: ActivatedRoute) { }
   sendNewComment(planReportID) {
     let text = document.getElementById(planReportID + 'comment') as HTMLTextAreaElement;
@@ -41,8 +44,55 @@ export class ManagePlanReportComponent implements OnInit {
         let formData = new FormData();
         formData.append("fileUpload", file);
         formData.append("planReportID", planReportID);
-        this.studentService.updatePlanReport(formData).then(r => console.log("thanh cong"))
+        this.studentService.updatePlanReport(formData).then(r => {
+          window.alert("Upload file mới thành công !");
+          this.ngOnInit();
+        })
+          .catch(e => {
+            window.alert("Upload file mới thất bại, vui lòng thử lại sau!");
+          })
       };
+    }
+  }
+  changePlanReport(planReportID){
+    let titleInput = document.getElementById(planReportID+'title') as HTMLInputElement;
+    let deadlineInput = document.getElementById(planReportID+'deadline') as HTMLInputElement;
+    console.log(titleInput.value);
+    console.log(deadlineInput.value);
+    this.lecturerService.updatePlanReportForStudent({planReportID:planReportID,title:titleInput.value,deadline:deadlineInput.value})
+    .then(r=>{
+      if(r){
+        window.alert("Cập nhập thành công!");
+        this.ngOnInit();
+      }else{
+        window.alert("Cập nhập thất bại!");
+        this.ngOnInit();
+      }
+    })
+    .catch(e=> window.alert("Cập nhập thất bại!"));
+  }
+  deletePlanReport(planReportID){
+    this.lecturerService.deletePlanReport(planReportID)
+    .then(r=>{
+      if(r){
+        window.alert("Cập nhập thành công!");
+        document.getElementById("closeDelete"+planReportID).click();
+        this.ngOnInit();
+      }else{
+        window.alert("Cập nhập thất bại!");
+        this.ngOnInit();
+      }
+    })
+    .catch(e=> window.alert("Cập nhập thất bại!"));
+  }
+  reloadThisComponent(event) {
+    if(event){
+      window.alert("Tạo yêu cầu báo cáo thành công!");
+      this.ngOnInit();
+    }
+    else{
+      window.alert("Tạo yêu cầu báo cáo thất bại, vui lòng thử lại sau");
+      this.ngOnInit();
     }
   }
   ngOnInit() {
@@ -50,24 +100,32 @@ export class ManagePlanReportComponent implements OnInit {
       this.studentService.getPlanReport().then(r => {
         if (r != false) {
           console.log(r);
-          this.reports = r;
+          this.reports = r.planReports;
         }
         else window.alert("Đã có lỗi xảy ra, vui lòng thử lại sau");
       }
       ).catch(e => window.alert("Đã có lỗi xảy ra, vui lòng thử lại sau"))
     } else {
-      let studentID = this.route.snapshot.paramMap.get("studentID");
-      this.lecturerService.getPlanReportOfStudent(studentID)
+      this.studentID = this.route.snapshot.paramMap.get("studentID");
+      this.lecturerService.getPlanReportOfStudent(this.studentID)
         .then(r => {
           if (r != false) {
             console.log(r);
-            this.reports = r;
+            this.reports = r.planReports;
+            // this.newTitle = "Báo cáo tuần " + (this.reports.length + 1);
+            // console.log(this.newTitle);
           }
-          else window.alert("Đã có lỗi xảy ra, vui lòng thử lại sau");
+          else{
+            this.reports=[];
+          };
+          this.newTitle = "Báo cáo tuần " + (this.reports.length + 1);
+          this.jobID = r.job.jobID;
+            // console.log(this.newTitle);
         }
         ).catch(e => window.alert("Đã có lỗi xảy ra, vui lòng thử lại sau"))
 
     }
+
   }
 
 }

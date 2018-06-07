@@ -53,6 +53,33 @@
         <p>Sinh viên đang hướng dẫn</p>
       </a>
     </li>
+    <li *ngIf="(user| isLecturer)" routerLinkActive="active">
+      <a routerLink="/lecturer/gui-diem-va-bao-cao-cho-quan-tri-vien">
+        <i octicons="clippy" color="white"></i>
+        <p>Gửi báo cáo cho quản trị viên</p>
+      </a>
+    </li>
+
+    <!-- partner only -->
+    <li *ngIf="(user| isPartner)" routerLinkActive="active">
+      <a routerLink="/partner/quan-ly-bai-dang">
+        <i octicons="book" color="white"></i>
+        <p>Quản lý bài đăng</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isPartner)" routerLinkActive="active">
+      <a routerLink="/partner/quan-ly-thuc-tap-sinh">
+        <i octicons="server" color="white"></i>
+        <p>Quản lý thực tập sinh </p>
+      </a>
+    </li>
+    <li *ngIf="(user| isPartner)" routerLinkActive="active">
+      <a routerLink="/partner/danh-sach-sinh-vien-dang-ky">
+        <i octicons="organization" color="white"></i>
+        <p>Danh sách ứng viên </p>
+      </a>
+    </li>
+    
     
 
 

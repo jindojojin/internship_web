@@ -13,16 +13,15 @@ export class ListStudentFollowMeService {
     getStudentsFollowMe() {
         let userID = getCookie("userID");
 
-        var url = myWebsiteDomain + "/lecturer/getStudentsFollowMe"
+        var url = myWebsiteDomain + "/partner/getStudentsFollowJob"
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => res.json())
             .catch(err => console.log(err));
-
     }
 
-    sendActionFollow(action: string, studentID: string) {
-        var url = myWebsiteDomain + "/lecturer/action=" + action + "/studentID=" + studentID;
+    sendActionFollow(action: string, studentID: string, jobID:string) {
+        var url = myWebsiteDomain + "/partner/action=" + action + "/jobID=" + jobID + "/studentID=" + studentID;
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {

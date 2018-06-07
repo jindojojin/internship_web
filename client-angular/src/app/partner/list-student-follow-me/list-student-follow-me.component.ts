@@ -15,19 +15,20 @@ export class ListStudentFollowMeComponent implements OnInit {
   ngOnInit() {
     this.listStudentFollowMeService.getStudentsFollowMe()
     .then(res =>{
+      console.log(res);
       this.studentFollowMe = res;
     })
   }
 
-  onAccept(userID) {
-    this.listStudentFollowMeService.sendActionFollow("accept", userID)
+  onAccept(userID,jobID) {
+    this.listStudentFollowMeService.sendActionFollow("accept", userID,jobID)
     .then(res => {
       this.ngOnInit();
     })
   }
 
-  onDeny(userID) {
-    this.listStudentFollowMeService.sendActionFollow("deny", userID)
+  onDeny(userID,jobID) {
+    this.listStudentFollowMeService.sendActionFollow("deny", userID,jobID)
     .then(res => {
       this.ngOnInit();
     })

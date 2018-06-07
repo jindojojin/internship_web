@@ -11,12 +11,14 @@ import { PostComponent } from '../components/job-list/post/post.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { NavbarModule } from '../navbar/navbar.module';
 import { LimitTitlePipe } from './Pipes/limit-title.pipe';
+import { IsLoggedPipe } from './Pipes/is-logged.pipe';
+import { isValidDatePipe } from './Pipes/is-valid-date.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe, IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe, LimitTitlePipe],
-  exports:[VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe,IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe,LimitTitlePipe]
+  declarations: [isValidDatePipe,VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe, IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe, LimitTitlePipe, IsLoggedPipe],
+  exports:[isValidDatePipe,VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe,IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe,LimitTitlePipe,IsLoggedPipe]
 })
 export class ShareModule { }

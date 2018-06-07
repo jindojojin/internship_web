@@ -53,7 +53,8 @@ async markAllRead(){
   logOut() {
     // console.log("đã loggedOut");
     deleteAllCookies();
-    window.location.reload();
+    this.loggedOut.emit();
+    this.router.navigate(['']);
   }
 
   isAdmin: boolean;

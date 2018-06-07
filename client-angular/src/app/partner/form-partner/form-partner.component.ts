@@ -58,7 +58,7 @@ export class FormPartnerComponent implements OnInit {
       .then(r => {
         this.job = r.json();
         console.log(this.job);
-    this.validToFollow= (calculateDiffDays(this.job) >=0)?true:false;
+    this.validToFollow= (calculateDiffDays(this.job,undefined) >=0)?true:false;
         
       })
       .catch(e => { console.log(e) })

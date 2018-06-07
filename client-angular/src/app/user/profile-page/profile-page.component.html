@@ -8,7 +8,7 @@
                 <br/>
             </div>
             <app-overview-avatar [userName]="userName" [avatar]="logo" (newAvatar)="changeAvatar($event)" [canModify]="isMyProfile"></app-overview-avatar>
-            <button *ngIf="!isMyProfile" class="btn btn-primary" style="width: 250px" type="button" data-toggle="modal" [attr.data-target]=" '#'+ id">Gửi tin nhắn cho người này</button>
+            <button *ngIf="!isMyProfile && (user|isLogged)" class="btn btn-primary" style="width: 250px" type="button" data-toggle="modal" [attr.data-target]=" '#'+ id">Gửi tin nhắn cho người này</button>
                   <div class="modal fade" [id]="id" tabindex="-1" role="dialog">
                       <app-message-modal receiverName="{{userName}}" [receiverID]="id"></app-message-modal>
                   </div>

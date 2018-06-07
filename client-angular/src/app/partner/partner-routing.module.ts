@@ -3,9 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { PartnerComponent } from './partner.component';
 import { AddNewPostComponent } from './add-new-post/add-new-post.component';
 import { ManagePostComponent } from './manage-post/manage-post.component';
-import { ListStudentFollowMeComponent } from '../lecturer/list-student-follow-me/list-student-follow-me.component';
 import { AssessStudentComponent } from './assess-student/assess-student.component';
 import { PartnerGuard } from './partner.guard';
+import { ListStudentFollowMeComponent } from './list-student-follow-me/list-student-follow-me.component';
 
 const routes_Partner: Routes = [
   {
@@ -15,23 +15,19 @@ const routes_Partner: Routes = [
     children:[
       {
         path:"",
-        redirectTo:"thêm-bài-đăng-thực-tập",
+        redirectTo:"quan-ly-bai-dang",
         pathMatch:'full'
       },
       {
-        path:'thêm-bài-đăng-thực-tập',
-        component: AddNewPostComponent,
-      },
-      {
-        path:'quản-lý-các-bài-đăng-thực-tập',
+        path:'quan-ly-bai-dang',
         component: ManagePostComponent,
       },
       {
-        path:'danh-sách-sinh-viên-đang-chờ',
+        path:'danh-sach-sinh-vien-dang-ky',
         component: ListStudentFollowMeComponent,
       },
       {
-        path:'đánh-giá-sinh-viên',
+        path:'quan-ly-thuc-tap-sinh',
         component: AssessStudentComponent,
       }
     ]

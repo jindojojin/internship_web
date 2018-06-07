@@ -1,9 +1,13 @@
 <h3 class="title">Danh sách sinh viên đăng ký hướng dẫn thực tập</h3>
-<table class="table">
+<hr>
+<h4 *ngIf="studentFollowMe.length == 0">Hiện không có sinh viên nào đăng ký hướng dẫn</h4>
+<table *ngIf="studentFollowMe.length > 0" class="table">
   <thead>
     <tr>
       <th scope="col">MSSV</th>
       <th scope="col">Họ và tên</th>
+      <th scope="col">Email</th>
+      <th scope="col">Số điện thoại</th>
       <th scope="col"> Hành động </th>
     </tr>
   </thead>
@@ -13,6 +17,8 @@
       <td>
         <a routerLink="/profile/{{s.studentName}}/{{s.userID}}">{{s.studentName}}</a>
       </td>
+      <td>{{s['account.student.vnumail']}}</td>
+      <td>{{s['account.student.phoneNumber']}}</td>
       <td>
         <div class="btn-group btn-group-sm" role="group">
           <button type="button" class="btn btn-secondary" data-toggle="modal" [attr.data-target]=" '#'+ s.studentCode">

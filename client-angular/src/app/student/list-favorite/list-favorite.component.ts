@@ -41,6 +41,7 @@ export class ListFavoriteComponent implements OnInit {
     this.studentService.crudFollow("unfollow", "job",jobID).then(r => {
       if (r) {
         let messages = "Đã hủy đăng ký thực tập thành công, bạn vẫn có thể đăng kí lại công việc này của " + partner_name + " trước khi hết hạn đăng ký";
+        document.getElementById("closeUnfollowJob").click();
         window.alert(messages);
         this.ngOnInit();
       }

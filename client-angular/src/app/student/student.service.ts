@@ -56,4 +56,30 @@ export class StudentService {
     .catch(e => false)
   }
 
+  getPlanReport(){
+    let url = myWebsiteDomain+"/student/planReports";
+    return this.http.get(url,{withCredentials:true})
+    .toPromise()
+    .then(r=>{
+      if(r.status == 200){
+        return r.json()
+      }
+      else return false;
+    })
+    .catch(e => false)
+  }
+
+  updatePlanReport(formData){
+    let url = myWebsiteDomain+"/student/planReports/file";
+    return this.http.put(url,formData,{withCredentials:true})
+    .toPromise()
+    .then(r=>{
+      if(r.status == 201){
+        return true;
+      }
+      else return false;
+    })
+    .catch(e => false)
+  }
+
 }

@@ -22,10 +22,7 @@ export class AddUserComponent implements OnInit {
     }, {
         validator: this.MatchPassword // your validation method
       })
-    console.log(this.formAddUser);
-
   }
-
 
   onAddUser(newUser) {
     console.log(this.formAddUser);

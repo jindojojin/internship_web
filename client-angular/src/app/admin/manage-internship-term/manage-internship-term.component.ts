@@ -33,15 +33,17 @@ export class ManageInternshipTermComponent implements OnInit {
   }
 
   onSubmitEdit(newTermContent) {
-    console.log(newTermContent.value);
     this.manageInternshipTermService.updateTerm(this.termIDEdit, newTermContent.value)
     .then(result => {
+      this.termIDEdit = null;
+      this.ngOnInit();
     })
     .catch(err => console.log(err));
   }
 
   onCancel() {
     this.termIDEdit = null;
+    this.ngOnInit();
   }
 
   onDelete(termID) {

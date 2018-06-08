@@ -1,22 +1,20 @@
 <!-- Các loại tài khoản -->
-
-
-<!-- Hiển thị danh sách tài khoản -->
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <button class="nav-link active"  (click)="onGetAccounts('student')">Sinh viên</button>
+    <a class="nav-link active" data-toggle="tab" role="tab" aria-selected="true" (click)="onGetAccounts('student')">Sinh viên</a>
   </li>
   <li class="nav-item">
-    <button class="nav-link" (click)="onGetAccounts('lecturer')">Giảng viên</button>
+    <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" (click)="onGetAccounts('lecturer')"> Giảng viên</a>
   </li>
   <li class="nav-item">
-    <button class="nav-link"  (click)="onGetAccounts('partner')">Đối tác</button>
+    <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" (click)="onGetAccounts('partner')">Đối tác</a>
   </li>
   <li class="nav-item">
-    <button class="nav-link"  (click)="onGetAccounts('admin')">Quản trị viên</button>
+    <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" (click)="onGetAccounts('admin')">Quản trị viên</a>
   </li>
 </ul>
 
+<!-- Hiển thị danh sách tài khoản -->
 <table class=" table table-striped table-hover ">
   <thead>
     <tr>
@@ -29,8 +27,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let account of accounts ">
-      <th scope="row ">1</th>
+    <tr *ngFor="let account of accounts; let i = index">
+      <th scope="row ">{{ i + 1 }}</th>
       <td>{{ account.name }}</td>
       <td>{{ account.phoneNumber }}</td>
       <td>{{ account.vnumail }}</td>

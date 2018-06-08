@@ -16,6 +16,18 @@ export class StudentService {
       else return false;
     } ).catch(e => {console.log(e); return false;})
   }
+  
+  createNewPlanReportForStudent(newPlanReport){
+    let url = myWebsiteDomain +"/student/PlanReports";
+    console.log(newPlanReport);
+    return this.http.post(url,newPlanReport,{withCredentials:true})
+    .toPromise()
+    .then(r=>{
+      if(r.status==201) return true;
+      return false;
+    })
+    .catch(e=>{console.log(e); return false})
+  }
 
   getLecturerFollowed(){
     let url = myWebsiteDomain+"/student/lecturerFollowed";

@@ -9,7 +9,7 @@ export class isValidDatePipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     let date= calculateDiffDays(undefined,value);
-    return (date < 0)?true:false;
+    return (date >= 0 || value==null)?false:true;
   }
 
 }

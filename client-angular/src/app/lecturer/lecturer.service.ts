@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { myWebsiteDomain } from '../objects/appConfig';
 
 @Injectable()
@@ -53,8 +53,9 @@ export class LecturerService {
     .catch(e=>{console.log(e); return false})
   }
 
-  createNewPlanReportForStudent(studentID,newPlanReport){
+  createNewPlanReportForStudent(newPlanReport){
     let url = myWebsiteDomain +"/lecturer/PlanReports";
+    console.log(newPlanReport);
     return this.http.post(url,newPlanReport,{withCredentials:true})
     .toPromise()
     .then(r=>{

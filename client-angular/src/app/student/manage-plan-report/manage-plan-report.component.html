@@ -16,7 +16,7 @@
                     <span *ngIf="report.isFinal == 0" class="badge badge-sm badge-warning">Báo cáo định kì</span>
                     <span *ngIf="report.isFinal == 1" class="badge badge-sm badge-success">Báo cáo toàn văn</span>
                 </button>
-                <div class="float-right" style="color: red">
+                <div *ngIf="report.deadline != null" class="float-right" style="color: red">
                     Hạn nộp báo cáo :
                     <input id="{{report.planReportID}}deadline" *ngIf="(user|isLecturer)" type="date" class="form" [value]="report.deadline">
                     <p *ngIf="(user|isStudent)" class="float-right"> {{report.deadline}}</p>
@@ -29,7 +29,7 @@
                 <button type="button" *ngIf="(user|isLecturer)" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
                     Xoá
                 </button>
-                <button type="button" *ngIf="(user|isLecturer)" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
+                <button type="button" *ngIf="(user|isLecturer) && report.isFinal==1" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
                     Chấm điểm
                 </button>
             </div>

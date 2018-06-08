@@ -104,7 +104,7 @@ export class ManagePlanReportComponent implements OnInit {
         }
         else this.reports =[];
       }
-      ).catch(e => this.reports=null)
+      ).catch(e =>{console.log(e);this.reports=null;} )
     } else {
       this.studentID = this.route.snapshot.paramMap.get("studentID");
       this.lecturerService.getPlanReportOfStudent(this.studentID)
@@ -112,6 +112,7 @@ export class ManagePlanReportComponent implements OnInit {
           if (r != false) {
             console.log(r);
             this.reports = r.planReports;
+            console.log(this.reports);
             // this.newTitle = "Báo cáo tuần " + (this.reports.length + 1);
             // console.log(this.newTitle);
           }
@@ -119,10 +120,10 @@ export class ManagePlanReportComponent implements OnInit {
             this.reports=[];
           };
           this.newTitle = "Báo cáo tuần " + (this.reports.length + 1);
-          this.jobID = r.job.jobID;
+          this.jobID = (r.job)?(r.job.jobID):"";
             // console.log(this.newTitle);
         }
-        ).catch(e =>this.reports=null)
+        ).catch(e => {console.log(e);this.reports=null;})
 
     }
 

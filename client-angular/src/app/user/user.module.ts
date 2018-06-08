@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagePageComponent } from './message-page/message-page.component';
 import { OcticonsModule } from '../octicons/octicons.module';
 import { ShareModule } from '../share/share.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { ShareModule } from '../share/share.module';
     FormsModule,
     OcticonsModule,
     ReactiveFormsModule,
-    ShareModule
+    ShareModule,RouterModule
   ],
   declarations: [
     OverviewAvatarComponent,

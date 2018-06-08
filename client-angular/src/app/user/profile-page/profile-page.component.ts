@@ -11,7 +11,7 @@ import { myWebsiteDomain } from '../../objects/appConfig';
   providers: [ProfilePageService]
 })
 export class ProfilePageComponent implements OnInit {
-
+ assessions: any[]=[];
   canFixInfors: any[];
   cantFixInfors: any[];
   isMyProfile:boolean;
@@ -22,15 +22,46 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,private profilePageService: ProfilePageService) { }
 
+  reloadThisComponent(){
+    console.log("đã reload");    
+    this.ngOnInit();
+  }
+
+  changeProfile(userID){
+    this.id=userID;
+    this.profilePageService.getProfile(this.id).then(res => {
+      console.log(res);
+      this.assessions = res.assession;
+      this.logo =(res.logo != "" && res.logo != null)? (myWebsiteDomain + res.logo):("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJCq8ocdeBpdZgNebcoY0sM0Fl4T5rs31ughmmkCuVGkJ9lCASlA");
+      let arrInfors = Object.keys(res).map(function (key) { // chuyển object thành mảng các trường{tên trường:giá trị}
+        return { fieldName: String(key), fieldValue: res[key] };
+      });
+      if( this.isMyProfile){
+      let canfix = this.getNumberOfCanFix();// số thông tin có thể thay đổi
+      let cantfix= this.getNumberOfCantFix(); //số thông tin không thể thay đổi
+      this.cantFixInfors = arrInfors.slice(0,cantfix); 
+      this.canFixInfors = arrInfors.slice(cantfix,canfix+cantfix);
+      // console.log(this.cantFixInfors);
+      // console.log(this.canFixInfors);
+      }else{
+        this.cantFixInfors = arrInfors.slice(0,arrInfors.length - 2);
+      }
+      // console.log(this.userInfors);
+    }
+    ).catch(e => console.log(e))
+  }
+
   ngOnInit() {
     this.initPage();      
   }
   initPage(){
     this.id = this.route.snapshot.paramMap.get('id');
+    console.log("id của route"+ this.id);    
     this.userName = this.route.snapshot.paramMap.get('username');
     if(this.id == getCookie("userID")) this.isMyProfile = true; else this.isMyProfile = false;
     this.profilePageService.getProfile(this.id).then(res => {
       console.log(res);
+      this.assessions = res.assession;
       this.logo =(res.logo != "" && res.logo != null)? (myWebsiteDomain + res.logo):("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJCq8ocdeBpdZgNebcoY0sM0Fl4T5rs31ughmmkCuVGkJ9lCASlA");
       let arrInfors = Object.keys(res).map(function (key) { // chuyển object thành mảng các trường{tên trường:giá trị}
         return { fieldName: String(key), fieldValue: res[key] };

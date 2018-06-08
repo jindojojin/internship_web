@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ReplaceSpacePipe implements PipeTransform {
 
-  transform(value: string): string {
-    return value.replace(/\ /g,"-");
+  transform(value: any): string {
+    return (typeof value == "string")? (value.replace(/\ /g,"-")):null;
   }
 
 }

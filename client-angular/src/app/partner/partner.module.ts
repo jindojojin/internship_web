@@ -10,6 +10,9 @@ import { FormPartnerComponent } from './form-partner/form-partner.component';
 import { ShareModule } from '../share/share.module';
 import { ListStudentFollowMeComponent } from './list-student-follow-me/list-student-follow-me.component';
 import { UserModule } from '../user/user.module';
+import { PartnerService } from './partner.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EditInternshipJobComponent } from './edit-internship-job/edit-internship-job.component';
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import { UserModule } from '../user/user.module';
     CommonModule,
     PartnerRoutingModule,
     ShareModule,
-    UserModule
+    UserModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [
     PartnerComponent,
@@ -25,10 +30,12 @@ import { UserModule } from '../user/user.module';
     ManagePostComponent,
     AssessStudentComponent,
     FormPartnerComponent,
-    ListStudentFollowMeComponent
+    ListStudentFollowMeComponent,
+    EditInternshipJobComponent
   ],
   exports: [PartnerComponent,
     FormPartnerComponent
   ],
+  providers: [PartnerService],
 })
 export class PartnerModule { }

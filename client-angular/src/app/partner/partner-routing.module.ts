@@ -6,6 +6,7 @@ import { ManagePostComponent } from './manage-post/manage-post.component';
 import { AssessStudentComponent } from './assess-student/assess-student.component';
 import { PartnerGuard } from './partner.guard';
 import { ListStudentFollowMeComponent } from './list-student-follow-me/list-student-follow-me.component';
+import { EditInternshipJobComponent } from './edit-internship-job/edit-internship-job.component';
 
 const routes_Partner: Routes = [
   {
@@ -21,6 +22,14 @@ const routes_Partner: Routes = [
       {
         path:'quan-ly-bai-dang',
         component: ManagePostComponent,
+      },
+      {
+        path:'tao-bai-dang-thuc-tap',
+        component: AddNewPostComponent,
+      },
+      {
+        path:'chinh-sua-bai-dang/:jobID',
+        component: EditInternshipJobComponent,
       },
       {
         path:'danh-sach-sinh-vien-dang-ky',

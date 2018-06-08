@@ -1,6 +1,6 @@
-<h3 class="title">Danh sách sinh viên đang hướng dẫn thực tập</h3>
+<h3 class="title">Danh sách thực tập sinh</h3>
 <hr>
-<h4 *ngIf="myStudents.length == 0">Hiện tại bạn chưa hướng dẫn sinh viên nào</h4>
+<h4 class="title" style="color: red" *ngIf="myStudents.length == 0">Hiện chưa có thực tập sinh nào</h4>
 <table *ngIf="myStudents.length > 0" class="table">
   <thead>
     <tr>

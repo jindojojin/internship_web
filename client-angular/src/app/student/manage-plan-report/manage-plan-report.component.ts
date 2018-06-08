@@ -102,9 +102,9 @@ export class ManagePlanReportComponent implements OnInit {
           console.log(r);
           this.reports = r.planReports;
         }
-        else window.alert("Đã có lỗi xảy ra, vui lòng thử lại sau");
+        else this.reports =[];
       }
-      ).catch(e => window.alert("Đã có lỗi xảy ra, vui lòng thử lại sau"))
+      ).catch(e => this.reports=null)
     } else {
       this.studentID = this.route.snapshot.paramMap.get("studentID");
       this.lecturerService.getPlanReportOfStudent(this.studentID)
@@ -122,7 +122,7 @@ export class ManagePlanReportComponent implements OnInit {
           this.jobID = r.job.jobID;
             // console.log(this.newTitle);
         }
-        ).catch(e => window.alert("Đã có lỗi xảy ra, vui lòng thử lại sau"))
+        ).catch(e =>this.reports=null)
 
     }
 

@@ -10,7 +10,7 @@ export class ProfilePageService {
     constructor(private http: Http) { }
     getProfile(id) { 
         let userID = id;
-        var url = myWebsiteDomain+"/user/id="+ userID +"/profile"; //api server trả về
+        var url = myWebsiteDomain+"/profile/id="+ userID; //api server trả về
         return this.http.get(url,{ withCredentials: true })
             .toPromise()
             .then(res => {

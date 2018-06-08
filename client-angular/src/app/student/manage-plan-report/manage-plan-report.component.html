@@ -1,5 +1,10 @@
 <h3 class="title">Quản lý báo cáo</h3>
 <hr>
+<h4 class="title" style="color: red" *ngIf="reports == []">Chưa có báo cáo định kỳ nào</h4>
+<h4 class="title" style="color: red" *ngIf="reports == null && (user|isLecturer)">Sinh viên này hiện đang không thực tập tại bất kỳ công ty nào</h4>
+<h4 class="title" style="color: red" *ngIf="reports == null && (user|isStudent)">Bạn hiện đang không thực tập tại bất kỳ công ty nào</h4>
+
+
 <div class="accordion" id="accordionExample">
     <div class="card" *ngFor="let report of reports">
         <div class="card-header">

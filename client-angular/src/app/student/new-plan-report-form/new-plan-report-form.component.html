@@ -1,7 +1,11 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPlanReportFormModel">
-  Thêm báo cáo mới
+<button *ngIf="(user|isLecturer)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPlanReportFormModel">
+  Yêu cầu sinh viên báo cáo
 </button>
+
+<button *ngIf="(user|isStudent)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPlanReportFormModel">
+    Thêm báo cáo mới
+  </button>
 
 <!-- Modal -->
 <div class="modal fade" id="newPlanReportFormModel" tabindex="-1" role="dialog">
@@ -20,8 +24,8 @@
           <input class="form-control" [(value)]="title" name="title" type="text" ngModel>
           <label> Nội dung báo cáo:</label>
           <input class="form-control" type="text" name="content" ngModel required>
-          <label> Thời hạn hoàn thành:</label>
-          <input class="form-control" type="date" name="deadline" ngModel required>
+          <label *ngIf="(user|isLecturer)"> Thời hạn hoàn thành:</label>
+          <input *ngIf="(user|isLecturer)" class="form-control" type="date" name="deadline" ngModel required>
           <label class="mt-2">
             <input type="radio" name="isFinal" value="1" ngModel required>Báo cáo toàn văn
           </label>

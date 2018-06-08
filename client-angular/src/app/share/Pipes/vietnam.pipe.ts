@@ -47,6 +47,8 @@ export class VietnamPipe implements PipeTransform {
         return "Ghi chú";
       case "skills":
         return "Kỹ năng";
+        case "email2":
+        return "Email 2"
       // case "":
       //   return "";
 

@@ -14,7 +14,6 @@ export class ManageUserService {
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {
-                console.log(res.json());
                 return res.json();
             })
             .catch(err => console.log(err));

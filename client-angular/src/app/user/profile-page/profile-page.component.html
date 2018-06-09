@@ -10,15 +10,17 @@
             <div class="card">
                 <app-overview-avatar [userName]="userName" [avatar]="logo" (newAvatar)="changeAvatar($event)" [canModify]="isMyProfile"></app-overview-avatar>
                 <div>
+                    <hr *ngIf="assessions != null">
                     <h5 *ngIf="assessions != null" style="text-align: center">Các đánh giá</h5>
-                    <hr>
+                    <p *ngIf="assessions == []">Chưa có đánh giá nào</p>
                     <div *ngFor="let assession of assessions">
                         <p>
-                            <a (click)="changeProfile(assession.assessorID)" routerLink="/profile/{{assession['lecturer.name'] | replaceSpace }}{{ assession['partner.name'] | replaceSpace }}/{{assession.assessorID}}">
+                            <a class="mx-1" (click)="changeProfile(assession.assessorID)" routerLink="/profile/{{assession['lecturer.name'] | replaceSpace }}{{ assession['partner.name'] | replaceSpace }}/{{assession.assessorID}}">
                                 {{assession['lecturer.name']}}{{assession['partner.name']}}</a>: {{assession.comment}}</p>
                     </div>
                 </div>
-                <button *ngIf="!isMyProfile && (user|isLogged)" class="btn btn-primary" style="width: 250px" type="button" data-toggle="modal"
+                <hr>
+                <button *ngIf="!isMyProfile && (user|isLogged)" class="btn btn-primary" style="width: 100%" type="button" data-toggle="modal"
                     [attr.data-target]=" '#'+ id">Gửi tin nhắn cho người này</button>
                 <div class="modal fade" [id]="id" tabindex="-1" role="dialog">
                     <app-message-modal receiverName="{{userName}}" [receiverID]="id"></app-message-modal>
@@ -44,13 +46,13 @@
             <form (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
                 <div *ngFor="let info of canFixInfors">
                     <div class="form-group row ml-2 mb-0 mt-2">
-                        <label  class="col-sm-3">{{info.fieldName|vietnam}}:</label>
+                        <label class="col-sm-3">{{info.fieldName|vietnam}}:</label>
                         <div class="col-sm-9 mt-2">
                             <input [name]="info.fieldName" type="name" class="form-control" [(ngModel)]="info.fieldValue">
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile"> Lưu thay đổi</button>
+                <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
             </form>
         </div>
         <br/>
@@ -58,5 +60,3 @@
     </div>
 
 </div>
-
-

@@ -47,7 +47,7 @@ div.dropdown-menu{
 .link-btn{
     background:none!important;
     color: rgb(0, 0, 255) !important;
-    color:inherit;
+    font-size: 10px !important;
      border:none; 
      padding:0!important;
      font: inherit;
@@ -59,7 +59,9 @@ div.dropdown-menu{
     border: solid 0.5px;
     border-radius: 4px;
 }
-.card{
-    width: 20rem;
+p{
+    font-size: 12px;
+    max-width: 200px;
+    word-wrap: break-word;
 }
 

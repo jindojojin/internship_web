@@ -2,9 +2,8 @@
     position: relative;
 }
 img {
-    display: inline;
     width: inherit;
-    height: inherit;
+    height: auto;
 }
 .pen_icon{
     position: absolute;
@@ -13,7 +12,6 @@ img {
     cursor: pointer;
 }
 .name{
-    width: 250px;
     cursor: pointer;
     text-align: center;
     font-size: 120%;

@@ -5,3 +5,11 @@
     position: relative;
     bottom: 70%;
 }
+.deletecmtbtn{
+    font-size: 10px;
+    cursor: pointer;
+    color: red;
+}
+.redcolor{
+    color: red !important;
+}

@@ -5,10 +5,12 @@ import { calculateDiffDays } from '../../objects/regex';
 @Pipe({
   name: 'isValidDate'
 })
+// tslint:disable-next-line:class-name
 export class isValidDatePipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    let date= calculateDiffDays(undefined,value);
-    return (date >= 0 || value==null)?false:true;
+    if ( value === undefined) { return false; }
+    const date = calculateDiffDays(undefined, value);
+    return (date >= 0 || value == null) ? false : true;
   }
 }

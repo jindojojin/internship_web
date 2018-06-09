@@ -89,19 +89,19 @@
     </li>
     <li *ngIf="(user| isAdmin)" routerLinkActive="active">
       <a routerLink="/admin/quản-lý-tài-khoản">
-        <i octicons="gear" color="white"></i>
+        <i octicons="list-ordered" color="white"></i>
         <p>Quản lý tài khoản</p>
       </a>
     </li>
     <li *ngIf="(user| isAdmin)" routerLinkActive="active">
       <a routerLink="/admin/quản-lý-các-đợt-thực-tập">
-        <i octicons="gear" color="white"></i>
+        <i octicons="circuit-board" color="white"></i>
         <p>Quản lý đợt thực tập</p>
       </a>
     </li>
     <li *ngIf="(user| isAdmin)" routerLinkActive="active">
       <a routerLink="/admin/phân-công-giảng-viên">
-        <i octicons="book" color="white"></i>
+        <i octicons="organization" color="white"></i>
         <p>Phân công giảng viên</p>
       </a>
     </li>
@@ -112,10 +112,17 @@
     
     <hr>
     <li routerLinkActive="active">
-      <a routerLink="" (click)="logOut()">
+      <a class="link" (click)="changePassword.showModal();">
+        <i octicons="lock" color="white"></i>
+        <p>Đổi mật khẩu</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="logOut()">
         <i octicons="sign-out" color="white"></i>
         <p>Đăng xuất</p>
       </a>
     </li>
   </ul>
 </div>
+<app-change-password-modal #changePassword></app-change-password-modal>

@@ -16,15 +16,21 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.userID = getCookie("userID");
-    this.userType = getCookie("userType");
-    this.nickname = getCookie("nickname");
+    this.userID = getCookie('userID');
+    this.userType = getCookie('userType');
+    this.nickname = getCookie('nickname');
     // console.log("userType");
   }
 
   logOut() {
-    console.log("đã vào hàm logOut");
+    console.log('đã vào hàm logOut');
     deleteAllCookies();
+    this.router.navigate(['']);
     window.location.reload();
+  }
+
+  changePassword() {
+    console.log('đã vào đây');
+    // document.getElementById('changePasswordModal').click();
   }
 }

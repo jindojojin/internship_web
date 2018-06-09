@@ -11,5 +11,4 @@ export class isValidDatePipe implements PipeTransform {
     let date= calculateDiffDays(undefined,value);
     return (date >= 0 || value==null)?false:true;
   }
-
 }

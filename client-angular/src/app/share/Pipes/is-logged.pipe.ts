@@ -7,7 +7,7 @@ import { getCookie } from '../../objects/Cookiee';
 export class IsLoggedPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    return (getCookie("userID")!= null)?true:false;
+    return (getCookie('userID') != null) ? true : false;
   }
 
 }

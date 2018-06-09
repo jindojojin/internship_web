@@ -11,6 +11,8 @@ import { MessagePageComponent } from './message-page/message-page.component';
 import { OcticonsModule } from '../octicons/octicons.module';
 import { ShareModule } from '../share/share.module';
 import { RouterModule } from '@angular/router';
+import { ChangePasswordModalComponent } from './change-password-modal/change-password-modal.component';
+import { UserService } from './user.service';
 
 @NgModule({
   imports: [
@@ -18,19 +20,23 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     OcticonsModule,
     ReactiveFormsModule,
-    ShareModule,RouterModule
+    ShareModule, RouterModule
   ],
   declarations: [
     OverviewAvatarComponent,
     ProfilePageComponent,
     HomePageComponent,
     MessageModalComponent,
-    MessagePageComponent,    
+    MessagePageComponent,
+    ChangePasswordModalComponent
   ],
 
-  exports: [MessageModalComponent, 
+  exports: [MessageModalComponent,
     MessagePageComponent,
     MessageModalComponent,
-  ]
+    ChangePasswordModalComponent
+  ],
+
+  providers: [UserService]
 })
 export class UserModule { }

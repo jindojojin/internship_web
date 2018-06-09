@@ -13,7 +13,9 @@
                     <h5 *ngIf="assessions != null" style="text-align: center">Các đánh giá</h5>
                     <hr>
                     <div *ngFor="let assession of assessions">
-                        <p><a (click)="changeProfile(assession.assessorID)" routerLink="/profile/{{assession['lecturer.name'] | replaceSpace }}{{ assession['partner.name'] | replaceSpace }}/{{assession.assessorID}}">{{assession['lecturer.name']}}{{assession['partner.name']}}</a>: {{assession.comment}}</p>
+                        <p>
+                            <a (click)="changeProfile(assession.assessorID)" routerLink="/profile/{{assession['lecturer.name'] | replaceSpace }}{{ assession['partner.name'] | replaceSpace }}/{{assession.assessorID}}">
+                                {{assession['lecturer.name']}}{{assession['partner.name']}}</a>: {{assession.comment}}</p>
                     </div>
                 </div>
                 <button *ngIf="!isMyProfile && (user|isLogged)" class="btn btn-primary" style="width: 250px" type="button" data-toggle="modal"
@@ -35,16 +37,16 @@
                 <div class="form-group row mb-0 ml-2">
                     <label for="static" class="col-sm-3 col-form-label">{{ info.fieldName |vietnam}} :</label>
                     <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext ml-2" id="static" [value]="info.fieldValue">
+                        <input type="text" readonly class="form-control-plaintext ml-2" [value]="info.fieldValue">
                     </div>
                 </div>
             </div>
             <form (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
                 <div *ngFor="let info of canFixInfors">
                     <div class="form-group row ml-2 mb-0 mt-2">
-                        <label [for]="info.fieldName" class="col-sm-3">{{info.fieldName|vietnam}}:</label>
+                        <label  class="col-sm-3">{{info.fieldName|vietnam}}:</label>
                         <div class="col-sm-9 mt-2">
-                            <input [id]="info.fieldName" [name]="info.fieldName" type="name" class="form-control" [(id)]="info.fieldName" [(ngModel)]="info.fieldValue">
+                            <input [name]="info.fieldName" type="name" class="form-control" [(ngModel)]="info.fieldValue">
                         </div>
                     </div>
                 </div>
@@ -56,3 +58,5 @@
     </div>
 
 </div>
+
+

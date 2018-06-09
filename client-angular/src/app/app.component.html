@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div *ngIf="logged">
+    <div *ngIf="(user | isLogged)">
         <app-sidebar></app-sidebar>
     </div>
 

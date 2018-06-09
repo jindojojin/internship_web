@@ -90,7 +90,7 @@ export class ProfilePageComponent implements OnInit {
         // tslint:disable-next-line:triple-equals
         if (getCookie('userType') == 'admin') {
           this.canFixInfors = arrInfors.slice(0, this.adminCanfix(res.type));
-          this.cantFixInfors = arrInfors.slice(this.adminCanfix(res.type), arrInfors.length - 3);
+          this.cantFixInfors = arrInfors.slice(this.adminCanfix(res.type), arrInfors.length - 4);
         } else {
           this.cantFixInfors = arrInfors.slice(0, arrInfors.length - 3);
         }
@@ -146,8 +146,8 @@ export class ProfilePageComponent implements OnInit {
     switch (userType) {
       case 'student': return 10;
       case 'admin': return 0;
-      case 'lecturer': return 0;
-      case 'partner': return 0;
+      case 'lecturer': return 3;
+      case 'partner': return 4;
       default: return 0;
     }
   }

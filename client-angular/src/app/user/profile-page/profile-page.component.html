@@ -35,6 +35,19 @@
             </div>
 
             <!-- thông tin user -->
+            <form *ngIf="(user|isAdmin)" (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
+                <div  *ngFor="let info1 of canFixInfors">
+                    <div class="form-group row ml-2 mb-0 mt-2">
+                        <label class="col-sm-3">{{info1.fieldName|vietnam}}:</label>
+                        <div class="col-sm-9 mt-2">
+                            <input [name]="info1.fieldName" type="name" class="form-control" [(ngModel)]="info1.fieldValue">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
+            </form>
+            <br>
+            <hr>            
             <div *ngFor="let info of cantFixInfors">
                 <div class="form-group row mb-0 ml-2">
                     <label for="static" class="col-sm-3 col-form-label">{{ info.fieldName |vietnam}} :</label>
@@ -43,12 +56,12 @@
                     </div>
                 </div>
             </div>
-            <form (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
-                <div *ngFor="let info of canFixInfors">
+            <form *ngIf="isMyProfile" (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
+                <div *ngFor="let info2 of canFixInfors">
                     <div class="form-group row ml-2 mb-0 mt-2">
-                        <label class="col-sm-3">{{info.fieldName|vietnam}}:</label>
+                        <label class="col-sm-3">{{info2.fieldName|vietnam}}:</label>
                         <div class="col-sm-9 mt-2">
-                            <input [name]="info.fieldName" type="name" class="form-control" [(ngModel)]="info.fieldValue">
+                            <input [name]="info2.fieldName" type="name" class="form-control" [(ngModel)]="info2.fieldValue">
                         </div>
                     </div>
                 </div>

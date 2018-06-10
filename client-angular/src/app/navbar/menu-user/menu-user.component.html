@@ -35,35 +35,3 @@
 
   <!-- phải để href ở link đến profile để tránh xung đột khi xem profile của người khác -->
   <a class="nav-item nav-link" id="username" href='/profile/{{nickname}}/{{userID}}'>{{nickname}}</a>
-  <!-- <div class="dropdown arrow">
-    <button type="button" class="btn dropdown-toggle dropdown-toggle-split " id="arrow" data-toggle="dropdown">
-    </button>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="arrow">
-      <a class="dropdown-item" href='/profile/{{nickname}}/{{userID}}'>Thông tin cá nhân</a>
-      <a class="dropdown-item">Tin nhắn</a>
-
-      <div *ngIf="isAdmin">
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item btn" routerLink="/admin">Công cụ Admin</a>
-      </div>
-
-      <div *ngIf="isLecturer">
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item btn" routerLink="/lecturer">Công cụ dành cho giảng viên</a>
-      </div>
-
-      <div *ngIf="isPartner">
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item btn" routerLink="/partner">Công cụ dành cho đối tác</a>
-      </div>
-
-      <div *ngIf="isStudent">
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item btn" routerLink="/student">Công cụ dành cho sinh viên</a>
-      </div>
-
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item btn" (click)="this.logOut();">Đăng xuất</a>
-    </div>
-  </div>
-</div> -->

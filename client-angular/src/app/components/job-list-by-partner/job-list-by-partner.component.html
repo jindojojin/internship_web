@@ -1,0 +1,23 @@
+<h3 class="title">Các bài đăng của {{partnerName}}</h3>
+<hr>
+
+<h4 *ngIf="listJob == false" class="title" style="color: red">Đối tác này không có bài đăng nào</h4>
+
+<div *ngFor="let job of listJob">
+  <div class="card mt-3">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-sm-8 col-md-9" routerLink="/bai-dang/{{ job.title | replaceSpace }}/{{job.jobID}}">
+          <h5>{{job.title}}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3 col-sm-2">
+        <img class="logo" src="{{ job['partner.logo'] | imageFromServer }}" alt="Logo">
+      </div>
+      <div class="col-xs-9 col-sm-10">
+        <p class="card-text">{{job.content | limitTitle}}</p>
+      </div>
+    </div>
+</div>

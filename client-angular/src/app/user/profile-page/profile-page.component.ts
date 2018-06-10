@@ -12,7 +12,7 @@ import { myWebsiteDomain } from '../../objects/appConfig';
 })
 export class ProfilePageComponent implements OnInit {
   // tslint:disable-next-line:member-ordering
-  assessions: any[] = [];
+  assessions: any[] = null;
   // tslint:disable-next-line:member-ordering
   canFixInfors: any[];
   // tslint:disable-next-line:member-ordering
@@ -92,7 +92,7 @@ export class ProfilePageComponent implements OnInit {
           this.canFixInfors = arrInfors.slice(0, this.adminCanfix(res.type));
           this.cantFixInfors = arrInfors.slice(this.adminCanfix(res.type), arrInfors.length - 4);
         } else {
-          this.cantFixInfors = arrInfors.slice(0, arrInfors.length - 3);
+          this.cantFixInfors = arrInfors.slice(0, arrInfors.length - 4);
         }
       }
       // console.log(this.userInfors);

@@ -10,6 +10,7 @@ import { LecturerListComponent } from './components/lecturer-list/lecturer-list.
 import { HomePageComponent} from './user/home-page/home-page.component'
 import { MessagePageComponent } from './user/message-page/message-page.component';
 import { FormPartnerComponent } from './partner/form-partner/form-partner.component';
+import { JobListByPartnerComponent } from './components/job-list-by-partner/job-list-by-partner.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'Trang-chu/cac-bai-dang-thuc-tap/tat-ca/_', pathMatch: 'full' },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'profile/:username/:id', component: ProfilePageComponent },
   { path: ':type/cac-don-vi-doi-tac', component: PartnerListComponent },
   { path: ':type/cac-giang-vien', component: LecturerListComponent },
-  { path:'home',component: HomePageComponent},
+  { path: 'home',component: HomePageComponent},
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'lecturer', loadChildren: './lecturer/lecturer.module#LecturerModule' },
   { path: 'partner', loadChildren: './partner/partner.module#PartnerModule' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: 'tin-nhan', component: MessagePageComponent},
   { path: 'bai-dang/:title/:id' , component: FormPartnerComponent},
+  { path: 'Cac-bai-dang/:partnerName/:partnerID' , component: JobListByPartnerComponent},
   { path: '**', redirectTo: 'page-not-found', pathMatch: 'full' }
  
 ];

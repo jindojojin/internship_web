@@ -28,17 +28,17 @@
       </a>
     </li>
     <li *ngIf="(user| isStudent)" routerLinkActive="active">
-      <a routerLink="/student/quan-ly-bao-cao-dinh-ky">
+      <a routerLink="/student/quan-ly-bao-cao">
         <i octicons="book" color="white"></i>
-        <p>Báo cáo định kỳ</p>
+        <p>Quản lý báo cáo</p>
       </a>
     </li>
-    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+    <!-- <li *ngIf="(user| isStudent)" routerLinkActive="active">
         <a routerLink="/student/quan-ly-bao-cao-toan-van">
           <i octicons="mortar-board" color="white"></i>
           <p>Báo cáo toàn văn</p>
         </a>
-      </li>
+      </li> -->
 
       <!-- lecturer only -->
     <li *ngIf="(user| isLecturer)" routerLinkActive="active">

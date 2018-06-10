@@ -10,6 +10,7 @@
             <button class="btn btn-primary align-bottom" routerLink="/profile/{{lecturer.name | replaceSpace}}/{{lecturer.account_userID}}">Thông tin</button>
             <button *ngIf="(user | isStudent) && lecturer.status=='unfollowed'" (click)="follow(lecturer.account_userID,lecturer.name)"
               class="btn btn-primary">Follow</button>
+              
             <button *ngIf="(user | isStudent) && lecturer.status=='followed'" (click)="unfollow(lecturer.account_userID,lecturer.name)"
               class="btn btn-danger">Unfollow</button>
             <button *ngIf="(user | isStudent)" class="btn btn-primary align-bottom" disabled data-toggle="tooltip" data-placement="bottom" title="Mỗi sinh viên chỉ được chọn một giảng viên làm người hướng dẫn">

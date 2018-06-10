@@ -13,6 +13,7 @@ import { ShareModule } from '../share/share.module';
 import { RouterModule } from '@angular/router';
 import { ChangePasswordModalComponent } from './change-password-modal/change-password-modal.component';
 import { UserService } from './user.service';
+import { AssessStudentModalComponent } from '../components/assess-student-modal/assess-student-modal.component';
 
 @NgModule({
   imports: [
@@ -28,13 +29,15 @@ import { UserService } from './user.service';
     HomePageComponent,
     MessageModalComponent,
     MessagePageComponent,
-    ChangePasswordModalComponent
+    ChangePasswordModalComponent,
+    AssessStudentModalComponent
   ],
 
   exports: [MessageModalComponent,
     MessagePageComponent,
     MessageModalComponent,
-    ChangePasswordModalComponent
+    ChangePasswordModalComponent,
+    AssessStudentModalComponent
   ],
 
   providers: [UserService]

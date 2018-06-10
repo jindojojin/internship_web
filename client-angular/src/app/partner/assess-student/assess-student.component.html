@@ -30,9 +30,10 @@
               </div>       
             <!-- <button type="button" class="btn btn-secondary" routerLink="/lecturer/xem-bao-cao-thuc-tap-cua-sinh-vien/{{s['student.account_userID']}}">Xem các báo cáo</button>       -->
             <!-- <button type="button" class="btn btn-secondary">Xem đánh giá</button> -->
-            <button type="button" class="btn btn-secondary">Viết đánh giá</button>
+            <button type="button" class="btn btn-secondary" (click)="writeAssession(s['student.name'],s['student.account_userID'])">Viết đánh giá</button>
         </div>
       </td>
     </tr>
   </tbody>
 </table>
+<app-assess-student-modal></app-assess-student-modal>

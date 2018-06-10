@@ -12,7 +12,7 @@ import { isReplyMessage } from '../../objects/regex';
   providers: [MenuUserService]
 })
 export class MenuUserComponent implements OnInit {
-  sumOfNotification: number=0;
+  sumOfNotification = 0;
   @Output() loggedOut = new EventEmitter();
   @Output() replyMessage = new EventEmitter();
   @Input() userName: string;

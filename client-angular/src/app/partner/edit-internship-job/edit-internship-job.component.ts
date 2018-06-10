@@ -11,6 +11,8 @@ import { getCookie } from '../../objects/Cookiee';
   styleUrls: ['./edit-internship-job.component.css']
 })
 export class EditInternshipJobComponent implements OnInit {
+  terms:any[];
+  
   job:any= Object;
   canEdit:boolean=true;
   onSubmit(form) {
@@ -35,6 +37,9 @@ export class EditInternshipJobComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get("jobID");
     let url = myWebsiteDomain + "/job/id=" + id;
+    this.partnerService.getTerm()
+    .then(r => this.terms=r)
+    .catch(e => this.terms =[])
     this.http.get(url, { withCredentials: true })
       .toPromise()
       .then(r => {

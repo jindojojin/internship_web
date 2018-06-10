@@ -10,7 +10,11 @@
         <input ngModel required name="startDate" type="date" class="form-control" style="width: 100%">
         <label>Thời gian đóng đăng ký:</label>
         <input ngModel required name="endDate" type="date" class="form-control">
-        <label>Số lượng:</label>
+        <label>Đợt thực tập:</label>
+        <select ngModel required name="termID" class="form-control">
+          <option value="{{term.termID}}" *ngFor="let term of terms">{{term.title}}( {{term.start | date:'shortDate'}} -> {{term.end | date:'shortDate'}})</option>
+        </select>
+        <label>Số lượng cần tuyển:</label>
         <input ngModel required name="slot" type="text" class="form-control">
         <label>Tóm tắt yêu cầu:</label>
         <input ngModel required name="requirements" type="text" class="form-control">

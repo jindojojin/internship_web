@@ -7,11 +7,28 @@
                 <br/>
                 <br/>
             </div>
-            <app-overview-avatar [userName]="userName" [avatar]="logo" (newAvatar)="changeAvatar($event)" [canModify]="isMyProfile"></app-overview-avatar>
-            <button *ngIf="!isMyProfile && (user|isLogged)" class="btn btn-primary" style="width: 250px" type="button" data-toggle="modal" [attr.data-target]=" '#'+ id">Gửi tin nhắn cho người này</button>
-                  <div class="modal fade" [id]="id" tabindex="-1" role="dialog">
-                      <app-message-modal receiverName="{{userName}}" [receiverID]="id"></app-message-modal>
-                  </div>
+            <div class="card">
+                <app-overview-avatar [userName]="userName" [avatar]="logo" (newAvatar)="changeAvatar($event)" [canModify]="isMyProfile"></app-overview-avatar>
+                <div *ngIf="assessions != null">
+                    <hr >
+                    <h5 style="text-align: center">Các đánh giá</h5>
+                    <p style="text-align: center; color: red" *ngIf="assessions.length == 0">Chưa có đánh giá nào</p>
+                    <div >
+                            <div  *ngFor="let assession of assessions">
+                                    <p>
+                                        <a class="mx-1" (click)="changeProfile(assession.assessorID)" routerLink="/profile/{{assession['lecturer.name'] | replaceSpace }}{{ assession['partner.name'] | replaceSpace }}/{{assession.assessorID}}">
+                                            {{assession['lecturer.name']}}{{assession['partner.name']}}</a>: {{assession.comment}}</p>
+                                </div>
+                    </div>
+                    
+                </div>
+                <hr *ngIf="!isMyProfile && (user|isLogged)">
+                <button *ngIf="!isMyProfile && (user|isLogged)" class="btn btn-primary" style="width: 100%" type="button" data-toggle="modal"
+                    [attr.data-target]=" '#'+ id">Gửi tin nhắn cho người này</button>
+                <div class="modal fade" [id]="id" tabindex="-1" role="dialog">
+                    <app-message-modal receiverName="{{userName}}" [receiverID]="id"></app-message-modal>
+                </div>
+            </div>
         </div>
         <div class="col-md-8">
             <!-- responsive -->
@@ -21,27 +38,40 @@
             </div>
 
             <!-- thông tin user -->
+            <form *ngIf="(user|isAdmin)" (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
+                <div  *ngFor="let info1 of canFixInfors">
+                    <div class="form-group row ml-2 mb-0 mt-2">
+                        <label class="col-sm-3">{{info1.fieldName|vietnam}}:</label>
+                        <div class="col-sm-9 mt-2">
+                            <input [name]="info1.fieldName" type="name" class="form-control" [(ngModel)]="info1.fieldValue">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
+            </form>
+            <br>
+            <hr>            
             <div *ngFor="let info of cantFixInfors">
                 <div class="form-group row mb-0 ml-2">
                     <label for="static" class="col-sm-3 col-form-label">{{ info.fieldName |vietnam}} :</label>
                     <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext ml-2" id="static" [value]="info.fieldValue">
+                        <input type="text" readonly class="form-control-plaintext ml-2" [value]="info.fieldValue">
                     </div>
                 </div>
             </div>
-            <form (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
-                <div *ngFor="let info of canFixInfors">
+            <form *ngIf="isMyProfile" (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
+                <div *ngFor="let info2 of canFixInfors">
                     <div class="form-group row ml-2 mb-0 mt-2">
-                            <label [for]="info.fieldName" class="col-sm-3">{{info.fieldName|vietnam}}:</label>
+                        <label class="col-sm-3">{{info2.fieldName|vietnam}}:</label>
                         <div class="col-sm-9 mt-2">
-                            <input [id]="info.fieldName" [name]="info.fieldName" type="name" class="form-control" [(id)]="info.fieldName" [(ngModel)]="info.fieldValue">
+                            <input [name]="info2.fieldName" type="name" class="form-control" [(ngModel)]="info2.fieldValue">
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile"> Lưu thay đổi</button>
+                <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
             </form>
         </div>
-<br/>
+        <br/>
 
     </div>
 

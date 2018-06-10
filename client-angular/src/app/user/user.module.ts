@@ -10,6 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessagePageComponent } from './message-page/message-page.component';
 import { OcticonsModule } from '../octicons/octicons.module';
 import { ShareModule } from '../share/share.module';
+import { RouterModule } from '@angular/router';
+import { ChangePasswordModalComponent } from './change-password-modal/change-password-modal.component';
+import { UserService } from './user.service';
+import { AssessStudentModalComponent } from '../components/assess-student-modal/assess-student-modal.component';
 
 @NgModule({
   imports: [
@@ -17,19 +21,25 @@ import { ShareModule } from '../share/share.module';
     FormsModule,
     OcticonsModule,
     ReactiveFormsModule,
-    ShareModule
+    ShareModule, RouterModule
   ],
   declarations: [
     OverviewAvatarComponent,
     ProfilePageComponent,
     HomePageComponent,
     MessageModalComponent,
-    MessagePageComponent,    
+    MessagePageComponent,
+    ChangePasswordModalComponent,
+    AssessStudentModalComponent
   ],
 
-  exports: [MessageModalComponent, 
+  exports: [MessageModalComponent,
     MessagePageComponent,
     MessageModalComponent,
-  ]
+    ChangePasswordModalComponent,
+    AssessStudentModalComponent
+  ],
+
+  providers: [UserService]
 })
 export class UserModule { }

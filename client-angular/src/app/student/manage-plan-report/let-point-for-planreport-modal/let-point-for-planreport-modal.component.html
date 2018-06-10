@@ -1,0 +1,27 @@
+<!-- Button trigger modal -->
+<button id="btnOpenLetPointForStudentModal" style="display: none" data-toggle="modal" data-target="#LetPointStudentModalCenter">
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="LetPointStudentModalCenter" tabindex="-1" role="dialog" aria-labelledby="LetPointStudentModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="LetPointStudentModalCenterTitle">Chấm điểm cho  "{{planReportTitle}}" </h5>
+          <button id="CloseLetPointForStudentModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form (ngSubmit)="updatePoint(formLetPointForStudent)" #formLetPointForStudent = "ngForm">
+        <div class="modal-body">
+          <label >Điểm: <input type="number" name="mark" min="0" max="10" placeholder="0-10" [(ngModel)]="myPoint" required></label>          
+          <textarea name="comment" class="form-control" rows="5" [(ngModel)]="myComment" placeholder="Ghi chú ..."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+          <button [disabled]="formLetPointForStudent.invalid || formLetPointForStudent.value.mark >10" type="submit" class="btn btn-primary">Lưu lại</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>

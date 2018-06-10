@@ -15,7 +15,7 @@
     <tr *ngFor="let s of myStudents">
       <th scope="row">{{s.studentCode}}</th>
       <!-- <td></td> -->
-      <td> <a routerLink="/profile/{{s.studentName}}/{{s.userID}}">{{s.studentName}}</a></td>
+      <td> <a routerLink="/profile/{{s['account.student.name'] | replaceSpace}}/{{s.studentID}}">{{s['account.student.name']}}</a></td>
       <td>{{s['account.student.vnumail']}}</td>
       <td>{{s['account.student.phoneNumber']}}</td>
       <td>
@@ -24,11 +24,12 @@
                 Gửi tin nhắn
               </button>
               <div class="modal fade" [id]="s.studentCode" tabindex="-1" role="dialog">
-                  <app-message-modal receiverName="{{s.studentName}}" receiverID="{{s.userID}}"></app-message-modal>
+                  <app-message-modal receiverName="{{s['account.student.name']}}" receiverID="{{s.studentID}}"></app-message-modal>
               </div>       
             <button type="button" class="btn btn-secondary" routerLink="/lecturer/xem-bao-cao-thuc-tap-cua-sinh-vien/{{s.userID}}">Xem các báo cáo</button>      
-            <button type="button" class="btn btn-secondary">Xem đánh giá</button>
-            <button type="button" class="btn btn-secondary">Viết đánh giá</button>
+            <button routerLink="/profile/{{s['account.student.name'] | replaceSpace}}/{{s.studentID}}" type="button" class="btn btn-secondary">Xem đánh giá</button>
+            <button type="button" (click)="writeAssession(s['account.student.name'],s.studentID)" class="btn btn-secondary">Viết đánh giá</button>
+            <app-assess-student-modal></app-assess-student-modal>
         </div>
       </td>
     </tr>

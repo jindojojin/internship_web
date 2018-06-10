@@ -27,6 +27,7 @@ import { OcticonsModule } from './octicons/octicons.module';
 import { MenuSearchBarComponent } from './navbar/menu-search-bar/menu-search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from './share/share.module';
+import { JobListByPartnerComponent } from './components/job-list-by-partner/job-list-by-partner.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ShareModule } from './share/share.module';
     PageNotFoundComponent,
     LecturerListComponent,
     SidebarComponent,
+    JobListByPartnerComponent,
 
   ],
   imports: [

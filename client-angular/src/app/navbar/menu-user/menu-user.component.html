@@ -10,8 +10,8 @@
       <!-- hiển thị tất cả các tin nhắn đến -->
       <div class="dropdown-item" *ngFor="let n of notifications" >
         <div class="card mx-0">
-          <h6 class="card-title mx-2">{{n.title}}</h6>
-          <p class="card-text mx-2">{{n.content}}</p>
+          <p class="card-header">{{n.title}}</p>
+          <p class="card-text">{{n.content}}</p>
           <div class="card-text mx-2">
             <button class="link-btn float-right mx-2 smalltext" (click)="markRead(n.messageID)">Đã đọc</button>
             <button class="link-btn float-right mx-2 smalltext" (click)="reply(n.senderName,n.senderID,n.title)">Trả lời</button>
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      Không có tin nhắn nào chưa đọc!
+      <p *ngIf="sumOfNotification == 0">Không có tin nhắn nào chưa đọc!</p>
 
       <div class="dropdown-item float-right">
         <a class="float-right" id="seeAll" routerLink="/tin-nhan">Xem trong hộp thư</a>

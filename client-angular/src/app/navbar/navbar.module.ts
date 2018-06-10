@@ -17,22 +17,23 @@ import { OcticonsModule } from '../octicons/octicons.module';
 
 @NgModule({
   imports: [
-    OcticonsModule,    
+    OcticonsModule,
     CommonModule,
     FormsModule,
     UserModule,
-    AppRoutingModule,     
+    AppRoutingModule,
     ReactiveFormsModule,
   ],
   declarations: [
-    // OcticonsDirective, 
+    // OcticonsDirective,
     NavbarComponent,
-    MenuUserComponent,    
-    SignInComponent,    
+    MenuUserComponent,
+    SignInComponent,
   ],
-  exports:[NavbarComponent,AppRoutingModule
+  exports: [
+    NavbarComponent,
+    AppRoutingModule
     // OcticonsDirective
   ],
-  
 })
 export class NavbarModule { }

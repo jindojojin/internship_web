@@ -10,6 +10,7 @@ import { OcticonsModule } from '../octicons/octicons.module';
 import { PostComponent } from '../components/job-list/post/post.component';
 import { NewPlanReportFormComponent } from './new-plan-report-form/new-plan-report-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LetPointForPlanreportModalComponent } from './manage-plan-report/let-point-for-planreport-modal/let-point-for-planreport-modal.component'
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule
   ],
-  declarations: [StudentComponent, ManagePlanReportComponent, ListFavoriteComponent, NewPlanReportFormComponent],
+  declarations: [StudentComponent, ManagePlanReportComponent, ListFavoriteComponent, NewPlanReportFormComponent, LetPointForPlanreportModalComponent],
   providers: [StudentService]
 })
 export class StudentModule { }

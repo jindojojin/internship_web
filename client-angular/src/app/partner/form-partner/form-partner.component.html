@@ -6,6 +6,7 @@
         <img class="card-img-top" style="height: auto;" src="{{job.partner_logo | imageFromServer}}" alt="Logo">
         <a routerLink="/profile/{{ job.partner_name }}/{{job.partnerID}}">{{job.partner_name}}</a>
         <div class="card-body">
+          <p>Đợt thực tập: {{job['term.title']}}</p>
           <p>Mở đăng ký : {{job.startDate}}</p>
           <p>Đóng đăng ký : {{job.endDate}}</p>
           <p>Số lượng còn lại : {{job.slot}}</p>

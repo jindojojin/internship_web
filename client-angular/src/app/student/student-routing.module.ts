@@ -4,37 +4,36 @@ import { StudentComponent } from './student.component';
 import { ManagePlanReportComponent } from './manage-plan-report/manage-plan-report.component';
 import { StudentGuard } from './student.guard';
 import { ListFavoriteComponent } from './list-favorite/list-favorite.component';
-const routes_Student: Routes=[ {
+const routes_Student: Routes = [ {
     path: 'student',
     component: StudentComponent ,
-    canActivate:[StudentGuard],
-    children:[
+    canActivate: [StudentGuard],
+    children: [
       {
-        path:"",
-        redirectTo:"quan-ly-bao-cao-dinh-ky",
-        pathMatch:'full'
+        path: '',
+        redirectTo: 'quan-ly-bao-cao',
+        pathMatch: 'full'
       },
       {
-        path:'danh-sach-theo-doi',
+        path: 'danh-sach-theo-doi',
         component: ListFavoriteComponent,
       },
       {
-        path:'quan-ly-bao-cao-dinh-ky',
+        path: 'quan-ly-bao-cao',
         component: ManagePlanReportComponent,
       },
       {
-        path:'quan-ly-bao-cao-toan-van',
+        path: 'quan-ly-bao-cao-toan-van',
         component: ManagePlanReportComponent,
       },
     ]
   },
-  {path: '**', redirectTo:'quan-ly-bao-cao-dinh-ky',pathMatch:'full'}
-  
+  {path: '**', redirectTo: 'quan-ly-bao-cao-dinh-ky', pathMatch: 'full'}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes_Student)],
-  providers:[StudentGuard],
+  providers: [StudentGuard],
   exports: [RouterModule]
 })
 

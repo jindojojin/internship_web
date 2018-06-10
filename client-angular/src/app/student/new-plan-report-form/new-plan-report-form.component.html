@@ -27,10 +27,10 @@
           <label *ngIf="(user|isLecturer)"> Thời hạn hoàn thành:</label>
           <input *ngIf="(user|isLecturer)" class="form-control" type="date" name="deadline" ngModel required>
           <label class="mt-2">
-            <input type="radio" name="isFinal" value="1" ngModel required>Báo cáo toàn văn
+            <input type="radio" name="isFinal" value="1" ngModel required>Báo cáo toàn văn( Có chấm điểm)
           </label>
           <label>
-              <input type="radio" name="isFinal" value="0"  ngModel required checked>Báo cáo định kỳ
+              <input type="radio" name="isFinal" value="0"  ngModel required checked>Báo cáo định kỳ( Không chấm điểm)
           </label>
             
           

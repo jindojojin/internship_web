@@ -13,7 +13,7 @@ export class ManagePostComponent implements OnInit {
     this.partnerService.deleteJob(jobID).then(r => {
       if (r) {
         document.getElementById("closeDeleteJob" + jobID).click();
-        window.alert("Đã xóa bài đăng thành công!");
+        // window.alert("Đã xóa bài đăng thành công!");
         this.ngOnInit();
       } else {
         document.getElementById("closeDeleteJob" + jobID).click();

@@ -5,8 +5,8 @@ h4 {
 img {
   display: block;
   margin: auto;
-  max-width: 95%;
-  max-height: 95%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .btn {
@@ -16,7 +16,7 @@ img {
 }
 
 .card {
-  min-height: 200px;
+  /* min-height: 200px; */
 }
 .card-header{
   cursor: pointer;

@@ -5,6 +5,21 @@ import { myWebsiteDomain } from '../objects/appConfig';
 @Injectable()
 export class PartnerService {
 
+  getTerm(){
+    let url= myWebsiteDomain+'/partner/getTerms';
+    return this.http.get(url,{withCredentials:true})
+    .toPromise()
+    .then(r=>{
+      if(r.status==200){
+        return r.json();
+      }
+      return false
+    }).catch(e =>{
+      console.log(e);
+      return false;      
+    })
+  }
+
   editJob(data) {
     let url = myWebsiteDomain+"/partner/editJob";
     return this.http.put(url,data,{withCredentials:true})

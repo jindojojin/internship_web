@@ -1,4 +1,10 @@
 <h3 class="title">Quản lý báo cáo</h3>
+<div *ngIf="(user | isLecturer) && studentInfo != null">
+    <hr>
+    <h6>MSSV: {{studentInfo.studentCode}}</h6>
+    <h6>Họ và tên: {{studentInfo.name}}</h6>
+    <h6>Số điện thoại: {{studentInfo.phoneNumber}}</h6>
+</div>
 <hr>
 <h4 class="title" style="color: red" *ngIf="reports == []">Chưa có báo cáo định kỳ nào</h4>
 <h4 class="title" style="color: red" *ngIf="reports == null && (user|isLecturer)">Sinh viên này hiện đang không thực tập tại bất kỳ công ty nào</h4>
@@ -52,6 +58,7 @@
         <div [id]="report.planReportID" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card float-right" style="width: 18rem;">
                 <div class="card-body">
+                    <span class="badge badge-sm badge-danger float-right">Điểm: {{report['lecturer_student.mark'] || 'chưa có'}}</span>
                     <h5 class="card-title">Nội dung báo cáo</h5>
                     <p *ngIf="( (user|isLecturer) && (report.deadline == null) ) || ( (user|isStudent) && (report.deadline != null) )" class="card-text">{{report.content}}</p>
                     <textarea rows="5" class="form-control" id="{{report.planReportID}}content" type="text" [value]="report.content" *ngIf="(user|isLecturer) && (report.deadline != null) || ( (user|isStudent) && (report.deadline == null) )"></textarea>
@@ -69,8 +76,10 @@
                         class="card-link">Tải về</a>
                     <hr>
                     <div class="btn-group float-right">
-                        <button (click)="changePlanReport(report.planReportID)" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)" class="btn btn-sm btn-primary">Lưu thay đổi</button>
-                        <button (click)="letPointForPlanReport(report.planReportID, report.title)" type="button" *ngIf="(user|isLecturer) && report.isFinal==1" class="btn btn-sm btn-success">
+                        <button (click)="changePlanReport(report.planReportID)" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)"
+                            class="btn btn-sm btn-primary">Lưu thay đổi</button>
+                        <button (click)="letPointForPlanReport(report.planReportID, report.title)" type="button" *ngIf="(user|isLecturer) && report.isFinal==1"
+                            class="btn btn-sm btn-success">
                             Chấm điểm
                         </button>
                         <button type="button" *ngIf="(user|isLecturer)" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">

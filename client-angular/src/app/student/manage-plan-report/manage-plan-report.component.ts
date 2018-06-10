@@ -6,11 +6,13 @@ import { getCookie } from '../../objects/Cookiee';
 import { LecturerService } from '../../lecturer/lecturer.service';
 import { ActivatedRoute } from '@angular/router';
 import { LetPointForPlanreportModalComponent } from './let-point-for-planreport-modal/let-point-for-planreport-modal.component';
+import { ProfilePageService } from '../../user/profile-page/profile-page.service';
 
 @Component({
   selector: 'app-manage-plan-report',
   templateUrl: './manage-plan-report.component.html',
-  styleUrls: ['./manage-plan-report.component.css']
+  styleUrls: ['./manage-plan-report.component.css'],
+  providers:[ProfilePageService]
 })
 export class ManagePlanReportComponent implements OnInit {
   jobID: any;
@@ -18,8 +20,9 @@ export class ManagePlanReportComponent implements OnInit {
   reports: any[];
   myWebSiteDomain = myWebsiteDomain;
   newTitle: string; // tiêu đề gợi ý sẵn khi giáo viên tạo một yêu cầu báo cáo mới
+  studentInfo: any;
   // tslint:disable-next-line:max-line-length
-  constructor(private http: Http, private studentService: StudentService, private lecturerService: LecturerService, private route: ActivatedRoute) { }
+  constructor(private http: Http, private studentService: StudentService, private lecturerService: LecturerService, private route: ActivatedRoute,private profileService: ProfilePageService) { }
   sendNewComment(planReportID) {
     const text = document.getElementById(planReportID + 'comment') as HTMLTextAreaElement;
     // tslint:disable-next-line:triple-equals
@@ -153,6 +156,9 @@ export class ManagePlanReportComponent implements OnInit {
       ).catch(e => { console.log(e); this.reports = null; });
     } else {
       this.studentID = this.route.snapshot.paramMap.get('studentID');
+      this.profileService.getProfile(this.studentID).then(
+        r=> this.studentInfo=r
+      ).catch( e => this.studentInfo= null);
       this.lecturerService.getPlanReportOfStudent(this.studentID)
         .then(r => {
           // tslint:disable-next-line:triple-equals

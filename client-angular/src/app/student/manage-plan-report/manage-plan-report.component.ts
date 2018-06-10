@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StudentService } from '../student.service';
 import { myWebsiteDomain } from '../../objects/appConfig';
 import { Http } from '@angular/http';
 import { getCookie } from '../../objects/Cookiee';
 import { LecturerService } from '../../lecturer/lecturer.service';
 import { ActivatedRoute } from '@angular/router';
+import { LetPointForPlanreportModalComponent } from './let-point-for-planreport-modal/let-point-for-planreport-modal.component';
 
 @Component({
   selector: 'app-manage-plan-report',
@@ -172,6 +173,11 @@ export class ManagePlanReportComponent implements OnInit {
 
     }
 
+  }
+  @ViewChild(LetPointForPlanreportModalComponent)
+  letPoint: LetPointForPlanreportModalComponent;
+  letPointForPlanReport(planReportID, title){
+    this.letPoint.getPoint(planReportID,title);
   }
 
 }

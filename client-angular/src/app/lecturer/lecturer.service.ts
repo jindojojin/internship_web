@@ -6,6 +6,29 @@ import { myWebsiteDomain } from '../objects/appConfig';
 export class LecturerService {
 
   
+  getMyPointForPlanReport(planReportID){
+    let url = myWebsiteDomain+ '/lecturer/letPointForStudent/planReportID='+planReportID;
+    return this.http.get(url,{withCredentials:true})
+    .toPromise()
+    .then(r=>{
+      console.log(r.json())
+      if(r.status==200) return r.json();
+      // return false;
+    })
+    .catch(e => false)
+  }
+
+
+  updatePointForPlanReport(planReportID,pointObject){
+    let url = myWebsiteDomain+ '/lecturer/letPointForStudent/planReportID='+planReportID;
+    return this.http.put(url,pointObject,{withCredentials:true})
+    .toPromise()
+    .then(r=>{
+      if(r.status==201) return true;
+      return false;
+    })
+    .catch(e=> false)
+  }
   constructor(private http : Http) { }
   deletePlanReport(planReportID) {
     let url = myWebsiteDomain+"/lecturer/planReports/planReportID="+planReportID;

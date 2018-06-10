@@ -22,7 +22,8 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
 
-  async onSubmit(formSignIn) {
+  onSubmit(formSignIn) {
+    formSignIn.value.username = formSignIn.value.username.replace('@vnu.edu.vn','');
     this.signInService.sendPost(formSignIn.value)
       .then(result => {
         console.log(result);

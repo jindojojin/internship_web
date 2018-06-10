@@ -70,7 +70,7 @@
                     <hr>
                     <div class="btn-group float-right">
                         <button (click)="changePlanReport(report.planReportID)" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)" class="btn btn-sm btn-primary">Lưu thay đổi</button>
-                        <button type="button" *ngIf="(user|isLecturer) && report.isFinal==1" class="btn btn-sm btn-success" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
+                        <button (click)="letPointForPlanReport(report.planReportID, report.title)" type="button" *ngIf="(user|isLecturer) && report.isFinal==1" class="btn btn-sm btn-success">
                             Chấm điểm
                         </button>
                         <button type="button" *ngIf="(user|isLecturer)" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
@@ -103,5 +103,5 @@
     </div>
     <br/>
     <app-new-plan-report-form class="float-right" title="{{newTitle}}" studentID="{{studentID}}" jobID="{{jobID}}" (created)="reloadThisComponent($event)"></app-new-plan-report-form>
-
+    <app-let-point-for-planreport-modal></app-let-point-for-planreport-modal>
 </div>

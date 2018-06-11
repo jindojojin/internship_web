@@ -99,4 +99,16 @@ export class LecturerService {
     .catch(e=>{console.log(e); return false})
   }
 
+  getMarkTable(){
+    let url = myWebsiteDomain+'/lecturer/getMarkTable';
+    return this.http.get(url,{withCredentials:true})
+    .toPromise()
+    .then(
+      r=> {
+        console.log(r);
+        return r.json();
+      }
+    )
+    .catch(e => false)
+  }
 }

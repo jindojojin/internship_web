@@ -44,7 +44,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Khi bạn xóa báo cáo này, mọi bình luận, file đính kèm của cả bạn và sinh viên đều bị xóa bỏ và không thể khôi phục lại
+                        Khi bạn xóa báo cáo này, mọi nội dung, bình luận và file đính kèm của cả giảng viên hướng dẫn và sinh viên đều bị xóa bỏ và không thể khôi phục lại
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-dismiss="modal">Hủy</button>
@@ -82,7 +82,7 @@
                             class="btn btn-sm btn-success">
                             Chấm điểm
                         </button>
-                        <button type="button" *ngIf="(user|isLecturer)" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
+                        <button type="button" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
                             Xoá
                         </button>
                     </div>

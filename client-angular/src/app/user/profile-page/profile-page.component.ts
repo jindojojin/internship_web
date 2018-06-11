@@ -27,6 +27,7 @@ export class ProfilePageComponent implements OnInit {
   userName: string;
   // tslint:disable-next-line:member-ordering
   id: string;
+  type:string;
 
   constructor(private route: ActivatedRoute, private profilePageService: ProfilePageService) { }
 
@@ -73,6 +74,7 @@ export class ProfilePageComponent implements OnInit {
       console.log(res);
       this.userName = res.name;
       this.assessions = res.assession;
+      this.type = res.type;
       // tslint:disable-next-line:triple-equals
       this.logo = (res.logo != '' && res.logo != null) ? (myWebsiteDomain + res.logo)
         : ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJCq8ocdeBpdZgNebcoY0sM0Fl4T5rs31ughmmkCuVGkJ9lCASlA');

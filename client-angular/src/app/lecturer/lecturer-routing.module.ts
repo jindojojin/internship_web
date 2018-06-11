@@ -5,6 +5,7 @@ import { ListStudentComponent } from './list-student/list-student.component';
 import { ListStudentFollowMeComponent } from './list-student-follow-me/list-student-follow-me.component';
 import { LecturerGuard } from './lecturer.guard';
 import { ManagePlanReportComponent } from '../student/manage-plan-report/manage-plan-report.component';
+import { OverviewResultComponent } from './overview-result/overview-result.component';
 const routes_Lecturer: Routes = [
   {
     path: 'lecturer',
@@ -27,7 +28,11 @@ const routes_Lecturer: Routes = [
       {
         path: 'xem-bao-cao-thuc-tap-cua-sinh-vien/:studentID',
         component: ManagePlanReportComponent,
-      }
+      },
+      {
+        path: 'xem-bang-diem',
+        component: OverviewResultComponent,
+      },
     ]
   },
   { path: '**', redirectTo: 'danh-sách-sinh-viên-đang-hướng-dẫn', pathMatch: 'full' }

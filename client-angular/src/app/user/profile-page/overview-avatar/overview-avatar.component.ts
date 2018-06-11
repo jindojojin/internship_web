@@ -12,6 +12,7 @@ export class OverviewAvatarComponent implements OnInit {
   @Input() avatar:string;
   @Output() newAvatar = new EventEmitter();
   @Input() userName: string;
+  @Input() type : string;
   showIMG(event) {
     let reader = new FileReader();
     if (event.target.files && event.target.files.length > 0) {

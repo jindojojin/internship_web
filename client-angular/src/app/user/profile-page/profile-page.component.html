@@ -8,19 +8,19 @@
                 <br/>
             </div>
             <div class="card">
-                <app-overview-avatar [userName]="userName" [avatar]="logo" (newAvatar)="changeAvatar($event)" [canModify]="isMyProfile"></app-overview-avatar>
+                <app-overview-avatar [type]="type" [userName]="userName" [avatar]="logo" (newAvatar)="changeAvatar($event)" [canModify]="isMyProfile"></app-overview-avatar>
                 <div *ngIf="assessions != null">
-                    <hr >
+                    <hr>
                     <h5 style="text-align: center">Các đánh giá</h5>
                     <p style="text-align: center; color: red" *ngIf="assessions.length == 0">Chưa có đánh giá nào</p>
-                    <div >
-                            <div  *ngFor="let assession of assessions">
-                                    <p>
-                                        <a class="mx-1" (click)="changeProfile(assession.assessorID)" routerLink="/profile/{{assession['lecturer.name'] | replaceSpace }}{{ assession['partner.name'] | replaceSpace }}/{{assession.assessorID}}">
-                                            {{assession['lecturer.name']}}{{assession['partner.name']}}</a>: {{assession.comment}}</p>
-                                </div>
+                    <div>
+                        <div *ngFor="let assession of assessions">
+                            <p>
+                                <a class="mx-1" (click)="changeProfile(assession.assessorID)" routerLink="/profile/{{assession['lecturer.name'] | replaceSpace }}{{ assession['partner.name'] | replaceSpace }}/{{assession.assessorID}}">
+                                    {{assession['lecturer.name']}}{{assession['partner.name']}}</a>: {{assession.comment}}</p>
+                        </div>
                     </div>
-                    
+
                 </div>
                 <hr *ngIf="!isMyProfile && (user|isLogged)">
                 <button *ngIf="!isMyProfile && (user|isLogged)" class="btn btn-primary" style="width: 100%" type="button" data-toggle="modal"
@@ -34,12 +34,13 @@
             <!-- responsive -->
             <div class="d-none d-md-block">
                 <br/>
-                <br/>
+                <h3 style="text-align: center">Thông tin cá nhân</h3>
+                <!-- <br/> -->
             </div>
-
+            
             <!-- thông tin user -->
             <form *ngIf="(user|isAdmin)" (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
-                <div  *ngFor="let info1 of canFixInfors">
+                <div *ngFor="let info1 of canFixInfors">
                     <div class="form-group row ml-2 mb-0 mt-2">
                         <label class="col-sm-3">{{info1.fieldName|vietnam}}:</label>
                         <div class="col-sm-9 mt-2">
@@ -50,7 +51,7 @@
                 <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
             </form>
             <br>
-            <hr>            
+            <hr>
             <div *ngFor="let info of cantFixInfors">
                 <div class="form-group row mb-0 ml-2">
                     <label for="static" class="col-sm-3 col-form-label">{{ info.fieldName |vietnam}} :</label>

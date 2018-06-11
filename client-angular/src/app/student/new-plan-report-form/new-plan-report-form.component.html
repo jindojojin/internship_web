@@ -21,9 +21,9 @@
         <div class="modal-body">
 
           <label> Tiêu đề báo cáo:</label>
-          <input class="form-control" [(value)]="title" name="title" type="text" ngModel>
+          <input class="form-control" [(ngModel)]="title" name="title" type="text">
           <label> Nội dung báo cáo:</label>
-          <input class="form-control" type="text" name="content" ngModel required>
+          <textarea rows="4" class="form-control" type="text" name="content" ngModel required></textarea>
           <label *ngIf="(user|isLecturer)"> Thời hạn hoàn thành:</label>
           <input *ngIf="(user|isLecturer)" class="form-control" type="date" name="deadline" ngModel required>
           <label class="mt-2">
@@ -32,7 +32,7 @@
           <label>
               <input type="radio" name="isFinal" value="0"  ngModel required checked>Báo cáo định kỳ( Không chấm điểm)
           </label>
-            
+          <p style="color: red">Lưu ý: bạn có thể chọn file đính kèm, chỉnh sửa nội dung báo cáo sau khi đã tạo báo cáo</p>
           
         </div>
         <div class="modal-footer">

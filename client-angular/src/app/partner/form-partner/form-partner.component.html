@@ -7,8 +7,8 @@
         <a routerLink="/profile/{{ job.partner_name }}/{{job.partnerID}}">{{job.partner_name}}</a>
         <div class="card-body">
           <p>Đợt thực tập: {{job['term.title']}}</p>
-          <p>Mở đăng ký : {{job.startDate}}</p>
-          <p>Đóng đăng ký : {{job.endDate}}</p>
+          <p>Mở đăng ký : {{job.startDate | date:'dd/MM/yyyy'}}</p>
+          <p>Đóng đăng ký : {{job.endDate |date:'dd/MM/yyyy'}}</p>
           <p>Số lượng còn lại : {{job.slot}}</p>
           <p>Yêu cầu : {{job.requirements}}</p>
           <p>Lương/ hỗ trợ : {{job.salary}}</p>

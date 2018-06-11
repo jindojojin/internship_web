@@ -8,7 +8,7 @@
   </div>
   <ul class="sidebar-body">
     <li routerLinkActive="active" class="active">
-      <a href='/profile/{{nickname}}/{{userID}}' display="inline">
+      <a href='/profile/{{nickname | replaceSpace}}/{{userID}}' display="inline">
         <i octicons="person" color="white"></i>
         <p>Thông tin cá nhân</p>
       </a>
@@ -50,13 +50,13 @@
     <li *ngIf="(user| isLecturer)" routerLinkActive="active">
       <a routerLink="/lecturer/danh-sách-sinh-viên-đang-hướng-dẫn">
         <i octicons="book" color="white"></i>
-        <p>Sinh viên đang hướng dẫn</p>
+        <p>Hướng dẫn sinh viên</p>
       </a>
     </li>
     <li *ngIf="(user| isLecturer)" routerLinkActive="active">
-      <a routerLink="/lecturer/gui-diem-va-bao-cao-cho-quan-tri-vien">
+      <a routerLink="/lecturer/xem-bang-diem">
         <i octicons="clippy" color="white"></i>
-        <p>Gửi báo cáo cho quản trị viên</p>
+        <p>Xem bảng điểm</p>
       </a>
     </li>
 

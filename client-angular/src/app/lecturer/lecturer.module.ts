@@ -8,6 +8,7 @@ import { MessageModalComponent } from '../user/message-modal/message-modal.compo
 import { UserModule } from '../user/user.module';
 import { LecturerService } from './lecturer.service';
 import { ShareModule } from '../share/share.module';
+import { OverviewResultComponent } from './overview-result/overview-result.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ShareModule } from '../share/share.module';
   declarations: [LecturerComponent, 
     ListStudentComponent,
     ListStudentFollowMeComponent,
+    OverviewResultComponent,
   ],
   providers:[LecturerService]
 })

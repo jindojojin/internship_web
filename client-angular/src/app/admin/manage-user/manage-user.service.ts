@@ -24,7 +24,7 @@ export class ManageUserService {
         const url = myWebsiteDomain + "/admin/CRUD/account/userID=" + userID;
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const body = JSON.stringify(userID);
-        return this.http.delete(url, { withCredentials: true })
+        return this.http.delete(url, { withCredentials: true, headers })
             .toPromise()
             .then(res => {
                 return res.json();

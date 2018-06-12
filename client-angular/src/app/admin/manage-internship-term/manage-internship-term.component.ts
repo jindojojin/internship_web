@@ -49,8 +49,7 @@ export class ManageInternshipTermComponent implements OnInit {
   onDelete(termID) {
     this.manageInternshipTermService.deleteTerm(termID)
       .then(result => {
-        window.location.reload();
-        // console.log(result);
+        this.ngOnInit();
       })
       .catch(err => console.log(err));
   }

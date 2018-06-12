@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ManageUserService } from './manage-user.service';
-
 @Component({
   selector: 'app-manage-user',
   templateUrl: './manage-user.component.html',
@@ -8,6 +7,7 @@ import { ManageUserService } from './manage-user.service';
   providers: [ManageUserService]
 })
 export class ManageUserComponent implements OnInit {
+  user;
   accounts: Object;
   type: string = "student";
 
@@ -18,16 +18,15 @@ export class ManageUserComponent implements OnInit {
   }
 
   onDelete(userID) {
-    console.log(userID);
     this.manageUserService.deleteAccount(userID)
       .then(result => {
-        console.log(result);
-        // window.location.reload();
+        this.ngOnInit();
       })
       .catch(err => console.log(err));
   }
 
   onGetAccounts(type: string) {
+    this.type = type;
     this.manageUserService.getAccounts(type)
       .then(res => {
         res.forEach(element => {

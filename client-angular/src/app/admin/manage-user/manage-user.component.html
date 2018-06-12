@@ -1,5 +1,5 @@
 <!-- Các loại tài khoản -->
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav nav-tabs" id="roleTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" data-toggle="tab" role="tab" aria-selected="true" (click)="onGetAccounts('student')">Sinh viên</a>
   </li>
@@ -18,23 +18,30 @@
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th scope="col ">STT</th>
-      <th scope="col ">Tên</th>
-      <th scope="col ">Số điện thoại</th>
-      <th scope="col ">VNUmail</th>
-      <th scope="col ">Email</th>
-      <th scope="col "></th>
+      <th scope="col" class="stt">STT</th>
+      <th scope="col">Tên</th>
+      <th scope="col" *ngIf="type == 'student'">Mã sinh viên</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col" *ngIf="type != 'partner'">VNUmail</th>
+      <th scope="col">Email</th>
+      <th scope="col" *ngIf="(type == 'lecturer') || (type == 'admin')">Nơi làm việc</th>
+      <th scope="col" *ngIf="(type == 'lecturer') || (type == 'partner')">Trạng thái</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let account of accounts; let i = index">
-      <th scope="row ">{{ i + 1 }}</th>
+      <th scope="row" class="stt">{{ i + 1 }}</th>
       <td>{{ account.name }}</td>
+      <td *ngIf="type == 'student'">{{ account.studentCode }}</td>
       <td>{{ account.phoneNumber }}</td>
-      <td>{{ account.vnumail }}</td>
+      <td *ngIf="type != 'partner'">{{ account.vnumail }}</td>
       <td>{{ account.email }}</td>
+      <td *ngIf="(type == 'lecturer') || (type == 'admin')">{{ account.departerment }}</td>
+      <td *ngIf="(type == 'lecturer') || (type == 'partner')">{{ account.status }}</td>
       <td>
         <div class="btn btn-group btn-group-sm ">
+          <button class="btn btn-warning" routerLink="/profile/{{account.name}}/{{account.account_userID}}">Sửa</button>
           <button class="btn btn-danger " (click)="onDelete(account.account_userID) ">Xóa</button>
         </div>
       </td>

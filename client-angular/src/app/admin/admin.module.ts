@@ -8,12 +8,14 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 import { JobAssignmentComponent } from './job-assignment/job-assignment.component';
 import { ManageInternshipTermComponent } from './manage-internship-term/manage-internship-term.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ShareModule } from '../share/share.module';
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    ShareModule
   ],
   declarations: [
     AdminComponent,

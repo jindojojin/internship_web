@@ -11,6 +11,8 @@ import { myWebsiteDomain } from '../../objects/appConfig';
   providers: [ProfilePageService]
 })
 export class ProfilePageComponent implements OnInit {
+  user;
+
   // tslint:disable-next-line:member-ordering
   assessions: any[] = null;
   // tslint:disable-next-line:member-ordering

@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
   userType: string;
   userID: string;
   nickname: string;
-
+  user;
   constructor(private router: Router) { }
 
   ngOnInit() {

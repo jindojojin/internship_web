@@ -1,16 +1,17 @@
 #message-box {
-    max-height: 450px !important;
-    overflow-y: auto;
+    height: 450px !important;
+    overflow-y: scroll;
 }
 .notMyMessage{
     border-radius: 8px;
      padding: 4px;
       width: auto ;
     background-color: aliceblue;
-    display: inline-block;
+    /* display: inline-block; */
 }
 .myMessage{
     border-radius: 8px; padding: 4px; width: auto;
     background-color:dodgerblue;
-    display: inline-block;
+    width: auto;
+    /* display: inline-block; */
 }

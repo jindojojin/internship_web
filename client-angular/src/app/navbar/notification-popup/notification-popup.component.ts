@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class NotificationPopupComponent implements OnInit {
 
   sumOfNotification: number;
-  notifications: any[];
+  notifications: any[]=null;
   constructor(private menuUserService: MenuUserService, private router: Router) { }
   showModal(){
     document.getElementById("notificationPopupOpenButton").click();

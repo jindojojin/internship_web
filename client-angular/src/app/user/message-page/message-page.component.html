@@ -1,6 +1,7 @@
 <h3 style="text-align: center">Tin nhắn</h3>
 <hr>
-<div class="container">
+<h2 *ngIf="listConversations.length == 0" style="color: red; text-align: center;">Hiện không có cuộc hội thoại nào</h2>
+<div *ngIf="listConversations.length > 0" class="container">
   <div class="row">
 
     <div class="col-4">
@@ -8,7 +9,8 @@
       <h4 style="text-align: center">Danh sách tin nhắn</h4>
       <hr>
       <div class="list-group">
-        <button [style.background-color]="getStyle(i)" *ngFor="let conversation of listConversations; let i= index" class="list-group-item list-group-item-action" (click)="updateMessage(i)">
+        <button [style.background-color]="getStyle(i)" *ngFor="let conversation of listConversations; let i= index" class="list-group-item list-group-item-action"
+          (click)="updateMessage(i)">
           <h5>
             {{conversation[0]['senderName']}}
           </h5>
@@ -24,27 +26,41 @@
       <br/>
       <h4 style="text-align: center">{{currentConversation[0].senderName}}</h4>
       <hr/>
-      <div id="message-box" class="rounded" style=" height: 500px; width: 100%; background-color: white; border: rgb(206, 206, 206) 1px solid">
+      <div id="message-box" class="rounded" style=" width: 100%; background-color: white; border: rgb(206, 206, 206) 1px solid">
         <div *ngFor="let message of currentConversation">
-          <p *ngIf="message.senderID != userID"
-            class="ml-2 mr-5 mt-3 notMyMessage">
-            {{message.content}}
-          </p>
-          <p *ngIf="message.senderID == userID"
-            class="ml-5 mr-2 mt-3 float-right myMessage">
-            {{message.content}}
-          </p>
+          <div  *ngIf="message.senderID != userID">            
+            <div class="notMyMessage card">
+              <h6>{{message.title}}</h6>
+              <p>{{message.content}}</p>              
+            </div>
+            <br>          
+          </div>
+          <div *ngIf="message.senderID == userID">
+            <div class="myMessage card">
+              <h6 style="text-align: right; color: white">{{message.title}}</h6>
+              <p style="text-align: right; color: white">{{message.content}}</p>
+            </div>    
+            <br>
+          </div>
         </div>
-        <br/>        
-
+        <br/>
       </div>
 
       <div class="input-group mb-3">
-        <input id="contentMessage" type="text" class="form-control" placeholder="Nhập tin nhắn ..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <input (keydown)="catchEnterPress($event)" id="contentMessage" type="text" class="form-control" placeholder="Nhập tin nhắn ..." aria-label="Recipient's username"
+          aria-describedby="basic-addon2">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" (click)="replyMessage()">Gửi</button>
+          
+          <div class="modal fade" id="sendNewMessage" tabindex="-1" role="dialog">
+            <app-message-modal (messageSent)="ngOnInit()"></app-message-modal>
+          </div>
+          <button class="btn btn-primary" type="button" (click)="replyMessage()"><span octicons="mail" color="white"></span></button>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#sendNewMessage" (click)="sendMessageWithNewTile()">
+              Gửi tin nhắn với tiêu đề mới
+            </button>
         </div>
       </div>
 
     </div>
   </div>
+</div>

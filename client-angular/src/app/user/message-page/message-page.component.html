@@ -1,30 +1,42 @@
+<h3 style="text-align: center">Tin nhắn</h3>
+<hr>
 <div class="container">
   <div class="row">
 
     <div class="col-4">
-      <p>Message</p>
-      <hr/>
+      <br/>
+      <h4 style="text-align: center">Danh sách tin nhắn</h4>
+      <hr>
       <div class="list-group">
-        <button type="button" class="list-group-item list-group-item-action">
-          Trần Quang Linh
+        <button [style.background-color]="getStyle(i)" *ngFor="let conversation of listConversations; let i= index" class="list-group-item list-group-item-action" (click)="updateMessage(i)">
+          <h5>
+            {{conversation[0]['senderName']}}
+          </h5>
+          <h6 *ngIf="conversation[conversation.length-1].status=='unread'">{{conversation[conversation.length-1].content}}</h6>
+          <p *ngIf="conversation[conversation.length-1].status=='read'">{{conversation[conversation.length-1].content}}</p>
         </button>
-        <button type="button" class="list-group-item list-group-item-action">Trần Thị Minh Nguyệt</button>
-        <button type="button" class="list-group-item list-group-item-action">Đinh Văn Giang</button>
       </div>
+      <h4 *ngIf="listConversations == []" style="color: red">Hiện không có cuộc hội thoại nào</h4>
     </div>
-    
+
 
     <div class="col-8">
       <br/>
+      <h4 style="text-align: center">{{currentConversation[0].senderName}}</h4>
       <hr/>
       <div id="message-box" class="rounded" style=" height: 500px; width: 100%; background-color: white; border: rgb(206, 206, 206) 1px solid">
-        <p style="border-radius: 10px; padding: 4px; display:inline-block; width: auto; border: dodgerblue 2px solid" class="ml-2 mr-5 mt-3">
-          ê, làm bài tập lớn chưa?
-        </p>
-        <br/>
-        <p style="border-radius: 10px; padding: 4px; display:inline-block; width: auto; border: dodgerblue 2px solid" class="ml-5 mr-2 mt-3 float-right">
-          chưa :))) ahihi!
-        </p>
+        <div *ngFor="let message of currentConversation">
+          <p *ngIf="message.senderID != userID"
+            class="ml-2 mr-5 mt-3 notMyMessage">
+            {{message.content}}
+          </p>
+          <p *ngIf="message.senderID == userID"
+            class="ml-5 mr-2 mt-3 float-right myMessage">
+            {{message.content}}
+          </p>
+          <br/>
+        </div>
+
       </div>
 
       <div class="input-group mb-3">

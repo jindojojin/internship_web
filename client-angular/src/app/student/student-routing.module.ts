@@ -23,7 +23,7 @@ const routes_Student: Routes = [ {
         component: ManagePlanReportComponent,
       },
       {
-        path: 'quan-ly-bao-cao-toan-van',
+        path: 'gui-yeu-cau-xac-nhan-cong-ty',
         component: ManagePlanReportComponent,
       },
     ]

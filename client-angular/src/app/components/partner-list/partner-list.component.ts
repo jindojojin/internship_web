@@ -11,14 +11,15 @@ import { StudentService } from '../../student/student.service';
 })
 
 export class PartnerListComponent implements OnInit {
+  user;
   partners: Object;
   server = myWebsiteDomain;
   constructor(private partnerListService: PartnerListService, private studentService: StudentService) { }
-  follow(partnerID,partnerName) {
+  follow(partnerID, partnerName) {
     this.studentService.crudFollow("follow", "partner", partnerID)
       .then(
         r => {
-          let message = "Đã thêm "+partnerName +" vào danh sách yêu thích, bạn sẽ nhận được các thông báo mới nhất từ "+partnerName;
+          let message = "Đã thêm " + partnerName + " vào danh sách yêu thích, bạn sẽ nhận được các thông báo mới nhất từ " + partnerName;
           window.alert(message);
           this.ngOnInit();
         })
@@ -26,20 +27,20 @@ export class PartnerListComponent implements OnInit {
         window.alert("đã xảy ra lỗi, vui lòng thử lại sau")
       })
   }
-  unfollow(partnerID,partnerName) {
+  unfollow(partnerID, partnerName) {
     this.studentService.crudFollow("unfollow", "partner", partnerID)
-    .then(
-      r => {
-        let message = "Đã bỏ theo dõi "+partnerName;
-        window.alert(message);
-        this.ngOnInit();
+      .then(
+        r => {
+          let message = "Đã bỏ theo dõi " + partnerName;
+          window.alert(message);
+          this.ngOnInit();
+        })
+      .catch(e => {
+        window.alert("đã xảy ra lỗi, vui lòng thử lại sau")
       })
-    .catch(e => {
-      window.alert("đã xảy ra lỗi, vui lòng thử lại sau")
-    })
   }
   ngOnInit() {
-    this.partnerListService.getList()
+    this.partnerListService.getList(1, 9)
       .then(res => {
         this.partners = res;
         console.log(this.partners);
@@ -47,4 +48,24 @@ export class PartnerListComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
+  // Pagination
+  page;
+  maxPages = 10;
+  itemsPerPage = 9;
+  currentPage = 1;
+  pageChanged(event) {
+    this.page = event.page;
+    this.itemsPerPage = event.itemsPerPage
+    this.loadPage(this.page, this.itemsPerPage);
+  }
+
+  loadPage(page: number, rows: number) {
+    this.partnerListService.getList((page - 1) * this.itemsPerPage + 1, rows)
+      .then(res => {
+        this.partners = res;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 }

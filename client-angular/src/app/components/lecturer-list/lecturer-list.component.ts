@@ -11,6 +11,7 @@ import { StudentService } from '../../student/student.service';
 })
 export class LecturerListComponent implements OnInit {
   lecturers: Object;
+  user;
   constructor(private lecturerListService: LecturerListService, private studentService : StudentService) { }
   server= myWebsiteDomain;
   follow(lecturerID,lecturerName){
@@ -42,12 +43,33 @@ export class LecturerListComponent implements OnInit {
     })
   }
   ngOnInit() {
-    this.lecturerListService.getList()
+    this.lecturerListService.getList(1, 9)
       .then(res => {
         // console.log(res);
         this.lecturers = res;
       })
       .catch(err => console.log(err));
+  }
+
+  // Pagination
+  page;
+  maxPages = 10;
+  itemsPerPage = 9;
+  currentPage = 1;
+  pageChanged(event) {
+    this.page = event.page;
+    this.itemsPerPage = event.itemsPerPage
+    this.loadPage(this.page, this.itemsPerPage);
+  }
+
+  loadPage(page: number, rows: number) {
+    this.lecturerListService.getList((page - 1) * this.itemsPerPage + 1, rows)
+      .then(res => {
+        this.lecturers = res;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
 }

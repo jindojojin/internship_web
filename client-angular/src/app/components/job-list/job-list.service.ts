@@ -7,11 +7,9 @@ import { myWebsiteDomain } from "../../objects/appConfig";
 
 export class JobListService {
     constructor(private http: Http) { }
-    start:number = 1;
-    total:number = 10;
 
-    getList() {       
-        var url = myWebsiteDomain + "/list/jobs/start=" + this.start + "/total=" + this.total; //api server trả về
+    getList(start, total) {       
+        var url = myWebsiteDomain + "/list/jobs/start=" + start + "/total=" + total; //api server trả về
         return this.http.get(url,{withCredentials:true})
             .toPromise()
             .then(res => {

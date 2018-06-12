@@ -6,3 +6,7 @@
     <app-post [job] = "job"></app-post>
   </div>
 </div>
+
+<!-- Pagination -->
+<app-pagination class="pagination" [maxPages]="maxPages" [current]="currentPage"
+ [itemsPerPage]="itemsPerPage" (changePage)="pageChanged($event)"></app-pagination>

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/cor
 import { SignInService } from './sign-in.service';
 import { setCookie } from '../../objects/Cookiee';
 import { ChangePasswordModalComponent } from '../../user/change-password-modal/change-password-modal.component';
+import { NotificationPopupComponent } from '../notification-popup/notification-popup.component';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class SignInComponent implements OnInit {
   @Output() loggedIn = new EventEmitter();
   @ViewChild(ChangePasswordModalComponent)
   changePassword: ChangePasswordModalComponent;
+ 
 
 
   constructor(private signInService: SignInService) { }
@@ -23,7 +25,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(formSignIn) {
-    formSignIn.value.username = formSignIn.value.username.replace('@vnu.edu.vn','');
+    formSignIn.value.username = formSignIn.value.username.replace('@vnu.edu.vn', '');
     this.signInService.sendPost(formSignIn.value)
       .then(result => {
         console.log(result);
@@ -31,16 +33,19 @@ export class SignInComponent implements OnInit {
           console.log('xác định là phải đổi mật khẩu');
           setCookie('userID', result.userID, 2);
           setCookie('userToken', result.usertoken, 2);
-          this.changePassword.showModal();
+
           document.getElementById('closeModal').click();
+          this.changePassword.showModal();
+
         } else {
-          window.location.reload();
+          // window.location.reload();
           setCookie('nickname', result.nickname, 2);
           setCookie('userID', result.userID, 2);
           setCookie('userType', result.usertype, 2);
           setCookie('userToken', result.usertoken, 2);
           console.log('đã lưu cookies');
           document.getElementById('closeModal').click();
+
           this.loggedIn.emit();
         }
       })

@@ -9,6 +9,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { UserModule } from '../user/user.module';
 import { OcticonsModule } from '../octicons/octicons.module';
+import { NotificationPopupComponent } from './notification-popup/notification-popup.component';
 
 
 
@@ -29,6 +30,7 @@ import { OcticonsModule } from '../octicons/octicons.module';
     NavbarComponent,
     MenuUserComponent,
     SignInComponent,
+    NotificationPopupComponent,
   ],
   exports: [
     NavbarComponent,

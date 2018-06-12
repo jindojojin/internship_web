@@ -3,10 +3,14 @@
     overflow-y: auto;
 }
 .notMyMessage{
-    border-radius: 8px; padding: 4px; display:inline-block; width: auto ;
-    background-color: aliceblue
+    border-radius: 8px;
+     padding: 4px;
+      width: auto ;
+    background-color: aliceblue;
+    display: inline-block;
 }
 .myMessage{
-    border-radius: 8px; padding: 4px; display:inline-block; width: auto;
-    background-color:dodgerblue
+    border-radius: 8px; padding: 4px; width: auto;
+    background-color:dodgerblue;
+    display: inline-block;
 }

@@ -24,7 +24,7 @@
       <p *ngIf="sumOfNotification == 0">Không có tin nhắn nào chưa đọc!</p>
 
       <div class="dropdown-item float-right">
-        <a class="float-right" id="seeAll" routerLink="/tin-nhan">Xem trong hộp thư</a>
+        <a class="link-btn float-right mx-2 smalltextt" id="seeAll" routerLink="/tin-nhan">Xem trong hộp thư</a>
         <button *ngIf="sumOfNotification > 0" class="link-btn float-right mx-2 smalltext" (click)="markAllRead()">Đánh dấu tất cả là đã đọc</button>
         
       </div>

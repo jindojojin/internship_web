@@ -2,7 +2,7 @@
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th scope="col">STT</th>
+        <th scope="col" class="stt">STT</th>
         <th scope="col">Ngày bắt đầu</th>
         <th scope="col">Ngày kết thúc</th>
         <th scope="col">Tiêu đề</th>
@@ -13,14 +13,14 @@
       <tr *ngFor="let term of terms; let i = index">
         <!-- Hiển thị danh sách đợt thực tập -->
         <ng-container *ngIf="term.termID != termIDEdit">
-          <th scope="row">{{ i + 1 }}</th>
+          <th scope="row" class="stt">{{ i + 1 }}</th>
           <td>{{ term.start }}</td>
           <td>{{ term.end }}</td>
           <td>{{ term.title }}</td>
           <td>
             <div class="btn btn-group btn-group-sm">
-              <button class="btn btn-warning" (click)="onEdit(term.termID)">Sửa</button>
-              <button class="btn btn-danger" (click)="onDelete(term.termID)">Xóa</button>
+              <button type="button" class="btn btn-warning" (click)="onEdit(term.termID)">Sửa</button>
+              <button type="button" class="btn btn-danger" (click)="onDelete(term.termID)">Xóa</button>
             </div>
           </td>
         </ng-container>

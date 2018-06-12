@@ -10,11 +10,22 @@ export class ManageUserComponent implements OnInit {
   user;
   accounts: Object;
   type: string = "student";
-
+  username;
+  uID;
   constructor(private manageUserService: ManageUserService) { }
 
   ngOnInit() {
     this.onGetAccounts(this.type);
+  }
+
+  onUpdate(userID, formEdit) {
+    console.log(userID);
+    console.log(formEdit.value);
+    this.manageUserService.updateAccount(userID, formEdit.value)
+      .then(result => {
+
+      })
+      .catch(err => console.log(err));
   }
 
   onDelete(userID) {
@@ -37,4 +48,8 @@ export class ManageUserComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
+  setUsername(username, userID) {
+    this.username = username;
+    this.uID = userID;
+  }
 }

@@ -33,6 +33,7 @@ export class ManageInternshipTermComponent implements OnInit {
   }
 
   onSubmitEdit(newTermContent) {
+    console.log("1");
     this.manageInternshipTermService.updateTerm(this.termIDEdit, newTermContent.value)
     .then(result => {
       this.termIDEdit = null;

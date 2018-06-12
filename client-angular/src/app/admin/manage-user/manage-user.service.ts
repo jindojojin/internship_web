@@ -19,15 +19,25 @@ export class ManageUserService {
             .catch(err => console.log(err));
     }
 
+    // gửi requesst update tài khoản
+    updateAccount(userID, accountEdited) {
+        const url = myWebsiteDomain + "/admin/CRUD/account";
+        const body = JSON.stringify(accountEdited);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        return this.http.put(url, body, { withCredentials: true, headers })
+            .toPromise()
+            .then(res => { })
+            .catch(err => console.log(err));
+    }
+
     // gửi request xóa tài khoản
     deleteAccount(userID) {
         const url = myWebsiteDomain + "/admin/CRUD/account/userID=" + userID;
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        const body = JSON.stringify(userID);
         return this.http.delete(url, { withCredentials: true, headers })
             .toPromise()
             .then(res => {
-                return res.json();
+                // return res.json();
             })
             .catch(err => console.log(err));
     }

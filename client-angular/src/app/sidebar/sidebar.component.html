@@ -7,8 +7,8 @@
     </a>
   </div>
   <ul class="sidebar-body">
-    <li routerLinkActive="active" class="active">
-      <a href='/profile/{{nickname | replaceSpace}}/{{userID}}' display="inline">
+    <li routerLinkActive="active">
+      <a routerLink='/profile/{{nickname | replaceSpace}}/{{userID}}' display="inline">
         <i octicons="person" color="white"></i>
         <p>Thông tin cá nhân</p>
       </a>
@@ -34,13 +34,13 @@
       </a>
     </li>
     <li *ngIf="(user| isStudent)" routerLinkActive="active">
-        <a routerLink="/student/gui-yeu-cau-xac-nhan-cong-ty">
-          <i octicons="mortar-board" color="white"></i>
-          <p>Thực tập tại nơi khác</p>
-        </a>
-      </li>
+      <a routerLink="/student/gui-yeu-cau-xac-nhan-cong-ty">
+        <i octicons="mortar-board" color="white"></i>
+        <p>Thực tập tại nơi khác</p>
+      </a>
+    </li>
 
-      <!-- lecturer only -->
+    <!-- lecturer only -->
     <li *ngIf="(user| isLecturer)" routerLinkActive="active">
       <a routerLink="/lecturer/danh-sách-sinh-viên-đang-chờ">
         <i octicons="organization" color="white"></i>
@@ -79,9 +79,9 @@
         <p>Danh sách ứng viên </p>
       </a>
     </li>
-    
-     <!-- admin only -->
-     <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+
+    <!-- admin only -->
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
       <a routerLink="/admin/thêm-tài-khoản">
         <i octicons="plus" color="white"></i>
         <p>Thêm tài khoản</p>
@@ -105,11 +105,7 @@
         <p>Phân công giảng viên</p>
       </a>
     </li>
-    
 
-
-
-    
     <hr>
     <li routerLinkActive="active">
       <a class="link" (click)="changePassword.showModal();">

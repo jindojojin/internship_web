@@ -6,7 +6,7 @@
   height: 100%;
   display: block;
   z-index: 5;
-  color: #fff;
+  /* color: #fff; */
   font-weight: 200;
   background-color: rgba(119, 119, 119, 0.7);
 }
@@ -25,6 +25,10 @@
   background-position: center center;
 }
 
+/* i {
+  color: red;
+} */
+
 .sidebar-header {
   text-align: center;
   padding: 18px 15px;
@@ -40,14 +44,10 @@
   color: #fff;
 }
 
-.sidebar-body{
+.sidebar-body {
   margin-top: 20px;
   margin-left: -15px;
   float: none;
-}
-
-a {
-  text-decoration: none;
 }
 
 ul {
@@ -58,8 +58,19 @@ p {
   display: inline;
   font-size: 20px;
   margin: 0px 10px;
+  cursor: pointer;
 }
 
-a{
+a {
+  text-decoration: none;
   cursor: pointer;
+}
+
+a :hover {
+  color: rgba(248, 0, 0, 0.582);
+}
+
+.active a{
+  font-weight: 300;
+  color: red;
 }

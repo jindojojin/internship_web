@@ -11,7 +11,7 @@ export class VietnamPipe implements PipeTransform {
         return "Họ và tên";
       case "dateOfBirth":
         return "Ngày sinh";
-      case "studentCode ":
+      case "studentCode":
         return "Mã sinh viên";
       case "class":
         return "Lớp khóa học";

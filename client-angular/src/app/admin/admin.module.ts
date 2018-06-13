@@ -9,6 +9,7 @@ import { JobAssignmentComponent } from './job-assignment/job-assignment.componen
 import { ManageInternshipTermComponent } from './manage-internship-term/manage-internship-term.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from '../share/share.module';
+import { ApprovePartnerInfoComponent } from './approve-partner-info/approve-partner-info.component';
 import { PaginationModule } from '../components/pagination/pagination.module';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { PaginationModule } from '../components/pagination/pagination.module';
     ManageUserComponent,
     JobAssignmentComponent,
     ManageInternshipTermComponent,
+    ApprovePartnerInfoComponent
   ],
   exports: [AdminComponent]
 })

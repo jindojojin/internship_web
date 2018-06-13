@@ -6,6 +6,7 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 import { JobAssignmentComponent } from './job-assignment/job-assignment.component';
 import { ManageInternshipTermComponent } from './manage-internship-term/manage-internship-term.component';
 import { AdminGuard } from './admin.guard';
+import { ApprovePartnerInfoComponent } from './approve-partner-info/approve-partner-info.component';
 
 const routes_Admin: Routes = [
   {
@@ -33,6 +34,10 @@ const routes_Admin: Routes = [
       {
         path:'phân-công-giảng-viên',
         component: JobAssignmentComponent,
+      },
+      {
+        path:'phe-duyet-cong-ty',
+        component: ApprovePartnerInfoComponent,
       }
     ]
   },

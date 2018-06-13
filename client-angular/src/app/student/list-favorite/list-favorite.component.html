@@ -20,7 +20,7 @@
             <img class="logo" src="{{ lecturer.logo | imageFromServer }}" alt="Logo">
             <div class="sticky-bottom mb-2">
               <h4 class="text-center"> {{lecturer.name}} </h4>
-              <div class="btn-group d-flex justify-content-center">
+              <div class="btn-group d-flex justify-content-center card-footer">
                 <button class="btn btn-primary" routerLink="/profile/{{lecturer.name | replaceSpace}}/{{lecturer.lecturerID}}">Thông tin</button>
                 <button *ngIf="lecturer.status=='waiting'" (click)="unfollowLecturer(lecturer.lecturerID,lecturer.name)" class="btn btn-danger align-bottom"
                   data-toggle="tooltip" data-placement="bottom" title="Hủy đăng ký giảng viên này">
@@ -80,7 +80,7 @@
             <img class="logo" src="{{ partner.logo | imageFromServer }}" alt="Logo">
             <div class="sticky-bottom mb-2">
               <h4 class="text-center"> {{partner.name}} </h4>
-              <div class="btn-group d-flex justify-content-center">
+              <div class="btn-group d-flex justify-content-center card-footer">
                 <button class="btn btn-primary" routerLink="/profile/{{partner.name | replaceSpace}}/{{partner.partnerID}}">Thông tin</button>
                 <button (click)="unfollowPartner(partner.partnerID,partner.name)" class="btn btn-danger align-bottom" data-toggle="tooltip"
                   data-placement="bottom" title="Bỏ theo dõi thông tin thực tập từ đối tác này">
@@ -102,7 +102,7 @@
         </button>
       </h5>
     </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div *ngFor="let job of listJobFollowed">
         <!-- <app-post [job] = "job"></app-post> -->
         <div class="card mt-3">
@@ -113,7 +113,8 @@
               </div>
               <div class="col-sm-4 col-md-3">
                 <span *ngIf="job.status == 'waiting'" class="badge badge-warning float-right">Đang đợi phản hồi từ đối tác</span>
-                <span *ngIf="job.status == 'accepted'" class="badge badge-success float-right">Đã vượt qua vòng hồ sơ</span>
+                <span *ngIf="job.status == 'accepted'" class="badge badge-info float-right">Đã vượt qua vòng hồ sơ</span>
+                <span *ngIf="job.status == 'working'" class="badge badge-success float-right">Đang thực tập tại đây</span>
               </div>
 
             </div>
@@ -126,12 +127,15 @@
               <p class="card-text">{{job.content | limitTitle}}</p>
             </div>
           </div>
-          <button *ngIf="(user | isStudent)  && job.status=='waiting'"  class="btn btn-sm btn-danger float-right" (click)="unfollowJob(job.jobID,job.partnerName)">Hủy đăng ký</button>
-          <!-- Button trigger modal -->
-          <button *ngIf="(user | isStudent) && job.status=='accepted'" type="button" class="btn btn-primary btn-danger align-bottom" data-toggle="modal"
-            data-target="#unfollowJob">
+          <div class="card-footer">
+            <button *ngIf="(user | isStudent)  && job.status== 'accepted'" class="btn btn-primary" (click)="workForThisJob(job.jobID)">Quyết định thực tập tại đây</button>
+            <!-- <button *ngIf="(user | isStudent)  && job.status== 'waiting'" class="btn btn-danger" (click)="unfollowJob(job.jobID,job.partnerName)">Hủy đăng ký</button> -->
+            <button *ngIf="(user | isStudent) && job.status !='working'" type="button" class="btn btn-danger"
+            data-toggle="modal" data-target="#unfollowJob">
             Hủy đăng ký
           </button>
+          </div>
+          <!-- Button trigger modal -->
 
           <!-- Modal -->
           <div class="modal fade" id="unfollowJob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

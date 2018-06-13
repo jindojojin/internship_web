@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ValueTransformer } from '@angular/compiler/src/util';
 import { MessageModalService } from './message-modal.service';
 
@@ -12,7 +12,8 @@ export class MessageModalComponent implements OnInit {
   @Input() receiverName:string;
   @Input() receiverID:string;
   @Input() sendNew:string ="true";
-  @Input() title:string="Tiêu đề"
+  @Input() title:string;
+  @Output() messageSent = new EventEmitter();
   constructor(private messageModalService: MessageModalService) {}
   messageWasSent:boolean=false;
 
@@ -28,6 +29,7 @@ export class MessageModalComponent implements OnInit {
        this.messageWasSent=true;
        setTimeout(() => {
         document.getElementById(this.receiverID).click();
+       this.messageSent.emit();        
        }, 600);
       }
     ).catch(e => console.log(e)

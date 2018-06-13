@@ -1,12 +1,29 @@
 <h3 class="title">Quản lý báo cáo</h3>
-<div *ngIf="(user | isLecturer) && studentInfo != null">
+<div *ngIf="studentInfo != null">
     <hr>
-    <h6>MSSV: {{studentInfo.studentCode}}</h6>
-    <h6>Họ và tên: {{studentInfo.name}}</h6>
-    <h6>Số điện thoại: {{studentInfo.phoneNumber}}</h6>
+    <h6>MSSV: <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.studentCode}}</a></h6>
+    <h6>Họ và tên: <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.name}}</a></h6>
+    <!-- <h6>Số điện thoại: {{studentInfo.phoneNumber}}</h6> -->
 </div>
+<div *ngIf="jobWorking != null">
+        <h6>Công việc đang thực tập: 
+            <a routerLink="/bai-dang/{{ jobWorking['internship_job.title'] | replaceSpace }}/{{jobWorking['internship_job.jobID']}}">
+                {{jobWorking['internship_job.title']}}
+            </a>
+            <span style="color: blue" *ngIf="jobWorking.jobID == null"> thực tập tại công ty {{jobWorking['partner_info.name']}} (được phê duyệt bởi quản trị viên)</span>
+        </h6>
+        
+</div>
+<div *ngIf="jobWorking == null">
+    <h6>Chưa đăng kí thực tập</h6>
+</div>
+<h6 *ngIf="(user|isStudent) && lecturerInfo != null">Giảng viên hướng dẫn: <a routerLink="/profile/{{lecturerInfo['name'] | replaceSpace}}/{{lecturerInfo['lecturerID']}}">{{lecturerInfo['name']}}</a></h6>
+<h6 *ngIf="(user|isStudent) && lecturerInfo == null">Giảng viên hướng dẫn: Chưa có giảng viên hướng dẫn</h6>
+
 <hr>
 <h4 class="title" style="color: red" *ngIf="reports == []">Chưa có báo cáo định kỳ nào</h4>
+<h4 class="title" style="color: red" *ngIf="(user|isStudent) && lecturerInfo == null">Bạn chỉ có thể sử dụng tính năng này khi có giảng viên hướng dẫn</h4>
+
 <h4 class="title" style="color: red" *ngIf="reports == null && (user|isLecturer)">Sinh viên này hiện đang không thực tập tại bất kỳ công ty nào</h4>
 <h4 class="title" style="color: red" *ngIf="reports == null && (user|isStudent)">Bạn hiện đang không thực tập tại bất kỳ công ty nào</h4>
 
@@ -111,6 +128,6 @@
         </div>
     </div>
     <br/>
-    <app-new-plan-report-form class="float-right" title="{{newTitle}}" studentID="{{studentID}}" jobID="{{jobID}}" (created)="reloadThisComponent($event)"></app-new-plan-report-form>
+    <app-new-plan-report-form *ngIf="(user|isLecturer) ||((user|isStudent) && lecturerInfo != null)" class="float-right" title="{{newTitle}}" studentID="{{studentID}}" jobID="{{jobID}}" (created)="reloadThisComponent($event)"></app-new-plan-report-form>
     <app-let-point-for-planreport-modal></app-let-point-for-planreport-modal>
 </div>

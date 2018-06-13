@@ -4,6 +4,7 @@ import { StudentComponent } from './student.component';
 import { ManagePlanReportComponent } from './manage-plan-report/manage-plan-report.component';
 import { StudentGuard } from './student.guard';
 import { ListFavoriteComponent } from './list-favorite/list-favorite.component';
+import { SendPartnerInfoToAdminComponent } from './send-partner-info-to-admin/send-partner-info-to-admin.component';
 const routes_Student: Routes = [ {
     path: 'student',
     component: StudentComponent ,
@@ -24,7 +25,7 @@ const routes_Student: Routes = [ {
       },
       {
         path: 'gui-yeu-cau-xac-nhan-cong-ty',
-        component: ManagePlanReportComponent,
+        component: SendPartnerInfoToAdminComponent,
       },
     ]
   },

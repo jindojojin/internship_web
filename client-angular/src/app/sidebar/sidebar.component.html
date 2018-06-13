@@ -105,6 +105,12 @@
         <p>Phân công giảng viên</p>
       </a>
     </li>
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+        <a routerLink="/admin/phe-duyet-cong-ty">
+          <i octicons="checklist" color="white"></i>
+          <p>Phê duyệt công ty</p>
+        </a>
+      </li>
     
 
 

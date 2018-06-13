@@ -9,6 +9,7 @@ import { JobAssignmentComponent } from './job-assignment/job-assignment.componen
 import { ManageInternshipTermComponent } from './manage-internship-term/manage-internship-term.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from '../share/share.module';
+import { ApprovePartnerInfoComponent } from './approve-partner-info/approve-partner-info.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,7 +23,8 @@ import { ShareModule } from '../share/share.module';
     AddUserComponent,
     ManageUserComponent,
     JobAssignmentComponent,
-    ManageInternshipTermComponent
+    ManageInternshipTermComponent,
+    ApprovePartnerInfoComponent
   ],
   exports: [AdminComponent]
 })

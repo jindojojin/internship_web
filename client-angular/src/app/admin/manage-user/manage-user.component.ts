@@ -21,9 +21,13 @@ export class ManageUserComponent implements OnInit {
   onUpdate(userID, formEdit) {
     console.log(userID);
     console.log(formEdit.value);
-    this.manageUserService.updateAccount(userID, formEdit.value)
+    formEdit.value.userID = userID;
+    this.manageUserService.updateAccount(formEdit.value)
       .then(result => {
-
+            document.getElementById("closeModal"+userID).click();
+          window.alert("Cập nhập thành công!");
+          this.ngOnInit();
+            
       })
       .catch(err => console.log(err));
   }

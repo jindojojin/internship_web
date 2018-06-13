@@ -20,7 +20,7 @@ export class ManageUserService {
     }
 
     // gửi requesst update tài khoản
-    updateAccount(userID, accountEdited) {
+    updateAccount(accountEdited) {
         const url = myWebsiteDomain + "/admin/CRUD/account";
         const body = JSON.stringify(accountEdited);
         const headers = new Headers({ 'Content-Type': 'application/json' });

@@ -11,6 +11,7 @@ import { PostComponent } from '../components/job-list/post/post.component';
 import { NewPlanReportFormComponent } from './new-plan-report-form/new-plan-report-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LetPointForPlanreportModalComponent } from './manage-plan-report/let-point-for-planreport-modal/let-point-for-planreport-modal.component'
+import { SendPartnerInfoToAdminComponent } from './send-partner-info-to-admin/send-partner-info-to-admin.component';
 
 @NgModule({
   imports: [
@@ -19,9 +20,9 @@ import { LetPointForPlanreportModalComponent } from './manage-plan-report/let-po
     ShareModule,
     OcticonsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
-  declarations: [StudentComponent, ManagePlanReportComponent, ListFavoriteComponent, NewPlanReportFormComponent, LetPointForPlanreportModalComponent],
+  declarations: [StudentComponent, ManagePlanReportComponent, ListFavoriteComponent, NewPlanReportFormComponent, LetPointForPlanreportModalComponent,SendPartnerInfoToAdminComponent],
   providers: [StudentService]
 })
 export class StudentModule { }

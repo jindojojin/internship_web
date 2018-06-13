@@ -98,4 +98,16 @@ export class StudentService {
       .catch(e => false);
   }
 
+  addPartnerInfo(partnerInfo){
+    const url = myWebsiteDomain + '/student/addNewPartnerInfo';
+    return this.http.post(url, partnerInfo, { withCredentials: true })
+      .toPromise()
+      .then(r => {
+        if (r.status === 201) {
+          return true;
+        } else { return false; }
+      })
+      .catch(e => false);
+  }
+
 }

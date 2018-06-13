@@ -1,0 +1,28 @@
+<h3 style="text-align: center">Gửi thông tin công ty cho quản trị viên</h3>
+<hr>
+<p style="color: red">Hướng dẫn: Nếu sinh viên đã thực tập tại 1 công ty nhưng công ty đó không có trong danh sách đối tác thì sinh viên điền đầy
+  đủ thông tin của đối tác vào form dưới đây rồi bấn nút gửi để đợi quản trị viên xác nhận thông tin</p>
+<form (ngSubmit)="submitPartnerInfo(formPartnerInfo)" #formPartnerInfo="ngForm">
+  <div style="background-color: white" class="container">
+    <h4 style="text-align: center">Thông tin đăng ký thực tập của sinh viên</h4>
+    <label>Tên công ty :</label>
+    <input type="text" class="form-control" name="name" ngModel required>
+    <label>Giới thiệu tóm tắt về công ty:</label>
+    <input type="text" class="form-control" name="shortDescribe" ngModel required>    
+    <label>Email :</label>
+    <input type="text" class="form-control" name="email" ngModel required>
+    <label>Số điện thoại:</label>    
+    <input type="text" class="form-control" name="phoneNumber" ngModel required>
+    <label>Địa chỉ nhà điều hành :</label>
+    <input type="text" class="form-control" name="operatorAddress" ngModel required>
+    <label>Địa chỉ thực tập :</label>
+    <input type="text" class="form-control" name="internshipAddress" ngModel required>    
+    <label>Tên người phụ trách thực tập :</label>
+    <input type="text" class="form-control" name="internGuideName" ngModel required>
+    <label>Số điện thoại người phụ trách thực tập :</label>
+    <input type="text" class="form-control" name="internGuidePhoneNumber" ngModel required>
+    <label>Email người phụ trách thực tập :</label>
+    <input type="text" class="form-control" name="internGuideEmail" ngModel required>
+    <button [disabled]="formPartnerInfo.invalid" type="submit" class="btn btn-success float-right">Gửi</button>
+  </div>
+</form>

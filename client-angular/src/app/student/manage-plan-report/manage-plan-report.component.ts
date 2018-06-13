@@ -7,7 +7,6 @@ import { LecturerService } from '../../lecturer/lecturer.service';
 import { ActivatedRoute } from '@angular/router';
 import { LetPointForPlanreportModalComponent } from './let-point-for-planreport-modal/let-point-for-planreport-modal.component';
 import { ProfilePageService } from '../../user/profile-page/profile-page.service';
-import { EMLINK } from 'constants';
 
 @Component({
   selector: 'app-manage-plan-report',

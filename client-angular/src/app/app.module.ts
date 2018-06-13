@@ -28,6 +28,7 @@ import { MenuSearchBarComponent } from './navbar/menu-search-bar/menu-search-bar
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from './share/share.module';
 import { JobListByPartnerComponent } from './components/job-list-by-partner/job-list-by-partner.component';
+import { PaginationModule } from './components/pagination/pagination.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,6 @@ import { JobListByPartnerComponent } from './components/job-list-by-partner/job-
     LecturerListComponent,
     SidebarComponent,
     JobListByPartnerComponent,
-
   ],
   imports: [
     OcticonsModule,
@@ -56,6 +56,7 @@ import { JobListByPartnerComponent } from './components/job-list-by-partner/job-
     NavbarModule,
     ShareModule,    
     ReactiveFormsModule,
+    PaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

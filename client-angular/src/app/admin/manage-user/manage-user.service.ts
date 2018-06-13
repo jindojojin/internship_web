@@ -9,8 +9,8 @@ export class ManageUserService {
     constructor(private http: Http) { }
 
     // gửi request lấy danh sách tài khoản
-    getAccounts(type) {
-        var url = myWebsiteDomain + "/list/users/type=" + type + "/start=1/total=9";
+    getAccounts(type, start, total) {
+        var url = myWebsiteDomain + "/list/users/type=" + type + "/start=" + start + "/total=" + total;
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {

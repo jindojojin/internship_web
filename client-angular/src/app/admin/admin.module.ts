@@ -10,13 +10,16 @@ import { ManageInternshipTermComponent } from './manage-internship-term/manage-i
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from '../share/share.module';
 import { ApprovePartnerInfoComponent } from './approve-partner-info/approve-partner-info.component';
+import { PaginationModule } from '../components/pagination/pagination.module';
+
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ShareModule
+    ShareModule,
+    PaginationModule
   ],
   declarations: [
     AdminComponent,

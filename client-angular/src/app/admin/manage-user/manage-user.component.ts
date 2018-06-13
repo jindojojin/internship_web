@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManageUserService } from './manage-user.service';
+
 @Component({
   selector: 'app-manage-user',
   templateUrl: './manage-user.component.html',
@@ -42,11 +43,8 @@ export class ManageUserComponent implements OnInit {
 
   onGetAccounts(type: string) {
     this.type = type;
-    this.manageUserService.getAccounts(type)
+    this.manageUserService.getAccounts(type, 1, 10)
       .then(res => {
-        res.forEach(element => {
-          console.log(element);
-        });
         this.accounts = res;
       })
       .catch(err => console.log(err));
@@ -55,5 +53,26 @@ export class ManageUserComponent implements OnInit {
   setUsername(username, userID) {
     this.username = username;
     this.uID = userID;
+  }
+
+  // Pagination
+  page;
+  maxPages = 10;
+  itemsPerPage: number = 10;
+  currentPage = 1;
+  pageChanged(event) {
+    this.page = event.page;
+    this.itemsPerPage = event.itemsPerPage
+    this.loadPage(this.page, this.itemsPerPage);
+  }
+
+  loadPage(page: number, rows: number) {
+    this.manageUserService.getAccounts(this.type, (page - 1) * this.itemsPerPage + 1, rows)
+      .then(res => {
+        this.accounts = res;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 }

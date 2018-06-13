@@ -13,7 +13,6 @@ export class LecturerService {
     .then(r=>{
       console.log(r.json())
       if(r.status==200) return r.json();
-      // return false;
     })
     .catch(e => false)
   }
@@ -57,7 +56,6 @@ export class LecturerService {
     return this.http.get(url,{withCredentials:true})
     .toPromise()
     .then(r=>{
-      console.log(r.json());
       if(r.status==200) return r.json();
       return false;
     })
@@ -69,7 +67,6 @@ export class LecturerService {
     return this.http.get(url,{withCredentials:true})
     .toPromise()
     .then(r=>{
-      console.log(r.json());
       if(r.status==200) return r.json();
       return false;
     })
@@ -78,7 +75,6 @@ export class LecturerService {
 
   createNewPlanReportForStudent(newPlanReport){
     let url = myWebsiteDomain +"/lecturer/PlanReports";
-    console.log(newPlanReport);
     return this.http.post(url,newPlanReport,{withCredentials:true})
     .toPromise()
     .then(r=>{
@@ -105,7 +101,6 @@ export class LecturerService {
     .toPromise()
     .then(
       r=> {
-        console.log(r);
         return r.json();
       }
     )

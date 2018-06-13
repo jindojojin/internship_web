@@ -15,8 +15,5 @@ export class OverviewResultComponent implements OnInit {
     this.lecturerService.getMarkTable()
       .then(r => { console.log(r); this.markTable = r })
       .catch(e => this.markTable = null)
-    console.log(this.markTable);
-
   }
-
 }

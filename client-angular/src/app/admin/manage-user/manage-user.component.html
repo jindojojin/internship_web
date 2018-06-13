@@ -80,3 +80,6 @@
     </tr>
   </tbody>
 </table>
+
+<!-- Pagination -->
+<app-pagination class="pagination" [maxPages]="maxPages" [current]="currentPage" [itemsPerPage]="itemsPerPage" (changePage)="pageChanged($event)"></app-pagination>

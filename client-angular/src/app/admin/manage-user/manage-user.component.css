@@ -33,3 +33,8 @@ th {
 .stt {
   padding-left: 20px;
 }
+
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+}

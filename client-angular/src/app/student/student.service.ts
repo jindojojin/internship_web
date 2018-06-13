@@ -110,4 +110,15 @@ export class StudentService {
       .catch(e => false);
   }
 
+  choseJobToWork(jobID){
+    const url = myWebsiteDomain+'/student/workForJob/jobID='+jobID;
+    return this.http.get(url, { withCredentials: true })
+      .toPromise()
+      .then(r => {
+        if (r.status === 201) {
+          return true;
+        } else { return false; }
+      })
+      .catch(e => false);
+  }
 }

@@ -7,6 +7,7 @@ import { LecturerService } from '../../lecturer/lecturer.service';
 import { ActivatedRoute } from '@angular/router';
 import { LetPointForPlanreportModalComponent } from './let-point-for-planreport-modal/let-point-for-planreport-modal.component';
 import { ProfilePageService } from '../../user/profile-page/profile-page.service';
+import { EMLINK } from 'constants';
 
 @Component({
   selector: 'app-manage-plan-report',
@@ -16,11 +17,14 @@ import { ProfilePageService } from '../../user/profile-page/profile-page.service
 })
 export class ManagePlanReportComponent implements OnInit {
   jobID: any;
-  studentID: string;
+  studentID: string;  
   reports: any[];
   myWebSiteDomain = myWebsiteDomain;
   newTitle: string; // tiêu đề gợi ý sẵn khi giáo viên tạo một yêu cầu báo cáo mới
-  studentInfo: any;
+  studentInfo: any; // chỉ lấy về khi người dùng là giảng viên
+  lecturerInfo:any; // thông tin giảng viên hướng dẫn
+  jobWorking:any; // thông tin công việc sinh viên đang thực tập
+
   // tslint:disable-next-line:max-line-length
   constructor(private http: Http, private studentService: StudentService, private lecturerService: LecturerService, private route: ActivatedRoute,private profileService: ProfilePageService) { }
   sendNewComment(planReportID) {
@@ -146,11 +150,17 @@ export class ManagePlanReportComponent implements OnInit {
   ngOnInit() {
     // tslint:disable-next-line:triple-equals
     if (getCookie('userType') == 'student') {
+      this.studentID = getCookie("userID");
+      this.getLecturerFollow();
+      this.profileService.getProfile(this.studentID).then(
+        r=> this.studentInfo=r
+      ).catch( e => this.studentInfo= null);
       this.studentService.getPlanReport().then(r => {
         // tslint:disable-next-line:triple-equals
         if (r != false) {
           console.log(r);
           this.reports = r.planReports;
+          this.jobWorking = r.job;
         } else { this.reports = []; }
       }
       ).catch(e => { console.log(e); this.reports = null; });
@@ -165,6 +175,7 @@ export class ManagePlanReportComponent implements OnInit {
           if (r != false) {
             console.log(r);
             this.reports = r.planReports;
+            this.jobWorking = r.job;
             console.log(this.reports);
             // this.newTitle = "Báo cáo tuần " + (this.reports.length + 1);
             // console.log(this.newTitle);
@@ -179,6 +190,14 @@ export class ManagePlanReportComponent implements OnInit {
 
     }
 
+  }
+  getLecturerFollow(){
+    this.studentService.getLecturerFollowed().then(r=>{
+      if( r[0] != null && r[0].status == "accepted"){
+        this.lecturerInfo = r[0];
+        console.log(this.lecturerInfo);
+      }else this.lecturerInfo = null;
+    })
   }
   @ViewChild(LetPointForPlanreportModalComponent)
   letPoint: LetPointForPlanreportModalComponent;

@@ -28,9 +28,7 @@ export class JobAssignmentService {
     }
 
     setLecturerForStudent(studentID, lecturerID) {
-        var url = myWebsiteDomain + "/admin/setLecturer/studentID="+studentID+'/lecturerID='+lecturerID;
-        // const body = JSON.stringify(value);
-        // console.log(body);
+        var url = myWebsiteDomain + "/admin/setLecturer/studentID=" + studentID + "/lecturerID=" + lecturerID;
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {

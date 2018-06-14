@@ -43,7 +43,8 @@
           <label>
             <input (change)="setLecturer(lecturer.account_userID)" type="radio" name="optradio" class="checkboxLecturer">{{ lecturer.name }}</label>
         </div>
-        <button type="button" (click)="onSubmit(studentID, lecturerID)">Lưu</button>
+        <button type="button" id="btnSetLecturer" class="btn btn-primary" (click)="onSubmit(studentID, lecturerID)">Lưu</button>
+        
       </div>
     </div>
   </div>

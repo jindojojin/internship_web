@@ -28,6 +28,7 @@ export class AddUserComponent implements OnInit {
     this.addUserService.addUser(newUser.value)
       .then(result => {
         window.alert("Tạo mới tài khoản thành công");
+        this.ngOnInit();
       })
       .catch(err => console.log(err));
   }

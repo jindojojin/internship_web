@@ -15,6 +15,9 @@ export class JobAssignmentComponent implements OnInit {
   lecturerID;
   type: string = "student";
 
+  startUser: number; //user đầu tiên của list
+  totalUser:number; // tổng user của list
+  totalLecturer: number; // tổng lecturer
   constructor(private jobAssignmentService: JobAssignmentService) { }
 
   ngOnInit() {
@@ -35,11 +38,14 @@ export class JobAssignmentComponent implements OnInit {
       .catch(err => console.log(err))
   }
 
-  onGetListLecturer(studentID) {
+  onGetListLecturer(studentID, start, total) {
     this.studentID = studentID;
-    this.jobAssignmentService.getAccounts("lecturer", 1, 10)
+    this.startUser = start;
+    this.totalUser = total;
+    this.jobAssignmentService.getAccounts("lecturer", start, total)
       .then(res => {
         this.lecturers = res;
+        this.totalLecturer = res[0].total;
       })
       .catch(err => console.log(err))
   }
@@ -49,7 +55,7 @@ export class JobAssignmentComponent implements OnInit {
         document.getElementById("closeModal").click();
         this.ngOnInit();
         window.alert("Cập nhập thành công!");
-       })
+      })
       .catch(err => console.log(err))
   }
 

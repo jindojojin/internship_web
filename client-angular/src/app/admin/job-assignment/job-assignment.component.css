@@ -41,5 +41,19 @@ th {
 }
 
 #btnSetLecturer {
-  float: right;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.modal-content {
+  width: 450px;
+  min-width: 450px;
+  height: 500px;
+  min-height: 500px;
+}
+
+.page {
+  position: absolute;
+  bottom: 20px;
 }

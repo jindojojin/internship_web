@@ -13,6 +13,7 @@ export class ManageUserComponent implements OnInit {
   type: string = "student";
   username;
   uID;
+  total: number;
   constructor(private manageUserService: ManageUserService) { }
 
   ngOnInit() {
@@ -20,15 +21,12 @@ export class ManageUserComponent implements OnInit {
   }
 
   onUpdate(userID, formEdit) {
-    console.log(userID);
-    console.log(formEdit.value);
     formEdit.value.userID = userID;
     this.manageUserService.updateAccount(formEdit.value)
       .then(result => {
-            document.getElementById("closeModal"+userID).click();
-          window.alert("Cập nhập thành công!");
-          this.ngOnInit();
-            
+        document.getElementById("closeModal" + userID).click();
+        window.alert("Cập nhập thành công!");
+        this.ngOnInit();
       })
       .catch(err => console.log(err));
   }
@@ -36,6 +34,7 @@ export class ManageUserComponent implements OnInit {
   onDelete(userID) {
     this.manageUserService.deleteAccount(userID)
       .then(result => {
+        window.alert("Xóa thành công!");
         this.ngOnInit();
       })
       .catch(err => console.log(err));
@@ -46,6 +45,10 @@ export class ManageUserComponent implements OnInit {
     this.manageUserService.getAccounts(type, 1, 10)
       .then(res => {
         this.accounts = res;
+        this.total = this.accounts[0].total;
+        this.ispaging = true;
+        this.maxPages = Math.ceil(this.total / this.itemsPerPage);
+        console.log(this.maxPages);
       })
       .catch(err => console.log(err));
   }
@@ -57,9 +60,10 @@ export class ManageUserComponent implements OnInit {
 
   // Pagination
   page;
-  maxPages = 10;
   itemsPerPage: number = 10;
+  maxPages;
   currentPage = 1;
+  ispaging = false;
   pageChanged(event) {
     this.page = event.page;
     this.itemsPerPage = event.itemsPerPage
@@ -70,9 +74,13 @@ export class ManageUserComponent implements OnInit {
     this.manageUserService.getAccounts(this.type, (page - 1) * this.itemsPerPage + 1, rows)
       .then(res => {
         this.accounts = res;
+        console.log(res);
       })
       .catch(error => {
         console.log(error);
       });
+  }
+  onc() {
+    this.ispaging = !this.ispaging;
   }
 }

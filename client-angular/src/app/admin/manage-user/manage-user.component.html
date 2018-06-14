@@ -80,6 +80,8 @@
     </tr>
   </tbody>
 </table>
-
+<button (click)="onc()">adfaf</button>
 <!-- Pagination -->
-<app-pagination class="pagination" [maxPages]="maxPages" [current]="currentPage" [itemsPerPage]="itemsPerPage" (changePage)="pageChanged($event)"></app-pagination>
+<div *ngIf="ispaging">
+  <app-pagination class="pagination" [maxPages]="maxPages" [current]="currentPage" [itemsPerPage]="itemsPerPage" (changePage)="pageChanged($event)"></app-pagination>
+</div>

@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) { }
   @Output() hideMe = new EventEmitter();
 
-  hideMeNow(){
+  hideMeNow() {
     this.hideMe.emit();
   }
 
@@ -28,14 +28,8 @@ export class SidebarComponent implements OnInit {
   }
 
   logOut() {
-    console.log('đã vào hàm logOut');
     deleteAllCookies();
-    this.router.navigate(['']);
     window.location.reload();
-  }
-
-  changePassword() {
-    console.log('đã vào đây');
-    // document.getElementById('changePasswordModal').click();
+    this.router.navigate(['']);
   }
 }

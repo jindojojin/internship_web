@@ -55,8 +55,6 @@
                   </div>
                 </div>
 
-
-
               </div>
             </div>
           </div>
@@ -131,10 +129,9 @@
           <div class="card-footer">
             <button *ngIf="(user | isStudent)  && job.status== 'accepted' && (!alreadyWork)" class="btn btn-primary" (click)="workForThisJob(job.jobID)">Quyết định thực tập tại đây</button>
             <!-- <button *ngIf="(user | isStudent)  && job.status== 'waiting'" class="btn btn-danger" (click)="unfollowJob(job.jobID,job.partnerName)">Hủy đăng ký</button> -->
-            <button *ngIf="(user | isStudent) && job.status !='working'" type="button" class="btn btn-danger"
-            data-toggle="modal" data-target="#unfollowJob">
-            Hủy đăng ký
-          </button>
+            <button *ngIf="(user | isStudent) && job.status !='working'" type="button" class="btn btn-danger" data-toggle="modal" data-target="#unfollowJob">
+              Hủy đăng ký
+            </button>
           </div>
           <!-- Button trigger modal -->
 

@@ -1,137 +1,138 @@
 <h3 class="title">Quản lý báo cáo</h3>
-<div *ngIf="studentInfo != null">
+<div class="content">
+  <div *ngIf="studentInfo != null">
     <hr>
     <h6>MSSV:
-        <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.studentCode}}</a>
+      <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.studentCode}}</a>
     </h6>
     <h6>Họ và tên:
-        <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.name}}</a>
+      <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.name}}</a>
     </h6>
     <!-- <h6>Số điện thoại: {{studentInfo.phoneNumber}}</h6> -->
-</div>
-<div *ngIf="jobWorking != null">
+  </div>
+  <div *ngIf="jobWorking != null">
     <h6>Công việc đang thực tập:
-        <a routerLink="/bai-dang/{{ jobWorking['internship_job.title'] | replaceSpace }}/{{jobWorking['internship_job.jobID']}}">
-            {{jobWorking['internship_job.title']}}
-        </a>
-        <span style="color: blue" *ngIf="jobWorking.jobID == null"> thực tập tại công ty {{jobWorking['partner_info.name']}} (được phê duyệt bởi quản trị viên)</span>
+      <a routerLink="/bai-dang/{{ jobWorking['internship_job.title'] | replaceSpace }}/{{jobWorking['internship_job.jobID']}}">
+        {{jobWorking['internship_job.title']}}
+      </a>
+      <span style="color: blue" *ngIf="jobWorking.jobID == null"> thực tập tại công ty {{jobWorking['partner_info.name']}} (được phê duyệt bởi quản trị viên)</span>
     </h6>
 
-</div>
-<div *ngIf="jobWorking == null">
+  </div>
+  <div *ngIf="jobWorking == null">
     <h6>Chưa đăng kí thực tập</h6>
-</div>
-<h6 *ngIf="(user|isStudent) && lecturerInfo != null">Giảng viên hướng dẫn:
+  </div>
+  <h6 *ngIf="(user|isStudent) && lecturerInfo != null">Giảng viên hướng dẫn:
     <a routerLink="/profile/{{lecturerInfo['name'] | replaceSpace}}/{{lecturerInfo['lecturerID']}}">{{lecturerInfo['name']}}</a>
-</h6>
-<h6 *ngIf="(user|isStudent) && lecturerInfo == null">Giảng viên hướng dẫn: Chưa có giảng viên hướng dẫn</h6>
+  </h6>
+  <h6 *ngIf="(user|isStudent) && lecturerInfo == null">Giảng viên hướng dẫn: Chưa có giảng viên hướng dẫn</h6>
 
-<hr>
-<h4 class="title" style="color: red" *ngIf="reports == []">Chưa có báo cáo định kỳ nào</h4>
-<h4 class="title" style="color: red" *ngIf="(user|isStudent) && lecturerInfo == null">Bạn chỉ có thể sử dụng tính năng này khi có giảng viên hướng dẫn</h4>
+  <hr>
+  <h4 class="title" style="color: red" *ngIf="reports == []">Chưa có báo cáo định kỳ nào</h4>
+  <h4 class="title" style="color: red" *ngIf="(user|isStudent) && lecturerInfo == null">Bạn chỉ có thể sử dụng tính năng này khi có giảng viên hướng dẫn</h4>
 
-<h4 class="title" style="color: red" *ngIf="reports == null && (user|isLecturer)">Sinh viên này hiện đang không thực tập tại bất kỳ công ty nào</h4>
-<h4 class="title" style="color: red" *ngIf="reports == null && (user|isStudent)">Bạn hiện đang không thực tập tại bất kỳ công ty nào</h4>
-
-<app-new-plan-report-form *ngIf="(user|isLecturer) ||((user|isStudent) && lecturerInfo != null)" title="{{newTitle}}"
-    studentID="{{studentID}}" jobID="{{jobID}}" (created)="reloadThisComponent($event)"></app-new-plan-report-form>
+  <h4 class="title" style="color: red" *ngIf="reports == null && (user|isLecturer)">Sinh viên này hiện đang không thực tập tại bất kỳ công ty nào</h4>
+  <h4 class="title" style="color: red" *ngIf="reports == null && (user|isStudent)">Bạn hiện đang không thực tập tại bất kỳ công ty nào</h4>
+</div>
+<app-new-plan-report-form *ngIf="(user|isLecturer) ||((user|isStudent) && lecturerInfo != null)" title="{{newTitle}}" studentID="{{studentID}}"
+  jobID="{{jobID}}" (created)="reloadThisComponent($event)"></app-new-plan-report-form>
 <hr>
 <div class="accordion" id="accordionExample">
-    <div class="card" *ngFor="let report of reports" >
-        <div class="card-header">
-            <div class="mb-0">
-                <input class="form-control" id="{{report.planReportID}}title" type="text" [value]="report.title" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)">
-                <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#'+report.planReportID" data-parent="#accordionExample">
-                    <h4 *ngIf="((user|isLecturer) && report.deadline == null) || ((user|isStudent) && report.deadline != null)">{{report.title}}</h4>
-                    <span *ngIf="report.isFinal == 0" class="badge badge-sm badge-warning">Báo cáo định kì</span>
-                    <span *ngIf="report.isFinal == 1" class="badge badge-sm badge-success">Báo cáo toàn văn</span>
-                </button>
-                <div *ngIf="report.deadline != null" class="float-right" style="color: red">
-                    Hạn nộp báo cáo :
-                    <input id="{{report.planReportID}}deadline" *ngIf="(user|isLecturer)" type="date" class="form" [value]="report.deadline">
-                    <p *ngIf="(user|isStudent)" class="float-right"> {{report.deadline}}</p>
-                </div>
-            </div>
+  <div class="card" *ngFor="let report of reports">
+    <div class="card-header">
+      <div class="mb-0">
+        <input class="form-control" id="{{report.planReportID}}title" type="text" [value]="report.title" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)">
+        <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#'+report.planReportID" data-parent="#accordionExample">
+          <h4 *ngIf="((user|isLecturer) && report.deadline == null) || ((user|isStudent) && report.deadline != null)">{{report.title}}</h4>
+          <span *ngIf="report.isFinal == 0" class="badge badge-sm badge-warning">Báo cáo định kì</span>
+          <span *ngIf="report.isFinal == 1" class="badge badge-sm badge-success">Báo cáo toàn văn</span>
+        </button>
+        <div *ngIf="report.deadline != null" class="float-right" style="color: red">
+          Hạn nộp báo cáo :
+          <input id="{{report.planReportID}}deadline" *ngIf="(user|isLecturer)" type="date" class="form" [value]="report.deadline">
+          <p *ngIf="(user|isStudent)" class="float-right"> {{report.deadline}}</p>
         </div>
-        <!-- Modal cảnh báo xóa planReport -->
-        <div class="modal fade" [id]="'delete'+report.planReportID" tabindex="-1">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Cảnh báo</h5>
-                        <button id="closeDelete{{report.planReportID}}" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Khi bạn xóa báo cáo này, mọi nội dung, bình luận và file đính kèm của cả giảng viên hướng dẫn và sinh viên đều bị xóa bỏ
-                        và không thể khôi phục lại
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Hủy</button>
-                        <button (click)="deletePlanReport(report.planReportID)" type="button" class="btn btn-danger">Tôi đã hiểu và muốn tiếp tục</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- hiển thị file đính kèm và nội dung của báo cáo -->
-        <div [id]="report.planReportID" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card float-right" style="width: 18rem;">
-                <div class="card-body">
-                    <span *ngIf="report.isFinal == 1" class="badge badge-sm badge-danger float-right">Điểm: {{report['lecturer_student.mark'] || 'chưa có'}}</span>
-                    <h5 class="card-title">Nội dung báo cáo</h5>
-                    <p *ngIf="( (user|isLecturer) && (report.deadline == null) ) || ( (user|isStudent) && (report.deadline != null) )" class="card-text">{{report.content}}</p>
-                    <textarea rows="5" class="form-control" id="{{report.planReportID}}content" type="text" [value]="report.content" *ngIf="(user|isLecturer) && (report.deadline != null) || ( (user|isStudent) && (report.deadline == null) )"></textarea>
-                    <hr>
-                    <h5 class="card-title">File đính kèm</h5>
-                    <p class="card-text">{{report['file.fileName']}}</p>
-                    <button *ngIf="(user | isStudent) && (report['file.fileID'] != null)" [disabled]="(report.deadline|isValidDate)" class="btn btn-primary"
-                        (click)='fileInput.click()'>Sử dụng file khác</button>
-                    <button *ngIf="(user | isLecturer) && (report['file.fileID'] != null)" [disabled]="(report.deadline|isValidDate)" class="btn btn-primary"
-                        (click)='fileInput.click()'>Tải lên file đã chỉnh sửa</button>
-                    <button *ngIf="(user |isStudent) && report['file.fileID'] == null" class="btn btn-primary" [disabled]="( report.deadline | isValidDate)"
-                        (click)='fileInput.click()'>Tải file lên</button>
-                    <p class="redcolor" *ngIf="report.fileID == null">Sinh viên chưa tải lên file đính kèm</p>
-                    <a *ngIf="report.fileID != null" href="{{myWebSiteDomain}}/download/id={{report['file.fileID']}}/{{report['file.fileName']}}"
-                        class="card-link">Tải về</a>
-                    <hr>
-                    <div class="btn-group float-right">
-                        <button (click)="changePlanReport(report.planReportID)" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)"
-                            class="btn btn-sm btn-primary">Lưu thay đổi</button>
-                        <button (click)="letPointForPlanReport(report.planReportID, report.title)" type="button" *ngIf="(user|isLecturer) && report.isFinal==1"
-                            class="btn btn-sm btn-success">
-                            Chấm điểm
-                        </button>
-                        <button type="button" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)"
-                            class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
-                            Xoá
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <input (change)="sendNewReportFile($event,report.planReportID)" #fileInput style="display: none" type="file" accept=".doc, .zip, .docx">
-            <div class="card-body">
-                <!-- Hiển thị các comment -->
-                <h5>Bình luận</h5>
-                <hr>
-                <h6 class="redcolor" *ngIf=" report.comments.length == 0">Chưa có bình luận nào</h6>
-                <div *ngFor="let cmt of report.comments">
-                    <p>
-                        <a routerLink="/profile/{{cmt['account.nickname']}}/{{cmt['commenterID']}}">{{cmt['account.lecturer.name']}}{{cmt['account.student.name']}}</a>
-                        : {{cmt.content}}
-                        <a (click)="deleteComment(cmt.commentID)" class="mx-3 deletecmtbtn" *ngIf="isMyComment(cmt.commenterID)">Xóa</a>
-                    </p>
-                </div>
-                <div class="input-group mb-3">
-                    <textarea id="{{report.planReportID}}comment" class="form-control" placeholder="Thêm bình luận ..."></textarea>
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" class="float-right" (click)="sendNewComment(report.planReportID)">Gửi</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <br/>
+    <!-- Modal cảnh báo xóa planReport -->
+    <div class="modal fade" [id]="'delete'+report.planReportID" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cảnh báo</h5>
+            <button id="closeDelete{{report.planReportID}}" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Khi bạn xóa báo cáo này, mọi nội dung, bình luận và file đính kèm của cả giảng viên hướng dẫn và sinh viên đều bị xóa bỏ
+            và không thể khôi phục lại
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Hủy</button>
+            <button (click)="deletePlanReport(report.planReportID)" type="button" class="btn btn-danger">Tôi đã hiểu và muốn tiếp tục</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- hiển thị file đính kèm và nội dung của báo cáo -->
+    <div [id]="report.planReportID" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card float-right" style="width: 18rem;">
+        <div class="card-body">
+          <span *ngIf="report.isFinal == 1" class="badge badge-sm badge-danger float-right">Điểm: {{report['lecturer_student.mark'] || 'chưa có'}}</span>
+          <h5 class="card-title">Nội dung báo cáo</h5>
+          <p *ngIf="( (user|isLecturer) && (report.deadline == null) ) || ( (user|isStudent) && (report.deadline != null) )" class="card-text">{{report.content}}</p>
+          <textarea rows="5" class="form-control" id="{{report.planReportID}}content" type="text" [value]="report.content" *ngIf="(user|isLecturer) && (report.deadline != null) || ( (user|isStudent) && (report.deadline == null) )"></textarea>
+          <hr>
+          <h5 class="card-title">File đính kèm</h5>
+          <p class="card-text">{{report['file.fileName']}}</p>
+          <button *ngIf="(user | isStudent) && (report['file.fileID'] != null)" [disabled]="(report.deadline|isValidDate)" class="btn btn-primary"
+            (click)='fileInput.click()'>Sử dụng file khác</button>
+          <button *ngIf="(user | isLecturer) && (report['file.fileID'] != null)" [disabled]="(report.deadline|isValidDate)" class="btn btn-primary"
+            (click)='fileInput.click()'>Tải lên file đã chỉnh sửa</button>
+          <button *ngIf="(user |isStudent) && report['file.fileID'] == null" class="btn btn-primary" [disabled]="( report.deadline | isValidDate)"
+            (click)='fileInput.click()'>Tải file lên</button>
+          <p class="redcolor" *ngIf="report.fileID == null">Sinh viên chưa tải lên file đính kèm</p>
+          <a *ngIf="report.fileID != null" href="{{myWebSiteDomain}}/download/id={{report['file.fileID']}}/{{report['file.fileName']}}"
+            class="card-link">Tải về</a>
+          <hr>
+          <div class="btn-group float-right">
+            <button (click)="changePlanReport(report.planReportID)" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)"
+              class="btn btn-sm btn-primary">Lưu thay đổi</button>
+            <button (click)="letPointForPlanReport(report.planReportID, report.title)" type="button" *ngIf="(user|isLecturer) && report.isFinal==1"
+              class="btn btn-sm btn-success">
+              Chấm điểm
+            </button>
+            <button type="button" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)"
+              class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
+              Xoá
+            </button>
+          </div>
+        </div>
+      </div>
+      <input (change)="sendNewReportFile($event,report.planReportID)" #fileInput style="display: none" type="file" accept=".doc, .zip, .docx">
+      <div class="card-body">
+        <!-- Hiển thị các comment -->
+        <h5>Bình luận</h5>
+        <hr>
+        <h6 class="redcolor" *ngIf=" report.comments.length == 0">Chưa có bình luận nào</h6>
+        <div *ngFor="let cmt of report.comments">
+          <p>
+            <a routerLink="/profile/{{cmt['account.nickname']}}/{{cmt['commenterID']}}">{{cmt['account.lecturer.name']}}{{cmt['account.student.name']}}</a>
+            : {{cmt.content}}
+            <a (click)="deleteComment(cmt.commentID)" class="mx-3 deletecmtbtn" *ngIf="isMyComment(cmt.commenterID)">Xóa</a>
+          </p>
+        </div>
+        <div class="input-group mb-3">
+          <textarea id="{{report.planReportID}}comment" class="form-control" placeholder="Thêm bình luận ..."></textarea>
+          <div class="input-group-append">
+            <button class="btn btn-primary" class="float-right" (click)="sendNewComment(report.planReportID)">Gửi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
 
-    <app-let-point-for-planreport-modal></app-let-point-for-planreport-modal>
+  <app-let-point-for-planreport-modal></app-let-point-for-planreport-modal>
 </div>

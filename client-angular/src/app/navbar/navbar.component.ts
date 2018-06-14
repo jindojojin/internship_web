@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   userName: string;
   isStudent: boolean;
   showLogo:boolean;
+  user;
   @Output() showSideBar = new EventEmitter();
   showSideBarNow(){ this.showSideBar.emit();}
   @ViewChild(NotificationPopupComponent)

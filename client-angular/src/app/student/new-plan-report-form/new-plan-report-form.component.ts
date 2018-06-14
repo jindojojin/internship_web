@@ -9,6 +9,7 @@ import { StudentService } from '../student.service';
   styleUrls: ['./new-plan-report-form.component.css']
 })
 export class NewPlanReportFormComponent implements OnInit {
+  user;
   @Input() title: string;
   @Input() studentID: string;
   @Input() jobID:any;

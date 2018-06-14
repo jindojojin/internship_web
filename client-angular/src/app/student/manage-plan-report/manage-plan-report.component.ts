@@ -19,6 +19,7 @@ export class ManagePlanReportComponent implements OnInit {
   studentID: string;  
   reports: any[];
   myWebSiteDomain = myWebsiteDomain;
+  user;
   newTitle: string; // tiêu đề gợi ý sẵn khi giáo viên tạo một yêu cầu báo cáo mới
   studentInfo: any; // chỉ lấy về khi người dùng là giảng viên
   lecturerInfo:any; // thông tin giảng viên hướng dẫn

@@ -25,9 +25,8 @@ export class JobListComponent implements OnInit {
 
   getData(start, total) {
     let type = this.route.snapshot.paramMap.get("type");
-    console.log(type);
 
-    if (type == "Trang-chu")
+    if (type == "home")
       this.jobListService.getList(start, total)
         .then(res => {
           this.jobs = res;

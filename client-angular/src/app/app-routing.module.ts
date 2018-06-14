@@ -13,7 +13,7 @@ import { FormPartnerComponent } from './partner/form-partner/form-partner.compon
 import { JobListByPartnerComponent } from './components/job-list-by-partner/job-list-by-partner.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'Trang-chu/cac-bai-dang-thuc-tap/tat-ca/_', pathMatch: 'full' },
+  { path: '', redirectTo: 'home/cac-bai-dang-thuc-tap/tat-ca/_', pathMatch: 'full' },
   { path: ':type/cac-bai-dang-thuc-tap/:typeOfKey/:keySearch', component: JobListComponent,runGuardsAndResolvers: 'always' },
   { path: 'profile/:username/:id', component: ProfilePageComponent },
   { path: ':type/cac-don-vi-doi-tac', component: PartnerListComponent },

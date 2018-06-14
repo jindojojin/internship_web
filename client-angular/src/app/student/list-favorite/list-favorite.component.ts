@@ -11,6 +11,7 @@ export class ListFavoriteComponent implements OnInit {
   listPartnerFollowed: any;
   listJobFollowed: any;
   alreadyWork: boolean; // nếu sinh viên đang thực tập thì trả về true
+  user;
   constructor(private studentService: StudentService) { }
 
   unfollowLecturer(lecturerID, lecturerName) {

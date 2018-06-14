@@ -44,12 +44,15 @@
                     <div class="form-group row ml-2 mb-0 mt-2">
                         <label class="col-sm-12 col-md-3 badge badge-light">{{info1.fieldName|vietnam}}:</label>
                         <div class="col-sm-9 mt-2">
-                            <input [name]="info1.fieldName" type="name" class="form-control" [(ngModel)]="info1.fieldValue">
+                            <input *ngIf="info1.fieldName !='dateOfBirth'" [name]="info1.fieldName" type="name" class="form-control" [(ngModel)]="info1.fieldValue">
+                            <input *ngIf="info1.fieldName=='dateOfBirth'" [name]="info1.fieldName" type="date" class="form-control" [(ngModel)]="info1.fieldValue">
+                            
                         </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
             </form>
+            <br>
             <br>
             <hr>
             <div *ngFor="let info of cantFixInfors">

@@ -1,28 +1,35 @@
+.WebsiteName{
+    position: relative;
+    top: 17%;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
 .background{
     background-color: rgb(55, 60, 68);
     height: 16rem;
 }
 .center{
     position: relative;
-    top:40%;
+    top:30%;
 }
 
-@media only screen and (max-width: 450px) {
+
+@media only screen and (max-width: 950px) {
     .WebsiteName{
         display: none;
     }
     .background {
-        height: 5rem !important;
+        height: 6rem !important;
     }
     .center{
         position: relative;
         top:3% !important;
     }    
 }
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 1380px) {
     .WebsiteName{
     position: relative;
-     top: 20%;
      color: white;
      text-align: center;
      font-size: 25px !important;
@@ -32,7 +39,6 @@
     }
     .center{
         position: relative !important;
-        top:15px !important;
     }    
 }
 
@@ -40,15 +46,4 @@
     outline: none !important;
     box-shadow: none;
  }
- select{
-     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-     font-size: 120%;
- }
 
- .WebsiteName{
-     position: relative;
-     top: 20%;
-     color: white;
-     text-align: center;
-     font-size: 40px;
- }

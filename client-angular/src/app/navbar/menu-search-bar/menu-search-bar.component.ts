@@ -10,8 +10,8 @@ import { Router} from '@angular/router';
 export class MenuSearchBarComponent implements OnInit {
   formSearch: FormGroup;
   @Output() searchBtnPressed= new EventEmitter();
-  async onSearchSubmit() {
-    let typeOfKey = this.formSearch.value.typeOfKey;
+  async onSearchSubmit(typeOfKey) {
+    // let typeOfKey = this.formSearch.value.typeOfKey;
     let keySearch = this.formSearch.value.keySearch;
     // this.searchBtnPressed.emit(null);
     await this.router.navigate(['Tim-kiem/cac-bai-dang-thuc-tap/',typeOfKey,keySearch]);

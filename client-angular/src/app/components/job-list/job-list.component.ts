@@ -12,7 +12,8 @@ import { PaginationComponent } from '../pagination/pagination.component';
 
 export class JobListComponent implements OnInit {
   jobs: Object;
-  searchResultIsEmpty: boolean;
+  isSearching: boolean = false;
+  searchResultIsEmpty: boolean = false;
   constructor(private jobListService: JobListService, private route: ActivatedRoute, private router: Router) {
   }
   reload() {
@@ -25,7 +26,7 @@ export class JobListComponent implements OnInit {
 
   getData(start, total) {
     let type = this.route.snapshot.paramMap.get("type");
-
+    this.isSearching = false;
     if (type == "home")
       this.jobListService.getList(start, total)
         .then(res => {
@@ -37,13 +38,17 @@ export class JobListComponent implements OnInit {
           this.pagination.createPages();
         })
         .catch(err => console.log(err));
-    else if (type == "Tim-kiem") {
+    else if (type == "search") {
+      this.isSearching = true;
       let keySearch = this.route.snapshot.paramMap.get("keySearch");
       let typeOfKey = this.route.snapshot.paramMap.get("typeOfKey");
       this.jobListService.searchForJob({ keySearch: keySearch, typeOfKey: typeOfKey })
         .then(res => {
-          if (res[0] == undefined)
+          if (res[0] == undefined) {
             this.searchResultIsEmpty = true;
+          } else {
+            this.searchResultIsEmpty = false;
+          }
           this.jobs = res;
         })
         .catch(err => console.log(err));

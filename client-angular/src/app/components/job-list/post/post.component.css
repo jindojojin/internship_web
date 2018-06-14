@@ -18,3 +18,7 @@ img {
 .card-header {
   cursor: pointer;
 }
+
+.card {
+  padding: 10px;
+}

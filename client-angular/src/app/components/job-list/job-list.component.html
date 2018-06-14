@@ -7,4 +7,4 @@
   </div>
 </div>
 <!-- Pagination -->
-<app-pagination class="pagination" (changePage)="pageChanged($event)"></app-pagination>
+<app-pagination *ngIf="!isSearching" class="pagination" (changePage)="pageChanged($event)"></app-pagination>

@@ -77,3 +77,10 @@ p h1 h2 h3 h4 h5 h6 {
   word-wrap: break-word !important;
   text-overflow: ellipsis !important;
 }
+
+#message {
+  padding: 10px;
+}
+.dropdown-header {
+  margin-bottom: 20px;
+}

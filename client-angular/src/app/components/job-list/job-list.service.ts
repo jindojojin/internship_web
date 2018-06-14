@@ -22,8 +22,7 @@ export class JobListService {
         let url = myWebsiteDomain + '/list/jobs/start=' + 1 + '/total=' + 10;
         return this.http.post(url, value, { withCredentials: true })
             .toPromise()
-            .then(r => r.json()
-            ).catch(e => console.log(e)
-            )
+            .then(r => r.json())
+            .catch(e => console.log(e));
     }
 }

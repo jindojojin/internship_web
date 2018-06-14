@@ -15,7 +15,7 @@ export class MenuSearchBarComponent implements OnInit {
     // let typeOfKey = this.formSearch.value.typeOfKey;
     let keySearch = this.formSearch.value.keySearch;
     // this.searchBtnPressed.emit(null);
-    await this.router.navigate(['Tim-kiem/cac-bai-dang-thuc-tap/', typeOfKey, keySearch]);
+    await this.router.navigate(['search/cac-bai-dang-thuc-tap/', typeOfKey, keySearch]);
     this.searchBtnPressed.emit(null);
   }
 

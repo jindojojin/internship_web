@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PartnerListService } from './partner-list.service';
 import { myWebsiteDomain } from '../../objects/appConfig';
 import { StudentService } from '../../student/student.service';
+import { PaginationComponent } from '../pagination/pagination.component';
 
 @Component({
   selector: 'app-partner-list',
@@ -40,32 +41,36 @@ export class PartnerListComponent implements OnInit {
       })
   }
   ngOnInit() {
-    this.partnerListService.getList(1, 9)
-      .then(res => {
-        this.partners = res;
-        console.log(this.partners);
-      })
-      .catch(err => console.log(err));
+    this.getListPartner(1,this.numberOfRow);
+  }
+  getListPartner(start,total){
+    this.partnerListService.getList(start, total)
+    .then(res => {
+      this.partners = res;
+      this.total = res[0].total;
+      this.numberOfPage = Math.ceil(this.total / this.numberOfRow);
+      if (this.numberOfPage < 10)
+        this.pagination.end = this.numberOfPage;
+      this.pagination.createPages();
+      // console.log(this.partners);
+    })
+    .catch(err => console.log(err));
   }
 
   // Pagination
-  page;
-  maxPages = 10;
-  itemsPerPage = 9;
-  currentPage = 1;
-  pageChanged(event) {
-    this.page = event.page;
-    this.itemsPerPage = event.itemsPerPage
-    this.loadPage(this.page, this.itemsPerPage);
-  }
+  @ViewChild(PaginationComponent) pagination: PaginationComponent;
+  numberOfPage; // tổng số trang có thể có
+  numberOfRow = 10 // số hàng xuất hiện trong bảng
+  total: number; // tổng người dùng => dùng để phân trang 
+  currentPage: number; // trang hiện tại
+  pageChanged(pageNumber) {
+    pageNumber = parseInt(pageNumber);
+    this.currentPage = pageNumber;
+    let start = (pageNumber - 1) * this.numberOfRow + 1;
+    this.getListPartner(start, this.numberOfRow);
+    this.pagination.start = (this.currentPage - 4 < 1) ? 1 : (this.currentPage - 4);
+    this.pagination.end = (this.pagination.start + 9 > this.numberOfPage) ? (this.numberOfPage) : (this.pagination.start + 9); // hiển thị lại phân trang
+    this.pagination.createPages();
 
-  loadPage(page: number, rows: number) {
-    this.partnerListService.getList((page - 1) * this.itemsPerPage + 1, rows)
-      .then(res => {
-        this.partners = res;
-      })
-      .catch(error => {
-        console.log(error);
-      });
   }
 }

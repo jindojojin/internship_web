@@ -28,19 +28,13 @@ export class JobAssignmentService {
     }
 
     setLecturerForStudent(studentID, lecturerID) {
-        var value = {
-            studentID,
-            lecturerID
-        }
-        value.studentID = studentID;
-        value.lecturerID = lecturerID;
-        var url = myWebsiteDomain + "/admin/setLecturer";
-        const body = JSON.stringify(value);
-        console.log(body);
-        return this.http.post(url, body, { withCredentials: true })
+        var url = myWebsiteDomain + "/admin/setLecturer/studentID="+studentID+'/lecturerID='+lecturerID;
+        // const body = JSON.stringify(value);
+        // console.log(body);
+        return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {
-                return res.json();
+                return true;
             })
             .catch(err => console.log(err));
     }

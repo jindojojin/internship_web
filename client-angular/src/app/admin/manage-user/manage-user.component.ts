@@ -14,11 +14,11 @@ export class ManageUserComponent implements OnInit {
   type: string = "student";
   username;
   uID;
-  total: number;
   constructor(private manageUserService: ManageUserService) { }
 
   ngOnInit() {
     this.onGetAccounts(this.type);
+
   }
 
   onUpdate(userID, formEdit) {
@@ -41,20 +41,24 @@ export class ManageUserComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-  @ViewChild(PaginationComponent) pagination: PaginationComponent;
 
   onGetAccounts(type: string) {
     this.type = type;
-    this.manageUserService.getAccounts(type, 1, 10)
+    this.getAccounts(type, 1, this.numberOfRow);
+    // this.pagination.createPages();
+    // this.pageChanged(1);
+  }
+
+  getAccounts(type, start, total) {
+    this.manageUserService.getAccounts(type, start, total)
       .then(res => {
         this.accounts = res;
+        console.log(res);
         this.total = this.accounts[0].total;
-        this.ispaging = true;
-        this.maxPages = Math.ceil(this.total / this.itemsPerPage);
-        this.pagination.maxPages = this.maxPages;
+        this.numberOfPage = Math.ceil(this.total / this.numberOfRow);
+        if (this.numberOfPage < 10)
+          this.pagination.end = this.numberOfPage;
         this.pagination.createPages();
-        console.log(this.pagination.pages);
-        console.log(this.maxPages);
       })
       .catch(err => console.log(err));
   }
@@ -65,25 +69,20 @@ export class ManageUserComponent implements OnInit {
   }
 
   // Pagination
-  page;
-  itemsPerPage: number = 10;
-  maxPages=10;
-  currentPage = 1;
-  ispaging = false;
-  pageChanged(event) {
-    this.page = event.page;
-    this.itemsPerPage = event.itemsPerPage
-    this.loadPage(this.page, this.itemsPerPage);
+  @ViewChild(PaginationComponent) pagination: PaginationComponent;
+  numberOfPage; // tổng số trang có thể có
+  numberOfRow = 10 // số hàng xuất hiện trong bảng
+  total: number; // tổng người dùng => dùng để phân trang 
+  currentPage: number; // trang hiện tại
+  pageChanged(pageNumber) {
+    pageNumber = parseInt(pageNumber);
+    this.currentPage = pageNumber;
+    let start = (pageNumber - 1) * this.numberOfRow + 1;
+    this.getAccounts(this.type, start, this.numberOfRow);
+    this.pagination.start = (this.currentPage - 4 < 1) ? 1 : (this.currentPage - 4);
+    this.pagination.end = (this.pagination.start + 9 > this.numberOfPage) ? (this.numberOfPage) : (this.pagination.start + 9); // hiển thị lại phân trang
+    this.pagination.createPages();
+
   }
 
-  loadPage(page: number, rows: number) {
-    this.manageUserService.getAccounts(this.type, (page - 1) * this.itemsPerPage + 1, rows)
-      .then(res => {
-        this.accounts = res;
-        console.log(res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
 }

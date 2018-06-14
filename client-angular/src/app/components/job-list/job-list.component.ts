@@ -20,14 +20,22 @@ export class JobListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getData(1, this.numberOfRow);
+  }
+
+  getData(start, total) {
     let type = this.route.snapshot.paramMap.get("type");
     console.log(type);
 
     if (type == "Trang-chu")
-      this.jobListService.getList(1, 10)
+      this.jobListService.getList(start, total)
         .then(res => {
           this.jobs = res;
-          console.log(this.jobs);
+          this.total = res[0].total;
+          this.numberOfPage = Math.ceil(this.total / this.numberOfRow);
+          if (this.numberOfPage < 10)
+          this.pagination.end = this.numberOfPage;
+          this.pagination.createPages();
         })
         .catch(err => console.log(err));
     else if (type == "Tim-kiem") {
@@ -46,25 +54,22 @@ export class JobListComponent implements OnInit {
     }
   }
 
-  // Pagination
-  @ViewChild(PaginationComponent) pagination:PaginationComponent;
-  page;
-  maxPages = 10;
-  itemsPerPage = 10;
-  currentPage = 1;
-  pageChanged(event) {
-    this.page = event.page;
-    this.itemsPerPage = event.itemsPerPage
-    this.loadPage(this.page, this.itemsPerPage);
-  }
 
-  loadPage(page: number, rows: number) {
-    this.jobListService.getList((page - 1) * this.itemsPerPage + 1, rows)
-      .then(res => {
-        this.jobs = res;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+
+  // Pagination
+  @ViewChild(PaginationComponent) pagination: PaginationComponent;
+  numberOfPage; // tổng số trang có thể có
+  numberOfRow = 10 // số hàng xuất hiện trong bảng
+  total: number; // tổng người dùng => dùng để phân trang 
+  currentPage: number; // trang hiện tại
+  pageChanged(pageNumber) {
+    pageNumber = parseInt(pageNumber);
+    this.currentPage = pageNumber;
+    let start = (pageNumber - 1) * this.numberOfRow + 1;
+    this.getData(start, this.numberOfRow);
+    this.pagination.start = (this.currentPage - 4 < 1) ? 1 : (this.currentPage - 4);
+    this.pagination.end = (this.pagination.start + 9 > this.numberOfPage) ? (this.numberOfPage) : (this.pagination.start + 9); // hiển thị lại phân trang
+    this.pagination.createPages();
+
   }
 }

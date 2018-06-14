@@ -1,18 +1,19 @@
-<ul class="pagination" *ngIf="maxPages > 1">
+<ul class="pagination">
   <li *ngIf="current > 1">
-    <a (click)="setPage(current-1)" aria-label="Previous">
+    <a (click)="emitPage(current-1)" aria-label="Previous">
       <span aria-hidden="true">
         <p>Trước</p>
       </span>
     </a>
   </li>
-  <li class="page" *ngFor="let page of pages;" [class.active]="page == current">
-    <a (click)="setPage(page)">
+  <li class="page" *ngFor="let page of pages;">
+    <a *ngIf="page != current"  (click)="emitPage(page)">
       <p>{{ page }}</p>
     </a>
+    <button style="font-size: 20px !important; position: relative; bottom: 11px" class="btn btn-link" *ngIf="page == current">{{page}}</button>
   </li>
-  <li *ngIf="current != maxPages">
-    <a (click)="setPage(current+1)" aria-label="Next">
+  <li *ngIf="current != end">
+    <a (click)="emitPage(current+1)" aria-label="Next">
       <span aria-hidden="true">
         <p>Sau</p>
       </span>

@@ -8,7 +8,9 @@
   z-index: 5;
   /* color: #fff; */
   font-weight: 200;
-  background-color: rgba(119, 119, 119, 0.7);
+  background-color: rgba(119, 119, 119, 0.7) !important;
+  /* position: relative; */
+  
 }
 
 .sidebar::after {
@@ -71,10 +73,14 @@ a {
 }
 
 a :hover {
-  color: rgba(248, 0, 0, 0.582);
+  /* color: rgba(48, 238, 73, 0.582); */
+  border: 1px solid;
+  padding-left: 4px;
+  padding-right: 4px;
+  
+  /* padding-left: 90px */
 }
-
 .active a{
   font-weight: 300;
-  color: red;
+  color: rgb(51, 255, 0);
 }

@@ -2,9 +2,9 @@
 
 <div class="sidebar">
   <div class="sidebar-header">
-    <a class="navbar-brand" (click)="hideMeNow()">
+    <div style="cursor: pointer;" class="navbar-brand" (click)="hideMeNow()">
       <img src="/assets/uet.png" width="41" height="41">
-    </a>
+    </div>
     <a style="position: relative; top:2px;" class="header-text" routerLink="">
       Internship UET
     </a>
@@ -132,8 +132,8 @@
       </a>
     </li>
   </ul>
-  <div class="fixed-bottom">
-      <a (click)="hideMeNow()" routerLinkActive="active" class="sidebar-footer"><span style="position: relative; top: 2px" class="mx-1" octicons="triangle-left" color="white"></span>Thu gọn</a>
+  <div>
+      <a style="position: relative; top:240px; left: 150px;" (click)="hideMeNow()" routerLinkActive="active"><span style="position: relative; top: 2px" class="mx-1" octicons="triangle-left" color="white"></span><p>Thu gọn</p></a>
   </div>
 </div>
 <app-change-password-modal #changePassword></app-change-password-modal>

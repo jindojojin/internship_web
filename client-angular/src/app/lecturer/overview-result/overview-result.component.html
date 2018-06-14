@@ -1,7 +1,7 @@
 <h3 class="title">Bảng điểm tổng hợp</h3>
 <hr>
 <div class="table-responsive">
-<table class="table table-striped">
+<table class="table table-striped table-hover">
     <thead>
         <tr>
           <th scope="col">STT</th>
@@ -29,4 +29,4 @@
       </tbody>
 </table>
 </div>
-<button *ngIf="markTable != null" class="float-right btn btn-success" (click)="exportExelFile()">Xuất ra exel</button>
+<button *ngIf="markTable != null" class="float-left btn btn-success" id="exportExelFile" (click)="exportExelFile()">Xuất ra exel</button>

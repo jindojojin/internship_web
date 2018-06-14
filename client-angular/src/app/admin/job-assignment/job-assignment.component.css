@@ -1,0 +1,32 @@
+.table {
+  border: solid 1px;
+  border-color: rgb(222, 226, 230);
+}
+
+.active {
+  font-weight: bold;
+}
+
+table {
+  width: auto;
+}
+
+table th {
+  text-align: center;
+}
+
+td,
+th {
+  white-space: nowrap;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.stt {
+  padding-left: 20px;
+}
+
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+}

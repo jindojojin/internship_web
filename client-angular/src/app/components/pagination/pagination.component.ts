@@ -23,6 +23,7 @@ export class PaginationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.maxPages);
     if (this.maxPages) {
       this.createPages();
     }

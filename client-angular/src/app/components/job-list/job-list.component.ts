@@ -26,6 +26,7 @@ export class JobListComponent implements OnInit {
       this.jobListService.getList(1, 10)
         .then(res => {
           this.jobs = res;
+          console.log(this.jobs);
         })
         .catch(err => console.log(err));
     else if (type == "Tim-kiem") {

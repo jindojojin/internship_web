@@ -57,7 +57,7 @@ export class JobListComponent implements OnInit {
   // Pagination
   @ViewChild(PaginationComponent) pagination: PaginationComponent;
   numberOfPage; // tổng số trang có thể có
-  numberOfRow = 10 // số hàng xuất hiện trong bảng
+  numberOfRow = 5 // số hàng xuất hiện trong bảng
   total: number; // tổng người dùng => dùng để phân trang 
   currentPage: number; // trang hiện tại
   pageChanged(pageNumber) {

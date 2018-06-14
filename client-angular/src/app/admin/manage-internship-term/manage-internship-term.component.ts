@@ -24,6 +24,7 @@ export class ManageInternshipTermComponent implements OnInit {
     this.manageInternshipTermService.sendNewTerm(newTerm.value)
       .then(result => {
         this.ngOnInit();
+        window.alert('Tạo mới đợt thực tập thành công');
       })
       .catch(err => console.log(err));
   }
@@ -38,6 +39,7 @@ export class ManageInternshipTermComponent implements OnInit {
     .then(result => {
       this.termIDEdit = null;
       this.ngOnInit();
+      window.alert('Chỉnh sửa đợt thực tập thành công');
     })
     .catch(err => console.log(err));
   }
@@ -51,6 +53,7 @@ export class ManageInternshipTermComponent implements OnInit {
     this.manageInternshipTermService.deleteTerm(termID)
       .then(result => {
         this.ngOnInit();
+        window.alert('Xóa đợt thực tập thành công');
       })
       .catch(err => console.log(err));
   }

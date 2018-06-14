@@ -132,7 +132,7 @@ export class ProfilePageComponent implements OnInit {
       case 'student': return 9;
       case 'admin': return 6;
       case 'lecturer': return 6;
-      case 'partner': return 5;
+      case 'partner': return 6;
       default: return 0;
     }
   }
@@ -151,7 +151,7 @@ export class ProfilePageComponent implements OnInit {
       case 'student': return 10;
       case 'admin': return 0;
       case 'lecturer': return 3;
-      case 'partner': return 4;
+      case 'partner': return 5;
       default: return 0;
     }
   }

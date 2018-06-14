@@ -17,11 +17,15 @@
         <th scope="row" class="stt">{{ i + 1 }}</th>
         <td>{{ account.studentCode }}</td>
 
-        <td><a routerLink="/profile/{{account.name| replaceSpace}}/{{account.account_userID}}">{{ account.name }}</a></td>
-        <td><button class="btn btn-link" [disabled]="account['follow.lecturer.name'] == null" routerLink="/profile/{{account['follow.lecturer.name']| replaceSpace}}/{{account['follow.lecturer.account_userID']}}">{{ account['follow.lecturer.name'] || 'Chưa có'}}</button></td>
+        <td>
+          <a routerLink="/profile/{{account.name| replaceSpace}}/{{account.account_userID}}">{{ account.name }}</a>
+        </td>
+        <td>
+          <button class="btn btn-link" [disabled]="account['follow.lecturer.name'] == null" routerLink="/profile/{{account['follow.lecturer.name']| replaceSpace}}/{{account['follow.lecturer.account_userID']}}">{{ account['follow.lecturer.name'] || 'Chưa có'}}</button>
+        </td>
         <td>{{ account['follow.lecturer.department'] }}</td>
         <td>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal" (click)="onGetListLecturer(account.account_userID)">Phân công</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal" (click)="onGetListLecturer(account.account_userID, 1, 10)">Phân công</button>
         </td>
       </tr>
     </tbody>
@@ -43,8 +47,11 @@
           <label>
             <input (change)="setLecturer(lecturer.account_userID)" type="radio" name="optradio" class="checkboxLecturer">{{ lecturer.name }}</label>
         </div>
-        <button type="button" id="btnSetLecturer" class="btn btn-primary" (click)="onSubmit(studentID, lecturerID)">Lưu</button>
-        
+        <div class="page">
+          <a *ngIf="startUser != 1" (click)="onGetListLecturer(studentID, startUser - totalUser, totalUser)">Trước</a>
+          <a *ngIf="startUser + totalUser <= totalLecturer" (click)="onGetListLecturer(studentID, startUser + totalUser, totalUser)">Sau</a>
+        </div>
+          <button type="button" id="btnSetLecturer" class="btn btn-primary" (click)="onSubmit(studentID, lecturerID)">Lưu</button>
       </div>
     </div>
   </div>

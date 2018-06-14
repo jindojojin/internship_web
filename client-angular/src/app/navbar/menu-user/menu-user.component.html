@@ -32,3 +32,4 @@
 
   <!-- phải để href ở link đến profile để tránh xung đột khi xem profile của người khác -->
   <a class="nav-item nav-link" id="username" href='/profile/{{nickname}}/{{userID}}'>{{nickname}}</a>
+  <a *ngIf="(user|isLogged)" (click)="logOut()"  class="nav-item nav-link"><span style="position: relative; top: 4px;right: 2px" octicons="sign-out" color="white"></span>Đăng xuất</a>

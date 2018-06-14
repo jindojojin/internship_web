@@ -28,9 +28,9 @@ export class SidebarComponent implements OnInit {
   }
 
   logOut() {
-    console.log('đã vào hàm logOut');
+    // console.log('đã vào hàm logOut');
     deleteAllCookies();
-    this.router.navigate(['']);
+    // this.router.navigate(['']);
     window.location.reload();
   }
 

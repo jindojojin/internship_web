@@ -12,6 +12,7 @@ export class AddUserService {
     addUser(value) {
         const url = myWebsiteDomain + "/admin/CRUD/account";
         const body = JSON.stringify(value);
+        console.log(body);
         const headers = new Headers({ 'Content-Type': 'application/json' });
         return this.http.post(url, body, { withCredentials: true, headers })
             .toPromise()

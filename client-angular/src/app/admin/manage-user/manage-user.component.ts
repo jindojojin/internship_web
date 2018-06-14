@@ -80,7 +80,4 @@ export class ManageUserComponent implements OnInit {
         console.log(error);
       });
   }
-  onc() {
-    this.ispaging = !this.ispaging;
-  }
 }

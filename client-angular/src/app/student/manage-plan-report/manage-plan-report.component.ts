@@ -12,21 +12,21 @@ import { ProfilePageService } from '../../user/profile-page/profile-page.service
   selector: 'app-manage-plan-report',
   templateUrl: './manage-plan-report.component.html',
   styleUrls: ['./manage-plan-report.component.css'],
-  providers:[ProfilePageService]
+  providers: [ProfilePageService]
 })
 export class ManagePlanReportComponent implements OnInit {
   jobID: any;
-  studentID: string;  
+  studentID: string;
   reports: any[];
   myWebSiteDomain = myWebsiteDomain;
   user;
   newTitle: string; // tiêu đề gợi ý sẵn khi giáo viên tạo một yêu cầu báo cáo mới
   studentInfo: any; // chỉ lấy về khi người dùng là giảng viên
-  lecturerInfo:any; // thông tin giảng viên hướng dẫn
-  jobWorking:any; // thông tin công việc sinh viên đang thực tập
+  lecturerInfo: any; // thông tin giảng viên hướng dẫn
+  jobWorking: any; // thông tin công việc sinh viên đang thực tập
 
   // tslint:disable-next-line:max-line-length
-  constructor(private http: Http, private studentService: StudentService, private lecturerService: LecturerService, private route: ActivatedRoute,private profileService: ProfilePageService) { }
+  constructor(private http: Http, private studentService: StudentService, private lecturerService: LecturerService, private route: ActivatedRoute, private profileService: ProfilePageService) { }
   sendNewComment(planReportID) {
     const text = document.getElementById(planReportID + 'comment') as HTMLTextAreaElement;
     // tslint:disable-next-line:triple-equals
@@ -153,8 +153,8 @@ export class ManagePlanReportComponent implements OnInit {
       this.studentID = getCookie("userID");
       this.getLecturerFollow();
       this.profileService.getProfile(this.studentID).then(
-        r=> this.studentInfo=r
-      ).catch( e => this.studentInfo= null);
+        r => this.studentInfo = r
+      ).catch(e => this.studentInfo = null);
       this.studentService.getPlanReport().then(r => {
         // tslint:disable-next-line:triple-equals
         if (r != false) {
@@ -167,8 +167,8 @@ export class ManagePlanReportComponent implements OnInit {
     } else {
       this.studentID = this.route.snapshot.paramMap.get('studentID');
       this.profileService.getProfile(this.studentID).then(
-        r=> this.studentInfo=r
-      ).catch( e => this.studentInfo= null);
+        r => this.studentInfo = r
+      ).catch(e => this.studentInfo = null);
       this.lecturerService.getPlanReportOfStudent(this.studentID)
         .then(r => {
           // tslint:disable-next-line:triple-equals
@@ -191,18 +191,18 @@ export class ManagePlanReportComponent implements OnInit {
     }
 
   }
-  getLecturerFollow(){
-    this.studentService.getLecturerFollowed().then(r=>{
-      if( r[0] != null && r[0].status == "accepted"){
+  getLecturerFollow() {
+    this.studentService.getLecturerFollowed().then(r => {
+      if (r[0] != null && r[0].status == "accepted") {
         this.lecturerInfo = r[0];
         console.log(this.lecturerInfo);
-      }else this.lecturerInfo = null;
+      } else this.lecturerInfo = null;
     })
   }
   @ViewChild(LetPointForPlanreportModalComponent)
   letPoint: LetPointForPlanreportModalComponent;
-  letPointForPlanReport(planReportID, title){
-    this.letPoint.getPoint(planReportID,title);
+  letPointForPlanReport(planReportID, title) {
+    this.letPoint.getPoint(planReportID, title);
   }
 
 }

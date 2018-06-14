@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-6 col-md-12">
-    <div class="avatar" style="height: inherit; width:inherit">        
+    <div class="avatar" style="height: inherit; width:inherit">
       <img id="avatar" [src]="avatar">
       <button *ngIf="canModify" class="btn btn-primary pen_icon" (click)='fileInput.click()'>
         <span octicons="pencil" color="white"></span>
       </button>
       <span *ngIf="type == 'lecturer'" class="badge badge-primary float-right">Giảng viên</span>
-        <span *ngIf="type == 'student'" class="badge badge-info float-right">Sinh viên</span>
-        <span *ngIf="type == 'admin'" class="badge badge-danger float-right">Quản trị viên</span>
-        <span *ngIf="type == 'partner'" class="badge badge-success float-right">Đối tác</span>
-      
+      <span *ngIf="type == 'student'" class="badge badge-info float-right">Sinh viên</span>
+      <span *ngIf="type == 'admin'" class="badge badge-danger float-right">Quản trị viên</span>
+      <span *ngIf="type == 'partner'" class="badge badge-success float-right">Đối tác</span>
+
     </div>
   </div>
   <div class="col-6 col-md-12">
@@ -20,7 +20,7 @@
       <br/>
       <input #fileInput style="display:none;" (change)="showIMG($event)" type="file" accept="image/*">
     </div>
-    
+
     <h4 style="text-align: center">{{userName}}</h4>
   </div>
 </div>

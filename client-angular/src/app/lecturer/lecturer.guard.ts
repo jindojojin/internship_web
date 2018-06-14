@@ -9,9 +9,9 @@ export class LecturerGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if( getCookie("userType") == "lecturer"){
+    if (getCookie("userType") == "lecturer") {
       return true;
-    }else{
+    } else {
       this.router.navigate(['page-not-found']);
       return false;
     }

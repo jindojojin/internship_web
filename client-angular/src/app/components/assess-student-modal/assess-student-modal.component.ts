@@ -7,43 +7,40 @@ import { UserService } from '../../user/user.service';
   styleUrls: ['./assess-student-modal.component.css']
 })
 export class AssessStudentModalComponent implements OnInit {
-  studentID:string;
+  studentID: string;
   studentName: string;
   assessorID: string;
-  myAssession:string;
+  myAssession: string;
 
   constructor(private userService: UserService) { }
-  showModal(){
+  showModal() {
     document.getElementById('btnOpenAssessStudentModal').click();
   }
 
-  closeModal(){
+  closeModal() {
     document.getElementById('CloseAssessStudentModal').click();
   }
 
-  updateAssess(form){
-    console.log(form.value);
+  updateAssess(form) {
     this.userService.updateAssessStudent({
-      assessorID:this.assessorID,
+      assessorID: this.assessorID,
       studentID: this.studentID,
       comment: form.value.comment
     }).then(
-      r=>{
+      r => {
         this.closeModal();
       }
     ).catch(e => console.log(e))
   }
 
-  getAssession(studentID){
+  getAssession(studentID) {
     this.studentID = studentID
     this.userService.getMyAssess(this.studentID)
-    .then(
-      r=>{
-        console.log(r);
-        this.myAssession= r.comment;
+      .then(res => {
+        this.myAssession = res.comment;
         this.showModal();
       }
-    ).catch(e => window.alert('đã có lỗi ở phía server!'))
+      ).catch(e => window.alert('đã có lỗi ở phía server!'))
   }
   ngOnInit() {
   }

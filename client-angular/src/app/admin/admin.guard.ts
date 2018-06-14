@@ -9,9 +9,9 @@ export class AdminGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if( getCookie("userType") == "admin"){
+    if (getCookie("userType") == "admin") {
       return true;
-    }else{
+    } else {
       this.router.navigate(['page-not-found']);
       return false;
     }

@@ -8,9 +8,9 @@ import { myWebsiteDomain } from "../../objects/appConfig";
 export class LecturerListService {
     constructor(private http: Http) { }
 
-    getList(start, total) {    
-        var url =myWebsiteDomain + "/list/users/type=lecturer/start=" + start + "/total=" + total; //api server trả về
-        return this.http.get(url,{withCredentials:true})
+    getList(start, total) {
+        var url = myWebsiteDomain + "/list/users/type=lecturer/start=" + start + "/total=" + total; //api server trả về
+        return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {
                 return res.json();

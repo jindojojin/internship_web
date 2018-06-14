@@ -16,7 +16,6 @@ export class ProfilePageService {
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {
-                // console.log(res.json());
                 return res.json();
             })
             .catch(err => console.log(err));
@@ -40,7 +39,7 @@ export class ProfilePageService {
             .toPromise()
             .then(res => {
                 // tslint:disable-next-line:triple-equals
-                if ( res.status == 201) {
+                if (res.status == 201) {
                     return true;
                 } else { return false; }
             })

@@ -44,7 +44,7 @@
       </li>
 
       <!-- lecturer only -->
-    <li class="nav-item d-md-none" *ngIf="(user| isLecturer)" routerLinkActive="active">
+      <li class="nav-item d-md-none" *ngIf="(user| isLecturer)" routerLinkActive="active">
         <a class="nav-link" routerLink="/lecturer/danh-sách-sinh-viên-đang-chờ">
           Sinh viên đang chờ
         </a>
@@ -59,7 +59,7 @@
           Xem bảng điểm
         </a>
       </li>
-  
+
       <!-- partner only -->
       <li class="nav-item d-md-none" *ngIf="(user| isPartner)" routerLinkActive="active">
         <a class="nav-link" routerLink="/partner/quan-ly-bai-dang">
@@ -76,7 +76,7 @@
           Danh sách ứng viên
         </a>
       </li>
-  
+
       <!-- admin only -->
       <li class="nav-item d-md-none" *ngIf="(user| isAdmin)" routerLinkActive="active">
         <a class="nav-link" routerLink="/admin/thêm-tài-khoản">
@@ -100,7 +100,7 @@
       </li>
       <li class="nav-item d-md-none" *ngIf="(user| isAdmin)" routerLinkActive="active">
         <a class="nav-link" routerLink="/admin/phe-duyet-cong-ty">
-        Phê duyệt công ty
+          Phê duyệt công ty
         </a>
       </li>
 

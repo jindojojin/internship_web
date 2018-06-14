@@ -50,7 +50,6 @@ export class LecturerListComponent implements OnInit {
   getListLecturer(start, total) {
     this.lecturerListService.getList(start, total)
       .then(res => {
-        // console.log(res);
         this.lecturers = res;
         this.total = res[0].total;
         this.numberOfPage = Math.ceil(this.total / this.numberOfRow);

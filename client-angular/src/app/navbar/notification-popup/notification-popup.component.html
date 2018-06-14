@@ -1,10 +1,11 @@
-
 <!-- Button trigger modal -->
-<button id="notificationPopupOpenButton" style="display: none" type="button" class="btn btn-primary" data-toggle="modal" data-target="#notificationPopupModalLong">sdfsadfd
+<button id="notificationPopupOpenButton" style="display: none" type="button" class="btn btn-primary" data-toggle="modal"
+  data-target="#notificationPopupModalLong">sdfsadfd
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="notificationPopupModalLong" tabindex="-1" role="dialog" aria-labelledby="notificationPopupModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="notificationPopupModalLong" tabindex="-1" role="dialog" aria-labelledby="notificationPopupModalLongTitle"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,7 +16,7 @@
       </div>
       <div class="modal-body">
         <h3 style="color: red" *ngIf="sumOfNotification == 0">Không có thông báo mới</h3>
-        <div class="dropdown-item" *ngFor="let n of notifications" >
+        <div class="dropdown-item" *ngFor="let n of notifications">
           <div class="card mx-0" routerLink="/tin-nhan" (click)="closeModal()">
             <p class="card-header">{{n.title | limitText:50}}</p>
             <p class="card-text">{{n.content |limitText:50}}</p>

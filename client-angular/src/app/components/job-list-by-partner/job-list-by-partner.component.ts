@@ -6,22 +6,20 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-job-list-by-partner',
   templateUrl: './job-list-by-partner.component.html',
   styleUrls: ['./job-list-by-partner.component.css'],
-  providers:[JobListByPartnerService]
+  providers: [JobListByPartnerService]
 })
 export class JobListByPartnerComponent implements OnInit {
   listJob: any[] = [];
-  partnerName:string;
+  partnerName: string;
 
-  constructor(private jobListByPartnerService : JobListByPartnerService, private route : ActivatedRoute) { }
+  constructor(private jobListByPartnerService: JobListByPartnerService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     let partnerID = this.route.snapshot.paramMap.get('partnerID');
     this.partnerName = this.route.snapshot.paramMap.get('partnerName');
     this.jobListByPartnerService.getListJobByPartner(partnerID)
-    .then( r=> {
-      console.log(r);
-      this.listJob = r;      
-    })
+      .then(res => {
+        this.listJob = res;
+      })
   }
-
 }

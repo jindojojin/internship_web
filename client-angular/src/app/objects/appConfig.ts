@@ -1,5 +1,5 @@
 export const myWebsiteDomain = "http://localhost:3000";
-export class MarkTable{
+export class MarkTable {
     'ten': string;
     'số thứ tự': string;
 }

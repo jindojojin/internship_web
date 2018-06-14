@@ -27,7 +27,6 @@ export class LetPointForPlanreportModalComponent implements OnInit {
     form.value.lecturerID = getCookie('userID');
     form.value.planReportID = this.planReportID;
 
-    console.log(form.value);
     this.lecturerService.updatePointForPlanReport(this.planReportID, form.value)
       .then(
         r => {

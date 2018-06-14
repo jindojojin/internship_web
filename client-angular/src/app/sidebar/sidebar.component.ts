@@ -24,7 +24,6 @@ export class SidebarComponent implements OnInit {
     this.userID = getCookie('userID');
     this.userType = getCookie('userType');
     this.nickname = getCookie('nickname');
-    // console.log("userType");
   }
 
   logOut() {

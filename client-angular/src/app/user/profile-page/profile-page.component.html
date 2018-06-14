@@ -1,82 +1,82 @@
 <div class="container">
 
-    <div class="row">
-        <div class="col-md-4">
-            <!-- responsive -->
-            <div class="d-none d-md-block">
-                <br/>
-                <br/>
-            </div>
-            <div class="card">
-                <app-overview-avatar [type]="type" [userName]="userName" [avatar]="logo" (newAvatar)="changeAvatar($event)" [canModify]="isMyProfile"></app-overview-avatar>
-                <div *ngIf="assessions != null">
-                    <hr>
-                    <h5 style="text-align: center">Các đánh giá</h5>
-                    <p style="text-align: center; color: red" *ngIf="assessions.length == 0">Chưa có đánh giá nào</p>
-                    <div>
-                        <div *ngFor="let assession of assessions">
-                            <p>
-                                <a class="mx-1" (click)="changeProfile(assession.assessorID)" routerLink="/profile/{{assession['lecturer.name'] | replaceSpace }}{{ assession['partner.name'] | replaceSpace }}/{{assession.assessorID}}">
-                                    {{assession['lecturer.name']}}{{assession['partner.name']}}</a>: {{assession.comment}}</p>
-                        </div>
-                    </div>
-
-                </div>
-                <hr *ngIf="!isMyProfile && (user|isLogged)">
-                <button *ngIf="!isMyProfile && (user|isLogged)" class="btn btn-primary" style="width: 100%" type="button" data-toggle="modal"
-                    [attr.data-target]=" '#'+ id">Gửi tin nhắn cho người này</button>
-                <div class="modal fade" [id]="id" tabindex="-1" role="dialog">
-                    <app-message-modal receiverName="{{userName}}" [receiverID]="id"></app-message-modal>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-8">
-            <!-- responsive -->
-            <div class="d-none d-md-block">
-                <br/>
-                <h3 style="text-align: center">Thông tin cá nhân</h3>
-                <!-- <br/> -->
-            </div>
-            
-            <!-- thông tin user -->
-            <form *ngIf="(user|isAdmin) && !isMyProfile" (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
-                <div *ngFor="let info1 of canFixInfors">
-                    <div class="form-group row ml-2 mb-0 mt-2">
-                        <label class="col-sm-12 col-md-3 badge badge-light">{{info1.fieldName|vietnam}}:</label>
-                        <div class="col-sm-9 mt-2">
-                            <input *ngIf="info1.fieldName !='dateOfBirth'" [name]="info1.fieldName" type="name" class="form-control" [(ngModel)]="info1.fieldValue">
-                            <input *ngIf="info1.fieldName=='dateOfBirth'" [name]="info1.fieldName" type="date" class="form-control" [(ngModel)]="info1.fieldValue">
-                            
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
-            </form>
-            <br>
-            <br>
-            <hr>
-            <div *ngFor="let info of cantFixInfors">
-                <div class="form-group row mb-0 ml-2">
-                    <label for="static" class="col-sm-12 col-md-3 badge badge-light">{{ info.fieldName |vietnam}} :</label>
-                    <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext ml-2" [value]="info.fieldValue">
-                    </div>
-                </div>
-            </div>
-            <form *ngIf="isMyProfile" (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
-                <div *ngFor="let info2 of canFixInfors">
-                    <div class="form-group row ml-2 mb-0 mt-2">
-                        <label class="col-sm-12 col-md-3 badge badge-light">{{info2.fieldName|vietnam}}:</label>
-                        <div class="col-sm-9 mt-2">
-                            <input [name]="info2.fieldName" type="name" class="form-control" [(ngModel)]="info2.fieldValue">
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
-            </form>
-        </div>
+  <div class="row">
+    <div class="col-md-4">
+      <!-- responsive -->
+      <div class="d-none d-md-block">
         <br/>
+        <br/>
+      </div>
+      <div class="card">
+        <app-overview-avatar [type]="type" [userName]="userName" [avatar]="logo" (newAvatar)="changeAvatar($event)" [canModify]="isMyProfile"></app-overview-avatar>
+        <div *ngIf="assessions != null">
+          <hr>
+          <h5 style="text-align: center">Các đánh giá</h5>
+          <p style="text-align: center; color: red" *ngIf="assessions.length == 0">Chưa có đánh giá nào</p>
+          <div>
+            <div *ngFor="let assession of assessions">
+              <p>
+                <a class="mx-1" (click)="changeProfile(assession.assessorID)" routerLink="/profile/{{assession['lecturer.name'] | replaceSpace }}{{ assession['partner.name'] | replaceSpace }}/{{assession.assessorID}}">
+                  {{assession['lecturer.name']}}{{assession['partner.name']}}</a>: {{assession.comment}}</p>
+            </div>
+          </div>
 
+        </div>
+        <hr *ngIf="!isMyProfile && (user|isLogged)">
+        <button *ngIf="!isMyProfile && (user|isLogged)" class="btn btn-primary" style="width: 100%" type="button" data-toggle="modal"
+          [attr.data-target]=" '#'+ id">Gửi tin nhắn cho người này</button>
+        <div class="modal fade" [id]="id" tabindex="-1" role="dialog">
+          <app-message-modal receiverName="{{userName}}" [receiverID]="id"></app-message-modal>
+        </div>
+      </div>
     </div>
+    <div class="col-md-8">
+      <!-- responsive -->
+      <div class="d-none d-md-block">
+        <br/>
+        <h3 style="text-align: center">Thông tin cá nhân</h3>
+        <!-- <br/> -->
+      </div>
+
+      <!-- thông tin user -->
+      <form *ngIf="(user|isAdmin) && !isMyProfile" (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
+        <div *ngFor="let info1 of canFixInfors">
+          <div class="form-group row ml-2 mb-0 mt-2">
+            <label class="col-sm-12 col-md-3 badge badge-light">{{info1.fieldName|vietnam}}:</label>
+            <div class="col-sm-9 mt-2">
+              <input *ngIf="info1.fieldName !='dateOfBirth'" [name]="info1.fieldName" type="name" class="form-control" [(ngModel)]="info1.fieldValue">
+              <input *ngIf="info1.fieldName=='dateOfBirth'" [name]="info1.fieldName" type="date" class="form-control" [(ngModel)]="info1.fieldValue">
+
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
+      </form>
+      <br>
+      <br>
+      <hr>
+      <div *ngFor="let info of cantFixInfors">
+        <div class="form-group row mb-0 ml-2">
+          <label for="static" class="col-sm-12 col-md-3 badge badge-light">{{ info.fieldName |vietnam}} :</label>
+          <div class="col-sm-9">
+            <input type="text" readonly class="form-control-plaintext ml-2" [value]="info.fieldValue">
+          </div>
+        </div>
+      </div>
+      <form *ngIf="isMyProfile" (ngSubmit)="submitProfile(formProfile)" #formProfile="ngForm">
+        <div *ngFor="let info2 of canFixInfors">
+          <div class="form-group row ml-2 mb-0 mt-2">
+            <label class="col-sm-12 col-md-3 badge badge-light">{{info2.fieldName|vietnam}}:</label>
+            <div class="col-sm-9 mt-2">
+              <input [name]="info2.fieldName" type="name" class="form-control" [(ngModel)]="info2.fieldValue">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right my-3" *ngIf="isMyProfile || (user|isAdmin)"> Lưu thay đổi</button>
+      </form>
+    </div>
+    <br/>
+
+  </div>
 
 </div>

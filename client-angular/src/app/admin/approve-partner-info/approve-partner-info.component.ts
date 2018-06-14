@@ -15,25 +15,27 @@ export class ApprovePartnerInfoComponent implements OnInit {
     this.http.get(url, { withCredentials: true })
       .toPromise()
       .then(r => {
-        // console.log(r);
         this.listPartnerInfo = r.json();
-        console.log(this.listPartnerInfo);
       })
-      .catch(e => { console.log(e); window.alert("Đã có lỗi xảy ra ở phía server") });
+      .catch(e => {
+        console.log(e);
+        window.alert("Đã có lỗi xảy ra ở phía server")
+      });
   }
 
-  updatePartnerInfo(partnerInforID, action,requesterID) {
-    let partnerInfo = { status: action, partner_infoID: partnerInforID,requesterID:requesterID };
+  updatePartnerInfo(partnerInforID, action, requesterID) {
+    let partnerInfo = { status: action, partner_infoID: partnerInforID, requesterID: requesterID };
     let url = myWebsiteDomain + '/admin/partnerInfo';
     this.http.put(url, partnerInfo, { withCredentials: true })
       .toPromise()
       .then(r => this.ngOnInit())
       .catch(e => {
         console.log(e);
-        window.alert("Đã xảy ra lỗi phía server")})
+        window.alert("Đã xảy ra lỗi phía server")
+      })
   }
-ngOnInit() {
-  this.getlistPartnerInfo();
-}
+  ngOnInit() {
+    this.getlistPartnerInfo();
+  }
 
 }

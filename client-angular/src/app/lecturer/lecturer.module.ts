@@ -17,11 +17,11 @@ import { OverviewResultComponent } from './overview-result/overview-result.compo
     UserModule,
     ShareModule
   ],
-  declarations: [LecturerComponent, 
+  declarations: [LecturerComponent,
     ListStudentComponent,
     ListStudentFollowMeComponent,
     OverviewResultComponent,
   ],
-  providers:[LecturerService]
+  providers: [LecturerService]
 })
 export class LecturerModule { }

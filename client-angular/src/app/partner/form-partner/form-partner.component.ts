@@ -16,7 +16,7 @@ export class FormPartnerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: Http, private studentService: StudentService) { }
   job: any;
   isStudent: boolean;
-  validToFollow:boolean;
+  validToFollow: boolean;
 
   followJob() {
     let partner_name = this.job.partner_name;
@@ -50,16 +50,14 @@ export class FormPartnerComponent implements OnInit {
 
   ngOnInit() {
     this.isStudent = (getCookie("userType") == "student") ? true : false;
-    console.log(this.isStudent);
     let id = this.route.snapshot.paramMap.get("id");
     let url = myWebsiteDomain + "/job/id=" + id;
     this.http.get(url, { withCredentials: true })
       .toPromise()
       .then(r => {
         this.job = r.json();
-        console.log(this.job);
-    this.validToFollow= (calculateDiffDays(this.job,undefined) >=0)?true:false;
-        
+        this.validToFollow = (calculateDiffDays(this.job, undefined) >= 0) ? true : false;
+
       })
       .catch(e => { console.log(e) })
   }

@@ -16,7 +16,7 @@ export class JobAssignmentComponent implements OnInit {
   type: string = "student";
 
   startUser: number; //user đầu tiên của list
-  totalUser:number; // tổng user của list
+  totalUser: number; // tổng user của list
   totalLecturer: number; // tổng lecturer
   constructor(private jobAssignmentService: JobAssignmentService) { }
 

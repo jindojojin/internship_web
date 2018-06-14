@@ -1,7 +1,7 @@
 <h3 class="title">Quản lý bài đăng</h3>
 <hr>
 
-<div *ngFor="let job of listJob">
+<div *ngFor="let job of listJob" class="job">
   <!-- <app-post [job] = "job"></app-post> -->
   <div class="card mt-3">
     <div class="card-header">
@@ -26,10 +26,10 @@
       <div class="col-xs-9 col-sm-10">
         <p class="card-text">{{job.content | limitTitle}}</p>
       </div>
-      
+
     </div>
-    
-    
+
+
 
 
     <!-- Modal -->

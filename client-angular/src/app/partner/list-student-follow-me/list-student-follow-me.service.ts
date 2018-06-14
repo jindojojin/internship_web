@@ -20,12 +20,11 @@ export class ListStudentFollowMeService {
             .catch(err => console.log(err));
     }
 
-    sendActionFollow(action: string, studentID: string, jobID:string) {
+    sendActionFollow(action: string, studentID: string, jobID: string) {
         var url = myWebsiteDomain + "/partner/action=" + action + "/jobID=" + jobID + "/studentID=" + studentID;
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {
-                // console.log(res.status);
             })
             .catch(err => console.log(err));
     }

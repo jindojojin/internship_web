@@ -13,22 +13,20 @@ export class NavbarComponent implements OnInit {
   SignIn: boolean;
   userName: string;
   isStudent: boolean;
-  showLogo:boolean;
+  showLogo: boolean;
   user;
   @Output() showSideBar = new EventEmitter();
-  showSideBarNow(){ this.showSideBar.emit();}
+  showSideBarNow() { this.showSideBar.emit(); }
   @ViewChild(NotificationPopupComponent)
-    notification: NotificationPopupComponent;
+  notification: NotificationPopupComponent;
 
   @Output() loggedIn = new EventEmitter();
   updateUserInfor() {
-    console.log("da update user infor")
     this.loggedIn.emit(null);
     this.SignIn = !this.SignIn;
     this.userName = (getCookie("nickname"));
     this.isStudent = (getCookie("userType") == "student");
-    console.log(this.userName);
-    this.notification.getMessage();    
+    this.notification.getMessage();
   }
 
   receiverID: string;

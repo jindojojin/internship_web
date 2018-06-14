@@ -12,32 +12,32 @@ export class NewPlanReportFormComponent implements OnInit {
   user;
   @Input() title: string;
   @Input() studentID: string;
-  @Input() jobID:any;
+  @Input() jobID: any;
   @Output() created = new EventEmitter();
   constructor(private lecturerService: LecturerService, private studentService: StudentService) { }
   onSubmit(formNewPlanReport) {
     if (formNewPlanReport.value.title == "") formNewPlanReport.value.title = this.title;
-    formNewPlanReport.value.jobID= this.jobID;
-    if(getCookie("userType")=="lecturer"){
+    formNewPlanReport.value.jobID = this.jobID;
+    if (getCookie("userType") == "lecturer") {
       formNewPlanReport.value.studentID = this.studentID;
       this.lecturerService.createNewPlanReportForStudent(formNewPlanReport.value).then(
         r => {
           document.getElementById("closeNewPlanReportModalForm").click();
-          if(r)
-          this.created.emit(true);
+          if (r)
+            this.created.emit(true);
           else this.created.emit(false)
         }
       ).catch(e => {
         document.getElementById("closeNewPlanReportModalForm").click();
         this.created.emit(false)
       });
-    }else{
+    } else {
       formNewPlanReport.value.studentID = getCookie("userID");
       this.studentService.createNewPlanReportForStudent(formNewPlanReport.value).then(
         r => {
           document.getElementById("closeNewPlanReportModalForm").click();
-          if(r)
-          this.created.emit(true);
+          if (r)
+            this.created.emit(true);
           else this.created.emit(false)
         }
       ).catch(e => {
@@ -45,11 +45,9 @@ export class NewPlanReportFormComponent implements OnInit {
         this.created.emit(false)
       });
     }
-    console.log(formNewPlanReport.value);
-    
+
   }
   ngOnInit() {
-    console.log(this.title);
   }
 
 }

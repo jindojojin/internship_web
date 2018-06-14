@@ -1,49 +1,52 @@
-.WebsiteName{
-    position: relative;
-    top: 17%;
-    color: white;
-    text-align: center;
-    font-size: 40px;
-}
-.background{
-    background-color: rgb(55, 60, 68);
-    height: 16rem;
-}
-.center{
-    position: relative;
-    top:30%;
+.WebsiteName {
+  position: relative;
+  top: 17%;
+  color: white;
+  text-align: center;
+  font-size: 40px;
 }
 
+.background {
+  background-color: rgb(55, 60, 68);
+  height: 16rem;
+}
+
+.center {
+  position: relative;
+  top: 30%;
+}
 
 @media only screen and (max-width: 950px) {
-    .WebsiteName{
-        display: none;
-    }
-    .background {
-        height: 6rem !important;
-    }
-    .center{
-        position: relative;
-        top:3% !important;
-    }    
-}
-@media only screen and (max-width: 1380px) {
-    .WebsiteName{
+  .WebsiteName {
+    display: none;
+  }
+  .background {
+    height: 6rem !important;
+  }
+  .center {
     position: relative;
-     color: white;
-     text-align: center;
-     font-size: 25px !important;
-    }
-    .background {
-        height: 12rem;
-    }
-    .center{
-        position: relative !important;
-    }    
+    top: 3% !important;
+  }
 }
 
-.btn,.btn:focus,.btn:active {
-    outline: none !important;
-    box-shadow: none;
- }
+@media only screen and (max-width: 1380px) {
+  .WebsiteName {
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 25px !important;
+  }
+  .background {
+    height: 12rem;
+  }
+  .center {
+    position: relative !important;
+  }
+}
 
+.btn,
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}

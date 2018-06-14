@@ -11,13 +11,12 @@ import { getCookie } from '../../objects/Cookiee';
   styleUrls: ['./edit-internship-job.component.css']
 })
 export class EditInternshipJobComponent implements OnInit {
-  terms:any[];
-  
-  job:any= Object;
-  canEdit:boolean=true;
+  terms: any[];
+
+  job: any = Object;
+  canEdit: boolean = true;
   onSubmit(form) {
-    form.value.jobID=this.job.jobID;
-    console.log(form.value);
+    form.value.jobID = this.job.jobID;
     this.partnerService.editJob(form.value)
       .then(r => {
         if (r) {
@@ -32,23 +31,22 @@ export class EditInternshipJobComponent implements OnInit {
         this.ngOnInit();
       })
   }
-  constructor(private partnerService: PartnerService, private router : Router,private route:ActivatedRoute,private http: Http) { }
+  constructor(private partnerService: PartnerService, private router: Router, private route: ActivatedRoute, private http: Http) { }
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get("jobID");
     let url = myWebsiteDomain + "/job/id=" + id;
     this.partnerService.getTerm()
-    .then(r => this.terms=r)
-    .catch(e => this.terms =[])
+      .then(r => this.terms = r)
+      .catch(e => this.terms = [])
     this.http.get(url, { withCredentials: true })
       .toPromise()
       .then(r => {
-        if(r.json().partnerID == getCookie("userID")){
+        if (r.json().partnerID == getCookie("userID")) {
           this.job = r.json();
-          console.log(this.job);
-        }else{
-          this.canEdit=false;
-        }     
+        } else {
+          this.canEdit = false;
+        }
       })
       .catch(e => { console.log(e) })
   }

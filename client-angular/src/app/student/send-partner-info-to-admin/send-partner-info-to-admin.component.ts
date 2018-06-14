@@ -11,8 +11,6 @@ export class SendPartnerInfoToAdminComponent implements OnInit {
 
   constructor(private studentService: StudentService) { }
   submitPartnerInfo(form) {
-    // console.log("đã vào đây");
-    console.log(form.value);
     form.value.requesterID = getCookie("userID");
     this.studentService.addPartnerInfo(form.value)
       .then(r => {

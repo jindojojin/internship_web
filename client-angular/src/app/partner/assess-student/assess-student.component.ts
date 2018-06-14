@@ -13,9 +13,8 @@ export class AssessStudentComponent implements OnInit {
   constructor(private partnerService: PartnerService) { }
 
   ngOnInit() {
-    this.partnerService.getStudentWorking().then(r=>{
-      if(r!=false){
-        console.log(r);
+    this.partnerService.getStudentWorking().then(r => {
+      if (r != false) {
         this.myStudents = r;
       }
     })

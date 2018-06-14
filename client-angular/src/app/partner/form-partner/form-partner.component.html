@@ -13,7 +13,8 @@
           <p>Yêu cầu : {{job.requirements}}</p>
           <p>Lương/ hỗ trợ : {{job.salary}}</p>
           <button *ngIf='job.status == "unfollowed" && isStudent' class="btn btn-primary" style="width: 100%;" type="button" (click)="followJob()">Đăng ký thực tập tại đây</button>
-          <button *ngIf='job.status == "followed" && isStudent && validToFollow' class="btn btn-danger" style="width: 100%;" type="button" (click)="unfollowJob()">Hủy đăng ký thực tập tại đây</button>
+          <button *ngIf='job.status == "followed" && isStudent && validToFollow' class="btn btn-danger" style="width: 100%;" type="button"
+            (click)="unfollowJob()">Hủy đăng ký thực tập tại đây</button>
         </div>
       </div>
     </div>

@@ -3,8 +3,9 @@
   border-color: rgb(222, 226, 230);
 }
 
-td, th {
-    text-align: center;
+td,
+th {
+  text-align: center;
   white-space: nowrap;
   padding-left: 30px;
   padding-right: 30px;

@@ -58,31 +58,28 @@ export class ListFavoriteComponent implements OnInit {
     this.studentService.choseJobToWork(jobID)
       .then(r => {
         if (r) {
-            this.ngOnInit();
-        } else {window.alert("Đã có lỗi xảy ra")}
+          this.ngOnInit();
+        } else { window.alert("Đã có lỗi xảy ra") }
       })
       .catch(e => window.alert("Đã có lỗi xảy ra"))
   }
   ngOnInit() {
     this.studentService.getJobsFollowed().then(r => {
       // if(!r){
-      console.log(r);
-      for(let job of r){
-        if(job.status == "working") {this.alreadyWork=true; break}
+      for (let job of r) {
+        if (job.status == "working") { this.alreadyWork = true; break }
       }
       this.listJobFollowed = r;
       // }
     });
     this.studentService.getLecturerFollowed().then(r => {
       // if(r != false){
-      console.log(r);
       this.lecturerFollowed = r;
       // }
     })
 
     this.studentService.getPartnersFollowed().then(r => {
       // if(!r) {
-      console.log(r);
       this.listPartnerFollowed = r;
       // }
     })

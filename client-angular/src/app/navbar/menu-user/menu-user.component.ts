@@ -12,6 +12,7 @@ import { isReplyMessage } from '../../objects/regex';
   providers: [MenuUserService]
 })
 export class MenuUserComponent implements OnInit {
+  user;
   sumOfNotification = 0;
   @Output() loggedOut = new EventEmitter();
   @Output() replyMessage = new EventEmitter();
@@ -23,35 +24,30 @@ export class MenuUserComponent implements OnInit {
   constructor(private menuUserService: MenuUserService, private router: Router) { }
 
   getMessage() {
-    // console.log("bắt đầu lấy tin nhắn của người dùng");
     this.menuUserService.getMessages()
       .then(arrMessage => {
-        // console.log("đã nhận về mảng tin nhắn");
-        // console.log(arrMessage);
         this.sumOfNotification = arrMessage.length;
         this.notifications = arrMessage;
       })
       .catch(e => console.log(e));
   }
 
-  reply(senderName:string, senderID:string, title:string){
-    title = isReplyMessage(title) ? title: ("Re: "+title);
-    // console.log("đã vào reply");
-    this.replyMessage.emit({receiverName:senderName, receiverID:senderID, messageTitle:title});    
+  reply(senderName: string, senderID: string, title: string) {
+    title = isReplyMessage(title) ? title : ("Re: " + title);
+    this.replyMessage.emit({ receiverName: senderName, receiverID: senderID, messageTitle: title });
   }
-  markRead(messageID){
+  markRead(messageID) {
     this.menuUserService.markMessageAsRead(messageID)
-    .then(r=> this.ngOnInit())
-    .catch(e => this.ngOnInit())
+      .then(r => this.ngOnInit())
+      .catch(e => this.ngOnInit())
   }
-async markAllRead(){
-  for(let element of this.notifications){
-    await this.menuUserService.markMessageAsRead(element.messageID);
+  async markAllRead() {
+    for (let element of this.notifications) {
+      await this.menuUserService.markMessageAsRead(element.messageID);
+    }
+    this.ngOnInit();
   }
-  this.ngOnInit();
-}
   logOut() {
-    // console.log("đã loggedOut");
     deleteAllCookies();
     this.loggedOut.emit();
     this.router.navigate(['']);
@@ -69,7 +65,6 @@ async markAllRead(){
     this.isLecturer = getCookie("userType") == "lecturer"
     this.isPartner = getCookie("userType") == "partner"
     this.isStudent = getCookie("userType") == "student"
-    console.log("day la "+ getCookie("userType"));
   }
 
 }

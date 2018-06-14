@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Nội dung</label>
-          <textarea class="form-control"rows="3" name="content" ngModel required></textarea>
+          <textarea class="form-control" rows="3" name="content" ngModel required></textarea>
         </div>
         <button [disabled]="messageForm.invalid" type="submit" class="btn btn-primary float-right">Gửi</button>
       </form>
@@ -26,5 +26,5 @@
 </div>
 
 <div class="alert alert-success fixed-top container" *ngIf="messageWasSent">
-    <strong>Đã gửi tin nhắn thành công!</strong>
+  <strong>Đã gửi tin nhắn thành công!</strong>
 </div>

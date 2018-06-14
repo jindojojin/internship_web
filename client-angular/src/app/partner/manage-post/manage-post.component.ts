@@ -31,7 +31,6 @@ export class ManagePostComponent implements OnInit {
     this.partnerService.getJobByPartner().then(
       r => {
         if (r != false) {
-          console.log(r);
           this.listJob = r;
         }
       }

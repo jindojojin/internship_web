@@ -4,8 +4,8 @@
 </button>
 
 <button *ngIf="(user|isStudent)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPlanReportFormModel">
-    Thêm báo cáo mới
-  </button>
+  Thêm báo cáo mới
+</button>
 
 <!-- Modal -->
 <div class="modal fade" id="newPlanReportFormModel" tabindex="-1" role="dialog">
@@ -30,10 +30,10 @@
             <input type="radio" name="isFinal" value="1" ngModel required>Báo cáo toàn văn( Có chấm điểm)
           </label>
           <label>
-              <input type="radio" name="isFinal" value="0"  ngModel required checked>Báo cáo định kỳ( Không chấm điểm)
+            <input type="radio" name="isFinal" value="0" ngModel required checked>Báo cáo định kỳ( Không chấm điểm)
           </label>
           <p style="color: red">Lưu ý: bạn có thể chọn file đính kèm, chỉnh sửa nội dung báo cáo sau khi đã tạo báo cáo</p>
-          
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>

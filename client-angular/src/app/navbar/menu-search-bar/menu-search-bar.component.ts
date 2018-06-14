@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-search-bar',
@@ -8,25 +8,26 @@ import { Router} from '@angular/router';
   styleUrls: ['./menu-search-bar.component.css']
 })
 export class MenuSearchBarComponent implements OnInit {
+  user;
   formSearch: FormGroup;
-  @Output() searchBtnPressed= new EventEmitter();
+  @Output() searchBtnPressed = new EventEmitter();
   async onSearchSubmit(typeOfKey) {
     // let typeOfKey = this.formSearch.value.typeOfKey;
     let keySearch = this.formSearch.value.keySearch;
     // this.searchBtnPressed.emit(null);
-    await this.router.navigate(['Tim-kiem/cac-bai-dang-thuc-tap/',typeOfKey,keySearch]);
+    await this.router.navigate(['Tim-kiem/cac-bai-dang-thuc-tap/', typeOfKey, keySearch]);
     this.searchBtnPressed.emit(null);
   }
 
-  constructor(private fb:FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
-    
-      this.formSearch = this.fb.group({
-        keySearch: ['', Validators.required],
-        typeOfKey:Validators.required
-      }) 
-      this.formSearch.controls['typeOfKey'].setValue('title');    
+
+    this.formSearch = this.fb.group({
+      keySearch: ['', Validators.required],
+      typeOfKey: Validators.required
+    })
+    this.formSearch.controls['typeOfKey'].setValue('title');
   }
 
 }

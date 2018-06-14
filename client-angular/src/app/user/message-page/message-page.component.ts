@@ -37,7 +37,7 @@ export class MessagePageComponent implements OnInit {
     this.currentConversation.forEach(element => {
       if (element.status == 'unread' && element.receiverID == this.userID) {
         this.messagePageService.markMessageAsRead(element.messageID);
-        this.getMessage();        
+        this.getMessage();
       }
     });
     this.currentConversation = this.listConversations[index];
@@ -62,19 +62,21 @@ export class MessagePageComponent implements OnInit {
       title: title
     }
     this.messageModalService.sendMessage(value, 'false').then(
-      r => { inputBox.value = ""; this.currentConversation.push(value)}
+      r => { inputBox.value = ""; this.currentConversation.push(value) }
     )
   }
 
   ngOnInit() {
     this.userID = getCookie("userID");
     this.messagePageService.getMessages()
-      .then(r => { this.listConversations = r; this.currentConversation = r[0]; console.log(this.listConversations); }
+      .then(r => {
+      this.listConversations = r; this.currentConversation = r[0];
+      }
       )
       .catch(e => window.alert("Đã có lỗi xảy ra, xin lỗi vì sự bất tiện này!"))
   }
 
-  getMessage(){
+  getMessage() {
     this.messagePageService.getMessages()
       .then(r => { this.listConversations = r; }
       )

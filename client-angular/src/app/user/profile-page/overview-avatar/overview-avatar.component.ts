@@ -8,29 +8,26 @@ import { getCookie } from '../../../objects/Cookiee';
 })
 export class OverviewAvatarComponent implements OnInit {
   constructor() { }
-  @Input() canModify:boolean;
-  @Input() avatar:string;
+  @Input() canModify: boolean;
+  @Input() avatar: string;
   @Output() newAvatar = new EventEmitter();
   @Input() userName: string;
-  @Input() type : string;
+  @Input() type: string;
   showIMG(event) {
     let reader = new FileReader();
     if (event.target.files && event.target.files.length > 0) {
       let file = event.target.files[0];
       reader.readAsDataURL(file);
-      console.log(file);
       let ava;
       reader.onload = (e: any) => {
-        let ava =document.getElementById("avatar") as HTMLImageElement;
+        let ava = document.getElementById("avatar") as HTMLImageElement;
         ava.src = e.target.result;
-        console.log(e.target.result.length);        
         this.newAvatar.emit(file);
       };
     }
   }
 
   ngOnInit() {
-    console.log(this.avatar);
   }
 
 }

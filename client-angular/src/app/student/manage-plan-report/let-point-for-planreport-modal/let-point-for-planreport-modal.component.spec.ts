@@ -8,9 +8,9 @@ describe('LetPointForPlanreportModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LetPointForPlanreportModalComponent ]
+      declarations: [LetPointForPlanreportModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

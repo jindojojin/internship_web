@@ -1,89 +1,90 @@
 <div class="container">
-<h3 style="text-align: center">Quản lý đợt thực tập</h3><hr>
-<form (ngSubmit)="onSubmitEdit(formEditTerm)" #formEditTerm="ngForm">
-  <div class="table-responsive">
-  <table class="table table-striped table-hover">
-    <thead>
-      <tr>
-        <th scope="col" class="stt">STT</th>
-        <th scope="col">Ngày bắt đầu</th>
-        <th scope="col">Ngày kết thúc</th>
-        <th scope="col">Tiêu đề</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let term of terms; let i = index">
-        <!-- Hiển thị danh sách đợt thực tập -->
-        <ng-container *ngIf="term.termID != termIDEdit">
-          <th scope="row" class="stt">{{ i + 1 }}</th>
-          <td>{{ term.start }}</td>
-          <td>{{ term.end }}</td>
-          <td>{{ term.title }}</td>
-          <td>
-            <div class="btn btn-group btn-group-sm">
-              <button type="button" class="btn btn-warning" (click)="onEdit(term.termID)">Sửa</button>
-              <button type="button" class="btn btn-danger" (click)="onDelete(term.termID)">Xóa</button>
-            </div>
-          </td>
-        </ng-container>
+  <h3 style="text-align: center">Quản lý đợt thực tập</h3>
+  <hr>
+  <form (ngSubmit)="onSubmitEdit(formEditTerm)" #formEditTerm="ngForm">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="stt">STT</th>
+            <th scope="col">Ngày bắt đầu</th>
+            <th scope="col">Ngày kết thúc</th>
+            <th scope="col">Tiêu đề</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let term of terms; let i = index">
+            <!-- Hiển thị danh sách đợt thực tập -->
+            <ng-container *ngIf="term.termID != termIDEdit">
+              <th scope="row" class="stt">{{ i + 1 }}</th>
+              <td>{{ term.start }}</td>
+              <td>{{ term.end }}</td>
+              <td>{{ term.title }}</td>
+              <td>
+                <div class="btn btn-group btn-group-sm">
+                  <button type="button" class="btn btn-warning" (click)="onEdit(term.termID)">Sửa</button>
+                  <button type="button" class="btn btn-danger" (click)="onDelete(term.termID)">Xóa</button>
+                </div>
+              </td>
+            </ng-container>
 
-        <!-- Chỉnh sửa term -->
-        <ng-container *ngIf="term.termID == termIDEdit">
-          <th scope="row">{{ term.termID }}</th>
-          <td>
-            <input type="date" name="start" value="{{ term.start }}" [(ngModel)]="term.start" required>
-          </td>
-          <td>
-            <input type="date" value="{{ term.end }}" name="end" [(ngModel)]="term.end" required>
-          </td>
-          <td>
-            <input type="text" value="{{ term.title }}" name="title" [(ngModel)]="term.title" required>
-          </td>
-          <td>
-            <div class="btn btn-group btn-group-sm">
-              <button type="submit" class="btn btn-primary" [disabled]="formEditTerm.invalid">Lưu</button>
-              <button type="button" class="btn btn-danger" (click)="onCancel()">Hủy bỏ</button>
-            </div>
-          </td>
-        </ng-container>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</form>
+            <!-- Chỉnh sửa term -->
+            <ng-container *ngIf="term.termID == termIDEdit">
+              <th scope="row">{{ term.termID }}</th>
+              <td>
+                <input type="date" name="start" value="{{ term.start }}" [(ngModel)]="term.start" required>
+              </td>
+              <td>
+                <input type="date" value="{{ term.end }}" name="end" [(ngModel)]="term.end" required>
+              </td>
+              <td>
+                <input type="text" value="{{ term.title }}" name="title" [(ngModel)]="term.title" required>
+              </td>
+              <td>
+                <div class="btn btn-group btn-group-sm">
+                  <button type="submit" class="btn btn-primary" [disabled]="formEditTerm.invalid">Lưu</button>
+                  <button type="button" class="btn btn-danger" (click)="onCancel()">Hủy bỏ</button>
+                </div>
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
 
-<br>
+  <br>
 
-<!-- Bảng thêm mới đợt thực tập -->
-<form (ngSubmit)="onCreate(formCreateTerm);" #formCreateTerm="ngForm">
-  <div class="form-group">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Ngày bắt đầu</th>
-          <th scope="col">Ngày kết thúc</th>
-          <th scope="col">Tiêu đề</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <input type="date" class="form-control" name="start" required ngModel>
-          </td>
-          <td>
-            <input type="date" class="form-control" name="end" required ngModel>
-          </td>
-          <td>
-            <input type="text" class="form-control" name="title" required ngModel>
-          </td>
-          <td>
-            <button type="submit" class="btn btn-primary" [disabled]="formCreateTerm.invalid">Thêm</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</form>
+  <!-- Bảng thêm mới đợt thực tập -->
+  <form (ngSubmit)="onCreate(formCreateTerm);" #formCreateTerm="ngForm">
+    <div class="form-group">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Ngày bắt đầu</th>
+            <th scope="col">Ngày kết thúc</th>
+            <th scope="col">Tiêu đề</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="date" class="form-control" name="start" required ngModel>
+            </td>
+            <td>
+              <input type="date" class="form-control" name="end" required ngModel>
+            </td>
+            <td>
+              <input type="text" class="form-control" name="title" required ngModel>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" [disabled]="formCreateTerm.invalid">Thêm</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
 </div>

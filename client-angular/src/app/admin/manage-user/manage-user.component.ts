@@ -41,7 +41,6 @@ export class ManageUserComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-
   onGetAccounts(type: string) {
     this.type = type;
     this.getAccounts(type, 1, this.numberOfRow);
@@ -53,7 +52,6 @@ export class ManageUserComponent implements OnInit {
     this.manageUserService.getAccounts(type, start, total)
       .then(res => {
         this.accounts = res;
-        console.log(res);
         this.total = this.accounts[0].total;
         this.numberOfPage = Math.ceil(this.total / this.numberOfRow);
         if (this.numberOfPage < 10)

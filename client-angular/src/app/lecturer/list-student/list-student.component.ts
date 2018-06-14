@@ -33,12 +33,11 @@ export class ListStudentComponent implements OnInit {
   ]
   constructor(private lecturerService: LecturerService) { }
 
- 
+
 
   ngOnInit() {
     this.lecturerService.getListStudent()
       .then(r => {
-        console.log(r);
         if (r != false) {
           this.myStudents = r;
         }

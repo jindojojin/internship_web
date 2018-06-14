@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { PartnerListComponent } from './components/partner-list/partner-list.component';
 import { PostComponent } from './components/job-list/post/post.component';
 import { JobListComponent } from './components/job-list/job-list.component';
-import { SpinnerLoadingComponent } from './components/spinner-loading/spinner-loading.component';
 import { AdminModule } from './admin/admin.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { ProfilePageComponent } from './user/profile-page/profile-page.component';
@@ -37,7 +36,6 @@ import { PaginationModule } from './components/pagination/pagination.module';
     PartnerListComponent,
     JobListComponent,
     PostComponent,
-    SpinnerLoadingComponent,
     PageNotFoundComponent,
     LecturerListComponent,
     SidebarComponent,

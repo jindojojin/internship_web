@@ -6,12 +6,12 @@ import { myWebsiteDomain } from '../../objects/appConfig';
 export class JobListByPartnerService {
   constructor(private http: Http) { }
 
-  getListJobByPartner(partnerID){
-    let url = myWebsiteDomain+'/listJobByPartner/partnerID='+partnerID;
-    return this.http.get(url,{withCredentials:true})
-    .toPromise()
-    .then(r=>r.json())
-    .catch(e => false)
+  getListJobByPartner(partnerID) {
+    let url = myWebsiteDomain + '/listJobByPartner/partnerID=' + partnerID;
+    return this.http.get(url, { withCredentials: true })
+      .toPromise()
+      .then(r => r.json())
+      .catch(e => false)
   }
 
 }

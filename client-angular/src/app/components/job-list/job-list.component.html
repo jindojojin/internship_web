@@ -3,7 +3,7 @@
 <div class="container">
   <div *ngIf="searchResultIsEmpty">Không tìm thấy kết quả nào phù hợp</div>
   <div *ngFor="let job of jobs">
-    <app-post [job] = "job"></app-post>
+    <app-post [job]="job"></app-post>
   </div>
 </div>
 <!-- Pagination -->

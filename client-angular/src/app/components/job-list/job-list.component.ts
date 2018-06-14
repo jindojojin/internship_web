@@ -33,14 +33,13 @@ export class JobListComponent implements OnInit {
           this.total = res[0].total;
           this.numberOfPage = Math.ceil(this.total / this.numberOfRow);
           if (this.numberOfPage < 10)
-          this.pagination.end = this.numberOfPage;
+            this.pagination.end = this.numberOfPage;
           this.pagination.createPages();
         })
         .catch(err => console.log(err));
     else if (type == "Tim-kiem") {
       let keySearch = this.route.snapshot.paramMap.get("keySearch");
       let typeOfKey = this.route.snapshot.paramMap.get("typeOfKey");
-      console.log(keySearch);
       this.jobListService.searchForJob({ keySearch: keySearch, typeOfKey: typeOfKey })
         .then(res => {
           if (res[0] == undefined)

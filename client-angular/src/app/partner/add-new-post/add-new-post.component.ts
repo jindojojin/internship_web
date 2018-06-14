@@ -8,10 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-new-post.component.css']
 })
 export class AddNewPostComponent implements OnInit {
-  terms:any[];
+  terms: any[];
   onSubmit(form) {
-    console.log(form.value);
-    
     this.partnerService.createJob(form.value)
       .then(r => {
         if (r) {
@@ -26,12 +24,12 @@ export class AddNewPostComponent implements OnInit {
         this.ngOnInit();
       })
   }
-  constructor(private partnerService: PartnerService, private router : Router) { }
+  constructor(private partnerService: PartnerService, private router: Router) { }
 
   ngOnInit() {
     this.partnerService.getTerm()
-    .then(r => this.terms=r)
-    .catch(e => this.terms =[])
+      .then(r => this.terms = r)
+      .catch(e => this.terms = [])
   }
 
 }

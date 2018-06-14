@@ -17,8 +17,7 @@ export class OverviewResultComponent implements OnInit {
 
   ngOnInit() {
     this.lecturerService.getMarkTable()
-      .then(r => { 
-        console.log(r); 
+      .then(r => {
         this.markTable = r;
         // var test: MarkTable[] =[
         //   {'ten':'1','số thứ tự':'213213'},
@@ -29,22 +28,22 @@ export class OverviewResultComponent implements OnInit {
       .catch(e => this.markTable = null)
   }
 
-  exportExelFile(){
-    let table =[];
-    let i=0;
+  exportExelFile() {
+    let table = [];
+    let i = 0;
     this.markTable.forEach(element => {
       i++;
-      let x={};
+      let x = {};
       x['STT'] = i;
-      x['MSSV']= element['student.studentCode'];
-      x['Họ và tên']= element['student.name'];
-      x['Ngày sinh']=element['student.dateOfBirth'];
-      x['Lớp khóa học']=element['student.class'];
-      x['Tiêu đề báo cáo']=element.report['title'];
-      x['Điểm']=element.report['lecturer_student.mark'];
-      x['Ghi chú']=element.report['lecturer_student.comment'];
+      x['MSSV'] = element['student.studentCode'];
+      x['Họ và tên'] = element['student.name'];
+      x['Ngày sinh'] = element['student.dateOfBirth'];
+      x['Lớp khóa học'] = element['student.class'];
+      x['Tiêu đề báo cáo'] = element.report['title'];
+      x['Điểm'] = element.report['lecturer_student.mark'];
+      x['Ghi chú'] = element.report['lecturer_student.comment'];
       table.push(x);
     });
-    this.excel.exportAsExcelFile(table,'Bang_diem_'+getCookie("nickname"));
+    this.excel.exportAsExcelFile(table, 'Bang_diem_' + getCookie("nickname"));
   }
 }

@@ -28,7 +28,6 @@ export class StudentService {
 
   createNewPlanReportForStudent(newPlanReport) {
     const url = myWebsiteDomain + '/student/PlanReports';
-    console.log(newPlanReport);
     return this.http.post(url, newPlanReport, { withCredentials: true })
       .toPromise()
       .then(r => {
@@ -98,7 +97,7 @@ export class StudentService {
       .catch(e => false);
   }
 
-  addPartnerInfo(partnerInfo){
+  addPartnerInfo(partnerInfo) {
     const url = myWebsiteDomain + '/student/addNewPartnerInfo';
     return this.http.post(url, partnerInfo, { withCredentials: true })
       .toPromise()
@@ -110,8 +109,8 @@ export class StudentService {
       .catch(e => false);
   }
 
-  choseJobToWork(jobID){
-    const url = myWebsiteDomain+'/student/workForJob/jobID='+jobID;
+  choseJobToWork(jobID) {
+    const url = myWebsiteDomain + '/student/workForJob/jobID=' + jobID;
     return this.http.get(url, { withCredentials: true })
       .toPromise()
       .then(r => {

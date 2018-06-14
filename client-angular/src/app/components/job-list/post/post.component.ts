@@ -13,9 +13,9 @@ import { myWebsiteDomain } from '../../../objects/appConfig';
 
 export class PostComponent implements OnInit {
   @Input() job;
-  server = myWebsiteDomain; 
-  userType:string;
-  title_fixed:string;
+  server = myWebsiteDomain;
+  userType: string;
+  title_fixed: string;
   action: string = "follow";
   target: string = "job";
   targetID: string;
@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.userType = getCookie("userType");
     this.jobContent = shortenJobContent(this.job.content, 300);
-    this.remainingDay = calculateDiffDays(this.job,undefined);
+    this.remainingDay = calculateDiffDays(this.job, undefined);
     this.title_fixed = spaceTojoin(this.job.title);
     this.targetID = this.job.jobID;
     if (this.job.status == "followed") {
@@ -35,20 +35,18 @@ export class PostComponent implements OnInit {
     } else {
       this.action = "follow";
     }
-    console.log(this.job);
   }
 
   onFollow() {
     this.postService.follow(this.action, this.target, this.targetID)
       .then(res => {
-        // console.log(res);
-        this.action=(this.action=='follow')?'unfollow':'follow';
+        this.action = (this.action == 'follow') ? 'unfollow' : 'follow';
       })
       .catch(err => console.log(err));
   }
 }
 
-function shortenJobContent(content:string, length:number) {
+function shortenJobContent(content: string, length: number) {
   if (content.length > length) {
     return content.substring(0, length) + "...";
   }

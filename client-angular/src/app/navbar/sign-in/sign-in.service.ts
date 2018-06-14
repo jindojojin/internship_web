@@ -10,7 +10,7 @@ export class SignInService {
 
     sendPost(value) {
         const url = myWebsiteDomain + '/signin';
-        const headers = new Headers({'Content-Type': 'application/json'});
+        const headers = new Headers({ 'Content-Type': 'application/json' });
         const body = JSON.stringify(value);
         return this.http.post(url, body, { headers })
             .toPromise()

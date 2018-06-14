@@ -8,12 +8,11 @@ import { myWebsiteDomain } from "../../objects/appConfig";
 export class JobListService {
     constructor(private http: Http) { }
 
-    getList(start, total) {       
+    getList(start, total) {
         var url = myWebsiteDomain + "/list/jobs/start=" + start + "/total=" + total; //api server trả về
-        return this.http.get(url,{withCredentials:true})
+        return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {
-                // console.log(res);
                 return res.json();
             })
             .catch(err => console.log(err));
@@ -22,9 +21,9 @@ export class JobListService {
     searchForJob(value) {
         let url = myWebsiteDomain + '/list/jobs/start=' + 1 + '/total=' + 10;
         return this.http.post(url, value, { withCredentials: true })
-          .toPromise()
-          .then(r => r.json()
-          ).catch(e => console.log(e) 
-          )
-      }
+            .toPromise()
+            .then(r => r.json()
+            ).catch(e => console.log(e)
+            )
+    }
 }

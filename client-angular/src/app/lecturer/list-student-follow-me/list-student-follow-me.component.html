@@ -25,7 +25,7 @@
             Gửi tin nhắn
           </button>
           <div class="modal fade" [id]="s.studentCode" tabindex="-1" role="dialog">
-              <app-message-modal receiverName="{{s.studentName}}" receiverID="{{s.userID}}"></app-message-modal>
+            <app-message-modal receiverName="{{s.studentName}}" receiverID="{{s.userID}}"></app-message-modal>
           </div>
 
           <button type="button" class="btn btn-secondary" (click)="onAccept(s.userID)">Chấp nhận</button>
@@ -35,4 +35,3 @@
     </tr>
   </tbody>
 </table>
-

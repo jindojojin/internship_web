@@ -31,11 +31,11 @@ export class UserService {
   //     });
   // }
 
-  updateAssessStudent(assession){
+  updateAssessStudent(assession) {
     let studentID = assession.studentID;
-    const url = myWebsiteDomain+'/user/myAssess/studentID='+studentID;
-    return this.http.put(url,assession,{withCredentials:true})
-    .toPromise()
+    const url = myWebsiteDomain + '/user/myAssess/studentID=' + studentID;
+    return this.http.put(url, assession, { withCredentials: true })
+      .toPromise()
       .then(r => {
         if (r.status = 201) { return true; } else { return false; }
       })
@@ -44,10 +44,10 @@ export class UserService {
       });
   }
 
-  getMyAssess(studentID){
-    const url = myWebsiteDomain+'/user/myAssession/studentID='+studentID;
-    return this.http.get(url,{withCredentials:true})
-    .toPromise()
+  getMyAssess(studentID) {
+    const url = myWebsiteDomain + '/user/myAssession/studentID=' + studentID;
+    return this.http.get(url, { withCredentials: true })
+      .toPromise()
       .then(r => {
         if (r.status = 200) { return r.json(); } else { return false; }
       })

@@ -26,7 +26,6 @@ export class ListStudentFollowMeService {
         return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {
-                // console.log(res.status);
             })
             .catch(err => console.log(err));
     }

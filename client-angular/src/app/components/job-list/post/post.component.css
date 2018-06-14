@@ -15,9 +15,6 @@ img {
   z-index: 9999;
 }
 
-.card {
-  /* min-height: 200px; */
-}
-.card-header{
+.card-header {
   cursor: pointer;
 }

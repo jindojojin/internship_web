@@ -14,7 +14,6 @@ export class ChangePasswordModalComponent implements OnInit {
     document.getElementById('buttonShowChangePasswordModal').click();
   }
   changePassword(form) {
-    console.log(form.value);
     // tslint:disable-next-line:prefer-const
     delete form.value.new_passwordReEnter;
     this.userService.changePassword(form.value)

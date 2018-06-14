@@ -5,31 +5,31 @@ import { ManagePlanReportComponent } from './manage-plan-report/manage-plan-repo
 import { StudentGuard } from './student.guard';
 import { ListFavoriteComponent } from './list-favorite/list-favorite.component';
 import { SendPartnerInfoToAdminComponent } from './send-partner-info-to-admin/send-partner-info-to-admin.component';
-const routes_Student: Routes = [ {
-    path: 'student',
-    component: StudentComponent ,
-    canActivate: [StudentGuard],
-    children: [
-      {
-        path: '',
-        redirectTo: 'quan-ly-bao-cao',
-        pathMatch: 'full'
-      },
-      {
-        path: 'danh-sach-theo-doi',
-        component: ListFavoriteComponent,
-      },
-      {
-        path: 'quan-ly-bao-cao',
-        component: ManagePlanReportComponent,
-      },
-      {
-        path: 'gui-yeu-cau-xac-nhan-cong-ty',
-        component: SendPartnerInfoToAdminComponent,
-      },
-    ]
-  },
-  {path: '**', redirectTo: 'quan-ly-bao-cao-dinh-ky', pathMatch: 'full'}
+const routes_Student: Routes = [{
+  path: 'student',
+  component: StudentComponent,
+  canActivate: [StudentGuard],
+  children: [
+    {
+      path: '',
+      redirectTo: 'quan-ly-bao-cao',
+      pathMatch: 'full'
+    },
+    {
+      path: 'danh-sach-theo-doi',
+      component: ListFavoriteComponent,
+    },
+    {
+      path: 'quan-ly-bao-cao',
+      component: ManagePlanReportComponent,
+    },
+    {
+      path: 'gui-yeu-cau-xac-nhan-cong-ty',
+      component: SendPartnerInfoToAdminComponent,
+    },
+  ]
+},
+{ path: '**', redirectTo: 'quan-ly-bao-cao-dinh-ky', pathMatch: 'full' }
 ];
 
 @NgModule({

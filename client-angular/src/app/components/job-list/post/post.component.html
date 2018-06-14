@@ -2,7 +2,8 @@
   <div class="card-header" routerLink="/bai-dang/{{title_fixed}}/{{targetID}}">
     <div class="row">
       <div class="col-sm-8 col-md-9">
-        <h4><a routerLink="/profile/{{job.partner_name | replaceSpace}}/{{job.partnerID}}">{{job.partner_name}}</a>: {{job.title}}</h4>
+        <h4>
+          <a routerLink="/profile/{{job.partner_name | replaceSpace}}/{{job.partnerID}}">{{job.partner_name}}</a>: {{job.title}}</h4>
       </div>
       <div class="col-sm-4 col-md-3">
         <span *ngIf="remainingDay > 0" class="badge badge-primary float-right"> Còn {{ remainingDay }} ngày để đăng kí</span>
@@ -13,7 +14,7 @@
 
   <div class="row">
     <div class="col-xs-3 col-sm-2">
-      <img src= "{{ job.partner_logo | imageFromServer }}" alt="Logo">
+      <img src="{{ job.partner_logo | imageFromServer }}" alt="Logo">
     </div>
     <div class="col-xs-9 col-sm-10">
       <p class="card-text">{{job.content | limitText:600}}</p>

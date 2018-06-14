@@ -29,18 +29,18 @@
       <hr/>
       <div id="message-box" class="rounded" style=" width: 100%; background-color: white; border: rgb(206, 206, 206) 1px solid">
         <div *ngFor="let message of currentConversation">
-          <div  *ngIf="message.senderID != userID">            
+          <div *ngIf="message.senderID != userID">
             <div class="notMyMessage card">
               <h6>{{message.title}}</h6>
-              <p>{{message.content}}</p>              
+              <p>{{message.content}}</p>
             </div>
-            <br>          
+            <br>
           </div>
           <div *ngIf="message.senderID == userID">
             <div class="myMessage card">
               <h6 style="text-align: right; color: white">{{message.title}}</h6>
               <p style="text-align: right; color: white">{{message.content}}</p>
-            </div>    
+            </div>
             <br>
           </div>
         </div>
@@ -48,17 +48,19 @@
       </div>
 
       <div class="input-group mb-3">
-        <input (keydown)="catchEnterPress($event)" id="contentMessage" type="text" class="form-control" placeholder="Nhập tin nhắn ..." aria-label="Recipient's username"
-          aria-describedby="basic-addon2">
+        <input (keydown)="catchEnterPress($event)" id="contentMessage" type="text" class="form-control" placeholder="Nhập tin nhắn ..."
+          aria-label="Recipient's username" aria-describedby="basic-addon2">
         <div class="input-group-append">
-          
+
           <div class="modal fade" id="sendNewMessage" tabindex="-1" role="dialog">
             <app-message-modal (messageSent)="ngOnInit()"></app-message-modal>
           </div>
-          <button class="btn btn-primary" type="button" (click)="replyMessage()"><span octicons="mail" color="white"></span></button>
+          <button class="btn btn-primary" type="button" (click)="replyMessage()">
+            <span octicons="mail" color="white"></span>
+          </button>
           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#sendNewMessage" (click)="sendMessageWithNewTile()">
-              Gửi tin nhắn với tiêu đề mới
-            </button>
+            Gửi tin nhắn với tiêu đề mới
+          </button>
         </div>
       </div>
 

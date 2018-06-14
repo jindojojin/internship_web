@@ -9,7 +9,7 @@
       <h6 class="dropdown-header card">Tin nhắn</h6>
       <!-- hiển thị tất cả các tin nhắn đến -->
       <div class="dropdown-item" *ngFor="let n of notifications">
-        <div  >
+        <div>
           <h6 (click)="markRead(n.messageID)" routerLink="/tin-nhan">{{n.title | limitText : 40}}</h6>
           <p (click)="markRead(n.messageID)" routerLink="/tin-nhan">{{n.content |limitText:40}}</p>
           <div>
@@ -24,7 +24,7 @@
       <p *ngIf="sumOfNotification == 0">Không có tin nhắn nào chưa đọc!</p>
       <div class="dropdown-item float-right">
         <a class="link-btn float-right mx-2 smalltextt" id="seeAll" routerLink="/tin-nhan">Xem trong hộp thư</a>
-        <button *ngIf="sumOfNotification > 0" class="link-btn float-right mx-2 smalltext" (click)="markAllRead()">Đánh dấu tất cả là đã đọc</button>        
+        <button *ngIf="sumOfNotification > 0" class="link-btn float-right mx-2 smalltext" (click)="markAllRead()">Đánh dấu tất cả là đã đọc</button>
       </div>
     </div>
   </div>
@@ -32,4 +32,5 @@
 
   <!-- phải để href ở link đến profile để tránh xung đột khi xem profile của người khác -->
   <a class="nav-item nav-link" id="username" href='/profile/{{nickname}}/{{userID}}'>{{nickname}}</a>
-  <a *ngIf="(user|isLogged)" (click)="logOut()"  class="nav-item nav-link"><span style="position: relative; top: 4px;right: 2px" octicons="sign-out" color="white"></span>Đăng xuất</a>
+  <a *ngIf="(user|isLogged)" (click)="logOut()" class="nav-item nav-link">
+    <span style="position: relative; top: 4px;right: 2px" octicons="sign-out" color="white"></span>Đăng xuất</a>

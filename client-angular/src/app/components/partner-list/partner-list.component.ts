@@ -41,20 +41,19 @@ export class PartnerListComponent implements OnInit {
       })
   }
   ngOnInit() {
-    this.getListPartner(1,this.numberOfRow);
+    this.getListPartner(1, this.numberOfRow);
   }
-  getListPartner(start,total){
+  getListPartner(start, total) {
     this.partnerListService.getList(start, total)
-    .then(res => {
-      this.partners = res;
-      this.total = res[0].total;
-      this.numberOfPage = Math.ceil(this.total / this.numberOfRow);
-      if (this.numberOfPage < 10)
-        this.pagination.end = this.numberOfPage;
-      this.pagination.createPages();
-      // console.log(this.partners);
-    })
-    .catch(err => console.log(err));
+      .then(res => {
+        this.partners = res;
+        this.total = res[0].total;
+        this.numberOfPage = Math.ceil(this.total / this.numberOfRow);
+        if (this.numberOfPage < 10)
+          this.pagination.end = this.numberOfPage;
+        this.pagination.createPages();
+      })
+      .catch(err => console.log(err));
   }
 
   // Pagination

@@ -9,13 +9,13 @@ export class PostService {
     constructor(private http: Http) { }
 
     follow(action, target, targetID) {
-        var url =myWebsiteDomain + "/student/action=" + action +  "/target=" + target + "/targetID=" + targetID;
+        var url = myWebsiteDomain + "/student/action=" + action + "/target=" + target + "/targetID=" + targetID;
         console.log(url);
-        return this.http.get(url, {withCredentials: true})
+        return this.http.get(url, { withCredentials: true })
             .toPromise()
             .then(res => {
                 return res.status;
             })
-            .catch(err => {return false});
+            .catch(err => { return false });
     }
 }

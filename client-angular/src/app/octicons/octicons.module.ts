@@ -9,6 +9,6 @@ import { OcticonsDirective } from './octicons.directive';
   declarations: [
     OcticonsDirective
   ],
-  exports:[OcticonsDirective]
+  exports: [OcticonsDirective]
 })
 export class OcticonsModule { }

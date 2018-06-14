@@ -9,10 +9,8 @@ export class MessagePageService {
   constructor(private http: Http) { }
 
   getMessages() {
-    // console.log("da vao service lấy message")
     let userID = getCookie("userID")
     var url = myWebsiteDomain + '/user/messagesGroupBySender';
-    // const body = JSON.stringify(value);
     return this.http.get(url, { withCredentials: true })
       .toPromise()
       .then(res => {

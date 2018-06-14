@@ -7,7 +7,7 @@
     </a>
   </li>
   <li class="page" *ngFor="let page of pages;">
-    <a *ngIf="page != current"  (click)="emitPage(page)">
+    <a *ngIf="page != current" (click)="emitPage(page)">
       <p>{{ page }}</p>
     </a>
     <button style="font-size: 20px !important; position: relative; bottom: 11px" class="btn btn-link" *ngIf="page == current">{{page}}</button>

@@ -15,7 +15,6 @@ export class ManageInternshipTermService {
         return this.http.get(url, { withCredentials: true, headers })
             .toPromise()
             .then(res => {
-                // console.log(res.json());
                 return res.json();
             })
             .catch(err => console.log(err));
@@ -53,7 +52,7 @@ export class ManageInternshipTermService {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         return this.http.put(url, body, { withCredentials: true, headers })
             .toPromise()
-            .then(res => {})
+            .then(res => { })
             .catch(err => console.log(err));
     }
 }

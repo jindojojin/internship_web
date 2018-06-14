@@ -18,14 +18,10 @@ export class MessageModalComponent implements OnInit {
   messageWasSent:boolean=false;
 
   onSubmit(messageForm){
-    console.log("đã submit");
-    console.log(messageForm.value);
-    
     messageForm.value.title= this.title;
     let value = {title:messageForm.value.title, content:messageForm.value.content,receiverID:this.receiverID};
     this.messageModalService.sendMessage(value,this.sendNew).then(
       r=> {
-        console.log(r);
        this.messageWasSent=true;
        setTimeout(() => {
         document.getElementById(this.receiverID).click();

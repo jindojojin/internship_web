@@ -29,19 +29,17 @@ export class ProfilePageComponent implements OnInit {
   userName: string;
   // tslint:disable-next-line:member-ordering
   id: string;
-  type:string;
+  type: string;
 
   constructor(private route: ActivatedRoute, private profilePageService: ProfilePageService) { }
 
   reloadThisComponent() {
-    console.log('đã reload');
     this.ngOnInit();
   }
 
   changeProfile(userID) {
     this.id = userID;
     this.profilePageService.getProfile(this.id).then(res => {
-      console.log(res);
       this.assessions = res.assession;
       // tslint:disable-next-line:triple-equals
       this.logo = (res.logo != '' && res.logo != null) ? (myWebsiteDomain + res.logo)
@@ -54,12 +52,9 @@ export class ProfilePageComponent implements OnInit {
         const cantfix = this.getNumberOfCantFix(); // số thông tin không thể thay đổi
         this.cantFixInfors = arrInfors.slice(0, cantfix);
         this.canFixInfors = arrInfors.slice(cantfix, canfix + cantfix);
-        // console.log(this.cantFixInfors);
-        // console.log(this.canFixInfors);
       } else {
         this.cantFixInfors = arrInfors.slice(0, arrInfors.length - 2);
       }
-      // console.log(this.userInfors);
     }
     ).catch(e => console.log(e));
   }
@@ -69,11 +64,9 @@ export class ProfilePageComponent implements OnInit {
   }
   initPage() {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log('id của route' + this.id);
     // tslint:disable-next-line:triple-equals
     if (this.id == getCookie('userID')) { this.isMyProfile = true; } else { this.isMyProfile = false; }
     this.profilePageService.getProfile(this.id).then(res => {
-      console.log(res);
       this.userName = res.name;
       this.assessions = res.assession;
       this.type = res.type;
@@ -88,8 +81,6 @@ export class ProfilePageComponent implements OnInit {
         const cantfix = this.getNumberOfCantFix(); // số thông tin không thể thay đổi
         this.cantFixInfors = arrInfors.slice(0, cantfix);
         this.canFixInfors = arrInfors.slice(cantfix, canfix + cantfix);
-        // console.log(this.cantFixInfors);
-        // console.log(this.canFixInfors);
       } else {
         // tslint:disable-next-line:triple-equals
         if (getCookie('userType') == 'admin') {
@@ -99,20 +90,17 @@ export class ProfilePageComponent implements OnInit {
           this.cantFixInfors = arrInfors.slice(0, arrInfors.length - 4);
         }
       }
-      // console.log(this.userInfors);
     }
     ).catch(e => console.log(e));
   }
   changeAvatar(event) {
     this.fileLogoToUpload = event;
-    // console.log(this.logo);
   }
 
   submitProfile(formProfile) {
     const formData = new FormData();
     formData.append('logo', this.fileLogoToUpload);
     formData.append('infor', JSON.stringify(formProfile.value));
-    console.log(formData);
     if (this.isMyProfile) {
       this.profilePageService.updateProfile(formData).then(r => { window.alert('Đã cập nhập profile thành công!'); this.ngOnInit(); })
         .catch(e => { console.log(e); window.alert('Đã xảy ra lỗi ở server, cập nhập profile thất bại'); this.ngOnInit(); });
@@ -120,8 +108,8 @@ export class ProfilePageComponent implements OnInit {
       if (getCookie('userType') === 'admin') {
         // tslint:disable-next-line:max-line-length
         this.profilePageService.adminUpdateProfile(this.id, formData)
-        .then(r => { window.alert('Đã cập nhập profile thành công!'); this.ngOnInit(); })
-        .catch(e => { console.log(e); window.alert('Đã xảy ra lỗi ở server, cập nhập profile thất bại'); this.ngOnInit(); });
+          .then(r => { window.alert('Đã cập nhập profile thành công!'); this.ngOnInit(); })
+          .catch(e => { console.log(e); window.alert('Đã xảy ra lỗi ở server, cập nhập profile thất bại'); this.ngOnInit(); });
       }
     }
 

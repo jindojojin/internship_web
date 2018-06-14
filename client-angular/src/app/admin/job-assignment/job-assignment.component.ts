@@ -42,7 +42,7 @@ export class JobAssignmentComponent implements OnInit {
     console.log(studentID);
     this.jobAssignmentService.setLecturerForStudent(studentID, lecturerID)
       .then(res => {
-        document.getElementById("closeModal" + this.studentID).click();
+        document.getElementById("closeModal").click();
         window.alert("Cập nhập thành công!");
         this.ngOnInit();
        })

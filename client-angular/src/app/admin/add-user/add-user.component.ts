@@ -25,12 +25,9 @@ export class AddUserComponent implements OnInit {
   }
 
   onAddUser(newUser) {
-    console.log(this.formAddUser);
-
-    console.log(newUser.value);
     this.addUserService.addUser(newUser.value)
       .then(result => {
-        // console.log(result);
+        window.alert("Tạo mới tài khoản thành công");
       })
       .catch(err => console.log(err));
   }

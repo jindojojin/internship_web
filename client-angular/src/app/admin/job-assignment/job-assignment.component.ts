@@ -33,18 +33,15 @@ export class JobAssignmentComponent implements OnInit {
     this.jobAssignmentService.getAccounts("lecturer", 1, 10)
       .then(res => {
         this.lecturers = res;
-        console.log(res);
       })
       .catch(err => console.log(err))
   }
   onSubmit(studentID, lecturerID) {
-    console.log(lecturerID);
-    console.log(studentID);
     this.jobAssignmentService.setLecturerForStudent(studentID, lecturerID)
       .then(res => {
         document.getElementById("closeModal").click();
-        window.alert("Cập nhập thành công!");
         this.ngOnInit();
+        window.alert("Cập nhập thành công!");
        })
       .catch(err => console.log(err))
   }

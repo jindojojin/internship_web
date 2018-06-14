@@ -14,6 +14,11 @@ export class SidebarComponent implements OnInit {
   nickname: string;
   user;
   constructor(private router: Router) { }
+  @Output() hideMe = new EventEmitter();
+
+  hideMeNow(){
+    this.hideMe.emit();
+  }
 
   ngOnInit() {
     this.userID = getCookie('userID');

@@ -10,6 +10,7 @@ export class ListFavoriteComponent implements OnInit {
   lecturerFollowed: any;
   listPartnerFollowed: any;
   listJobFollowed: any;
+  alreadyWork: boolean; // nếu sinh viên đang thực tập thì trả về true
   constructor(private studentService: StudentService) { }
 
   unfollowLecturer(lecturerID, lecturerName) {
@@ -65,7 +66,9 @@ export class ListFavoriteComponent implements OnInit {
     this.studentService.getJobsFollowed().then(r => {
       // if(!r){
       console.log(r);
-
+      for(let job of r){
+        if(job.status == "working") {this.alreadyWork=true; break}
+      }
       this.listJobFollowed = r;
       // }
     });

@@ -1,23 +1,29 @@
 <h3 class="title">Quản lý báo cáo</h3>
 <div *ngIf="studentInfo != null">
     <hr>
-    <h6>MSSV: <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.studentCode}}</a></h6>
-    <h6>Họ và tên: <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.name}}</a></h6>
+    <h6>MSSV:
+        <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.studentCode}}</a>
+    </h6>
+    <h6>Họ và tên:
+        <a routerLink="/profile/{{studentInfo['name'] | replaceSpace}}/{{studentInfo['account_userID']}}">{{studentInfo.name}}</a>
+    </h6>
     <!-- <h6>Số điện thoại: {{studentInfo.phoneNumber}}</h6> -->
 </div>
 <div *ngIf="jobWorking != null">
-        <h6>Công việc đang thực tập: 
-            <a routerLink="/bai-dang/{{ jobWorking['internship_job.title'] | replaceSpace }}/{{jobWorking['internship_job.jobID']}}">
-                {{jobWorking['internship_job.title']}}
-            </a>
-            <span style="color: blue" *ngIf="jobWorking.jobID == null"> thực tập tại công ty {{jobWorking['partner_info.name']}} (được phê duyệt bởi quản trị viên)</span>
-        </h6>
-        
+    <h6>Công việc đang thực tập:
+        <a routerLink="/bai-dang/{{ jobWorking['internship_job.title'] | replaceSpace }}/{{jobWorking['internship_job.jobID']}}">
+            {{jobWorking['internship_job.title']}}
+        </a>
+        <span style="color: blue" *ngIf="jobWorking.jobID == null"> thực tập tại công ty {{jobWorking['partner_info.name']}} (được phê duyệt bởi quản trị viên)</span>
+    </h6>
+
 </div>
 <div *ngIf="jobWorking == null">
     <h6>Chưa đăng kí thực tập</h6>
 </div>
-<h6 *ngIf="(user|isStudent) && lecturerInfo != null">Giảng viên hướng dẫn: <a routerLink="/profile/{{lecturerInfo['name'] | replaceSpace}}/{{lecturerInfo['lecturerID']}}">{{lecturerInfo['name']}}</a></h6>
+<h6 *ngIf="(user|isStudent) && lecturerInfo != null">Giảng viên hướng dẫn:
+    <a routerLink="/profile/{{lecturerInfo['name'] | replaceSpace}}/{{lecturerInfo['lecturerID']}}">{{lecturerInfo['name']}}</a>
+</h6>
 <h6 *ngIf="(user|isStudent) && lecturerInfo == null">Giảng viên hướng dẫn: Chưa có giảng viên hướng dẫn</h6>
 
 <hr>
@@ -27,15 +33,16 @@
 <h4 class="title" style="color: red" *ngIf="reports == null && (user|isLecturer)">Sinh viên này hiện đang không thực tập tại bất kỳ công ty nào</h4>
 <h4 class="title" style="color: red" *ngIf="reports == null && (user|isStudent)">Bạn hiện đang không thực tập tại bất kỳ công ty nào</h4>
 
-
+<app-new-plan-report-form *ngIf="(user|isLecturer) ||((user|isStudent) && lecturerInfo != null)" title="{{newTitle}}"
+    studentID="{{studentID}}" jobID="{{jobID}}" (created)="reloadThisComponent($event)"></app-new-plan-report-form>
+<hr>
 <div class="accordion" id="accordionExample">
-    <div class="card" *ngFor="let report of reports">
+    <div class="card" *ngFor="let report of reports" >
         <div class="card-header">
             <div class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#'+report.planReportID" aria-expanded="true"
-                    aria-controls="collapseOne">
+                <input class="form-control" id="{{report.planReportID}}title" type="text" [value]="report.title" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)">
+                <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#'+report.planReportID" data-parent="#accordionExample">
                     <h4 *ngIf="((user|isLecturer) && report.deadline == null) || ((user|isStudent) && report.deadline != null)">{{report.title}}</h4>
-                    <input id="{{report.planReportID}}title" type="text" [value]="report.title" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)">
                     <span *ngIf="report.isFinal == 0" class="badge badge-sm badge-warning">Báo cáo định kì</span>
                     <span *ngIf="report.isFinal == 1" class="badge badge-sm badge-success">Báo cáo toàn văn</span>
                 </button>
@@ -45,11 +52,7 @@
                     <p *ngIf="(user|isStudent)" class="float-right"> {{report.deadline}}</p>
                 </div>
             </div>
-
         </div>
-
-
-
         <!-- Modal cảnh báo xóa planReport -->
         <div class="modal fade" [id]="'delete'+report.planReportID" tabindex="-1">
             <div class="modal-dialog" role="document">
@@ -61,7 +64,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Khi bạn xóa báo cáo này, mọi nội dung, bình luận và file đính kèm của cả giảng viên hướng dẫn và sinh viên đều bị xóa bỏ và không thể khôi phục lại
+                        Khi bạn xóa báo cáo này, mọi nội dung, bình luận và file đính kèm của cả giảng viên hướng dẫn và sinh viên đều bị xóa bỏ
+                        và không thể khôi phục lại
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-dismiss="modal">Hủy</button>
@@ -70,12 +74,11 @@
                 </div>
             </div>
         </div>
-
         <!-- hiển thị file đính kèm và nội dung của báo cáo -->
         <div [id]="report.planReportID" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card float-right" style="width: 18rem;">
                 <div class="card-body">
-                    <span class="badge badge-sm badge-danger float-right">Điểm: {{report['lecturer_student.mark'] || 'chưa có'}}</span>
+                    <span *ngIf="report.isFinal == 1" class="badge badge-sm badge-danger float-right">Điểm: {{report['lecturer_student.mark'] || 'chưa có'}}</span>
                     <h5 class="card-title">Nội dung báo cáo</h5>
                     <p *ngIf="( (user|isLecturer) && (report.deadline == null) ) || ( (user|isStudent) && (report.deadline != null) )" class="card-text">{{report.content}}</p>
                     <textarea rows="5" class="form-control" id="{{report.planReportID}}content" type="text" [value]="report.content" *ngIf="(user|isLecturer) && (report.deadline != null) || ( (user|isStudent) && (report.deadline == null) )"></textarea>
@@ -99,7 +102,8 @@
                             class="btn btn-sm btn-success">
                             Chấm điểm
                         </button>
-                        <button type="button" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
+                        <button type="button" *ngIf="((user|isLecturer) && report.deadline != null) || ((user|isStudent) && report.deadline == null)"
+                            class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+report.planReportID">
                             Xoá
                         </button>
                     </div>
@@ -128,6 +132,6 @@
         </div>
     </div>
     <br/>
-    <app-new-plan-report-form *ngIf="(user|isLecturer) ||((user|isStudent) && lecturerInfo != null)" class="float-right" title="{{newTitle}}" studentID="{{studentID}}" jobID="{{jobID}}" (created)="reloadThisComponent($event)"></app-new-plan-report-form>
+
     <app-let-point-for-planreport-modal></app-let-point-for-planreport-modal>
 </div>

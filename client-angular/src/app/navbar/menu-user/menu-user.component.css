@@ -39,9 +39,13 @@ bottom: 15px;
     color: rgb(255, 255, 255) !important;
 }
 
-div.dropdown-menu{
+.dropdown-menu{
     max-height: 400px !important;
     overflow-y: auto;
+    max-width: 400px !important;
+    overflow-x: none !important;
+    overflow: hidden;
+white-space: nowrap;
 }
 
 .link-btn{
@@ -59,9 +63,9 @@ div.dropdown-menu{
     border: solid 0.5px;
     border-radius: 4px;
 }
-p{
+p h1 h2 h3 h4 h5 h6{
     font-size: 12px;
-    max-width: 200px;
-    word-wrap: break-word;
+    word-wrap: break-word !important;
+    text-overflow: ellipsis !important;
 }
 

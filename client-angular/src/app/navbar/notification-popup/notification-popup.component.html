@@ -16,9 +16,9 @@
       <div class="modal-body">
         <h3 style="color: red" *ngIf="sumOfNotification == 0">Không có thông báo mới</h3>
         <div class="dropdown-item" *ngFor="let n of notifications" >
-          <div class="card mx-0">
-            <p class="card-header">{{n.title}}</p>
-            <p class="card-text">{{n.content}}</p>
+          <div class="card mx-0" routerLink="/tin-nhan" (click)="closeModal()">
+            <p class="card-header">{{n.title | limitText:50}}</p>
+            <p class="card-text">{{n.content |limitText:50}}</p>
             <div class="card-text mx-2">
               <p class=" float-left smalltext"> Người gửi:
                 <a class="btn-link" (click)="closeModal()" routerLink="/profile/{{n.senderName}}/{{n.senderID}}"> {{n.senderName}}</a>

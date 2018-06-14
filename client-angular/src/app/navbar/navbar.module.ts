@@ -10,6 +10,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { UserModule } from '../user/user.module';
 import { OcticonsModule } from '../octicons/octicons.module';
 import { NotificationPopupComponent } from './notification-popup/notification-popup.component';
+import { ShareModule } from '../share/share.module';
 
 
 
@@ -24,6 +25,7 @@ import { NotificationPopupComponent } from './notification-popup/notification-po
     UserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    ShareModule
   ],
   declarations: [
     // OcticonsDirective,

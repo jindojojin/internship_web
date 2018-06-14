@@ -129,7 +129,7 @@ export class ProfilePageComponent implements OnInit {
 
   getNumberOfCanFix() {
     switch (getCookie('userType')) {
-      case 'student': return 8;
+      case 'student': return 9;
       case 'admin': return 6;
       case 'lecturer': return 6;
       case 'partner': return 5;

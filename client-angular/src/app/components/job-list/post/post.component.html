@@ -2,7 +2,7 @@
   <div class="card-header" routerLink="/bai-dang/{{title_fixed}}/{{targetID}}">
     <div class="row">
       <div class="col-sm-8 col-md-9">
-        <h4>{{job.partner_name}}: {{job.title}}</h4>
+        <h4><a routerLink="/profile/{{job.partner_name | replaceSpace}}/{{job.partnerID}}">{{job.partner_name}}</a>: {{job.title}}</h4>
       </div>
       <div class="col-sm-4 col-md-3">
         <span *ngIf="remainingDay > 0" class="badge badge-primary float-right"> Còn {{ remainingDay }} ngày để đăng kí</span>
@@ -16,12 +16,12 @@
       <img src= "{{ job.partner_logo | imageFromServer }}" alt="Logo">
     </div>
     <div class="col-xs-9 col-sm-10">
-      <p class="card-text">{{jobContent}}</p>
+      <p class="card-text">{{job.content | limitText:600}}</p>
     </div>
   </div>
 
-  <div *ngIf="userType == 'student'" class="row">
-    <button *ngIf="action == 'follow' && remainingDay > 0" class="btn btn-primary" (click)="onFollow()">Đăng ký</button>
-    <button *ngIf="action == 'unfollow' && remainingDay > 0" class="btn btn-danger" (click)="onFollow()">Hủy đăng ký</button>
+  <div *ngIf="userType == 'student'" class="card-footer">
+    <button *ngIf="action == 'follow' && remainingDay > 0" class="btn btn-primary float-right" (click)="onFollow()">Đăng ký</button>
+    <button *ngIf="action == 'unfollow' && remainingDay > 0" class="btn btn-danger float-right" (click)="onFollow()">Hủy đăng ký</button>
   </div>
 </div>

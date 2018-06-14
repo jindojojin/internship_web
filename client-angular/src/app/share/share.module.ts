@@ -13,12 +13,13 @@ import { NavbarModule } from '../navbar/navbar.module';
 import { LimitTitlePipe } from './Pipes/limit-title.pipe';
 import { IsLoggedPipe } from './Pipes/is-logged.pipe';
 import { isValidDatePipe } from './Pipes/is-valid-date.pipe';
+import { LimitTextPipe } from './Pipes/limit.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [isValidDatePipe,VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe, IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe, LimitTitlePipe, IsLoggedPipe],
-  exports:[isValidDatePipe,VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe,IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe,LimitTitlePipe,IsLoggedPipe]
+  declarations: [isValidDatePipe,VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe, IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe, LimitTitlePipe, IsLoggedPipe, LimitTextPipe],
+  exports:[isValidDatePipe,VietnamPipe, ImageFromServerPipe, ReplaceSpacePipe,IsStudentPipe, IsAdminPipe, IsLecturerPipe, IsPartnerPipe,LimitTitlePipe,IsLoggedPipe, LimitTextPipe]
 })
 export class ShareModule { }

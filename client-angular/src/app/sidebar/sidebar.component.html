@@ -2,7 +2,10 @@
 
 <div class="sidebar">
   <div class="sidebar-header">
-    <a class="header-text" routerLink="/home">
+    <a class="navbar-brand" (click)="hideMeNow()">
+      <img src="/assets/uet.png" width="41" height="41">
+    </a>
+    <a style="position: relative; top:2px;" class="header-text" routerLink="">
       Internship UET
     </a>
   </div>
@@ -106,12 +109,12 @@
       </a>
     </li>
     <li *ngIf="(user| isAdmin)" routerLinkActive="active">
-        <a routerLink="/admin/phe-duyet-cong-ty">
-          <i octicons="checklist" color="white"></i>
-          <p>Phê duyệt công ty</p>
-        </a>
-      </li>
-    
+      <a routerLink="/admin/phe-duyet-cong-ty">
+        <i octicons="checklist" color="white"></i>
+        <p>Phê duyệt công ty</p>
+      </a>
+    </li>
+
 
 
 
@@ -129,5 +132,8 @@
       </a>
     </li>
   </ul>
+  <div class="fixed-bottom">
+      <a (click)="hideMeNow()" routerLinkActive="active" class="sidebar-footer"><span style="position: relative; top: 2px" class="mx-1" octicons="triangle-left" color="white"></span>Thu gọn</a>
+  </div>
 </div>
 <app-change-password-modal #changePassword></app-change-password-modal>

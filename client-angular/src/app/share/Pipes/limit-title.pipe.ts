@@ -4,10 +4,10 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'limitTitle'
 })
 export class LimitTitlePipe implements PipeTransform {
-  maxlenght=300;
+  maxlength=300;
 
   transform(value: string, args?: any): any {
-    return (value.length > this.maxlenght)?(value.substring(0,this.maxlenght)+"...."):value;
+    return (value.length > this.maxlength)?(value.substring(0,this.maxlength)+"...."):value;
   }
 
 }

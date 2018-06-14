@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
 import { getCookie } from '../objects/Cookiee';
 import { MessageModalService } from '../user/message-modal/message-modal.service';
 import { NotificationPopupComponent } from './notification-popup/notification-popup.component';
@@ -13,6 +13,9 @@ export class NavbarComponent implements OnInit {
   SignIn: boolean;
   userName: string;
   isStudent: boolean;
+  showLogo:boolean;
+  @Output() showSideBar = new EventEmitter();
+  showSideBarNow(){ this.showSideBar.emit();}
   @ViewChild(NotificationPopupComponent)
     notification: NotificationPopupComponent;
 

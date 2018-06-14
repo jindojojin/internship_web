@@ -45,9 +45,9 @@ export class MenuUserComponent implements OnInit {
     .catch(e => this.ngOnInit())
   }
 async markAllRead(){
-  await this.notifications.forEach(element => {
-    this.menuUserService.markMessageAsRead(element.messageID);
-  });
+  for(let element of this.notifications){
+    await this.menuUserService.markMessageAsRead(element.messageID);
+  }
   this.ngOnInit();
 }
   logOut() {

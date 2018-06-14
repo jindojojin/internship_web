@@ -8,10 +8,9 @@ import { Page } from './pagination';
 })
 export class PaginationComponent implements OnInit {
 
-  @Input() maxPages: number;
+  @Input() maxPages: number=10;
   @Input() current: number;
   @Input() itemsPerPage: number;
-
   @Output() changePage = new EventEmitter();
 
   pages: any[] = [];
@@ -23,6 +22,7 @@ export class PaginationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // this.maxPages=10;
     console.log(this.maxPages);
     if (this.maxPages) {
       this.createPages();
@@ -37,6 +37,7 @@ export class PaginationComponent implements OnInit {
   }
 
   createPages() {
+    this.pages=[];
     for(let i=1; i <= this.maxPages; i++) {
       this.pages.push(i);
     }

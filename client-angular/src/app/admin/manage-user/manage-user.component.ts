@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ManageUserService } from './manage-user.service';
+import { PaginationComponent } from '../../components/pagination/pagination.component';
 
 @Component({
   selector: 'app-manage-user',
@@ -40,6 +41,8 @@ export class ManageUserComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
+  @ViewChild(PaginationComponent) pagination: PaginationComponent;
+
   onGetAccounts(type: string) {
     this.type = type;
     this.manageUserService.getAccounts(type, 1, 10)
@@ -48,6 +51,9 @@ export class ManageUserComponent implements OnInit {
         this.total = this.accounts[0].total;
         this.ispaging = true;
         this.maxPages = Math.ceil(this.total / this.itemsPerPage);
+        this.pagination.maxPages = this.maxPages;
+        this.pagination.createPages();
+        console.log(this.pagination.pages);
         console.log(this.maxPages);
       })
       .catch(err => console.log(err));
@@ -61,7 +67,7 @@ export class ManageUserComponent implements OnInit {
   // Pagination
   page;
   itemsPerPage: number = 10;
-  maxPages;
+  maxPages=10;
   currentPage = 1;
   ispaging = false;
   pageChanged(event) {

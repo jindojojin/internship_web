@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { JobListService } from './job-list.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PaginationComponent } from '../pagination/pagination.component';
 
 @Component({
   selector: 'app-job-list',
@@ -46,6 +47,7 @@ export class JobListComponent implements OnInit {
   }
 
   // Pagination
+  @ViewChild(PaginationComponent) pagination:PaginationComponent;
   page;
   maxPages = 10;
   itemsPerPage = 10;

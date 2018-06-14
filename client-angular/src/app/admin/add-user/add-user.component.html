@@ -1,5 +1,5 @@
 <!-- form thêm tài khoản -->
-<form class="formAddUser" (ngSubmit)="onAddUser(formAddUser)" [formGroup]="formAddUser">
+<form (ngSubmit)="onAddUser(formAddUser)" [formGroup]="formAddUser">
   <br>
   <div class="form-group">
     <select class="form-control" name="role" required formControlName="role">
@@ -25,5 +25,8 @@
     formAddUser.get('passwordRepeat').errors['MatchPassword'] && 
     formAddUser.get('passwordRepeat').touched">Password not match</div>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="formAddUser.invalid">Thêm</button>
+  <button type="submit" class="btn btn-primary float-right mr-5" [disabled]="formAddUser.invalid">Thêm</button>
+  <br/>
+  <br/>
+  <br/>
 </form>

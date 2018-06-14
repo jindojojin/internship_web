@@ -1,6 +1,7 @@
 <h3 class="title">Bảng điểm tổng hợp</h3>
 <hr>
-<table class="table">
+<div class="table-responsive">
+<table class="table table-striped">
     <thead>
         <tr>
           <th scope="col">STT</th>
@@ -8,6 +9,7 @@
           <th scope="col">Họ và tên</th>
           <th scope="col">Ngày sinh</th>
           <th scope="col">Lớp khóa học</th>
+          <th scope="col">Tên báo cáo</th>
           <th scope="col">Điểm</th>
           <th scope="col">Ghi chú</th>
         </tr>
@@ -20,8 +22,11 @@
           <td  scope="row">{{row['student.name']}}</td>
           <td  scope="row">{{row['student.dateOfBirth'] | date:'dd/MM/yyyy'}}</td>
           <td  scope="row">{{row['student.class']}}</td>
-          <td  scope="row">{{row['student.plan_reports.lecturer_student.mark']}}</td>
-          <td  scope="row">{{row['student.plan_reports.lecturer_student.comment']}}</td>
+          <td  scope="row">{{row.report['title']}}</td>
+          <td  scope="row">{{row.report['lecturer_student.mark']}}</td>
+          <td  scope="row">{{row.report['lecturer_student.comment']}}</td>
         </tr>
       </tbody>
 </table>
+</div>
+<button *ngIf="markTable != null" class="float-right btn btn-success" (click)="exportExelFile()">Xuất ra exel</button>

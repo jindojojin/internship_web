@@ -27,6 +27,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.userType = getCookie("userType");
     this.jobContent = shortenJobContent(this.job.content, 300);
+    console.log(this.job);
     this.remainingDay = calculateDiffDays(this.job, undefined);
     this.title_fixed = spaceTojoin(this.job.title);
     this.targetID = this.job.jobID;

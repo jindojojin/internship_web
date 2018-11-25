@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <br/>
+      <div class="card" style="width:100%">
+        <img class="card-img-top" style="height: auto;" src="{{job.partner_logo | imageFromServer}}" alt="Logo">
+        <a routerLink="/profile/{{ job.partner_name }}/{{job.partnerID}}">{{job.partner_name}}</a>
+        <div class="card-body">
+          <p>Đợt thực tập: {{job['term.title']}}</p>
+          <p>Mở đăng ký : {{job.startDate | date:'dd/MM/yyyy'}}</p>
+          <p>Đóng đăng ký : {{job.endDate |date:'dd/MM/yyyy'}}</p>
+          <p>Số lượng còn lại : {{job.slot}}</p>
+          <p>Yêu cầu : {{job.requirements}}</p>
+          <p>Lương/ hỗ trợ : {{job.salary}}</p>
+          <button *ngIf='job.status == "unfollowed" && isStudent' class="btn btn-primary" style="width: 100%;" type="button" (click)="followJob()">Đăng ký thực tập tại đây</button>
+          <button *ngIf='job.status == "followed" && isStudent && validToFollow' class="btn btn-danger" style="width: 100%;" type="button"
+            (click)="unfollowJob()">Hủy đăng ký thực tập tại đây</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <br/>
+      <h4>{{job.title}}</h4>
+      <hr/>
+      <br/>
+      <textarea disabled class="form-control" rows="20">{{job.content}}</textarea>
+      <br/>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

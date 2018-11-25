@@ -1,0 +1,21 @@
+.avatar {
+  position: relative;
+}
+
+img {
+  width: inherit;
+  height: auto;
+}
+
+.pen_icon {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  cursor: pointer;
+}
+
+.name {
+  cursor: pointer;
+  text-align: center;
+  font-size: 120%;
+}

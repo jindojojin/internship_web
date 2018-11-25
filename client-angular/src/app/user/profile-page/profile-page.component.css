@@ -1,0 +1,14 @@
+.container {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.form-control {
+  max-width: 96%;
+}
+
+label {
+  position: relative;
+  top: 9px;
+  font-size: 15px !important;
+}

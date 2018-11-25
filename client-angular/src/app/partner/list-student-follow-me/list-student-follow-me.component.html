@@ -1,0 +1,38 @@
+<h3 class="title">Danh sách sinh viên đăng ký ứng tuyển thực tập</h3>
+<hr>
+<h4 *ngIf="studentFollowMe.length == 0">Hiện không có sinh viên nào đăng ký ứng tuyển thực tập</h4>
+<table *ngIf="studentFollowMe.length > 0" class="table">
+  <thead>
+    <tr>
+      <th scope="col">MSSV</th>
+      <th scope="col">Họ và tên</th>
+      <th scope="col">Email</th>
+      <th scope="col">Đã đăng kí</th>
+      <th scope="col"> Hành động </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of studentFollowMe">
+      <th scope="row">{{s['student.studentCode']}}</th>
+      <td>
+        <a routerLink="/profile/{{s['student.name']}}/{{s['student.account_userID']}}">{{s['student.name']}}</a>
+      </td>
+      <td>{{s['student.vnumail']}}</td>
+      <td>
+        <a routerLink="/bai-dang/{{s['internship_job.title']}}/{{s['jobID']}}">{{s['internship_job.title']}}</a>
+      </td>
+      <td>
+        <div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-secondary" data-toggle="modal" [attr.data-target]=" '#'+ s['student.studentCode']">
+            Gửi tin nhắn
+          </button>
+          <div class="modal fade" [id]="s['student.studentCode']" tabindex="-1" role="dialog">
+            <app-message-modal receiverName="{{s['student.studentName']}}" receiverID="{{s['student.account_userID']}}"></app-message-modal>
+          </div>
+          <button type="button" class="btn btn-secondary" (click)="onAccept(s['student.account_userID'],s.jobID)">Chấp nhận</button>
+          <button type="button" class="btn btn-secondary" (click)="onDeny(s['student.account_userID'],s.jobID)">Từ chối</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,39 @@
+<h3 class="title">Chỉnh sửa bài đăng</h3>
+<hr>
+<h4 *ngIf="job == null" class="title" style="color: red">Bạn không có quyền chỉnh sửa bài đăng này!</h4>
+<div *ngIf="canEdit">
+  <form (ngSubmit)="onSubmit(editInternshipJobForm)" #editInternshipJobForm="ngForm">
+    <div class="row container">
+      <div class="col-md-5">
+        <br/>
+        <div class="card">
+          <div class="card-body">
+            <label>Thời gian mở đăng ký:</label>
+            <input name="startDate" type="date" [(ngModel)]="job.startDate" class="form-control" style="width: 100%">
+            <label>Thời gian đóng đăng ký:</label>
+            <input name="endDate" type="date" [(ngModel)]="job.endDate" class="form-control">
+            <label>Đợt thực tập:</label>
+            <select ngModel required name="termID" class="form-control">
+              <option value="{{term.termID}}" *ngFor="let term of terms">{{term.title}}( {{term.start | date:'shortDate'}} -> {{term.end | date:'shortDate'}})</option>
+            </select>
+            <label>Số lượng cần tuyển:</label>
+            <input name="slot" type="text" [(ngModel)]="job.slot" class="form-control">
+            <label>Tóm tắt yêu cầu:</label>
+            <input name="requirements" [(ngModel)]="job.requirements" type="text" class="form-control">
+            <label>Mức lương/ hỗ trợ:</label>
+            <input name="salary" [(ngModel)]="job.salary" type="text" class="form-control">
+            <br/>
+            <button [disabled]="editInternshipJobForm.invalid" type="submit" style="width: 100%" class="btn btn-primary">Lưu thay đổi</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <br/>
+        <input name="title" class="form-control form-control-lg" [(ngModel)]="job.title" type="text" placeholder="Tiêu đề bài đăng">
+        <hr>
+        <textarea name="content" id="" class="form-control" [(ngModel)]="job.content" rows="20" placeholder="Nội dung bài đăng"></textarea>
+        <br/>
+      </div>
+    </div>
+  </form>
+</div>

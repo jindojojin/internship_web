@@ -1,0 +1,36 @@
+<h3 class="title">Tạo bài đăng mới</h3>
+<hr>
+<form (ngSubmit)="onSubmit(newInternshipJobForm)" #newInternshipJobForm="ngForm">
+  <div class="row container">
+    <div class="col-md-6">
+      <br/>
+      <div class="card">
+        <div class="card-body">
+          <label>Thời gian mở đăng ký:</label>
+          <input ngModel required name="startDate" type="date" class="form-control" style="width: 100%">
+          <label>Thời gian đóng đăng ký:</label>
+          <input ngModel required name="endDate" type="date" class="form-control">
+          <label>Đợt thực tập:</label>
+          <select ngModel required name="termID" class="form-control">
+            <option value="{{term.termID}}" *ngFor="let term of terms">{{term.title}}( {{term.start | date:'dd/MM/yyyy'}} -> {{term.end | date:'dd/MM/yyyy'}})</option>
+          </select>
+          <label>Số lượng cần tuyển:</label>
+          <input ngModel required name="slot" type="text" class="form-control">
+          <label>Tóm tắt yêu cầu:</label>
+          <input ngModel required name="requirements" type="text" class="form-control">
+          <label>Mức lương/ hỗ trợ:</label>
+          <input ngModel required name="salary" type="text" class="form-control">
+          <br/>
+          <button [disabled]="newInternshipJobForm.invalid" type="submit" style="width: 100%" class="btn btn-primary">Đăng bài</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <br/>
+      <input ngModel required name="title" class="form-control form-control-lg" type="text" placeholder="Tiêu đề bài đăng">
+      <hr>
+      <textarea ngModel required name="content" id="" class="form-control" rows="18" placeholder="Nội dung bài đăng"></textarea>
+      <br/>
+    </div>
+  </div>
+</form>

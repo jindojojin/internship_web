@@ -1,0 +1,26 @@
+.title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.table {
+  border: solid 1px;
+  border-color: rgb(222, 226, 230);
+}
+
+table {
+  width: auto;
+  margin-left: 20px;
+}
+
+table th {
+  text-align: center;
+}
+
+td,
+th {
+  white-space: nowrap;
+  padding-left: 30px;
+  padding-right: 30px;
+}

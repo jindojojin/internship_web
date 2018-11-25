@@ -1,0 +1,27 @@
+<!-- Button trigger modal -->
+<button id="btnOpenAssessStudentModal" style="display: none" data-toggle="modal" data-target="#AssessStudentModalCenter">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="AssessStudentModalCenter" tabindex="-1" role="dialog" aria-labelledby="AssessStudentModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="AssessStudentModalCenterTitle">Đánh giá sinh viên {{studentName}} </h5>
+        <button id="CloseAssessStudentModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form (ngSubmit)="updateAssess(formAssessStudent)" #formAssessStudent="ngForm">
+        <div class="modal-body">
+          <textarea name="comment" class="form-control" rows="10" [(ngModel)]="myAssession"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+          <button type="submit" class="btn btn-primary">Lưu lại</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

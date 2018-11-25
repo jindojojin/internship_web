@@ -1,0 +1,30 @@
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Gửi tin nhắn đến: {{receiverName}}</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" [id]="receiverID">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+    </div>
+    <h5 id="error" class="mx-auto my-auto" style="color:red"></h5>
+    <div class="modal-body">
+      <!-- Form nhập -->
+      <form (ngSubmit)="onSubmit(messageForm);" #messageForm="ngForm">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Tiêu đề</label>
+          <input type="text" class="form-control" name="title" [(ngModel)]="title">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Nội dung</label>
+          <textarea class="form-control" rows="3" name="content" ngModel required></textarea>
+        </div>
+        <button [disabled]="messageForm.invalid" type="submit" class="btn btn-primary float-right">Gửi</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-success fixed-top container" *ngIf="messageWasSent">
+  <strong>Đã gửi tin nhắn thành công!</strong>
+</div>

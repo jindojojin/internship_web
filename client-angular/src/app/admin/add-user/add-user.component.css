@@ -1,0 +1,21 @@
+.formAddUser {
+  margin: 0px 200px;
+  text-align: left;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 10px 0px 10px 0px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.form-group {
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.alert-danger {
+  font-size: 14px;
+  padding: 6px;
+}

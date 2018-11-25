@@ -1,0 +1,16 @@
+.table {
+  border: solid 1px;
+  border-color: rgb(222, 226, 230);
+}
+
+td,
+th {
+  text-align: center;
+  white-space: nowrap;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.stt {
+  padding-left: 15px;
+}

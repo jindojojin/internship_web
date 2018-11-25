@@ -1,0 +1,93 @@
+<!-- Các loại tài khoản -->
+<div class="container">
+  <h3 style="text-align: center">Quản lý tài khoản</h3>
+  <hr>
+  <ul class="nav nav-tabs" id="roleTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" role="tab" aria-selected="true" (click)="onGetAccounts('student')">Sinh viên</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" (click)="onGetAccounts('lecturer')"> Giảng viên</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" (click)="onGetAccounts('partner')">Đối tác</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" (click)="onGetAccounts('admin')">Quản trị viên</a>
+    </li>
+  </ul>
+
+  <!-- Hiển thị danh sách tài khoản -->
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="stt">STT</th>
+          <th scope="col">Tên đăng nhập</th>
+          <th scope="col" *ngIf="type == 'student'">Mã sinh viên</th>
+
+          <th scope="col">Họ tên</th>
+          <th scope="col">Số điện thoại</th>
+          <!-- <th scope="col" *ngIf="(type == 'lecturer') || (type == 'admin')">VNUmail</th> -->
+          <th scope="col">Email</th>
+          <!-- <th scope="col" *ngIf="(type == 'lecturer') || (type == 'admin')">Nơi làm việc</th> -->
+          <th scope="col">Hành động quản trị</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts; let i = index">
+          <th scope="row" class="stt">{{ i + 1 }}</th>
+          <td>{{ account['account.username'] }}</td>
+          <td *ngIf="type == 'student'">{{ account.studentCode }}</td>
+          <td>{{ account.name }}</td>
+          <td>{{ account.phoneNumber }}</td>
+          <!-- <td *ngIf="(type == 'lecturer') || (type == 'admin')">{{ account.vnumail }}</td> -->
+          <td>{{ account.email }}</td>
+          <!-- <td *ngIf="(type == 'lecturer') || (type == 'admin')">{{ account.departerment }}</td> -->
+          <td>
+            <div class="btn btn-group btn-group-sm ">
+              <button type="button" class="btn btn-primary" routerLink="/profile/{{account.name}}/{{account.account_userID}}">Chi tiết</button>
+              <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modalEdit" (click)="setUsername(account['account.username'], account.account_userID)">Sửa</button>
+              <button type="button" class="btn btn-danger " (click)="onDelete(account.account_userID)">Xóa</button>
+            </div>
+          </td>
+
+          <!-- Modal sửa tên đăng nhập or mật khẩu-->
+          <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-hidden="true">
+            <!-- <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"> -->
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Sửa tài khoản</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" [id]="'closeModal'+account.account_userID">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <h5 id="error" class="mx-auto my-auto" style="color:red"></h5>
+                <div class="modal-body">
+                  <!-- Form nhập -->
+                  <form (ngSubmit)="onUpdate(account.account_userID, formEdit);" #formEdit="ngForm">
+                    <div class="form-group">
+                      <label for="username">Tên đăng nhập:</label>
+                      <input class="form-control" name="username" [(ngModel)]="username" required>
+                      <p></p>
+                    </div>
+                    <div class="form-group">
+                      <label for="newPassword">Mật khẩu mới:</label>
+                      <input type="password" class="form-control" name="password" placeholder="nhập mật khẩu mới" ngModel required>
+                    </div>
+                    <button type="submit" class="float-right btn btn-primary" [disabled]="formEdit.invalid">Lưu</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Pagination -->
+  <!-- <div *ngIf="ispaging"> -->
+  <app-pagination class="pagination" (changePage)="pageChanged($event)"></app-pagination>
+  <!-- </div> -->
+</div>

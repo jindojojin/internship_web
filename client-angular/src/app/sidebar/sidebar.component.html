@@ -1,0 +1,142 @@
+<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div style="cursor: pointer;" class="navbar-brand" (click)="hideMeNow()">
+      <img src="/assets/uet.png" width="41" height="41">
+    </div>
+    <a style="position: relative; top:2px;" class="header-text" routerLink="">
+      Internship UET
+    </a>
+  </div>
+  <ul class="sidebar-body">
+    <li routerLinkActive="active">
+      <a routerLink='/profile/{{nickname | replaceSpace}}/{{userID}}' display="inline">
+        <i octicons="person" color="white"></i>
+        <p>Thông tin cá nhân</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/tin-nhan">
+        <i octicons="comment" color="white"></i>
+        <p>Tin nhắn</p>
+      </a>
+    </li>
+    <!-- student only -->
+    <hr>
+    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+      <a routerLink="/student/danh-sach-theo-doi">
+        <i octicons="heart" color="white"></i>
+        <p>Danh sách theo dõi</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+      <a routerLink="/student/quan-ly-bao-cao">
+        <i octicons="book" color="white"></i>
+        <p>Quản lý báo cáo</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isStudent)" routerLinkActive="active">
+      <a routerLink="/student/gui-yeu-cau-xac-nhan-cong-ty">
+        <i octicons="mortar-board" color="white"></i>
+        <p>Thực tập tại nơi khác</p>
+      </a>
+    </li>
+
+    <!-- lecturer only -->
+    <li *ngIf="(user| isLecturer)" routerLinkActive="active">
+      <a routerLink="/lecturer/danh-sách-sinh-viên-đang-chờ">
+        <i octicons="organization" color="white"></i>
+        <p>Sinh viên đang chờ</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isLecturer)" routerLinkActive="active">
+      <a routerLink="/lecturer/danh-sách-sinh-viên-đang-hướng-dẫn">
+        <i octicons="book" color="white"></i>
+        <p>Hướng dẫn sinh viên</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isLecturer)" routerLinkActive="active">
+      <a routerLink="/lecturer/xem-bang-diem">
+        <i octicons="clippy" color="white"></i>
+        <p>Xem bảng điểm</p>
+      </a>
+    </li>
+
+    <!-- partner only -->
+    <li *ngIf="(user| isPartner)" routerLinkActive="active">
+      <a routerLink="/partner/quan-ly-bai-dang">
+        <i octicons="book" color="white"></i>
+        <p>Quản lý bài đăng</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isPartner)" routerLinkActive="active">
+      <a routerLink="/partner/quan-ly-thuc-tap-sinh">
+        <i octicons="server" color="white"></i>
+        <p>Quản lý thực tập sinh </p>
+      </a>
+    </li>
+    <li *ngIf="(user| isPartner)" routerLinkActive="active">
+      <a routerLink="/partner/danh-sach-sinh-vien-dang-ky">
+        <i octicons="organization" color="white"></i>
+        <p>Danh sách ứng viên </p>
+      </a>
+    </li>
+
+    <!-- admin only -->
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+      <a routerLink="/admin/thêm-tài-khoản">
+        <i octicons="plus" color="white"></i>
+        <p>Thêm tài khoản</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+      <a routerLink="/admin/quản-lý-tài-khoản">
+        <i octicons="list-ordered" color="white"></i>
+        <p>Quản lý tài khoản</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+      <a routerLink="/admin/quản-lý-các-đợt-thực-tập">
+        <i octicons="circuit-board" color="white"></i>
+        <p>Quản lý đợt thực tập</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+      <a routerLink="/admin/phân-công-giảng-viên">
+        <i octicons="organization" color="white"></i>
+        <p>Phân công giảng viên</p>
+      </a>
+    </li>
+    <li *ngIf="(user| isAdmin)" routerLinkActive="active">
+      <a routerLink="/admin/phe-duyet-cong-ty">
+        <i octicons="checklist" color="white"></i>
+        <p>Phê duyệt công ty</p>
+      </a>
+    </li>
+
+
+
+
+    <hr>
+    <li routerLinkActive="active">
+      <a class="link" (click)="changePassword.showModal();">
+        <i octicons="lock" color="white"></i>
+        <p>Đổi mật khẩu</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="logOut()">
+        <i octicons="sign-out" color="white"></i>
+        <p>Đăng xuất</p>
+      </a>
+    </li>
+  </ul>
+  <div class="fixed-bottom">
+    <a style="position: relative; left: 150px;" (click)="hideMeNow()" routerLinkActive="active">
+      <span style="position: relative; top: 2px" class="mx-1" octicons="triangle-left" color="white"></span>
+      <p>Thu gọn</p>
+    </a>
+  </div>
+</div>
+<app-change-password-modal #changePassword></app-change-password-modal>

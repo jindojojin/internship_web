@@ -1,0 +1,60 @@
+<h3 class="title">Quản lý bài đăng</h3>
+<hr>
+
+<div *ngFor="let job of listJob" class="job">
+  <!-- <app-post [job] = "job"></app-post> -->
+  <div class="card mt-3">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-sm-8 col-md-9" routerLink="/bai-dang/{{ job.title | replaceSpace }}/{{job.jobID}}">
+          <h5>{{job.title}}</h5>
+        </div>
+      </div>
+
+      <div class="btn-group float-right">
+        <button routerLink="/partner/chinh-sua-bai-dang/{{job.jobID}}" class="btn btn-sm btn-success">Chỉnh sửa</button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#deleteJob'+job.jobID">
+          Xóa bài đăng
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3 col-sm-2">
+        <img class="logo" src="{{ job['partner.logo'] | imageFromServer }}" alt="Logo">
+      </div>
+      <div class="col-xs-9 col-sm-10">
+        <p class="card-text">{{job.content | limitTitle}}</p>
+      </div>
+
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteJob{{job.jobID}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cảnh báo</h5>
+            <button id="closeDeleteJob{{job.jobID}}" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Bạn có chắc chắn xóa bài đăng này không?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button (click)="deleteJob(job.jobID)" type="button" class="btn btn-danger">Tôi hiểu và vẫn tiếp tục</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br/>
+<button class="btn btn-primary float-right" routerLink="/partner/tao-bai-dang-thuc-tap">Thêm bài đăng thực tập</button>
+<hr>

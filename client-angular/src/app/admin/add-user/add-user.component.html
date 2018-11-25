@@ -1,0 +1,36 @@
+<!-- form thêm tài khoản -->
+<div class="container">
+  <h3 style="text-align: center">Thêm tài khoản mới</h3>
+  <hr>
+  <form (ngSubmit)="onAddUser(formAddUser)" [formGroup]="formAddUser">
+    <br>
+    <div class="form-group">
+      <select class="form-control" name="role" required formControlName="role">
+        <option value="" disabled hidden>Chọn loại tài khoản cần thêm</option>
+        <option value="student">Sinh viên</option>
+        <option value="lecturer">Giảng viên</option>
+        <option value="partner">Đối tác</option>
+        <option value="admin">Quản trị viên</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="username">Tên đăng nhập</label>
+      <input type="text" class="form-control" formControlName="username">
+    </div>
+    <div class="form-group">
+      <label for="password">Mật khẩu</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+    <div class="form-group">
+      <label for="passwordRepeat">Nhập lại mật khẩu</label>
+      <input type="password" class="form-control" formControlName="passwordRepeat">
+      <div class="alert alert-danger" *ngIf="formAddUser.get('passwordRepeat').errors &&
+    formAddUser.get('passwordRepeat').errors['MatchPassword'] && 
+    formAddUser.get('passwordRepeat').touched">Password not match</div>
+    </div>
+    <button type="submit" class="btn btn-primary float-right mr-5" [disabled]="formAddUser.invalid">Thêm</button>
+    <br/>
+    <br/>
+    <br/>
+  </form>
+</div>

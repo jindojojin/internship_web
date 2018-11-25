@@ -1,0 +1,86 @@
+.btn,
+.btn:focus,
+.btn:active {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  outline: none !important;
+  box-shadow: none;
+}
+
+span {
+  color: white;
+}
+
+.upper {
+  position: relative;
+  bottom: 15px;
+}
+
+.medium {
+  position: relative;
+  bottom: 8px;
+  left: 18px;
+}
+
+.low {
+  position: relative;
+  top: 12px;
+}
+
+.arrow {
+  position: relative;
+  top: 1px;
+  right: 10px;
+}
+
+.dropdown-item {
+  color: black;
+}
+
+#seeAll {
+  color: black !important;
+}
+
+#username:hover {
+  color: rgb(255, 255, 255) !important;
+}
+
+.dropdown-menu {
+  max-height: 400px !important;
+  overflow-y: auto;
+  max-width: 400px !important;
+  overflow-x: none !important;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.link-btn {
+  background: none !important;
+  color: rgb(0, 0, 255) !important;
+  font-size: 13px !important;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  /*border is optional*/
+  /* border-bottom:1px solid #444;  */
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  border: solid 0.5px;
+  border-radius: 4px;
+}
+
+p h1 h2 h3 h4 h5 h6 {
+  font-size: 12px;
+  word-wrap: break-word !important;
+  text-overflow: ellipsis !important;
+}
+
+#message {
+  padding: 10px;
+}
+.dropdown-header {
+  margin-bottom: 20px;
+}

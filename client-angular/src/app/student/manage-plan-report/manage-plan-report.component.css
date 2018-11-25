@@ -1,0 +1,29 @@
+.title {
+  text-align: center;
+  margin-top: 20px;
+  margin-top: 20px;
+}
+
+.badge {
+  position: relative;
+  bottom: 70%;
+}
+
+.deletecmtbtn {
+  font-size: 10px;
+  cursor: pointer;
+  color: red;
+}
+
+.redcolor {
+  color: red !important;
+}
+
+.content hr {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.content {
+  margin: 20px;
+}

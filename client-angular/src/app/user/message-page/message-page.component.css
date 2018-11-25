@@ -1,0 +1,34 @@
+#message-box {
+  height: 450px !important;
+  overflow-y: scroll;
+}
+
+.notMyMessage {
+  border-radius: 8px;
+  padding: 4px;
+  width: auto;
+  background-color: aliceblue;
+  /* display: inline-block; */
+}
+
+.myMessage {
+  border-radius: 8px;
+  padding: 4px;
+  width: auto;
+  background-color: dodgerblue;
+  width: auto;
+  /* display: inline-block; */
+}
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.rounded {
+  width: 100%;
+  background-color: white;
+  border: rgb(206, 206, 206) 1px solid;
+  padding: 20px;
+}

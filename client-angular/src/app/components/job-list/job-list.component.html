@@ -1,0 +1,10 @@
+<app-menu-search-bar (searchBtnPressed)="reload()" class="my-3"></app-menu-search-bar>
+<br>
+<div class="container">
+  <div *ngIf="searchResultIsEmpty">Không tìm thấy kết quả nào phù hợp</div>
+  <div *ngFor="let job of jobs">
+    <app-post [job]="job"></app-post>
+  </div>
+</div>
+<!-- Pagination -->
+<app-pagination *ngIf="!isSearching" class="pagination" (changePage)="pageChanged($event)"></app-pagination>

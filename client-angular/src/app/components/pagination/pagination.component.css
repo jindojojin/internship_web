@@ -1,0 +1,13 @@
+p {
+  margin: 0px 4px;
+  color: blue;
+}
+
+a {
+  cursor: pointer;
+}
+
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,36 @@
+<div class="btn btn-group">
+  <div class="dropdown">
+    <button class="btn clearfix medium d-none d-md-block" id="bell" data-toggle="dropdown">
+      <span class="low" octicons="comment-discussion" color="white"></span>
+      <span *ngIf="sumOfNotification > 0" class="upper badge badge-success">{{sumOfNotification}}</span>
+    </button>
+
+    <div class="dropdown-menu dropdown-menu-right" id="message" aria-labelledby="bell">
+      <h6 class="dropdown-header card">Tin nhắn</h6>
+      <!-- hiển thị tất cả các tin nhắn đến -->
+      <div class="dropdown-item" *ngFor="let n of notifications">
+        <div>
+          <h6 (click)="markRead(n.messageID)" routerLink="/tin-nhan">{{n.title | limitText : 40}}</h6>
+          <p (click)="markRead(n.messageID)" routerLink="/tin-nhan">{{n.content |limitText:40}}</p>
+          <div>
+            <button class="link-btn float-right mx-1 smalltext" (click)="markRead(n.messageID)">Đã đọc</button>
+            <button class="link-btn float-right mx-1 smalltext" (click)="reply(n.senderName,n.senderID,n.title)">Trả lời</button>
+            <p class=" float-left smalltext"> Người gửi:
+              <a class="btn-link" routerLink="/profile/{{n.senderName}}/{{n.senderID}}"> {{n.senderName}}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <p *ngIf="sumOfNotification == 0">Không có tin nhắn nào chưa đọc!</p>
+      <div class="dropdown-item float-right">
+        <a class="link-btn float-right mx-2 smalltextt" id="seeAll" routerLink="/tin-nhan">Xem trong hộp thư</a>
+        <button *ngIf="sumOfNotification > 0" class="link-btn float-right mx-2 smalltext" (click)="markAllRead()">Đánh dấu tất cả là đã đọc</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- phải để href ở link đến profile để tránh xung đột khi xem profile của người khác -->
+  <a class="nav-item nav-link" id="username" href='/profile/{{nickname}}/{{userID}}'>{{nickname}}</a>
+  <a *ngIf="(user|isLogged)" (click)="logOut()" class="nav-item nav-link">
+    <span style="position: relative; top: 4px;right: 2px" octicons="sign-out" color="white"></span>Đăng xuất</a>

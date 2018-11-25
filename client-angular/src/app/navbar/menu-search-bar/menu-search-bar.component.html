@@ -1,0 +1,24 @@
+<div class="background">
+  <h3 class="WebsiteName">Trang quản lý thực tập trường Đại học Công nghệ- ĐHQGHN</h3>
+  <div *ngIf="(user | isLogged)" class="row center">
+    <div class="col-md-2 col-1"></div>
+    <div class="col-md-8 col-9">
+      <form class="my-2 my-lg-0" (ngSubmit)="onSearchSubmit()" [formGroup]="formSearch">
+        <div class="input-group input-group-lg mb-3">
+          <input class="form-control mr-sm-2" type="search" formControlName="keySearch" placeholder="Tìm kiếm" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="d-md-none" octicons="search" color="white"></span>
+              <span class="d-none d-md-block">Tìm kiếm</span>
+            </button>
+            <div class="dropdown-menu">
+              <button type="submit" class="dropdown-item" (click)="onSearchSubmit('title')">Tên bài đăng</button>
+              <button type="submit" class="dropdown-item" (click)="onSearchSubmit('partnerName')">Tên đối tác</button>
+              <button type="submit" class="dropdown-item" (click)="onSearchSubmit('content')">Nội dung bài đăng</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

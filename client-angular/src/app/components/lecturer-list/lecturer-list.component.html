@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row card-group">
+    <div class="col-lg-4 col-md-6" *ngFor="let lecturer of lecturers">
+      <!-- <app-lecturer-card routerLink="/profile/{{ lecturer.name | replaceSpace }}/{{lecturer.account_userID }}" [lecturerName]="lecturer.name" lecturerAvatar="{{ lecturer.logo | imageFromServer }}"></app-lecturer-card> -->
+      <div class="card mt-5" style="height:20rem">
+        <img class="avatar" src="{{ lecturer.logo | imageFromServer }}" alt="Avatar">
+        <div class="sticky-bottom mb-2">
+          <h4 class="text-center"> {{ lecturer.name }} </h4>
+          <div class="btn-group d-flex justify-content-center">
+            <button class="btn btn-primary align-bottom" routerLink="/profile/{{lecturer.name | replaceSpace}}/{{lecturer.account_userID}}">Thông tin</button>
+            <button *ngIf="(user | isStudent) && lecturer.status=='unfollowed'" (click)="follow(lecturer.account_userID,lecturer.name)"
+              class="btn btn-primary">Follow</button>
+
+            <button *ngIf="(user | isStudent) && lecturer.status=='followed'" (click)="unfollow(lecturer.account_userID,lecturer.name)"
+              class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Chỉ sử dụng nút này nếu giảng viên chưa đồng ý! Nếu bạn tiếp tục, mọi thứ sẽ không thể khôi phục">Unfollow</button>
+            <button *ngIf="(user | isStudent)" class="btn btn-primary align-bottom" disabled data-toggle="tooltip" data-placement="bottom"
+              title="Mỗi sinh viên chỉ được chọn một giảng viên làm người hướng dẫn">
+              <span octicons="question" color="white"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination -->
+<app-pagination class="pagination" (changePage)="pageChanged($event)"></app-pagination>

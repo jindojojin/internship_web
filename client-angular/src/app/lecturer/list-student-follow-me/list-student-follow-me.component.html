@@ -1,0 +1,37 @@
+<h3 class="title">Danh sách sinh viên đăng ký hướng dẫn thực tập</h3>
+<hr>
+<h4 class="title" style="color: red" *ngIf="studentFollowMe.length == 0">Hiện không có sinh viên nào đăng ký hướng dẫn</h4>
+<table *ngIf="studentFollowMe.length > 0" class="table">
+  <thead>
+    <tr>
+      <th scope="col">MSSV</th>
+      <th scope="col">Họ và tên</th>
+      <th scope="col">Email</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col"> Hành động </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of studentFollowMe">
+      <th scope="row">{{s.studentCode}}</th>
+      <td>
+        <a routerLink="/profile/{{s.studentName}}/{{s.userID}}">{{s.studentName}}</a>
+      </td>
+      <td>{{s['account.student.vnumail']}}</td>
+      <td>{{s['account.student.phoneNumber']}}</td>
+      <td>
+        <div class="btn-group btn-group-sm" role="group">
+          <button type="button" class="btn btn-secondary" data-toggle="modal" [attr.data-target]=" '#'+ s.studentCode">
+            Gửi tin nhắn
+          </button>
+          <div class="modal fade" [id]="s.studentCode" tabindex="-1" role="dialog">
+            <app-message-modal receiverName="{{s.studentName}}" receiverID="{{s.userID}}"></app-message-modal>
+          </div>
+
+          <button type="button" class="btn btn-secondary" (click)="onAccept(s.userID)">Chấp nhận</button>
+          <button type="button" class="btn btn-secondary" (click)="onDeny(s.userID)">Từ chối</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
